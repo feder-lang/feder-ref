@@ -1,0 +1,9 @@
+[book]
+authors = ["Fionn Langhans"]
+multilingual = false
+src = "src"
+title = "Feder: Reference Manual"
+description = "Reference manual for the Feder programming language."
+
+[build]
+build-dir = "docs"
