@@ -29,3 +29,23 @@ isn't the same as
 ```
 "my token"
 ```
+
+Also newlines following a newline are regarded as space. This means the
+expressions
+
+```
+trait MyTrait
+	Func myfunc ;
+;
+```
+
+and
+
+```
+trait MyTrait
+
+	Func myfunc ;
+;
+```
+
+represent equal semantics.

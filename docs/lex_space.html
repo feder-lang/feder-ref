@@ -157,6 +157,19 @@ ignore, therefore is optional, except when used to seperate tokens.</p>
 <p>isn't the same as</p>
 <pre><code>&quot;my token&quot;
 </code></pre>
+<p>Also newlines following a newline are regarded as space. This means the
+expressions</p>
+<pre><code>trait MyTrait
+    Func myfunc ;
+;
+</code></pre>
+<p>and</p>
+<pre><code>trait MyTrait
+
+    Func myfunc ;
+;
+</code></pre>
+<p>represent equal semantics.</p>
 
                     </main>
 

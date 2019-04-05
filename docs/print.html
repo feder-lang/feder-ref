@@ -337,6 +337,19 @@ ignore, therefore is optional, except when used to seperate tokens.</p>
 <p>isn't the same as</p>
 <pre><code>&quot;my token&quot;
 </code></pre>
+<p>Also newlines following a newline are regarded as space. This means the
+expressions</p>
+<pre><code>trait MyTrait
+    Func myfunc ;
+;
+</code></pre>
+<p>and</p>
+<pre><code>trait MyTrait
+
+    Func myfunc ;
+;
+</code></pre>
+<p>represent equal semantics.</p>
 <a class="header" href="#expressions" id="expressions"><h1>Expressions</h1></a>
 <p>This chapter covers all expressions and statements, which can be used in Feder.
 There are two important non-terminals: <em>expr</em> and <em>stmt</em>. <em>expr</em> is an
@@ -466,7 +479,7 @@ with the unary infix operator '()' (between '(' and ')' can be an expression).</
 <p><em>stmt</em> := <strong>func</strong> <em>func-def-name</em> <em>params</em>? <em>return-type</em>? <em>body</em> ';'<br />
 | <strong>Func</strong> <em>func-def-name</em> <em>params</em>? <em>return-type</em>? <em>body</em> ';'<br />
 | <strong>func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? ';'<br />
-| <strong>func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? ';'<br />
+| <strong>Func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? ';'<br />
 <em>expr</em> := <strong>func</strong> <strong>_</strong> <em>params</em>? <em>return-type</em>? <em>body</em> ';'<br />
 <em>return-type</em> := <strong>:</strong> <em>expr0</em></p>
 </blockquote>
@@ -497,7 +510,17 @@ function itself will check the guards.</p>
 <blockquote>
 <p>expr := <strong>func</strong> <em>params</em>? <em>return-type</em>?</p>
 </blockquote>
+<p>Guards are not allowed. Represents a function with <em>params</em> and optional <em>return-type</em>.</p>
 <a class="header" href="#traits" id="traits"><h2>Traits</h2></a>
+<blockquote>
+<p><em>stmt</em> := <strong>trait</strong> <em>id</em> <em>implements</em>? <em>newline</em> <em>trait-body</em><br />
+<em>implements</em> := <strong>:</strong> <em>idcalls</em><br />
+<em>idcalls</em> := <em>idcall</em> | <em>idcall</em> <strong>,</strong> <em>idcalls</em><br />
+<em>trait-body</em> := <em>trait-func</em> | <em>trait-func</em> <em>newline</em> <em>trait-body</em><br />
+<em>trait-func</em> := <strong>Func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? ';'</p>
+</blockquote>
+<p>Where: <em>implements</em> are traits, the trait implements, too. A trait only has
+declared virtual functions.</p>
 <a class="header" href="#classes" id="classes"><h2>Classes</h2></a>
 <a class="header" href="#enumerations" id="enumerations"><h2>Enumerations</h2></a>
 <a class="header" href="#kernel" id="kernel"><h1>Kernel</h1></a>

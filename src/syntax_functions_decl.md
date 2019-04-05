@@ -3,7 +3,7 @@
 > *stmt* := **func** *func-def-name* *params*? *return-type*? *body* ';'\
 > | **Func** *func-def-name* *params*? *return-type*? *body* ';'\
 > | **func** *func-decl-name* *params*? *return-type*? ';'\
-> | **func** *func-decl-name* *params*? *return-type*? ';'\
+> | **Func** *func-decl-name* *params*? *return-type*? ';'\
 > *expr* := **func** **_** *params*? *return-type*? *body* ';'\
 > *return-type* := **:** *expr0*
 
