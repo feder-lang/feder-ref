@@ -21,4 +21,4 @@ cargo install mdbook
 mdbook build
 ```
 
-This generator files in docs.
+This generates files in the directoy *docs*.

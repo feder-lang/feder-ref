@@ -141,6 +141,82 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="#classes" id="classes"><h2>Classes</h2></a>
+<blockquote>
+<p><em>stmt</em> := <strong>class</strong> <em>id</em> <em>implements</em>? <em>newline</em> <em>class-body</em> <strong>;</strong><br />
+<em>expr</em> := <strong>class</strong> <strong>_</strong> <em>implements</em>? <em>newline</em> <em>class-body</em> <strong>;</strong><br />
+<em>class-body</em> := <em>class-stmt</em> | <em>class-stmt</em> <em>newline</em> <em>class-body</em>
+<em>class-stmt</em> := <strong>func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? <em>body</em> <strong>;</strong><br />
+| <strong>Func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? <em>body</em> <strong>;</strong><br />
+| <strong>func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? <strong>;</strong><br />
+| <strong>Func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? <strong>;</strong><br />
+| <em>id</em> <em>return-type</em></p>
+</blockquote>
+<p>Class can implement traits, have not-virtual constructor functions, virtual
+functions, which implement declared trait-functions and normal functions. All
+function can access the variables <em>this</em> and <em>This</em>. The <em>this</em> variable
+is passed to a function as instance (if the LHS side of the <strong>.</strong> operator
+is an object) or as the first argument (if the LHS side of the <strong>.</strong> operator
+is a class-type). Also all class-functions can access all attributes of the
+class directly.</p>
+<p>Example:</p>
+<pre><code>class Person
+    _name : std.String
+    _age : int32
+
+    // Below is a constructor
+    func Person(name : std.String, age : int32)
+        ._name = name
+        ._age = age
+    ;
+
+    func printName
+        std.io.println(._name)
+    ;
+;
+
+// Create an instant of Person and save it in p0
+p0 := Person(std.String(&quot;Noone&quot;), -1)
+
+p0.printName()
+Person.printName(p0)
+</code></pre>
+<a class="header" href="#this" id="this"><h3>this</h3></a>
+<p>Function in classes can access the variables called <em>this</em> and <em>This</em>, where
+<em>this</em> returns a not-constant object with the same type as the current class
+and can only be used in not-constant functions and <em>This</em> returns a constant
+object with the same type as the current class. The unary prefix operator <strong>.</strong>
+automatically selects the most permissive <em>this</em> variable. So in a not-constant
+class-function <strong>.</strong> is equal to <strong>this.</strong> and in a constant one <strong>.</strong>
+is equal to <strong>This.</strong>.</p>
+<a class="header" href="#constructors" id="constructors"><h3>Constructors</h3></a>
+<p>To create an object from a class-type, constructors are used. At default every
+class, which doesn't have any custom constructors, has a constructor with no
+parameters. Custom constructors are not-virtual functions, which have the
+same name as the class or equal to name of the class prefixed with a <strong>_</strong>. The
+latter is a private constructor. To construct an object from a class,
+a class-type has to be called just like a function. Example:</p>
+<pre><code>class Person
+    _name : std.String
+    _age : int32
+
+    // Below is a constructor
+    func Person(name : std.String, age : int32)
+        ._name = name
+        ._age = age
+    ;
+
+    func printName
+        std.io.println(._name)
+    ;
+;
+
+// Create an instant of Person and save it in p0
+p0 := Person(std.String(&quot;Noone&quot;), -1)
+</code></pre>
+<a class="header" href="#implement-traits" id="implement-traits"><h3>Implement Traits</h3></a>
+<p>All declared functions of the traits (referenced in <em>implements</em>) must defined
+in the class. A class can be represented as an implemented trait
+(polymorphism).</p>
 
                     </main>
 
