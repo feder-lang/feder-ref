@@ -30,3 +30,16 @@ and [strings](./lex_strings.md).
 > *idcalls* := *idcall* | *idcall* **,** *idcalls*\
 > *idcalltype* := *idcall* *arraytypes*?\
 > *idcalltypes* := *idcall* *arraytypes*? | *idcall* *arraytypes*? **,** *idcalltypes*
+
+---
+
+> *body* := *stmt* | *stmt* *newline* *body*
+
+---
+
+> *return-body*
+
+where *return-body* is a *body* but the laster expression is either an
+[if-expression](./syntax_conditional_if.md), a
+[match-expression](./syntax_conditional_match.md) or the body is followed by
+'**return** *expr*', where *expr* is the object to return.

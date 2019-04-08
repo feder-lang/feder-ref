@@ -1,4 +1,4 @@
-# Strings
+### Strings
 
 A string constant is a character sequence, which is enclosed within double
 quotation marks. The sequence is zero or more characters long.
