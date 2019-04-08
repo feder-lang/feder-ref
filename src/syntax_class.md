@@ -2,9 +2,9 @@
 
 > *stmt* := **class** *id* *implements*? *newline* *class-body* **;**\
 > *expr* := **class** **_** *implements*? *newline* *class-body* **;**\
-> *class-body* := *class-stmt* | *class-stmt* *newline* *class-body*
-> *class-stmt* := **func** *func-decl-name* *params*? *return-type*? *body* **;**\
-> | **Func** *func-decl-name* *params*? *return-type*? *body* **;**\
+> *class-body* := *class-stmt* | *class-stmt* *newline* *class-body*\
+> *class-stmt* := **func** *func-decl-name* *params*? *return-type*? *newline* *body* **;**\
+> | **Func** *func-decl-name* *params*? *return-type*? *newline* *body* **;**\
 > | **func** *func-decl-name* *params*? *return-type*? **;**\
 > | **Func** *func-decl-name* *params*? *return-type*? **;**\
 > | *id* *return-type*

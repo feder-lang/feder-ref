@@ -1,6 +1,6 @@
-## Basic non-terminals
+## Basic (non-)terminals
 
-Some basic non-terminals.
+Some basic non-terminals or how certain terminals are referred to.
 
 > *expr* := *id* | *constant*
 

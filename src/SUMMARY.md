@@ -14,7 +14,7 @@
 	* [Space](./lex_space.md)
 - [Expressions](./syntax.md)
 	* [Syntax Notation](./syntax_notation.md)
-	* [Basic non-terminals](./syntax_elements.md)
+	* [Basic (non-)terminals](./syntax_elements.md)
 	* [Operator expressions](./syntax_operators.md)
 	* [Functions](./syntax_functions.md)
 		- [Declaration and definition](./syntax_functions_decl.md)
