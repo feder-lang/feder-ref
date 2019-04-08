@@ -20,6 +20,7 @@
 		- [If](./syntax_conditional_if.md)
 		- [Match](./syntax_conditional_match.md)
 		- [For](./syntax_conditional_for.md)
+		- [Do](./syntax_conditional_do.md)
 	* [Functions](./syntax_functions.md)
 		- [Declaration and definition](./syntax_functions_decl.md)
 		- [Guards](./syntax_functions_guards.md)
