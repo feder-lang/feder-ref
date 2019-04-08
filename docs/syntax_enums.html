@@ -141,6 +141,14 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="#enumerations" id="enumerations"><h2>Enumerations</h2></a>
+<blockquote>
+<p><em>stmt</em> := <strong>class</strong> <em>id</em> <em>newline</em> <em>enum-body</em> <strong>;</strong><br />
+<em>enum-body</em> := <em>enum-constructor</em> | <em>enum-constructor</em> <em>newline</em> <em>enum-body</em><br />
+<em>enum-constructor</em> := <em>id</em> | <em>id</em> <strong>(</strong> <em>idcalltypes</em> <strong>)</strong></p>
+</blockquote>
+<p>An enumeration has constructors with different <em>id</em>s. Additionally an <em>id</em>
+can be accompanied by <strong>(</strong> <em>idcalls</em> <strong>)</strong>, which allows to store values
+of data-types or complex-data-types.</p>
 
                     </main>
 
@@ -179,6 +187,21 @@
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

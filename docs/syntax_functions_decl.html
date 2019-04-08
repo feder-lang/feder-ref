@@ -154,7 +154,7 @@
 <p><em>params</em> := <strong>(</strong> <em>params-tuple</em> <strong>)</strong><br />
 <em>params-tuple</em> := <em>param</em> | <em>param</em> <strong>,</strong> <em>params-tuple</em><br />
 <em>param</em> := <em>param-vardecl</em> <em>guard</em>?<br />
-<em>param-vardecl</em> := <em>vardecl</em> | <em>idcall</em><br />
+<em>param-vardecl</em> := <em>vardecl</em> | <em>idcalltype</em><br />
 <em>func-def-name</em> := <em>idcall</em>? <em>operator</em> | <em>idcall</em><br />
 <em>func-decl-name</em> := <em>operator</em> | <em>id</em></p>
 </blockquote>
@@ -196,6 +196,21 @@
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

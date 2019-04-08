@@ -12,6 +12,6 @@ Where: *expr0* is the return-type.
 > *params* := **(** *params-tuple* **)**\
 > *params-tuple* := *param* | *param* **,** *params-tuple*\
 > *param* := *param-vardecl* *guard*?\
-> *param-vardecl* := *vardecl* | *idcall*\
+> *param-vardecl* := *vardecl* | *idcalltype*\
 > *func-def-name* := *idcall*? *operator* | *idcall*\
 > *func-decl-name* := *operator* | *id*
