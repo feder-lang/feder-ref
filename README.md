@@ -7,7 +7,7 @@ Reference manual for the Feder programming language.
 Clone and jump into main directory:
 
 ```bash
-git clone https://github.com/codefionn/feder-ref
+git clone https://github.com/federlang/feder-ref
 cd feder-ref
 ```
 
