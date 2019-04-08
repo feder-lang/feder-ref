@@ -141,6 +141,19 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="#for" id="for"><h3>For</h3></a>
+<blockquote>
+<p><em>stmt</em> := <strong>for</strong> <em>expr1</em> <em>newline</em> <em>body</em> <strong>;</strong><br />
+| <strong>for</strong> <em>expr1</em> <em>stmt2</em> <em>newline</em> <em>body</em> <strong>;</strong><br />
+| <strong>for</strong> <em>stmt0</em> <em>expr1</em> <em>stmt2</em> <em>newline</em> <em>body</em> <strong>;</strong></p>
+</blockquote>
+<p>where <em>stmt0</em> is the initialization, <em>expr1</em> the continuation condition and
+<em>stmt2</em> the iteration step. <em>expr1</em> must evaluate to a
+<a href="./kernel_bool.html">bool</a>-value. Executed in the following order:</p>
+<ol>
+<li>Check condition, if true do 2 otherwise 3.</li>
+<li>Executed <em>body</em> and jump to 1.</li>
+<li>Jump below loop.</li>
+</ol>
 
                     </main>
 
