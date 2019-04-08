@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>bool - Feder: Reference Manual</title>
+        <title>Arrays - Feder: Reference Manual</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Reference manual for the Feder programming language.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="syntax.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="syntax_notation.html"><strong aria-hidden="true">3.1.</strong> Syntax Notation</a></li><li><a href="syntax_elements.html"><strong aria-hidden="true">3.2.</strong> Basic non-terminals</a></li><li><a href="syntax_operators.html"><strong aria-hidden="true">3.3.</strong> Operator expressions</a></li><li><a href="syntax_functions.html"><strong aria-hidden="true">3.4.</strong> Functions</a></li><li><ol class="section"><li><a href="syntax_functions_decl.html"><strong aria-hidden="true">3.4.1.</strong> Declaration and definition</a></li><li><a href="syntax_functions_guards.html"><strong aria-hidden="true">3.4.2.</strong> Guards</a></li><li><a href="syntax_functions_type.html"><strong aria-hidden="true">3.4.3.</strong> Functions as types</a></li></ol></li><li><a href="syntax_traits.html"><strong aria-hidden="true">3.5.</strong> Traits</a></li><li><a href="syntax_class.html"><strong aria-hidden="true">3.6.</strong> Classes</a></li><li><a href="syntax_enums.html"><strong aria-hidden="true">3.7.</strong> Enumerations</a></li><li><a href="syntax_arrays.html"><strong aria-hidden="true">3.8.</strong> Arrays</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html" class="active"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="syntax.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="syntax_notation.html"><strong aria-hidden="true">3.1.</strong> Syntax Notation</a></li><li><a href="syntax_elements.html"><strong aria-hidden="true">3.2.</strong> Basic non-terminals</a></li><li><a href="syntax_operators.html"><strong aria-hidden="true">3.3.</strong> Operator expressions</a></li><li><a href="syntax_functions.html"><strong aria-hidden="true">3.4.</strong> Functions</a></li><li><ol class="section"><li><a href="syntax_functions_decl.html"><strong aria-hidden="true">3.4.1.</strong> Declaration and definition</a></li><li><a href="syntax_functions_guards.html"><strong aria-hidden="true">3.4.2.</strong> Guards</a></li><li><a href="syntax_functions_type.html"><strong aria-hidden="true">3.4.3.</strong> Functions as types</a></li></ol></li><li><a href="syntax_traits.html"><strong aria-hidden="true">3.5.</strong> Traits</a></li><li><a href="syntax_class.html"><strong aria-hidden="true">3.6.</strong> Classes</a></li><li><a href="syntax_enums.html"><strong aria-hidden="true">3.7.</strong> Enumerations</a></li><li><a href="syntax_arrays.html" class="active"><strong aria-hidden="true">3.8.</strong> Arrays</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -140,36 +140,36 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#bool" id="bool"><h1>bool</h1></a>
-<p>Bool(ean) data-type. Values are either the tokens <strong>True</strong> or <strong>False</strong>.</p>
-<p>Operators defined on booleans:</p>
-<ul>
-<li>
-<p><em>bool0</em> <strong>&amp;&amp;</strong> <em>bool1</em>: Evaluate <em>bool0</em>. If evaluated <em>bool0</em> is false,
-return false, otherwise evaluate <em>bool1</em> and return evaluated <em>bool1</em>.</p>
-</li>
-<li>
-<p><em>bool0</em> <strong>||</strong> <em>bool1</em>: Evaluate <em>bool</em>. If evaluated <em>bool0</em> is true, return
-true, otherwise evaluate <em>bool1</em> and return evaluated <em>bool1</em>.</p>
-</li>
-<li>
-<p><strong>!</strong> <em>bool0</em>: Evaluate <em>bool0</em>. IF evaluated <em>bool0</em> is true, return False,
-otherwise return True.</p>
-</li>
-</ul>
+                        <a class="header" href="#arrays" id="arrays"><h2>Arrays</h2></a>
+<blockquote>
+<p>expr := <em>indexcall</em> | <em>arraytypeexpr</em> | <em>array-constructor</em> | <em>arraylist</em><br />
+<em>arraytypeexpr</em> := <em>expr</em> <em>arratype</em><br />
+<em>arraytype</em> := <strong>[</strong> <strong>]</strong><br />
+<em>arraytypes</em> := <em>arraytype</em> | <em>arraytype</em> <em>arraytypes</em><br />
+<em>indexcall</em> := <em>expr</em> <strong>[</strong> <em>expr</em> <strong>]</strong><br />
+<em>arraylist</em> := <em>expr0</em>? <strong>[</strong> <em>arraylist-tuple</em> <strong>]</strong><br />
+<em>arraylist-tuple</em> := <em>expr1</em> | <em>expr1</em> <strong>,</strong> <em>arraylist-tuple</em><br />
+<em>array-constructor</em> := <em>expr0</em>? <strong>[</strong> <em>expr2</em> <strong>;</strong> <em>expr3</em> <strong>]</strong></p>
+</blockquote>
+<p>Where: <em>expr0</em> is a type-check. The resulting array-type of the <em>arraylist</em> or
+<em>array-constructor</em> created after '<em>expr0</em>?' must be the same as the type
+<em>expr0</em>. <em>expr1</em> isn't a tuple. <em>expr2</em> is the base value for all array
+elements. <em>expr3</em> is the size of the array and must evaluate to <strong>uint64</strong>.</p>
+<p><em>arraylist</em> has higher precedence than <em>indexcall</em>. So tuble-expressions won't
+be an <em>indexcall</em> but an <em>arraylist</em>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="kernel_types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="syntax_enums.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="kernel_integers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="kernel.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -181,13 +181,13 @@ otherwise return True.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="kernel_types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="syntax_enums.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="kernel_integers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="kernel.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

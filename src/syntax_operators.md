@@ -39,7 +39,7 @@ operations, which can't be used as functions.
 | safe a       |            |               | Safe operation            | -        |
 | a++ a--      | 16         | l             | Increment, Decrement      | n        |
 | a()          |            |               | Function call             | -        |
-| a[]          |            |               | Index access              | depends  |
+| a[]          |            |               | [Index access](./syntax_arrays.md)   | depends  |
 | a{}          |            |               | Template                  | -        |
 | a.a          | 17         | l             | Member access             | -        |
 | ->           |            |               | Deref. member access      | depends  |

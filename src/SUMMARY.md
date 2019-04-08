@@ -23,6 +23,7 @@
 	* [Traits](./syntax_traits.md)
 	* [Classes](./syntax_class.md)
 	* [Enumerations](./syntax_enums.md)
+	* [Arrays](./syntax_arrays.md)
 - [Kernel](./kernel.md)
 	* [Data Types](./kernel_types.md)
 		- [bool](./kernel_bool.md)
