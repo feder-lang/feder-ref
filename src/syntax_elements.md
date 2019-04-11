@@ -28,6 +28,7 @@ and [strings](./lex_strings.md).
 
 > *idcall* := *id* | *id* **.** *idcall*\
 > *idcalls* := *idcall* | *idcall* **,** *idcalls*\
+> *ids* := *id* | *id* **,** *ids*
 > *idcalltype* := *idcall* *arraytypes*?\
 > *idcalltypes* := *idcall* *arraytypes*? | *idcall* *arraytypes*? **,** *idcalltypes*
 

@@ -418,6 +418,7 @@ and <a href="./lex_strings.html">strings</a>.</p>
 <blockquote>
 <p><em>idcall</em> := <em>id</em> | <em>id</em> <strong>.</strong> <em>idcall</em><br />
 <em>idcalls</em> := <em>idcall</em> | <em>idcall</em> <strong>,</strong> <em>idcalls</em><br />
+<em>ids</em> := <em>id</em> | <em>id</em> <strong>,</strong> <em>ids</em>
 <em>idcalltype</em> := <em>idcall</em> <em>arraytypes</em>?<br />
 <em>idcalltypes</em> := <em>idcall</em> <em>arraytypes</em>? | <em>idcall</em> <em>arraytypes</em>? <strong>,</strong> <em>idcalltypes</em></p>
 </blockquote>
@@ -508,6 +509,30 @@ executed.  If no <em>expr</em> evaluates to <em>True</em>, the <em>return-body</
 to <em>True</em> in <em>stmt</em>, the <em>body</em> of '<strong>else</strong> <em>newline</em> <em>body</em>' will be
 executed, if the <strong>else</strong>-case it exists.</p>
 <a class="header" href="#match" id="match"><h3>Match</h3></a>
+<blockquote>
+<p><em>expr</em> := <strong>match</strong> <em>expr</em> <em>newline</em> <em>match-expr-body</em> <strong>;</strong><br />
+<em>match-expr-body</em> := <em>match-expr-case</em> | <em>match-expr-case</em> <em>newline</em> <em>match-expr-body</em><br />
+<em>match-expr-case</em> := <em>match-case</em> <strong>=&gt;</strong> <em>return-body</em> <strong>;</strong><br />
+<em>stmt</em> := <strong>match</strong> <em>expr</em> <em>newline</em> <em>match-stmt-body</em> <strong>;</strong><br />
+<em>match-stmt-body</em> := <em>match-stmt-case</em> | <em>match-stmt-case</em> <em>match-stmt-body</em><br />
+<em>match-stmt-case</em> := <em>match-case</em> <strong>=&gt;</strong> <em>body</em> <strong>;</strong><br />
+<em>match-case</em> := <strong>_</strong> | <em>idcall</em> <em>match-case-obj</em>? <br />
+<em>match-case-obj</em> := <strong>(</strong> <em>ids</em> <strong>)</strong></p>
+</blockquote>
+<p>where <em>expr</em> must return a <em>enum</em>-value. <em>idcall</em> must be an enum-constructor
+of the type <em>expr</em> returned. <em>match-case-obj</em> must have an <em>id</em> for every
+constructor value the <em>idcall</em> requires.</p>
+<p>Example:</p>
+<pre><code>enum{T} Maybe
+  Nothing
+  Just(T)
+;
+
+match Nothing{std.String}()
+  Nothing =&gt; io.println(&quot;Nothing&quot;) ;
+  Just(x) =&gt; io.println(x) ;
+;
+</code></pre>
 <a class="header" href="#for" id="for"><h3>For</h3></a>
 <blockquote>
 <p><em>stmt</em> := <strong>for</strong> <em>expr1</em> <em>newline</em> <em>body</em> <strong>;</strong><br />

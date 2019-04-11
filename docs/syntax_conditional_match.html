@@ -141,6 +141,30 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="#match" id="match"><h3>Match</h3></a>
+<blockquote>
+<p><em>expr</em> := <strong>match</strong> <em>expr</em> <em>newline</em> <em>match-expr-body</em> <strong>;</strong><br />
+<em>match-expr-body</em> := <em>match-expr-case</em> | <em>match-expr-case</em> <em>newline</em> <em>match-expr-body</em><br />
+<em>match-expr-case</em> := <em>match-case</em> <strong>=&gt;</strong> <em>return-body</em> <strong>;</strong><br />
+<em>stmt</em> := <strong>match</strong> <em>expr</em> <em>newline</em> <em>match-stmt-body</em> <strong>;</strong><br />
+<em>match-stmt-body</em> := <em>match-stmt-case</em> | <em>match-stmt-case</em> <em>match-stmt-body</em><br />
+<em>match-stmt-case</em> := <em>match-case</em> <strong>=&gt;</strong> <em>body</em> <strong>;</strong><br />
+<em>match-case</em> := <strong>_</strong> | <em>idcall</em> <em>match-case-obj</em>? <br />
+<em>match-case-obj</em> := <strong>(</strong> <em>ids</em> <strong>)</strong></p>
+</blockquote>
+<p>where <em>expr</em> must return a <em>enum</em>-value. <em>idcall</em> must be an enum-constructor
+of the type <em>expr</em> returned. <em>match-case-obj</em> must have an <em>id</em> for every
+constructor value the <em>idcall</em> requires.</p>
+<p>Example:</p>
+<pre><code>enum{T} Maybe
+  Nothing
+  Just(T)
+;
+
+match Nothing{std.String}()
+  Nothing =&gt; io.println(&quot;Nothing&quot;) ;
+  Just(x) =&gt; io.println(x) ;
+;
+</code></pre>
 
                     </main>
 
