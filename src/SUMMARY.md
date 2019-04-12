@@ -22,6 +22,7 @@
 		- [For](./syntax_conditional_for.md)
 		- [Do](./syntax_conditional_do.md)
 		- [Break and continue](./syntax_conditional_breakncontinue.md)
+	* [Namespaces](./syntax_namespace.md)
 	* [Functions](./syntax_functions.md)
 		- [Declaration and definition](./syntax_functions_decl.md)
 		- [Guards](./syntax_functions_guards.md)
