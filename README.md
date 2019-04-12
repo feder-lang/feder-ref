@@ -1,6 +1,9 @@
 # Feder Reference Manual
 
-Reference manual for the Feder programming language.
+Feder is an imperative programming language, which focuses on runtime speed,
+intuitive design and more reliable programs. As such, Feder uses a garbage
+collection, looks a lot like script-like programs and doesn't have
+null-pointers.
 
 ## Download
 
