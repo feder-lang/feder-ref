@@ -39,9 +39,9 @@ operations, which can't be used as functions.
 | safe a       |            |               | Safe operation            | -        | n         |
 | a++ a--      | 16         | l             | Increment, Decrement      | n        | y         |
 | a()          |            |               | Function call             | -        | y         |
-| a[]          |            |               | [Index access](./syntax_arrays.md)   | depends  | n         |
+| a[]          |            |               | [Index access](./syntax_arrays.md)               | depends  | n         |
 | a{}          |            |               | Template                  | -        | n         |
-| a.a          | 17         | l             | Member access             | -        | n         |
+| a.a          | 17         | l             | [Member access](./syntax_operators_mem.md)       | -        | n         |
 | ->           |            |               | Deref. member access      | depends  | n         |
 
 depends: If all returned types are constant, the function is also constant.

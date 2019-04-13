@@ -16,6 +16,7 @@
 	* [Syntax Notation](./syntax_notation.md)
 	* [Basic (non-)terminals](./syntax_elements.md)
 	* [Operator expressions](./syntax_operators.md)
+		- [Member access](./syntax_operators_mem.md)
 	* [Flow-control](./syntax_conditional.md)
 		- [If](./syntax_conditional_if.md)
 		- [Match](./syntax_conditional_match.md)
