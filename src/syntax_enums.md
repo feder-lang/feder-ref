@@ -1,6 +1,6 @@
 ## Enumerations 
 
-> *stmt* := **class** *id* *newline* *enum-body* **;**\
+> *stmt* := **enum** *templ-decl*? *id* *newline* *enum-body* **;**\
 > *enum-body* := *enum-constructor* | *enum-constructor* *newline* *enum-body*\
 > *enum-constructor* := *id* | *id* **(** *idcalltypes* **)**
 
