@@ -39,4 +39,5 @@
 		- [bool](./kernel_bool.md)
 		- [Integers](./kernel_integers.md)
 		- [Floating-point numbers](./kernel_floats.md)
+	* [Enum Option](./kernel_option.md)
 - [License](./LICENSE.md)
