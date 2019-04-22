@@ -1,13 +1,9 @@
 ### Declaration and definition
 
 > *stmt* := **func** *templ-decl*? *func-def-name* *params*? *newline* *body* **;**\
-> | **Func** *templ-decl*? *func-def-name* *params*? *newline* *body* **;**\
 > | **func** *templ-decl*? *func-decl-name* *params*? **;**\
-> | **Func** *templ-decl*? *func-decl-name* *params*? **;**\
 > | **func** *templ-decl*? *func-def-name* *params*? *return-type* *newline* *return-body* **;**\
-> | **Func** *templ-decl*? *func-def-name* *params*? *return-type* *newline* *return-body* **;**\
-> | **func** *templ-decl*? *func-decl-name* *params*? *return-type* **;**\
-> | **Func** *templ-decl*? *func-decl-name* *params*? *return-type* **;**
+> | **func** *templ-decl*? *func-decl-name* *params*? *return-type* **;**
 
 > *expr* := **func** **_** *params*? *newline* *body* **;**\
 > | **func** **_** *params*? *return-type* *newline* *return-body* **;**\
