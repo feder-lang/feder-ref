@@ -7,5 +7,6 @@
 	* [Floating-point numbers](./lex_floats.md)
 	* [Characters](./lex_chars.md)
 	* [Strings](./lex_strings.md)
+- [Operators](./lexical.md)
 - [Separators](./lex_separators.md)
 - [Space](./lex_space.md)
