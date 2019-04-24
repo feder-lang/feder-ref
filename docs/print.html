@@ -558,7 +558,9 @@ executed, if the <strong>else</strong>-case it exists.</p>
 </blockquote>
 <p>where <em>expr</em> must return a <em>enum</em>-value. <em>idcall</em> must be an enum-constructor
 of the type <em>expr</em> returned. <em>match-case-obj</em> must have an <em>id</em> for every
-constructor value the <em>idcall</em> requires.</p>
+constructor value the <em>idcall</em> requires. '<strong>_</strong> <strong>=&gt;</strong> <em>body</em> <strong>;</strong>' is the
+default case, which is executed if no other case matched.  A <em>match-expr-body</em>
+must have one default case.</p>
 <p>Example:</p>
 <pre><code>enum{T} Maybe
   Nothing

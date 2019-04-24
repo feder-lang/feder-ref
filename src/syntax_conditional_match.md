@@ -11,7 +11,9 @@
 
 where *expr* must return a *enum*-value. *idcall* must be an enum-constructor
 of the type *expr* returned. *match-case-obj* must have an *id* for every
-constructor value the *idcall* requires.
+constructor value the *idcall* requires. '**_** **=>** *body* **;**' is the
+default case, which is executed if no other case matched.  A *match-expr-body*
+must have one default case.
 
 Example:
 
