@@ -18,6 +18,7 @@
 	* [Operator expressions](./syntax_operators.md)
 		- [Member access](./syntax_operators_mem.md)
 		- [Safe](./syntax_safe.md)
+		- [Capabilities](./syntax_caps.md)
 	* [Flow-control](./syntax_conditional.md)
 		- [If](./syntax_conditional_if.md)
 		- [Match](./syntax_conditional_match.md)
