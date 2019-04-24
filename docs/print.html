@@ -642,15 +642,18 @@ defined or defined-as-type with the keywords 'func' and 'Func'. They are called
 with the unary infix operator '()' (between '(' and ')' can be an expression).</p>
 <a class="header" href="#declaration-and-definition" id="declaration-and-definition"><h3>Declaration and definition</h3></a>
 <blockquote>
-<p><em>stmt</em> := <strong>func</strong> <em>templ-decl</em>? <em>func-def-name</em> <em>params</em>? <em>newline</em> <em>body</em> <strong>;</strong><br />
-| <strong>func</strong> <em>templ-decl</em>? <em>func-decl-name</em> <em>params</em>? <strong>;</strong><br />
-| <strong>func</strong> <em>templ-decl</em>? <em>func-def-name</em> <em>params</em>? <em>return-type</em> <em>newline</em> <em>return-body</em> <strong>;</strong><br />
-| <strong>func</strong> <em>templ-decl</em>? <em>func-decl-name</em> <em>params</em>? <em>return-type</em> <strong>;</strong></p>
+<p><em>stmt</em> := <strong>func</strong> <em>func-caps</em>? <em>templ-decl</em>? <em>func-def-name</em> <em>params</em>? <em>newline</em> <em>body</em> <strong>;</strong><br />
+| <strong>func</strong> <em>func-caps</em>? <em>templ-decl</em>? <em>func-decl-name</em> <em>params</em>? <strong>;</strong><br />
+| <strong>func</strong> <em>func-caps</em>? <em>templ-decl</em>? <em>func-def-name</em> <em>params</em>? <em>return-type</em> <em>newline</em> <em>return-body</em> <strong>;</strong><br />
+| <strong>func</strong> <em>func-caps</em>? <em>templ-decl</em>? <em>func-decl-name</em> <em>params</em>? <em>return-type</em> <strong>;</strong></p>
 </blockquote>
 <blockquote>
-<p><em>expr</em> := <strong>func</strong> <strong>_</strong> <em>params</em>? <em>newline</em> <em>body</em> <strong>;</strong><br />
-| <strong>func</strong> <strong>_</strong> <em>params</em>? <em>return-type</em> <em>newline</em> <em>return-body</em> <strong>;</strong><br />
+<p><em>expr</em> := <strong>func</strong> <em>func-caps</em> <strong>_</strong> <em>params</em>? <em>newline</em> <em>body</em> <strong>;</strong><br />
+| <strong>func</strong> <em>func-caps</em> <strong>_</strong> <em>params</em>? <em>return-type</em> <em>newline</em> <em>return-body</em> <strong>;</strong><br />
 <em>return-type</em> := <strong>:</strong> <em>expr0</em></p>
+</blockquote>
+<blockquote>
+<p><em>func-caps</em> := <strong>@</strong> <em>caps</em></p>
 </blockquote>
 <p>Where: <em>expr0</em> is the return-type.</p>
 <blockquote>

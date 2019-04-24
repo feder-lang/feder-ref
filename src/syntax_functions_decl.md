@@ -1,13 +1,15 @@
 ### Declaration and definition
 
-> *stmt* := **func** *templ-decl*? *func-def-name* *params*? *newline* *body* **;**\
-> | **func** *templ-decl*? *func-decl-name* *params*? **;**\
-> | **func** *templ-decl*? *func-def-name* *params*? *return-type* *newline* *return-body* **;**\
-> | **func** *templ-decl*? *func-decl-name* *params*? *return-type* **;**
+> *stmt* := **func** *func-caps*? *templ-decl*? *func-def-name* *params*? *newline* *body* **;**\
+> | **func** *func-caps*? *templ-decl*? *func-decl-name* *params*? **;**\
+> | **func** *func-caps*? *templ-decl*? *func-def-name* *params*? *return-type* *newline* *return-body* **;**\
+> | **func** *func-caps*? *templ-decl*? *func-decl-name* *params*? *return-type* **;**
 
-> *expr* := **func** **_** *params*? *newline* *body* **;**\
-> | **func** **_** *params*? *return-type* *newline* *return-body* **;**\
+> *expr* := **func** *func-caps* **_** *params*? *newline* *body* **;**\
+> | **func** *func-caps* **_** *params*? *return-type* *newline* *return-body* **;**\
 > *return-type* := **:** *expr0*
+
+> *func-caps* := **@** *caps*
 
 Where: *expr0* is the return-type.
 
