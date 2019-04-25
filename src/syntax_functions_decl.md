@@ -19,3 +19,25 @@ Where: *expr0* is the return-type.
 > *param-vardecl* := *vardecl* | *idcalltype*\
 > *func-def-name* := *idcall*? *operator* | *idcall*\
 > *func-decl-name* := *operator* | *id*
+
+Example:
+
+```
+func helloWorld
+  io.println("Hello, World!")
+;
+
+helloWorld()
+
+func@Safe safeHelloWorld
+  io.println("Hello, World!")
+;
+
+safeHelloWorld()
+
+func@Safe mul2(x : int32) : int32
+  return x + x
+;
+
+io.println(mul2(4))
+```

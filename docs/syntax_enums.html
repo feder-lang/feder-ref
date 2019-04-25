@@ -149,6 +149,24 @@
 <p>An enumeration has constructors with different <em>id</em>s. Additionally an <em>id</em>
 can be accompanied by <strong>(</strong> <em>idcalls</em> <strong>)</strong>, which allows to store values
 of data-types or complex-data-types.</p>
+<p>Example:</p>
+<pre><code>enum{T} Option
+  Just(T)
+  None
+;
+
+func@Safe{T} printNull(x : Option{T})
+  match x
+    Just(x) =&gt; io.println(&quot;Something&quot;) ;
+    _ =&gt; io.println(&quot;Nothing&quot;) ;
+  ;
+;
+
+canBeNull := None{int32}()
+printNull(canBeNull)
+canBeNull := Just(2)
+printNull(canBeNull)
+</code></pre>
 
                     </main>
 

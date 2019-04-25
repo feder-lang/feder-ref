@@ -512,7 +512,9 @@ hello.world()
 </blockquote>
 <p>Where an <em>id</em> in <em>ids</em> must one of:</p>
 <ul>
-<li><strong>Safe</strong>: Ensure safety (only safe dynamic allocations must be used)</li>
+<li><strong>Safe</strong>: Ensure safety (only safe dynamic allocations must be used). Ensures
+every operation in the associated <em>expr0</em>, is <a href="./syntax_safe.html"><em>safe</em></a>.
+This includes constructors <strong>AND</strong> functions.</li>
 <li><strong>This</strong>: Allow access to private members of semantic <em>expr0</em>.</li>
 <li><strong>Const</strong>: Only allow constant access to semantic <em>expr0</em>.</li>
 </ul>
@@ -666,6 +668,25 @@ with the unary infix operator '()' (between '(' and ')' can be an expression).</
 <em>func-def-name</em> := <em>idcall</em>? <em>operator</em> | <em>idcall</em><br />
 <em>func-decl-name</em> := <em>operator</em> | <em>id</em></p>
 </blockquote>
+<p>Example:</p>
+<pre><code>func helloWorld
+  io.println(&quot;Hello, World!&quot;)
+;
+
+helloWorld()
+
+func@Safe safeHelloWorld
+  io.println(&quot;Hello, World!&quot;)
+;
+
+safeHelloWorld()
+
+func@Safe mul2(x : int32) : int32
+  return x + x
+;
+
+io.println(mul2(4))
+</code></pre>
 <a class="header" href="#guards" id="guards"><h3>Guards</h3></a>
 <blockquote>
 <p><em>guard</em> := <strong>|</strong> <em>expr0</em> <em>guardresult</em>?<br />
@@ -780,6 +801,24 @@ in the class. A class can be represented as an implemented trait
 <p>An enumeration has constructors with different <em>id</em>s. Additionally an <em>id</em>
 can be accompanied by <strong>(</strong> <em>idcalls</em> <strong>)</strong>, which allows to store values
 of data-types or complex-data-types.</p>
+<p>Example:</p>
+<pre><code>enum{T} Option
+  Just(T)
+  None
+;
+
+func@Safe{T} printNull(x : Option{T})
+  match x
+    Just(x) =&gt; io.println(&quot;Something&quot;) ;
+    _ =&gt; io.println(&quot;Nothing&quot;) ;
+  ;
+;
+
+canBeNull := None{int32}()
+printNull(canBeNull)
+canBeNull := Just(2)
+printNull(canBeNull)
+</code></pre>
 <a class="header" href="#arrays" id="arrays"><h2>Arrays</h2></a>
 <blockquote>
 <p>expr := <em>indexcall</em> | <em>arraytypeexpr</em> | <em>array-constructor</em> | <em>arraylist</em><br />

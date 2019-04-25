@@ -164,6 +164,25 @@
 <em>func-def-name</em> := <em>idcall</em>? <em>operator</em> | <em>idcall</em><br />
 <em>func-decl-name</em> := <em>operator</em> | <em>id</em></p>
 </blockquote>
+<p>Example:</p>
+<pre><code>func helloWorld
+  io.println(&quot;Hello, World!&quot;)
+;
+
+helloWorld()
+
+func@Safe safeHelloWorld
+  io.println(&quot;Hello, World!&quot;)
+;
+
+safeHelloWorld()
+
+func@Safe mul2(x : int32) : int32
+  return x + x
+;
+
+io.println(mul2(4))
+</code></pre>
 
                     </main>
 
