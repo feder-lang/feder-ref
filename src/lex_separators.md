@@ -1,6 +1,6 @@
 ### Separators
 
-Characters, which separate tokens are the line-feed character and
+Characters, which separate tokens are the line-feed and
 carriage-return character and also:
 
 ```
@@ -22,3 +22,5 @@ is the same as
 ```
 myFunction() // this is a function call
 ```
+
+[Operators](./lex_operators.md) are also separators.
