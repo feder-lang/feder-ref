@@ -20,6 +20,10 @@ Where: *expr0* is the return-type.
 > *func-def-name* := *idcall*? *operator* | *idcall*\
 > *func-decl-name* := *operator* | *id*
 
+Functions support ad-hoc polymorphism. Functions with the same name mustn't be
+declared in the semantic (e.g. traits, classes), if they have the same
+parameters.
+
 Example:
 
 ```

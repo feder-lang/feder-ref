@@ -86,3 +86,25 @@ p0 := Person(std.String("Noone"), -1)
 All declared functions of the traits (referenced in *implements*) must defined
 in the class. A class can be represented as an implemented trait
 (polymorphism).
+
+```
+trait HelloPrinter
+	Func PrintHello ;
+;
+
+class MyHelloPrinter : HelloPrinter
+	Func PrintHello
+		io.println("Hello, World!")
+	;
+;
+
+class MyTwoLineHelloPrinter : HelloPrinter
+	Func PrintHello
+		io.println("Hello")
+		io.println("World")
+	;
+;
+
+MyHelloPrinter().PrintHello()
+MyTwoLineHelloPrinter().PrintHello()
+```

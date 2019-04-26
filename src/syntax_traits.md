@@ -7,3 +7,12 @@
 
 Where: *implements* are traits, the trait implements, too. A trait only has
 declared virtual functions.
+
+In *implements* a trait must only be referenced one time directly.
+
+```
+trait Printer
+	Func printuint8(x : uint8) ;
+	Func printint8(x : int8) ;
+;
+```
