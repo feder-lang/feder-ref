@@ -146,8 +146,23 @@ There are two important non-terminals: <em>expr</em> and <em>stmt</em>. <em>expr
 expression, which are used in statements. And <em>stmt</em> are statements, which
 can be used as <em>lines</em> in a program.</p>
 <blockquote>
-<p><em>program</em> := <em>body</em> <strong>EOF</strong></p>
+<p><em>program</em> := <em>external</em>? <em>body</em> <strong>EOF</strong>
+<em>external</em> := <em>includes</em> <em>newline</em> <em>imports</em> | <em>includes</em> | <em>imports</em><br />
+<em>includes</em> := <em>include</em> | <em>include</em> <em>newline</em> <em>includes</em><br />
+<em>include</em> := <strong>include</strong> <em>string</em>
+<em>imports</em> := <em>import</em> | <em>import</em> <em>newline</em> <em>imports</em>
+<em>import</em> := <strong>import</strong> <em>idcall</em></p>
 </blockquote>
+<p>Where <em>string</em> is a unix file path. The files semantics will be added to the
+lookup-path of the current file. A file must only be included one time in a
+file. A file mustn't include itself. A <em>include</em> also determines the run order.
+A file included with a simple <em>include</em> will be executed before the 'current
+file', the included file mustn't have a included the 'current file'.</p>
+<p>The first <em>id</em> of <em>idcall</em> name of the package to import. Subsequent <em>id</em>s are
+used to include a selected semantics in the package. When only the package is
+imported, a namespace called like the package will be added to the lookup-path
+of the 'current file', which contains the semantics of the package.
+Double-dependencies are not supported.</p>
 
                     </main>
 
