@@ -23,3 +23,11 @@ All other letters are invalid, resulting in an error. So
 ```
 
 are considered invalid.
+
+Letters right after the suffix are also invalid. So
+
+```
+0.0fx
+```
+
+is invalid.
