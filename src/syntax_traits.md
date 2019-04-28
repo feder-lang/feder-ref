@@ -6,7 +6,8 @@
 > *trait-func* := **Func** *func-decl-name* *params*? *return-type*? **;**
 
 Where: *implements* are traits, the trait implements, too. A trait only has
-declared virtual functions.
+declared virtual functions. A class instance can be casted to a trait
+instance implemented by the class.
 
 In *implements* a trait must only be referenced one time directly.
 
@@ -15,4 +16,10 @@ trait Printer
 	Func printuint8(x : uint8) ;
 	Func printint8(x : int8) ;
 ;
+
+// MyPrinter is a class which implements Printer
+// Cast MyPrinter instance to Printer instance
+printStream : Printer
+printStream = MyPrinter() :: Printer
+printStream.printuint8(0x0A)
 ```

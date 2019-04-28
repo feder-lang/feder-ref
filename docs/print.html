@@ -435,6 +435,10 @@ and then expects an expression again.</p>
 <p>refers to the lexical tokens <a href="./lex_integers.html">integer</a>,
 <a href="./lex_floats.html">floating-point numbers</a>, <a href="./lex_chars.html">characters</a>
 and <a href="./lex_strings.html">strings</a>.</p>
+<blockquote>
+<p><em>string</em></p>
+</blockquote>
+<p>refers to the lexical token <a href="./lex_strings.html">string</a>.</p>
 <hr />
 <blockquote>
 <p><em>idcall</em> := <em>id</em> | <em>id</em> <strong>.</strong> <em>idcall</em><br />
@@ -745,12 +749,19 @@ io.println(fac(10))
 <em>trait-func</em> := <strong>Func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? <strong>;</strong></p>
 </blockquote>
 <p>Where: <em>implements</em> are traits, the trait implements, too. A trait only has
-declared virtual functions.</p>
+declared virtual functions. A class instance can be casted to a trait
+instance implemented by the class.</p>
 <p>In <em>implements</em> a trait must only be referenced one time directly.</p>
 <pre><code>trait Printer
     Func printuint8(x : uint8) ;
     Func printint8(x : int8) ;
 ;
+
+// MyPrinter is a class which implements Printer
+// Cast MyPrinter instance to Printer instance
+printStream : Printer
+printStream = MyPrinter() :: Printer
+printStream.printuint8(0x0A)
 </code></pre>
 <a class="header" href="#classes" id="classes"><h2>Classes</h2></a>
 <blockquote>
