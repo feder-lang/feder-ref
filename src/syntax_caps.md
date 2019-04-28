@@ -12,5 +12,6 @@ Where an *id* in *ids* must one of:
   This includes constructors **AND** functions.
 - **This**: Allow access to private members of semantic *expr0*. 
 - **Const**: Only allow constant access to semantic *expr0*.
+- **Value**: Cast to r-value.
 
 Two *id*s of the same type aren't allowed in *caps*.
