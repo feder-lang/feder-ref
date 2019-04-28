@@ -23,8 +23,8 @@ operations, which can't be used as functions.
 | &            | 8          | l             | Bitwise and               | y        | n         |
 | == !=        | 9          | l             | Pointer Comparison        | -        | n         |
 | ===          |            |               | Value comparison          | y        | n         |
-| \< \<=       | 10         | l             | Value comparison          | y        | n         |
-| \> \>=       |            |               |                           |          | n         |
+| \< \<=       | 10         | l             | Less, Maximum             | y        | n         |
+| \> \>=       |            |               | Greater, Minimum          |          | n         |
 | \>\> \<\<    | 11         |               | Bitshift (right,left)     | y        | n         |
 | a+b a-b      | 12         |               | Arithmetic                | y        | n         |
 | a\*b a/b a%b | 13         | l             | Arithmetic                | y        | n         |
@@ -36,7 +36,6 @@ operations, which can't be used as functions.
 | \*a          |            |               | Dereference               | depends  | n         |
 | ! ~          |            |               | Logical, bitwise not      | y        | n         |
 | .a           |            |               | This member access        | -        | n         |
-| &a           |            |               | Cast to R-Value           | -        | n         |
 | safe a       |            |               | Safe operation            | -        | n         |
 | a++ a--      | 16         | l             | Increment, Decrement      | n        | y         |
 | a()          |            |               | Function call             | -        | y         |
