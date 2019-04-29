@@ -157,6 +157,16 @@ be a class instance.</li>
 <li><strong>Value</strong>: Cast to r-value.</li>
 </ul>
 <p>Two <em>id</em>s of the same type aren't allowed in <em>caps</em>.</p>
+<p>Examples:</p>
+<pre><code>class Person
+  // Private modify function
+  func@Safe _modify
+  ;
+;
+
+// Call modify
+Person()@This._modify()
+</code></pre>
 
                     </main>
 

@@ -5,11 +5,11 @@ There are two important non-terminals: *expr* and *stmt*. *expr* is an
 expression, which are used in statements. And *stmt* are statements, which
 can be used as *lines* in a program.
 
-> *program* := *external*? *body* **EOF**
+> *program* := *external*? *body* **EOF**\
 > *external* := *includes* *newline* *imports* | *includes* | *imports*\
 > *includes* := *include* | *include* *newline* *includes*\
-> *include* := **include** *string* 
-> *imports* := *import* | *import* *newline* *imports*
+> *include* := **include** *string*\
+> *imports* := *import* | *import* *newline* *imports*\
 > *import* := **import** *idcall*
 
 Where *string* is a unix file path. The files semantics will be added to the

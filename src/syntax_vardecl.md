@@ -10,3 +10,11 @@ be called *id*. A type is either an array-type, class, trait or enum.
 
 where *expr1* is a value. The type of the variable called *id* is the type of
 *expr1*.
+
+Examples:
+
+```
+val0 : uint32        // Integer
+a0 : uint32[]        // Array
+t0 : (uint32, int32) // Tuple
+```

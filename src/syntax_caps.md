@@ -16,3 +16,16 @@ Where an *id* in *ids* must one of:
 - **Value**: Cast to r-value.
 
 Two *id*s of the same type aren't allowed in *caps*.
+
+Examples:
+
+```
+class Person
+  // Private modify function
+  func@Safe _modify
+  ;
+;
+
+// Call modify
+Person()@This._modify()
+```

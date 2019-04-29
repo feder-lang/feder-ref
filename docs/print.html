@@ -362,11 +362,11 @@ There are two important non-terminals: <em>expr</em> and <em>stmt</em>. <em>expr
 expression, which are used in statements. And <em>stmt</em> are statements, which
 can be used as <em>lines</em> in a program.</p>
 <blockquote>
-<p><em>program</em> := <em>external</em>? <em>body</em> <strong>EOF</strong>
+<p><em>program</em> := <em>external</em>? <em>body</em> <strong>EOF</strong><br />
 <em>external</em> := <em>includes</em> <em>newline</em> <em>imports</em> | <em>includes</em> | <em>imports</em><br />
 <em>includes</em> := <em>include</em> | <em>include</em> <em>newline</em> <em>includes</em><br />
-<em>include</em> := <strong>include</strong> <em>string</em>
-<em>imports</em> := <em>import</em> | <em>import</em> <em>newline</em> <em>imports</em>
+<em>include</em> := <strong>include</strong> <em>string</em><br />
+<em>imports</em> := <em>import</em> | <em>import</em> <em>newline</em> <em>imports</em><br />
 <em>import</em> := <strong>import</strong> <em>idcall</em></p>
 </blockquote>
 <p>Where <em>string</em> is a unix file path. The files semantics will be added to the
@@ -550,6 +550,16 @@ be a class instance.</li>
 <li><strong>Value</strong>: Cast to r-value.</li>
 </ul>
 <p>Two <em>id</em>s of the same type aren't allowed in <em>caps</em>.</p>
+<p>Examples:</p>
+<pre><code>class Person
+  // Private modify function
+  func@Safe _modify
+  ;
+;
+
+// Call modify
+Person()@This._modify()
+</code></pre>
 <a class="header" href="#variable-declaration" id="variable-declaration"><h3>Variable declaration</h3></a>
 <blockquote>
 <p><em>stmt</em> := <em>vardecl</em><br />
@@ -562,6 +572,11 @@ be called <em>id</em>. A type is either an array-type, class, trait or enum.</p>
 </blockquote>
 <p>where <em>expr1</em> is a value. The type of the variable called <em>id</em> is the type of
 <em>expr1</em>.</p>
+<p>Examples:</p>
+<pre><code>val0 : uint32        // Integer
+a0 : uint32[]        // Array
+t0 : (uint32, int32) // Tuple
+</code></pre>
 <a class="header" href="#flow-control" id="flow-control"><h1>Flow-control</h1></a>
 <p>In this section flow-control expressions or statements are covered. These are:</p>
 <ul>
