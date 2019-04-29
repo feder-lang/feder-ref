@@ -15,6 +15,7 @@
 - [Expressions and statements](./syntax.md)
 	* [Syntax Notation](./syntax_notation.md)
 	* [Basic (non-)terminals](./syntax_elements.md)
+	* [Identifier modifiers](./syntax_modifiers.md)
 	* [Operator expressions](./syntax_operators.md)
 		- [Member access](./syntax_operators_mem.md)
 		- [Safe](./syntax_safe.md)
