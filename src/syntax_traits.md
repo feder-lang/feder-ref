@@ -7,7 +7,8 @@
 
 Where: *implements* are traits, the trait implements, too. A trait only has
 declared virtual functions. A class instance can be casted to a trait
-instance implemented by the class.
+instance implemented by the class. A trait instance can be cast back. Functions
+mustn't be private.
 
 In *implements* a trait must only be referenced one time directly.
 
