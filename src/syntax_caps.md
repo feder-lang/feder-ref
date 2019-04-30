@@ -14,6 +14,8 @@ Where an *id* in *ids* must one of:
   be a class instance.
 - **Const**: Only allow constant access to semantic *expr0*.
 - **Value**: Cast to r-value.
+- **Unique**: Ensure there's no other semantic named the same in the current
+  context (works only with named semantics).
 
 Two *id*s of the same type aren't allowed in *caps*.
 
@@ -22,7 +24,7 @@ Examples:
 ```
 class Person
   // Private modify function
-  func@Safe _modify
+  func@Safe,Unique _modify
   ;
 ;
 

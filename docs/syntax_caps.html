@@ -155,12 +155,14 @@ This includes constructors <strong>AND</strong> functions.</li>
 be a class instance.</li>
 <li><strong>Const</strong>: Only allow constant access to semantic <em>expr0</em>.</li>
 <li><strong>Value</strong>: Cast to r-value.</li>
+<li><strong>Unique</strong>: Ensure there's no other semantic named the same in the current
+context (works only with named semantics).</li>
 </ul>
 <p>Two <em>id</em>s of the same type aren't allowed in <em>caps</em>.</p>
 <p>Examples:</p>
 <pre><code>class Person
   // Private modify function
-  func@Safe _modify
+  func@Safe,Unique _modify
   ;
 ;
 
