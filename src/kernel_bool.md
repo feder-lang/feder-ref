@@ -12,3 +12,10 @@ Operators defined on booleans:
 
 - **!** *bool0*: Evaluate *bool0*. IF evaluated *bool0* is true, return False,
   otherwise return True.
+
+- *expr0* **==** *expr1*: Return true, if *expr0* and *expr1* are True. Also
+  return True, if *expr0* and *expr1* are False. In all othercases False is
+  returned.
+
+- *expr0* **!=** *expr1*: Returns the same as \
+  **!** **(** *expr0* **==** *expr1* **)**
