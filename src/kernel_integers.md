@@ -9,7 +9,9 @@
 - int64: 64-bit integer (signed quad)
 - uint64: 64-bit unsigned integer (unsigned quad)
 
-More about integers at [Wikipedia](https://en.wikipedia.org/wiki/Integer_%28computer_science%29).
+More about integers at
+[Wikipedia](https://en.wikipedia.org/wiki/Integer_%28computer_science%29).
+Every integer-type starting with **u** are unsigned, all others are signed.
 
 Unary operators defined on integers:
 
@@ -37,6 +39,13 @@ Binary operators defined on integers:
 - *expr0* **^** *expr1*: Return bitwise exclusive conjunction of *expr0* and
   *expr1*.  *expr0* and *expr1* must have the same type. Return-type is the on
   of *expr0*.  
+
+- *expr0* **\<\<** *expr1*. Return number *expr0* shifted *expr1* to the left.
+  *expr1* must have the type **uint16**. Return type is the one of *expr0*.
+- *expr0* **\>\>** *expr1*. Return number *expr0* shifted *expr1* to the right.
+  If *expr0* is a signed-type, the new bits are either 0 (if positive) or 1 (if
+  negative).  *expr1* must have the type **uint16**. Return type is the one of
+  *expr0*.
 
 - *expr0* **==** *expr1*: Returns True if numbers *expr0* and *expr1* are equal
   (*expr0* - *expr1* is equal to 0), otherwise False.  *expr0* and *expr1* must

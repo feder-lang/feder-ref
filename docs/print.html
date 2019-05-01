@@ -1004,7 +1004,9 @@ returned.</p>
 <li>int64: 64-bit integer (signed quad)</li>
 <li>uint64: 64-bit unsigned integer (unsigned quad)</li>
 </ul>
-<p>More about integers at <a href="https://en.wikipedia.org/wiki/Integer_%28computer_science%29">Wikipedia</a>.</p>
+<p>More about integers at
+<a href="https://en.wikipedia.org/wiki/Integer_%28computer_science%29">Wikipedia</a>.
+Every integer-type starting with <strong>u</strong> are unsigned, all others are signed.</p>
 <p>Unary operators defined on integers:</p>
 <ul>
 <li><strong>-</strong> <em>expr0</em>: Return <em>expr0</em> multiplied by -1. Return-type is the one of
@@ -1043,6 +1045,16 @@ of <em>expr0</em>.</p>
 <p><em>expr0</em> <strong>^</strong> <em>expr1</em>: Return bitwise exclusive conjunction of <em>expr0</em> and
 <em>expr1</em>.  <em>expr0</em> and <em>expr1</em> must have the same type. Return-type is the on
 of <em>expr0</em>.</p>
+</li>
+<li>
+<p><em>expr0</em> <strong>&lt;&lt;</strong> <em>expr1</em>. Return number <em>expr0</em> shifted <em>expr1</em> to the left.
+<em>expr1</em> must have the type <strong>uint16</strong>. Return type is the one of <em>expr0</em>.</p>
+</li>
+<li>
+<p><em>expr0</em> <strong>&gt;&gt;</strong> <em>expr1</em>. Return number <em>expr0</em> shifted <em>expr1</em> to the right.
+If <em>expr0</em> is a signed-type, the new bits are either 0 (if positive) or 1 (if
+negative).  <em>expr1</em> must have the type <strong>uint16</strong>. Return type is the one of
+<em>expr0</em>.</p>
 </li>
 <li>
 <p><em>expr0</em> <strong>==</strong> <em>expr1</em>: Returns True if numbers <em>expr0</em> and <em>expr1</em> are equal
