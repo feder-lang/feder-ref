@@ -1030,6 +1030,21 @@ must have the same type. Return-type is the one of <em>expr0</em>.</p>
 <em>expr1</em> must have the same type. Return-type is the one of <em>expr0</em>.</p>
 </li>
 <li>
+<p><em>expr0</em> <strong>&amp;</strong> <em>expr1</em>: Return bitwise conjunction of <em>expr0</em> and <em>expr1</em>.
+<em>expr0</em> and <em>expr1</em> must have the same type. Return-type is the on of
+<em>expr0</em>.</p>
+</li>
+<li>
+<p><em>expr0</em> <strong>|</strong> <em>expr1</em>: Return bitwise inclusive conjunction of <em>expr0</em> and
+<em>expr1</em>.  <em>expr0</em> and <em>expr1</em> must have the same type. Return-type is the on
+of <em>expr0</em>.</p>
+</li>
+<li>
+<p><em>expr0</em> <strong>^</strong> <em>expr1</em>: Return bitwise exclusive conjunction of <em>expr0</em> and
+<em>expr1</em>.  <em>expr0</em> and <em>expr1</em> must have the same type. Return-type is the on
+of <em>expr0</em>.</p>
+</li>
+<li>
 <p><em>expr0</em> <strong>==</strong> <em>expr1</em>: Returns True if numbers <em>expr0</em> and <em>expr1</em> are equal
 (<em>expr0</em> - <em>expr1</em> is equal to 0), otherwise False.  <em>expr0</em> and <em>expr1</em> must
 have the same type. Return-type is <a href="./kernel_bool.html">bool</a>.</p>

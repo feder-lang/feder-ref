@@ -28,6 +28,16 @@ Binary operators defined on integers:
 - *expr0* **/** *expr1*: Returns *expr0* divided by *expr1*. *expr0* and
   *expr1* must have the same type. Return-type is the one of *expr0*.
 
+- *expr0* **&** *expr1*: Return bitwise conjunction of *expr0* and *expr1*.
+  *expr0* and *expr1* must have the same type. Return-type is the on of
+  *expr0*.
+- *expr0* **|** *expr1*: Return bitwise inclusive conjunction of *expr0* and
+  *expr1*.  *expr0* and *expr1* must have the same type. Return-type is the on
+  of *expr0*.  
+- *expr0* **^** *expr1*: Return bitwise exclusive conjunction of *expr0* and
+  *expr1*.  *expr0* and *expr1* must have the same type. Return-type is the on
+  of *expr0*.  
+
 - *expr0* **==** *expr1*: Returns True if numbers *expr0* and *expr1* are equal
   (*expr0* - *expr1* is equal to 0), otherwise False.  *expr0* and *expr1* must
   have the same type. Return-type is [bool](./kernel_bool.md).
