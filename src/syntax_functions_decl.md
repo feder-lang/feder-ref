@@ -5,7 +5,7 @@
 > | **func** *func-caps*? *templ-decl*? *func-def-name* *params*? *return-type* *newline* *return-body* **;**\
 > | **func** *func-caps*? *templ-decl*? *func-decl-name* *params*? *return-type* **;**
 
-> *expr* := **func** *func-caps* **_** *params*? *newline* *body* **;**\
+> *expr* := **func** *func-caps*? **_** *params*? *newline* *body* **;**\
 > | **func** *func-caps* **_** *params*? *return-type* *newline* *return-body* **;**\
 > *return-type* := **:** *expr0*
 
