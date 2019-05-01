@@ -1,16 +1,31 @@
 # Floating-point numbers
 
-- float32: IEC-559/IEEE-754 1 32-bit float-point number (float)
-- float64: IEC-559/IEEE-754 64-bit float-point number (double)
+- float32: IEC-559/IEEE-754 32-bit float-point number (float, in IEEE-754:
+  binary32)
+- float64: IEC-559/IEEE-754 64-bit float-point number (double, in IEEE-754:
+  binary64)
 
-Functions:
+More about floats at [Wikipedia](https://en.wikipedia.org/wiki/IEEE_754).
 
-```
-/**@return Returns true, if float is a special IEEE-754 value.
- */
-func isSpecialFloat32(float32) : bool;
+Unary operators defined on integers:
 
-/**@return Returns true, if float is a special IEEE-74 value.
- */
-func isSpecialFloat64(float64) : bool;
-```
+- **-** *expr0*: Return *expr0* multiplied by -1. Return-type is the one of
+  *expr0*.
+
+Binary operators defined on floats:
+
+- *expr0* **+** *expr1*: Return sum of *expr0* and *expr1*. *expr0* and *expr1*
+  must have the same type. Return-type is the one of *expr0*.
+- *expr0* **-** *expr1*: Returns sum of *expr0* and **-** *expr1*. *expr0* and
+  *expr1* must have the same type. Return-type is the one of *expr0*.
+- *expr0* **\*** *expr1*: Returns *expr0* multiplied by *expr1*. *expr0* and
+  *expr1* must have the same type. Return-type is the one of *expr0*.
+- *expr0* **/** *expr1*: Returns *expr0* divided by *expr1*. *expr0* and
+  *expr1* must have the same type. Return-type is the one of *expr0*.
+
+- *expr0* **==** *expr1*: Returns True if numbers *expr0* and *expr1* are equal
+  (*expr0* - *expr1* is equal to 0), otherwise False.  *expr0* and *expr1* must
+  have the same type. Return-type is [bool](./kernel_bool.md).
+- *expr0* **!=** *expr1*: Returns False if numbers *expr0* and *expr1* are
+  equal (*expr0* - *expr1* is not equal to 0), otherwise True. *expr0* and
+  *expr1* must have the same type. Return-type is [bool](./kernel_bool.md).
