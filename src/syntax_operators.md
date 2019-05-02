@@ -9,8 +9,8 @@ operations, which can't be used as functions.
 | :---:        | :---:      | :---:         | :---                      | :---:    | :---:     |
 | ,            | 1          | l             | Type-Constructor, Comma   | -        | n         | 
 | :=           | 2          | r             | Auto-define               | -        | y         |
-| =            | 3          | r             | Assignments               | -        | y         |
-| &= \|= ^=    |            |               |                           | n        | y         |
+| =            | 3          | r             | [Assignments](./syntax_assignment.md)            | -        | y         |
+| &= \|= ^=    |            |               | Operator Assignments      | n        | y         |
 | += -=        |            |               |                           |          |           |
 | \*= /=       |            |               |                           |          |           |
 | %=           |            |               |                           |          |           |

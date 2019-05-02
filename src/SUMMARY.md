@@ -22,6 +22,7 @@
 		- [Safe](./syntax_safe.md)
 		- [Capabilities](./syntax_caps.md)
 		- [Variable declaration](./syntax_vardecl.md)
+		- [Assignment](./syntax_assignment.md)
 	* [Flow-control](./syntax_conditional.md)
 		- [If](./syntax_conditional_if.md)
 		- [Match](./syntax_conditional_match.md)
