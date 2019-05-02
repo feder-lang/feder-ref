@@ -16,3 +16,5 @@ elements. *expr3* is the size of the array and must evaluate to **uint64**.
 
 *arraylist* has higher precedence than *indexcall*. So tuble-expressions won't
 be an *indexcall* but an *arraylist*.
+
+The first index of an array is **0**.
