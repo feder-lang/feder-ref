@@ -153,6 +153,23 @@
 are trait(s) the template-type has. Only functions defined by these traits can
 be used as members of the template-type(-values).</p>
 <p><em>idcall</em> is the type to replace the template-type with.</p>
+<p>A template doesn't always have to be resolved (using <em>template-call</em>), but
+Feder allows to automatically resolve the template, provided that all template
+types are used in the parameters (e.g. functions, class-constructors).</p>
+<p>Example:</p>
+<pre><code>enum{T} Option
+  None
+  Some(T)
+;
+
+match None{int32}()
+  Some(x) =&gt; io.println(&quot;Something&quot;) ;
+  _ =&gt; io.println(&quot;Nothing&quot;) ;
+;
+
+// Template auto-detection (int32)
+opt := Some(42)
+</code></pre>
 
                     </main>
 

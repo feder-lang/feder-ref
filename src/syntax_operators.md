@@ -40,7 +40,7 @@ operations, which can't be used as functions.
 | a++ a--      | 16         | l             | Increment, Decrement      | n        | y         |
 | a()          |            |               | Function call             | -        | y         |
 | a[]          |            |               | [Index access](./syntax_arrays.md)               | depends  | n         |
-| a{}          |            |               | Template                  | -        | n         |
+| a{}          |            |               | [Template](./syntax_templates.md)                | -        | n         |
 | a.a          | 17         | l             | [Member access](./syntax_operators_mem.md)       | -        | n         |
 | ->           |            |               | Deref. member access      | depends  | n         |
 

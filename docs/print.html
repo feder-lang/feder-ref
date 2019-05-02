@@ -517,7 +517,7 @@ operations, which can't be used as functions.</p>
 <tr><td align="center"> a++ a--      </td><td align="center"> 16         </td><td align="center"> l             </td><td align="left"> Increment, Decrement      </td><td align="center"> n        </td><td align="center"> y         </td></tr>
 <tr><td align="center"> a()          </td><td align="center">            </td><td align="center">               </td><td align="left"> Function call             </td><td align="center"> -        </td><td align="center"> y         </td></tr>
 <tr><td align="center"> a[]          </td><td align="center">            </td><td align="center">               </td><td align="left"> <a href="./syntax_arrays.html">Index access</a>               </td><td align="center"> depends  </td><td align="center"> n         </td></tr>
-<tr><td align="center"> a{}          </td><td align="center">            </td><td align="center">               </td><td align="left"> Template                  </td><td align="center"> -        </td><td align="center"> n         </td></tr>
+<tr><td align="center"> a{}          </td><td align="center">            </td><td align="center">               </td><td align="left"> <a href="./syntax_templates.html">Template</a>                </td><td align="center"> -        </td><td align="center"> n         </td></tr>
 <tr><td align="center"> a.a          </td><td align="center"> 17         </td><td align="center"> l             </td><td align="left"> <a href="./syntax_operators_mem.html">Member access</a>       </td><td align="center"> -        </td><td align="center"> n         </td></tr>
 <tr><td align="center"> -&gt;           </td><td align="center">            </td><td align="center">               </td><td align="left"> Deref. member access      </td><td align="center"> depends  </td><td align="center"> n         </td></tr>
 </tbody></table>
@@ -545,7 +545,8 @@ hello.world()
 <blockquote>
 <p><em>expr</em> := <strong>safe</strong> <em>arry-constructor</em> | <strong>safe</strong> <em>idcall</em> <strong>(</strong> <em>expr</em> <strong>)</strong></p>
 </blockquote>
-<p>Returns an <a href="./kernel_option.html">Option</a>.</p>
+<p>Returns an <a href="./kernel_option.html">Option</a>. None is returned, if dynamic
+allocation failed, otherwise Some.</p>
 <a class="header" href="#capabilities" id="capabilities"><h2>Capabilities</h2></a>
 <p>Capabilities are for ensuring functionality and casting semantics.</p>
 <blockquote>
@@ -712,6 +713,23 @@ mystd.myprintln(&quot;Hello, World!&quot;)
 are trait(s) the template-type has. Only functions defined by these traits can
 be used as members of the template-type(-values).</p>
 <p><em>idcall</em> is the type to replace the template-type with.</p>
+<p>A template doesn't always have to be resolved (using <em>template-call</em>), but
+Feder allows to automatically resolve the template, provided that all template
+types are used in the parameters (e.g. functions, class-constructors).</p>
+<p>Example:</p>
+<pre><code>enum{T} Option
+  None
+  Some(T)
+;
+
+match None{int32}()
+  Some(x) =&gt; io.println(&quot;Something&quot;) ;
+  _ =&gt; io.println(&quot;Nothing&quot;) ;
+;
+
+// Template auto-detection (int32)
+opt := Some(42)
+</code></pre>
 <a class="header" href="#functions" id="functions"><h2>Functions</h2></a>
 <p>In Feder functions can have parameters, an optional return-type. Function can
 be declared, defined, used as type-values or called. They are declared,
