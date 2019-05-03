@@ -595,12 +595,12 @@ a0 : uint32[]        // Array
 t0 : (uint32, int32) // Tuple
 </code></pre>
 <a class="header" href="#assignment" id="assignment"><h2>Assignment</h2></a>
-<p><strong>=</strong> assigns the value of <em>LHS</em>, which must be a variable, to <em>RHS</em>. The type
+<p><strong>=</strong> assigns to the value of <em>LHS</em>, which must be a variable, <em>RHS</em>. The type
 of <em>LHS</em> must be the same as <em>RHS</em>. Also defines variable <em>LHS</em> in the current
 context. If variable <em>LHS</em> is a global one and the context, where the variable
-was declared and the current context are the same, the variable is defined
-everywhere, except if the context is in front of the one of the variable in the
-run order.</p>
+was declared, and the current context are the same or above, the variable is
+defined everywhere, except in contexts, which are in front of the context of
+the variable declaration in the run order.</p>
 <a class="header" href="#flow-control" id="flow-control"><h1>Flow-control</h1></a>
 <p>In this section flow-control expressions or statements are covered. These are:</p>
 <ul>
