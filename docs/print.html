@@ -817,7 +817,9 @@ io.println(fac(10))
 <blockquote>
 <p>expr := <strong>func</strong> <em>params</em>? <em>return-type</em>?</p>
 </blockquote>
-<p>Guards are not allowed. Represents a function with <em>params</em> and optional <em>return-type</em>.</p>
+<p>Guards are not allowed. Represents a function with <em>params</em> and optional
+<em>return-type</em>.</p>
+<p>When using a declared function as a value, the function must be <strong>Unique</strong>.</p>
 <a class="header" href="#traits" id="traits"><h2>Traits</h2></a>
 <blockquote>
 <p><em>stmt</em> := <strong>trait</strong> <em>templ-decl</em>? <em>id</em> <em>implements</em>? <em>newline</em> <em>trait-body</em> <strong>;</strong><br />
