@@ -562,7 +562,7 @@ This includes constructors <strong>AND</strong> functions.</li>
 <li><strong>This</strong>: Allow access to private members of semantic <em>expr0</em>. <em>expr0</em> has to
 be a class instance.</li>
 <li><strong>Const</strong>: Only allow constant access to semantic <em>expr0</em>.</li>
-<li><strong>Value</strong>: Cast to r-value.</li>
+<li><strong>Value</strong>: Cast to r-value or R-Value type (functions).</li>
 <li><strong>Unique</strong>: Ensure there's no other semantic named the same in the current
 context (works only with named semantics).</li>
 </ul>
@@ -1144,7 +1144,9 @@ equal (<em>expr0</em> - <em>expr1</em> is not equal to 0), otherwise True. <em>e
 </code></pre>
 <a class="header" href="#functions-1" id="functions-1"><h2>Functions</h2></a>
 <a class="header" href="#floating-point" id="floating-point"><h3>Floating-point</h3></a>
-<pre><code>/**@return Returns true, if float is a special IEEE-754 value.
+<pre><code>namespace std
+
+/**@return Returns true, if float is a special IEEE-754 value.
  */
 func@Safe isSpecialFloat(float32) : bool;
 
@@ -1159,6 +1161,12 @@ func@Safe,Unique isSpecialFloat32(float32) : bool;
 /**@return Returns true, if float is a special IEEE-754 value.
  */
 func@Safe,Unique isSpecialFloat64(float64) : bool;
+
+/** Terminates program.
+ */
+func@Safe panic ;
+
+;
 </code></pre>
 <a class="header" href="#mit-license" id="mit-license"><h2>MIT License</h2></a>
 <p>Copyright 2019 Fionn Langhans</p>
