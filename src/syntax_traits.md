@@ -10,6 +10,8 @@ declared virtual functions. A class instance can be casted to a trait
 instance implemented by the class. A trait instance can be cast back. Functions
 mustn't be private.
 
+*trait-func*s are **members** of the trait.
+
 In *implements* a trait must only be referenced one time directly.
 
 ```

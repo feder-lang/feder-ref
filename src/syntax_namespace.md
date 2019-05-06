@@ -5,6 +5,8 @@
 where *id* is the name of the namespace.
 
 A namespace is a *boilerplate* semantic to separated code by functionality.
+Every *stmt* in *body*, which is either a function, class, trait, enum or
+variable, are **members** of the namespace.
 
 Example:
 

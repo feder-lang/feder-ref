@@ -697,7 +697,9 @@ Feder provides the keywords <strong>break</strong> and <strong>continue</strong>
 <p><em>stmt</em> := <strong>namespace</strong> <em>id</em> <em>newline</em> <em>body</em> <strong>;</strong></p>
 </blockquote>
 <p>where <em>id</em> is the name of the namespace.</p>
-<p>A namespace is a <em>boilerplate</em> semantic to separated code by functionality.</p>
+<p>A namespace is a <em>boilerplate</em> semantic to separated code by functionality.
+Every <em>stmt</em> in <em>body</em>, which is either a function, class, trait, enum or
+variable, are <strong>members</strong> of the namespace.</p>
 <p>Example:</p>
 <pre><code>namespace mystd
   func myprintln(str : std.String)
@@ -827,6 +829,7 @@ io.println(fac(10))
 declared virtual functions. A class instance can be casted to a trait
 instance implemented by the class. A trait instance can be cast back. Functions
 mustn't be private.</p>
+<p><em>trait-func</em>s are <strong>members</strong> of the trait.</p>
 <p>In <em>implements</em> a trait must only be referenced one time directly.</p>
 <pre><code>trait Printer
     Func printuint8(x : uint8) ;
@@ -857,6 +860,7 @@ is passed to a function as instance (if the LHS side of the <strong>.</strong> o
 is an value) or as the first argument (if the LHS side of the <strong>.</strong> operator
 is a class-type). Also all class-functions can access all attributes of the
 class directly.</p>
+<p><em>class-stmt</em>s are the <strong>members</strong> of a class.</p>
 <p>Example:</p>
 <pre><code>class Person
     _name : std.String

@@ -17,6 +17,8 @@ is an value) or as the first argument (if the LHS side of the **.** operator
 is a class-type). Also all class-functions can access all attributes of the
 class directly.
 
+*class-stmt*s are the **members** of a class.
+
 Example:
 
 ```
