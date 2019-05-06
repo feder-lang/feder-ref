@@ -13,7 +13,7 @@ Where an *id* in *ids* must one of:
 - **This**: Allow access to private members of semantic *expr0*. *expr0* has to
   be a class instance.
 - **Const**: Only allow constant access to semantic *expr0*.
-- **Value**: Cast to r-value.
+- **Value**: Cast to r-value or R-Value type (functions).
 - **Unique**: Ensure there's no other semantic named the same in the current
   context (works only with named semantics).
 
