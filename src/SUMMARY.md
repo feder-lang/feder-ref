@@ -36,6 +36,7 @@
 		- [Declaration and definition](./syntax_functions_decl.md)
 		- [Guards](./syntax_functions_guards.md)
 		- [Functions as types](./syntax_functions_types.md)
+		- [Function call](./syntax_functions_call.md)
 	* [Traits](./syntax_traits.md)
 	* [Classes](./syntax_class.md)
 	* [Enumerations](./syntax_enums.md)
