@@ -23,6 +23,7 @@
 		- [Capabilities](./syntax_caps.md)
 		- [Variable declaration](./syntax_vardecl.md)
 		- [Assignment](./syntax_assignment.md)
+		- [Casting](./syntax_casting.md)
 	* [Flow-control](./syntax_conditional.md)
 		- [If](./syntax_conditional_if.md)
 		- [Match](./syntax_conditional_match.md)

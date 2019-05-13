@@ -28,7 +28,7 @@ operations, which can't be used as functions.
 | \>\> \<\<    | 11         |               | Bitshift (right,left)     | y        | n         |
 | a+b a-b      | 12         |               | Arithmetic                | y        | n         |
 | a\*b a/b a%b | 13         | l             | Arithmetic                | y        | n         |
-| :: :?        | 14         | l             | Cast, Check cast          | -        | n         |
+| :: :?        | 14         | l             | [Cast, Check cast](./syntax_casting.md)          | -        | n         |
 | :            |            | r             | Declaration               | -        | y         |
 | @            |            | l             | [Capabilities](./syntax_caps.md)                 | -        | n         |
 | ++a --a      | 15         | r             | Increment, Decrement      | n        | y         |
