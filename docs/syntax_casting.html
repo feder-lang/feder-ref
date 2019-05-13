@@ -146,10 +146,10 @@
 | expr <strong>:?</strong> expr</p>
 </blockquote>
 <p>With <strong>::</strong> an complex-object is casted to another type. If the cast fails a
-panic will be generated.<strong>:?</strong> checks if the cast is possible a return either
-<em>True</em>, if it is, otherwise <em>False</em>.</p>
-<p><em>down-casting</em> can be done at compile time, because the type to cast to is a
-subset of the object type. <em>up-casting</em> can only be done at runtime, because
+panic will be generated.<strong>:?</strong> checks if the cast is possible. Returns either
+<em>True</em>, if it can be casted to the requested type, otherwise <em>False</em>.</p>
+<p><em>Down-casting</em> can be done at compile time, because the type to cast to is a
+subset of the object type. <em>Up-casting</em> can only be done at runtime, because
 the object type is a subset of the target type.</p>
 
                     </main>
