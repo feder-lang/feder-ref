@@ -53,3 +53,15 @@ Binary operators defined on integers:
 - *expr0* **!=** *expr1*: Returns False if numbers *expr0* and *expr1* are
   equal (*expr0* - *expr1* is not equal to 0), otherwise True. *expr0* and
   *expr1* must have the same type. Return-type is [bool](./kernel_bool.md).
+
+- *expr0* **++**: Post-increment *expr0*. Returns *expr0* and then executes
+  *expr0* **+=** **1**.
+
+- *expr0* **--**: Post-decrement *expr0*. Returns *expr0* and then executes
+  *expr0* **-=** **1**.
+
+- **++** *expr0*: Pre-increment *expr0*. Executes *expr0* **+=** **1** and then
+  returns *expr0*.
+
+- **--** *expr0*: Pre-decrement *expr0*. Executes *expr0* **-=** **1** and then
+  returns *expr0*.

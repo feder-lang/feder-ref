@@ -213,6 +213,22 @@ have the same type. Return-type is <a href="./kernel_bool.html">bool</a>.</p>
 equal (<em>expr0</em> - <em>expr1</em> is not equal to 0), otherwise True. <em>expr0</em> and
 <em>expr1</em> must have the same type. Return-type is <a href="./kernel_bool.html">bool</a>.</p>
 </li>
+<li>
+<p><em>expr0</em> <strong>++</strong>: Post-increment <em>expr0</em>. Returns <em>expr0</em> and then executes
+<em>expr0</em> <strong>+=</strong> <strong>1</strong>.</p>
+</li>
+<li>
+<p><em>expr0</em> <strong>--</strong>: Post-decrement <em>expr0</em>. Returns <em>expr0</em> and then executes
+<em>expr0</em> <strong>-=</strong> <strong>1</strong>.</p>
+</li>
+<li>
+<p><strong>++</strong> <em>expr0</em>: Pre-increment <em>expr0</em>. Executes <em>expr0</em> <strong>+=</strong> <strong>1</strong> and then
+returns <em>expr0</em>.</p>
+</li>
+<li>
+<p><strong>--</strong> <em>expr0</em>: Pre-decrement <em>expr0</em>. Executes <em>expr0</em> <strong>-=</strong> <strong>1</strong> and then
+returns <em>expr0</em>.</p>
+</li>
 </ul>
 
                     </main>
