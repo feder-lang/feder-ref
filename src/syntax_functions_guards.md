@@ -14,7 +14,9 @@ course, guard results are invalid if the function has no return type.
 
 Guards must be implemented directly into the function. Meaning, that if the
 function is called, its guards are not checked above the function call, but the
-function itself will check the guards.
+function itself will check the guards. Also guards in the declaration are
+meaningless, as they won't be implemented, they only will be implemented, when
+used in the definition of the function.
 
 Example:
 
