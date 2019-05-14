@@ -465,10 +465,12 @@ and <a href="./lex_strings.html">strings</a>.</p>
 Starting with an identifier with an uppercase or the second character is
 uppercase, if the identifier starts with an underscore, makes the semantic
 constant, of course if the semantic started with an underscore it's also
-private.</p>
+private. If all letter of the identifier are uppercase, the semantic is
+immutable.</p>
 <a class="header" href="#variables" id="variables"><h2>Variables</h2></a>
-<p>Variables represent values as an identifier. They can be changed if they are
-not constant (see <a href="./syntax_modifiers.html">Identifier modifiers</a>). They do not
+<p>Variables represent values as an identifier. Non-constant members can only be
+called, if they aren't constant. Their pointer cannot be changed if they're
+immutable (see <a href="./syntax_modifiers.html">Identifier modifiers</a>). They do not
 represent a value as long as they are not definitly initialized. Initializing a
 variable is done with the assignments <strong>=</strong> or <strong>:=</strong>. Where the latter is
 futher explained in <a href="./syntax_vardecl.html">Variable declaration</a>.</p>

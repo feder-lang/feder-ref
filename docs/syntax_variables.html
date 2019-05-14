@@ -141,8 +141,9 @@
                 <div id="content" class="content">
                     <main>
                         <a class="header" href="#variables" id="variables"><h2>Variables</h2></a>
-<p>Variables represent values as an identifier. They can be changed if they are
-not constant (see <a href="./syntax_modifiers.html">Identifier modifiers</a>). They do not
+<p>Variables represent values as an identifier. Non-constant members can only be
+called, if they aren't constant. Their pointer cannot be changed if they're
+immutable (see <a href="./syntax_modifiers.html">Identifier modifiers</a>). They do not
 represent a value as long as they are not definitly initialized. Initializing a
 variable is done with the assignments <strong>=</strong> or <strong>:=</strong>. Where the latter is
 futher explained in <a href="./syntax_vardecl.html">Variable declaration</a>.</p>
