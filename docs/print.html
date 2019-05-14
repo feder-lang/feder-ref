@@ -834,6 +834,15 @@ io.println(fac(10))
 <p>Guards are not allowed. Represents a function with <em>params</em> and optional
 <em>return-type</em>.</p>
 <p>When using a declared function as a value, the function must be <strong>Unique</strong>.</p>
+<p>Example:</p>
+<pre><code>// Create a function
+func@Unique add(x : int32, y : int32): int32
+  return x + y
+;
+
+fun: (func (int32, int32) : int32)
+fun = add
+</code></pre>
 <a class="header" href="#function-call" id="function-call"><h1>Function call</h1></a>
 <p>Functions are called by value and return by value. Primitive values are copied
 over, and the pointer to complex values is copied over.</p>
