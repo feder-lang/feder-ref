@@ -4,8 +4,8 @@
 > *vardecl* := *id* **:** *expr0*
 
 where *expr0* is a type or tuble composed of types. The declared variable will
-be called *id*. A type is either an array-type, class, trait or enum. When
-using a tuple as type, every tuple member must have a variable name.
+be called *id*. A type is either an array-type, class, trait, enum or primitive
+type. When using a tuple as type, every tuple member must have a variable name.
 
 > *stmt* := *id* **:=** *expr1*
 
