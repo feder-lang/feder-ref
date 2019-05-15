@@ -169,7 +169,8 @@ declared in the semantic (e.g. traits, classes), if they have the same
 parameters.</p>
 <p>If the <em>func-def-name</em> has more than one identifier, the function implements
 are already declared function. The parameter types and return type must be
-equal.</p>
+equal. Functions requiring a template cannot be implemented elsewhere, they
+have to be implemented directly at declaration.</p>
 <p>Example:</p>
 <pre><code>func helloWorld
   io.println(&quot;Hello, World!&quot;)

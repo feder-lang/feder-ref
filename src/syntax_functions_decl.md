@@ -26,7 +26,8 @@ parameters.
 
 If the *func-def-name* has more than one identifier, the function implements
 are already declared function. The parameter types and return type must be
-equal.
+equal. Functions requiring a template cannot be implemented elsewhere, they
+have to be implemented directly at declaration.
 
 Example:
 
