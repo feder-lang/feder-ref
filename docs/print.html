@@ -1027,6 +1027,10 @@ elements. <em>expr3</em> is the size of the array and must evaluate to <strong>u
 <p><em>arraylist</em> has higher precedence than <em>indexcall</em>. So tuble-expressions won't
 be an <em>indexcall</em> but an <em>arraylist</em>.</p>
 <p>The first index of an array is <strong>0</strong>.</p>
+<p>Every array has the member function</p>
+<pre><code>func length : uintptr ;
+</code></pre>
+<p>which returns the size of the array (SizeInBytes/SizeOfElement).</p>
 <a class="header" href="#kernel" id="kernel"><h1>Kernel</h1></a>
 <p>The Kernel provides basic functionality, like integers or the Option trait.</p>
 <ul>

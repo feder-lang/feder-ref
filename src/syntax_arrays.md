@@ -18,3 +18,11 @@ elements. *expr3* is the size of the array and must evaluate to **uint64**.
 be an *indexcall* but an *arraylist*.
 
 The first index of an array is **0**.
+
+Every array has the member function
+
+```
+func length : uintptr ;
+```
+
+which returns the size of the array (SizeInBytes/SizeOfElement).
