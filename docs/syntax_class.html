@@ -217,7 +217,9 @@ p0 := Person(std.String(&quot;Noone&quot;), -1)
 <a class="header" href="#implement-traits" id="implement-traits"><h3>Implement Traits</h3></a>
 <p>All declared functions of the traits (referenced in <em>implements</em>) must defined
 in the class. A class can be represented as an implemented trait
-(polymorphism).</p>
+(polymorphism). It is not possible to implement traits, which have functions
+with the same, which don't support polymorphism or have the same parameters but
+different return types.</p>
 <pre><code>trait HelloPrinter
     Func PrintHello ;
 ;

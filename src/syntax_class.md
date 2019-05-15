@@ -87,7 +87,9 @@ p0 := Person(std.String("Noone"), -1)
 
 All declared functions of the traits (referenced in *implements*) must defined
 in the class. A class can be represented as an implemented trait
-(polymorphism).
+(polymorphism). It is not possible to implement traits, which have functions
+with the same, which don't support polymorphism or have the same parameters but
+different return types.
 
 ```
 trait HelloPrinter
