@@ -24,6 +24,10 @@ Functions support ad-hoc polymorphism. Functions with the same name mustn't be
 declared in the semantic (e.g. traits, classes), if they have the same
 parameters.
 
+If the *func-def-name* has more than one identifier, the function implements
+are already declared function. The parameter types and return type must be
+equal.
+
 Example:
 
 ```
@@ -44,4 +48,17 @@ func@Safe mul2(x : int32) : int32
 ;
 
 io.println(mul2(4))
+
+// Implement a function
+
+class MyHelloWorldClass
+  func print ;
+;
+
+
+func MyHelloWorldClass.print
+	io.println("Hello, World!")
+;
+
+MyHelloWorldClass().print()
 ```
