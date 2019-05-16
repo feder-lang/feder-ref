@@ -48,4 +48,5 @@
 		- [Floating-point numbers](./kernel_floats.md)
 	* [Enum Option](./kernel_option.md)
 	* [Functions](./kernel_functions.md)
+	* [Tuples](./kernel_tuples.md)
 - [License](./LICENSE.md)

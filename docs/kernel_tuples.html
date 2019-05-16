@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Variables - Feder: Reference Manual</title>
+        <title>Tuples - Feder: Reference Manual</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Reference manual for the Feder programming language.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="syntax.html"><strong aria-hidden="true">3.</strong> Expressions and statements</a></li><li><ol class="section"><li><a href="syntax_notation.html"><strong aria-hidden="true">3.1.</strong> Syntax Notation</a></li><li><a href="syntax_elements.html"><strong aria-hidden="true">3.2.</strong> Basic (non-)terminals</a></li><li><a href="syntax_modifiers.html"><strong aria-hidden="true">3.3.</strong> Identifier modifiers</a></li><li><a href="syntax_variables.html" class="active"><strong aria-hidden="true">3.4.</strong> Variables</a></li><li><a href="syntax_operators.html"><strong aria-hidden="true">3.5.</strong> Operator expressions</a></li><li><ol class="section"><li><a href="syntax_operators_mem.html"><strong aria-hidden="true">3.5.1.</strong> Member access</a></li><li><a href="syntax_safe.html"><strong aria-hidden="true">3.5.2.</strong> Safe</a></li><li><a href="syntax_caps.html"><strong aria-hidden="true">3.5.3.</strong> Capabilities</a></li><li><a href="syntax_vardecl.html"><strong aria-hidden="true">3.5.4.</strong> Variable declaration</a></li><li><a href="syntax_assignment.html"><strong aria-hidden="true">3.5.5.</strong> Assignment</a></li><li><a href="syntax_casting.html"><strong aria-hidden="true">3.5.6.</strong> Casting</a></li></ol></li><li><a href="syntax_conditional.html"><strong aria-hidden="true">3.6.</strong> Flow-control</a></li><li><ol class="section"><li><a href="syntax_conditional_if.html"><strong aria-hidden="true">3.6.1.</strong> If</a></li><li><a href="syntax_conditional_match.html"><strong aria-hidden="true">3.6.2.</strong> Match</a></li><li><a href="syntax_conditional_for.html"><strong aria-hidden="true">3.6.3.</strong> For</a></li><li><a href="syntax_conditional_do.html"><strong aria-hidden="true">3.6.4.</strong> Do</a></li><li><a href="syntax_conditional_breakncontinue.html"><strong aria-hidden="true">3.6.5.</strong> Break and continue</a></li></ol></li><li><a href="syntax_namespace.html"><strong aria-hidden="true">3.7.</strong> Namespaces</a></li><li><a href="syntax_templates.html"><strong aria-hidden="true">3.8.</strong> Templates</a></li><li><a href="syntax_functions.html"><strong aria-hidden="true">3.9.</strong> Functions</a></li><li><ol class="section"><li><a href="syntax_functions_decl.html"><strong aria-hidden="true">3.9.1.</strong> Declaration and definition</a></li><li><a href="syntax_functions_guards.html"><strong aria-hidden="true">3.9.2.</strong> Guards</a></li><li><a href="syntax_functions_types.html"><strong aria-hidden="true">3.9.3.</strong> Functions as types</a></li><li><a href="syntax_functions_call.html"><strong aria-hidden="true">3.9.4.</strong> Function call</a></li></ol></li><li><a href="syntax_traits.html"><strong aria-hidden="true">3.10.</strong> Traits</a></li><li><a href="syntax_class.html"><strong aria-hidden="true">3.11.</strong> Classes</a></li><li><a href="syntax_enums.html"><strong aria-hidden="true">3.12.</strong> Enumerations</a></li><li><a href="syntax_arrays.html"><strong aria-hidden="true">3.13.</strong> Arrays</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="syntax.html"><strong aria-hidden="true">3.</strong> Expressions and statements</a></li><li><ol class="section"><li><a href="syntax_notation.html"><strong aria-hidden="true">3.1.</strong> Syntax Notation</a></li><li><a href="syntax_elements.html"><strong aria-hidden="true">3.2.</strong> Basic (non-)terminals</a></li><li><a href="syntax_modifiers.html"><strong aria-hidden="true">3.3.</strong> Identifier modifiers</a></li><li><a href="syntax_variables.html"><strong aria-hidden="true">3.4.</strong> Variables</a></li><li><a href="syntax_operators.html"><strong aria-hidden="true">3.5.</strong> Operator expressions</a></li><li><ol class="section"><li><a href="syntax_operators_mem.html"><strong aria-hidden="true">3.5.1.</strong> Member access</a></li><li><a href="syntax_safe.html"><strong aria-hidden="true">3.5.2.</strong> Safe</a></li><li><a href="syntax_caps.html"><strong aria-hidden="true">3.5.3.</strong> Capabilities</a></li><li><a href="syntax_vardecl.html"><strong aria-hidden="true">3.5.4.</strong> Variable declaration</a></li><li><a href="syntax_assignment.html"><strong aria-hidden="true">3.5.5.</strong> Assignment</a></li><li><a href="syntax_casting.html"><strong aria-hidden="true">3.5.6.</strong> Casting</a></li></ol></li><li><a href="syntax_conditional.html"><strong aria-hidden="true">3.6.</strong> Flow-control</a></li><li><ol class="section"><li><a href="syntax_conditional_if.html"><strong aria-hidden="true">3.6.1.</strong> If</a></li><li><a href="syntax_conditional_match.html"><strong aria-hidden="true">3.6.2.</strong> Match</a></li><li><a href="syntax_conditional_for.html"><strong aria-hidden="true">3.6.3.</strong> For</a></li><li><a href="syntax_conditional_do.html"><strong aria-hidden="true">3.6.4.</strong> Do</a></li><li><a href="syntax_conditional_breakncontinue.html"><strong aria-hidden="true">3.6.5.</strong> Break and continue</a></li></ol></li><li><a href="syntax_namespace.html"><strong aria-hidden="true">3.7.</strong> Namespaces</a></li><li><a href="syntax_templates.html"><strong aria-hidden="true">3.8.</strong> Templates</a></li><li><a href="syntax_functions.html"><strong aria-hidden="true">3.9.</strong> Functions</a></li><li><ol class="section"><li><a href="syntax_functions_decl.html"><strong aria-hidden="true">3.9.1.</strong> Declaration and definition</a></li><li><a href="syntax_functions_guards.html"><strong aria-hidden="true">3.9.2.</strong> Guards</a></li><li><a href="syntax_functions_types.html"><strong aria-hidden="true">3.9.3.</strong> Functions as types</a></li><li><a href="syntax_functions_call.html"><strong aria-hidden="true">3.9.4.</strong> Function call</a></li></ol></li><li><a href="syntax_traits.html"><strong aria-hidden="true">3.10.</strong> Traits</a></li><li><a href="syntax_class.html"><strong aria-hidden="true">3.11.</strong> Classes</a></li><li><a href="syntax_enums.html"><strong aria-hidden="true">3.12.</strong> Enumerations</a></li><li><a href="syntax_arrays.html"><strong aria-hidden="true">3.13.</strong> Arrays</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html" class="active"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -140,34 +140,38 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#variables" id="variables"><h2>Variables</h2></a>
-<p>Variables represent values as an identifier. Non-constant members can only be
-called, if they aren't constant. Their pointer cannot be changed if they're
-immutable (see <a href="./syntax_modifiers.html">Identifier modifiers</a>). They do not
-represent a value as long as they are not definitly initialized. Initializing a
-variable is done with the assignments <strong>=</strong> or <strong>:=</strong>. Where the latter is
-futher explained in <a href="./syntax_vardecl.html">Variable declaration</a>.</p>
-<p>The type of a variable cannot be changed (e.g. via re-assignment).</p>
-<p>Example:</p>
-<pre><code>var0 : int32
-// var0 can only be used in assignments not anywhere else
-var0 = 0
-// var0 can be used
-io.println(var0)
-</code></pre>
+                        <a class="header" href="#tuples" id="tuples"><h2>Tuples</h2></a>
+<p>Every tuple supports two operations (<em>expr0</em> and <em>expr1</em> are tuples filled with
+defined variables):</p>
+<ul>
+<li>
+<p><em>expr0</em> <strong>==</strong> <em>expr1</em>: Only possible if <em>expr0</em> has exactly the same amount
+of types as <em>expr1</em>. Also every <em>i</em>th-type in <em>expr0</em> must be exactly the
+same as the <em>i</em>th-type in <em>expr1</em>. Returns <strong>True</strong>, if every direct <em>i</em>th-value in
+<em>expr0</em> is the same as the direct <em>i</em>th-value in <em>expr1</em> (checked with <strong>==</strong>),
+otherwise <strong>False</strong>.</p>
+</li>
+<li>
+<p><em>expr0</em> <strong>!=</strong> <em>expr1</em>: Only possible if <em>expr0</em> has exactly the same amount
+of types as <em>expr1</em>. Also every <em>i</em>th-type in <em>expr0</em> must be exactly the
+same as the <em>i</em>th-type in <em>expr1</em>. Returns <strong>False</strong>, if every direct <em>i</em>th-value in
+<em>expr0</em> is the same as the direct <em>i</em>th-value in <em>expr1</em> (checked with <strong>==</strong>),
+otherwise <strong>True</strong>.</p>
+</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="syntax_modifiers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="kernel_functions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="syntax_operators.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="LICENSE.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -179,13 +183,13 @@ io.println(var0)
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="syntax_modifiers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="kernel_functions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="syntax_operators.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="LICENSE.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
