@@ -31,6 +31,7 @@ operations, which can't be used as functions.
 | :: :?        | 14         | l             | [Cast, Check cast](./syntax_casting.md)          | -        | n         |
 | :            |            | r             | Declaration               | -        | y         |
 | @            |            | l             | [Capabilities](./syntax_caps.md)                 | -        | n         |
+| \<\>         |            | l             | [Function binding](./syntax_functions_binding.md) | -       | n         |
 | ++a --a      | 15         | r             | Increment, Decrement      | n        | y         |
 | +a -a        |            |               | Positive, Negative        | y        | n         |
 | \*a          |            |               | Dereference               | depends  | n         |
