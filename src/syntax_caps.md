@@ -16,11 +16,13 @@ Where an *id* in *ids* must one of:
 - **Value**: Cast to r-value or R-Value type (functions).
 - **Unique**: Ensure there's no other semantic named the same in the current
   context (works only with named semantics).
+- **Var**: Used in function return-type for returning a handle to a variable.
 
 Two *id*s of the same type aren't allowed in *caps*.
 
 Examples:
 
+Unique:
 ```
 class Person
   // Private modify function
@@ -30,4 +32,31 @@ class Person
 
 // Call modify
 Person()@This._modify()
+```
+
+Var:
+```
+class{T} TwoTuple
+  mut x0: T
+  mut x1: T
+
+  func TwoTupe(x0: T, x1: T)
+    .x0 = x0
+    .x1 = x1
+  ;
+
+  // Returns reference to variable x0
+  func fst : T@Var
+    return x0
+  ;
+
+  // Returns reference to variable x1
+  func snd : T@Var
+    return x1
+  ;
+;
+
+t0 := TwoTuple(100, 101)
+t0.fst() += 100
+io.println(t0.fst()) // prints 200
 ```

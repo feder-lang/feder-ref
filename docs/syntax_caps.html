@@ -157,9 +157,11 @@ be a class instance.</li>
 <li><strong>Value</strong>: Cast to r-value or R-Value type (functions).</li>
 <li><strong>Unique</strong>: Ensure there's no other semantic named the same in the current
 context (works only with named semantics).</li>
+<li><strong>Var</strong>: Used in function return-type for returning a handle to a variable.</li>
 </ul>
 <p>Two <em>id</em>s of the same type aren't allowed in <em>caps</em>.</p>
 <p>Examples:</p>
+<p>Unique:</p>
 <pre><code>class Person
   // Private modify function
   func@Safe,Unique _modify
@@ -168,6 +170,31 @@ context (works only with named semantics).</li>
 
 // Call modify
 Person()@This._modify()
+</code></pre>
+<p>Var:</p>
+<pre><code>class{T} TwoTuple
+  mut x0: T
+  mut x1: T
+
+  func TwoTupe(x0: T, x1: T)
+    .x0 = x0
+    .x1 = x1
+  ;
+
+  // Returns reference to variable x0
+  func fst : T@Var
+    return x0
+  ;
+
+  // Returns reference to variable x1
+  func snd : T@Var
+    return x1
+  ;
+;
+
+t0 := TwoTuple(100, 101)
+t0.fst() += 100
+io.println(t0.fst()) // prints 200
 </code></pre>
 
                     </main>
