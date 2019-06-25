@@ -1,13 +1,14 @@
 ## Classes
 
-> *stmt* := **class** *templ-decl*? *id* *implements*? *newline* *class-body* **;**\
-> *expr* := **class** **_** *implements*? *newline* *class-body* **;**\
+> *stmt* := **class** *templ-decl*? *id* *implements*? *class-defaults*? *newline* *class-body* **;**\
+> *expr* := **class** **_** *implements*? *class-defaults*? *newline* *class-body* **;**\
 > *class-body* := *class-stmt* | *class-stmt* *newline* *class-body*\
 > *class-stmt* := **func** *func-decl-name* *params*? *return-type*? *newline* *body* **;**\
 > | **Func** *func-decl-name* *params*? *return-type*? *newline* *body* **;**\
 > | **func** *func-decl-name* *params*? *return-type*? **;**\
 > | **Func** *func-decl-name* *params*? *return-type*? **;**\
-> | *id* *return-type*
+> | *id* *return-type*\
+> *class-defaults* := **(** *var-decls* **)**
 
 Class can implement traits, have not-virtual constructor functions, virtual
 functions, which implement declared trait-functions and normal functions. All
@@ -18,6 +19,9 @@ is a class-type). Also all class-functions can access all attributes of the
 class directly.
 
 *class-stmt*s are the **members** of a class.
+
+*class-defaults* is for adding attributes to the class. Also
+generates an default constructor with the parameters *var-decls*.
 
 Example:
 
@@ -42,6 +46,13 @@ p0 := Person(std.String("Noone"), -1)
 
 p0.printName()
 Person.printName(p0)
+```
+
+```
+class{T} Tuple(mut x0: T, mut x1: T)
+;
+
+t0 := Tuple(100, 101)
 ```
 
 ### this

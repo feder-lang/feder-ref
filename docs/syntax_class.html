@@ -142,14 +142,15 @@
                     <main>
                         <a class="header" href="#classes" id="classes"><h2>Classes</h2></a>
 <blockquote>
-<p><em>stmt</em> := <strong>class</strong> <em>templ-decl</em>? <em>id</em> <em>implements</em>? <em>newline</em> <em>class-body</em> <strong>;</strong><br />
-<em>expr</em> := <strong>class</strong> <strong>_</strong> <em>implements</em>? <em>newline</em> <em>class-body</em> <strong>;</strong><br />
+<p><em>stmt</em> := <strong>class</strong> <em>templ-decl</em>? <em>id</em> <em>implements</em>? <em>class-defaults</em>? <em>newline</em> <em>class-body</em> <strong>;</strong><br />
+<em>expr</em> := <strong>class</strong> <strong>_</strong> <em>implements</em>? <em>class-defaults</em>? <em>newline</em> <em>class-body</em> <strong>;</strong><br />
 <em>class-body</em> := <em>class-stmt</em> | <em>class-stmt</em> <em>newline</em> <em>class-body</em><br />
 <em>class-stmt</em> := <strong>func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? <em>newline</em> <em>body</em> <strong>;</strong><br />
 | <strong>Func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? <em>newline</em> <em>body</em> <strong>;</strong><br />
 | <strong>func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? <strong>;</strong><br />
 | <strong>Func</strong> <em>func-decl-name</em> <em>params</em>? <em>return-type</em>? <strong>;</strong><br />
-| <em>id</em> <em>return-type</em></p>
+| <em>id</em> <em>return-type</em><br />
+<em>class-defaults</em> := <strong>(</strong> <em>var-decls</em> <strong>)</strong></p>
 </blockquote>
 <p>Class can implement traits, have not-virtual constructor functions, virtual
 functions, which implement declared trait-functions and normal functions. All
@@ -159,6 +160,8 @@ is an value) or as the first argument (if the LHS side of the <strong>.</strong>
 is a class-type). Also all class-functions can access all attributes of the
 class directly.</p>
 <p><em>class-stmt</em>s are the <strong>members</strong> of a class.</p>
+<p><em>class-defaults</em> is for adding attributes to the class. Also
+generates an default constructor with the parameters <em>var-decls</em>.</p>
 <p>Example:</p>
 <pre><code>class Person
     _name : std.String
@@ -180,6 +183,11 @@ p0 := Person(std.String(&quot;Noone&quot;), -1)
 
 p0.printName()
 Person.printName(p0)
+</code></pre>
+<pre><code>class{T} Tuple(mut x0: T, mut x1: T)
+;
+
+t0 := Tuple(100, 101)
 </code></pre>
 <a class="header" href="#this" id="this"><h3>this</h3></a>
 <p>Function in classes can access the variables called <em>this</em> and <em>This</em>, where
