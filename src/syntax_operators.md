@@ -23,6 +23,7 @@ operations, which can't be used as functions.
 | &            | 8          | l             | Bitwise and               | y        | n         |
 | == !=        | 9          | l             | Pointer Comparison        | -        | n         |
 | ===          |            |               | Value comparison          | y        | n         |
+| **mut**      |            | r             | Mutable variable          | -        | n         |
 | \< \<=       | 10         | l             | Less, Maximum             | y        | n         |
 | \> \>=       |            |               | Greater, Minimum          |          | n         |
 | \>\> \<\<    | 11         |               | Bitshift (right,left)     | y        | n         |

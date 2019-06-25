@@ -182,7 +182,7 @@ the decimal digits, letters and the '_' character.</p>
 <a class="header" href="#keywords" id="keywords"><h2>Keywords</h2></a>
 <p>Keywords are reserved identifiers for syntax elements which cannot be used for
 anything else. These are:</p>
-<pre><code>func Func namespace class enum trait typedef return
+<pre><code>func Func namespace class enum trait typedef return mut
 if else match switch for do continue break safe include import
 True False
 _
@@ -465,8 +465,9 @@ and <a href="./lex_strings.html">strings</a>.</p>
 Starting with an identifier with an uppercase or the second character is
 uppercase, if the identifier starts with an underscore, makes the semantic
 constant, of course if the semantic started with an underscore it's also
-private. If all letter of the identifier are uppercase, the semantic is
-immutable.</p>
+private.</p>
+<p>Every variable is <em>immutable</em> at default. Only variables declared with <strong>mut</strong>
+are <em>mutable</em>.</p>
 <a class="header" href="#variables" id="variables"><h2>Variables</h2></a>
 <p>Variables represent values as an identifier. Non-constant members can only be
 called, if they aren't constant. Their pointer cannot be changed if they're
@@ -504,6 +505,7 @@ operations, which can't be used as functions.</p>
 <tr><td align="center"> &amp;            </td><td align="center"> 8          </td><td align="center"> l             </td><td align="left"> Bitwise and               </td><td align="center"> y        </td><td align="center"> n         </td></tr>
 <tr><td align="center"> == !=        </td><td align="center"> 9          </td><td align="center"> l             </td><td align="left"> Pointer Comparison        </td><td align="center"> -        </td><td align="center"> n         </td></tr>
 <tr><td align="center"> ===          </td><td align="center">            </td><td align="center">               </td><td align="left"> Value comparison          </td><td align="center"> y        </td><td align="center"> n         </td></tr>
+<tr><td align="center"> <strong>mut</strong>      </td><td align="center">            </td><td align="center"> r             </td><td align="left"> Mutable variable          </td><td align="center"> -        </td><td align="center"> n         </td></tr>
 <tr><td align="center"> &lt; &lt;=       </td><td align="center"> 10         </td><td align="center"> l             </td><td align="left"> Less, Maximum             </td><td align="center"> y        </td><td align="center"> n         </td></tr>
 <tr><td align="center"> &gt; &gt;=       </td><td align="center">            </td><td align="center">               </td><td align="left"> Greater, Minimum          </td><td align="center">          </td><td align="center"> n         </td></tr>
 <tr><td align="center"> &gt;&gt; &lt;&lt;    </td><td align="center"> 11         </td><td align="center">               </td><td align="left"> Bitshift (right,left)     </td><td align="center"> y        </td><td align="center"> n         </td></tr>
@@ -584,13 +586,13 @@ Person()@This._modify()
 <a class="header" href="#variable-declaration" id="variable-declaration"><h3>Variable declaration</h3></a>
 <blockquote>
 <p><em>stmt</em> := <em>vardecl</em><br />
-<em>vardecl</em> := <em>id</em> <strong>:</strong> <em>expr0</em></p>
+<em>vardecl</em> := <em>id</em> <strong>:</strong> <em>expr0</em> | <strong>mut</strong> <em>id</em> <strong>:</strong> <em>expr0</em></p>
 </blockquote>
 <p>where <em>expr0</em> is a type or tuble composed of types. The declared variable will
 be called <em>id</em>. A type is either an array-type, class, trait, enum or primitive
 type. When using a tuple as type, every tuple member must have a variable name.</p>
 <blockquote>
-<p><em>stmt</em> := <em>id</em> <strong>:=</strong> <em>expr1</em></p>
+<p><em>stmt</em> := <em>id</em> <strong>:=</strong> <em>expr1</em> | <strong>mut</strong> <em>id</em> <strong>:=</strong> <em>expr1</em></p>
 </blockquote>
 <p>where <em>expr1</em> is a value. The type of the variable called <em>id</em> is the type of
 <em>expr1</em>. The value of the variable will be the value of <em>expr1</em>.</p>
@@ -601,11 +603,14 @@ t0: (uint32, int32) // Tuple
 
 // Tuples:
 
-myTuple: (x : int32, y : int32)
+myTuple: (x : i32, y : i32)
 myTuple = (10, 11)
 myTypleRe := (10, 11)
 io.println(myTuple.x)
 io.println(myTuple.y)
+
+// mutable vars
+mut x : i8
 </code></pre>
 <a class="header" href="#assignment" id="assignment"><h2>Assignment</h2></a>
 <p><strong>=</strong> assigns to the value of <em>LHS</em>, which must be a variable, <em>RHS</em>. The type
@@ -1108,16 +1113,16 @@ returned.</p>
 </ul>
 <a class="header" href="#integers-1" id="integers-1"><h1>Integers</h1></a>
 <ul>
-<li>int8: 8-bit integer (signed octet)</li>
-<li>uint8: 8-bit unsigned integer (unsigned octet)</li>
-<li>int16: 16-bit integer (signed short)</li>
-<li>uint16: 16-bit unsigned integer (unsigned short)</li>
-<li>int32: 32-bit integer (unsigned int)</li>
-<li>uint32: 32-bit unsigned integer (signed int)</li>
-<li>int64: 64-bit integer (signed quad)</li>
-<li>uint64: 64-bit unsigned integer (unsigned quad)</li>
-<li>intptr: Architecture dependent size (signed)</li>
-<li>uintptr: Architecture dependent size (unsigned). Used for pointers and size
+<li>i8: 8-bit integer (signed octet)</li>
+<li>u8: 8-bit unsigned integer (unsigned octet)</li>
+<li>i16: 16-bit integer (signed short)</li>
+<li>u16: 16-bit unsigned integer (unsigned short)</li>
+<li>i32: 32-bit integer (unsigned int)</li>
+<li>u32: 32-bit unsigned integer (signed int)</li>
+<li>i64: 64-bit integer (signed quad)</li>
+<li>u64: 64-bit unsigned integer (unsigned quad)</li>
+<li>iptr: Architecture dependent size (signed)</li>
+<li>uptr: Architecture dependent size (unsigned). Used for pointers and size
 of arrays.</li>
 </ul>
 <p>More about integers at
