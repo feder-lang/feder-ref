@@ -8,6 +8,10 @@ An enumeration has constructors with different *id*s. Additionally an *id*
 can be accompanied by **(** *idcalls* **)**, which allows to store values
 of data-types or complex-data-types.
 
+Extracting tuple values without **match** is done with casting. The enumerator
+is simply cast to an enumeration constructor. The resulting type will be
+an tuple with the types defined by *idcalltypes* in *enum-constructor*.
+
 Example:
 
 ```

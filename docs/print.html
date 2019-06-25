@@ -1080,6 +1080,9 @@ MyTwoLineHelloPrinter().PrintHello()
 <p>An enumeration has constructors with different <em>id</em>s. Additionally an <em>id</em>
 can be accompanied by <strong>(</strong> <em>idcalls</em> <strong>)</strong>, which allows to store values
 of data-types or complex-data-types.</p>
+<p>Extracting tuple values without <strong>match</strong> is done with casting. The enumerator
+is simply cast to an enumeration constructor. The resulting type will be
+an tuple with the types defined by <em>idcalltypes</em> in <em>enum-constructor</em>.</p>
 <p>Example:</p>
 <pre><code>enum{T} Option
   Just(T)
