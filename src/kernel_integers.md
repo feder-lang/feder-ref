@@ -1,15 +1,15 @@
 # Integers
 
-- int8: 8-bit integer (signed octet)
-- uint8: 8-bit unsigned integer (unsigned octet)
-- int16: 16-bit integer (signed short)
-- uint16: 16-bit unsigned integer (unsigned short)
-- int32: 32-bit integer (unsigned int)
-- uint32: 32-bit unsigned integer (signed int)
-- int64: 64-bit integer (signed quad)
-- uint64: 64-bit unsigned integer (unsigned quad)
-- intptr: Architecture dependent size (signed)
-- uintptr: Architecture dependent size (unsigned). Used for pointers and size
+- i8: 8-bit integer (signed octet)
+- u8: 8-bit unsigned integer (unsigned octet)
+- i16: 16-bit integer (signed short)
+- u16: 16-bit unsigned integer (unsigned short)
+- i32: 32-bit integer (unsigned int)
+- u32: 32-bit unsigned integer (signed int)
+- i64: 64-bit integer (signed quad)
+- u64: 64-bit unsigned integer (unsigned quad)
+- iptr: Architecture dependent size (signed)
+- uptr: Architecture dependent size (unsigned). Used for pointers and size
   of arrays.
 
 More about integers at
