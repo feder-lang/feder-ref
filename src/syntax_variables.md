@@ -18,3 +18,12 @@ var0 = 0
 // var0 can be used
 io.println(var0)
 ```
+
+### Shadowing
+
+> Shadowing: Declaring a variable which has the same identifier as another
+> variable which can be reached in the current context.
+
+- Function parameters shadow all previous variables
+- Variable declarations always shadow *immutable* variables
+- Attributes shadow all previous variables
