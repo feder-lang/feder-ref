@@ -685,6 +685,19 @@ executed.  If no <em>expr</em> evaluates to <em>True</em>, the <em>return-body</
 <em>newline</em> <em>return-body</em>' will be executed in <em>if-expr</em>. If no <em>expr</em> evaluates
 to <em>True</em> in <em>stmt</em>, the <em>body</em> of '<strong>else</strong> <em>newline</em> <em>body</em>' will be
 executed, if the <strong>else</strong>-case it exists.</p>
+<p>Example:</p>
+<pre><code>func compare(x: i32): i32
+  return (if x &lt; 0
+      return -1
+    else x != 0
+      return 1
+    else
+      return 0
+    ;)
+;
+
+io.println(compare(2)) // prints 1
+</code></pre>
 <a class="header" href="#match" id="match"><h3>Match</h3></a>
 <blockquote>
 <p><em>expr</em> := <strong>match</strong> <em>expr</em> <em>newline</em> <em>match-expr-body</em> <strong>;</strong><br />
