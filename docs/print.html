@@ -395,12 +395,13 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><em>strs</em> := <em>str</em> | <strong>(</strong> <em>strm</em> <strong>)</strong><br />
 <em>strm</em> := <em>str</em> | <em>str</em> <strong>,</strong> <em>strm</em><br />
 <em>idcall</em> := <em>id</em> | <em>id</em> <strong>.</strong> <em>idcall</em><br />
-<em>idcalls</em> := <em>idcall</em> | <strong>(</strong> <em>idcallm</em> <strong>)</strong><br />
+<em>idcalls</em> := <em>idcall</em> | <strong>(</strong> <em>idcall</em> <strong>,</strong> <em>idcallm</em> <strong>)</strong><br />
 <em>idcallm</em> := <em>idcall</em> | <em>idcall</em> <strong>,</strong> <em>idcallm</em></p>
 </blockquote>
 <blockquote>
 <p><em>program</em> := externs program-body <em>EOF</em> | program-body <em>EOF</em> | <em>EOF</em></p>
 </blockquote>
+<p>External dependencies:</p>
 <blockquote>
 <p><em>externs</em>  := includes import | includes | imports<br />
 <em>includes</em> := <em>include</em> | <em>include</em> <em>newline</em> <em>includes</em><br />
@@ -408,28 +409,135 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>imports</em>  := <em>import</em> | <em>import</em> <em>newline</em> <em>imports</em><br />
 <em>import</em> := <strong>import</strong> <em>idcalls</em></p>
 </blockquote>
+<p>General program:</p>
 <blockquote>
 <p><em>program-body</em> := <em>def</em> | <em>def</em> <em>newline</em> <em>program-body</em><br />
-<em>def</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>enum</em> | <em>vardef</em></p>
+<em>def</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>enum</em> | <em>module</em> | <em>vardef</em></p>
 </blockquote>
+<p>Templates:</p>
 <blockquote>
-<p><em>template</em> :=  <strong>{</strong> <em>templdecls</em> <strong>}</strong><br />
-*templdecls := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdecls</em><br />
-<em>templdecl</em> := <em>id</em> | <em>id</em> <strong>::</strong> <em>templidcall</em><br />
-<em>templidcalls</em> := <em>templidcall</em> | <em>templidcall</em> <strong>,</strong> <em>templidcalls</em><br />
+<p><em>template</em> :=  <strong>{</strong> <em>templdecls</em> <strong>}</strong> <br />
+*templdecls := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdecls</em> <br />
+<em>templdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> <br />
+<em>templidcalls</em> := <em>templidcall</em> | <em>templidcall</em> <strong>,</strong> <em>templidcalls</em> <br />
 <em>templidcall</em> := <em>idcall</em> | <em>idcall</em> <em>template</em></p>
 </blockquote>
+<p>Functions:</p>
 <blockquote>
-<p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>funcbody</em> <em>newline</em> <strong>;</strong>
-| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>return-type</em> <em>retfuncbody</em><br />
-<em>funcdecl</em> := <em>template</em> <em>funcdeclx</em> | <em>space</em> <em>funcdeclx</em><br />
-<em>funcdeclx</em> := <em>id</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
-<em>return-types</em> := <em>templidcall</em> | <strong>(</strong> <em>return-typem</em> <strong>)</strong><br />
-<em>return-typem</em> := <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>templidcall</em>
-| <em>templidcall</em> <strong>,</strong> <em>return-typem</em><br />
+<p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>funcbody</em> <em>newline</em> <strong>;</strong> <br />
+| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
+| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em><br />
+| <em>funcnb</em><br />
+<em>funcnb</em> := <strong>func</strong> <em>funcdecl</em> <strong>;</strong>
+| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>;</strong><br />
+<em>funcdecl</em> := <em>template</em> <em>funcdeclx</em> | <em>space</em> <em>funcdeclx</em>
+| <em>template</em> <em>caps</em> <em>funcdeclx</em> | <em>caps</em> <em>func</em> <em>funcdeclx</em><br />
+<em>funcdeclx</em> := <em>id</em> | <em>id</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
+<em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <em>funcvars</em><br />
+<em>funcvar</em> := <em>vardecl</em> | *vardecl <strong>|</strong> <em>expr</em><br />
+<em>returntype</em> := <em>templidcall</em> | <em>vardecltuple</em> <br />
+<em>returntypetuple</em> := <strong>(</strong> <em>returntuplex</em> <strong>)</strong> <br />
+<em>returntuplex</em> := <em>returntupleunit</em>
+| <em>returntupleunit</em> <strong>,</strong> <em>returntuplex</em><br />
+<em>returntupleunit</em> := <em>templidcall</em> | <em>id</em> : <em>templidcall</em><br />
 <em>funcbody</em> := <em>expr</em> | <em>expr</em> <em>newline</em> <em>funcbody</em><br />
-<em>retfuncbody</em> := <em>funcbody</em> <strong>return</strong> <em>expr</em> <em>newline</em> <strong>;</strong>
-| <em>funcbody</em> <em>expr</em> <strong>;</strong></p>
+<em>retfuncbody</em> := <em>funcbody</em> <strong>return</strong> <em>expr</em> <em>newline</em> | <em>funcbody</em></p>
+</blockquote>
+<p>Traits:</p>
+<blockquote>
+<p><em>trait</em> := <strong>trait</strong> <em>traitdecl</em> <em>newline</em> <em>traitbody</em> <strong>;</strong><br />
+<em>traitdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templcalls</em><br />
+<em>traitbody</em> := <em>funcnb</em> | <em>funcnb</em> <em>newline</em> <em>traitbody</em></p>
+</blockquote>
+<p>Classes:</p>
+<blockquote>
+<p><em>class</em> := <strong>class</strong> <em>classdecl</em> <em>newline</em> <em>classbody</em> <strong>;</strong><br />
+| <strong>class</strong> <em>classdecl</em> <em>classcons</em> <em>newline</em> <em>classbody</em> <strong>;</strong><br />
+<em>classdecl</em> := <em>space</em> <em>id</em> | <em>template</em> <em>id</em><br />
+| <em>space</em> <em>id</em> <strong>:</strong> <em>templidcalls</em> | <em>template</em> <em>id</em> <strong>:</strong> <em>templidcalls</em><br />
+<em>classcons</em> := <strong>(</strong> <em>vardecls</em> <strong>)</strong>
+<em>classbody</em> := <em>classunit</em> | <em>classunit</em> <em>newline</em> <em>classbody</em><br />
+<em>classunit</em> := <em>vardecl</em> | <em>func</em></p>
+</blockquote>
+<p>Enums:</p>
+<blockquote>
+<p><em>enum</em> := <strong>enum</strong> <em>enumdecl</em> <em>newline</em> <em>enumbody</em> <strong>;</strong><br />
+<em>enumdecl</em> := <em>id</em><br />
+<em>enumbody</em> := <em>id</em> | <em>id</em> <strong>(</strong> <em>templidcalls</em> <strong>)</strong></p>
+</blockquote>
+<p>Modules:</p>
+<blockquote>
+<p><em>module</em> := <strong>module</strong> <em>moduledecl</em> <em>newline</em> <em>program-body</em><br />
+<em>moduledecl</em> := <em>id</em></p>
+</blockquote>
+<p>General Expression:</p>
+<blockquote>
+<p><em>expr</em> := <em>def</em> | <em>vardecl</em>
+| <strong>(</strong> <em>expr</em> <strong>)</strong>
+| <em>biopexpr</em>  | <em>unopexpr</em>
+| <em>fctl</em></p>
+</blockquote>
+<p>Variable declaration:</p>
+<blockquote>
+<p><em>vardecl</em> := <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id</em> <strong>:</strong> <em>vardecltuple</em>
+| <strong>mut</strong> <em>id</em> <strong>:</strong> <em>templidcall</em><br />
+<em>vardecltuple</em> := <strong>(</strong> <em>vardecltupleunit</em> <strong>,</strong> <em>vardecltuplex</em> <strong>)</strong><br />
+<em>vardecltuplex</em> := <em>vardecltupleunit</em>
+| <em>vardecltupleunit</em> <strong>,</strong> <em>vardecltuplex</em><br />
+<em>vardecltupleunit</em> := <em>templidcall</em> | <em>id</em> : <em>templidcall</em>
+| <strong>mut</strong> <em>id</em> : <em>templidcall</em><br />
+<em>vardecls</em> := <em>vardecl</em> | <em>vardecl</em> <strong>,</strong> <em>vardecls</em></p>
+</blockquote>
+<p>Variable definition:</p>
+<blockquote>
+<p><em>vardef</em> := <em>vardecl</em> <strong>=</strong> <em>expr</em> | <em>idcalls</em> <strong>=</strong> <em>expr</em>
+| <em>idcalls</em> <strong>:=</strong> <em>expr</em> | <strong>mut</strong> <em>idcalls</em> <strong>:=</strong>  <em>expr</em></p>
+</blockquote>
+<p>Capabilities:</p>
+<blockquote>
+<p><em>caps</em> := <em>cap</em> | <em>cap</em> <em>caps</em><br />
+<em>cap</em> := <strong>@</strong> <em>capid</em><br />
+<em>capid</em> := <strong>MMM</strong> | <strong>Trait</strong> | <strong>Value</strong> | <strong>Unique</strong></p>
+</blockquote>
+<p>Flow-control expressions:</p>
+<blockquote>
+<p><em>fctl</em> := <em>cond</em> | <em>loop</em><br />
+<em>cond</em> := <em>if</em> | <em>match</em><br />
+<em>loop</em> := <em>for</em> | <em>do</em></p>
+</blockquote>
+<p>Conditional expressions:</p>
+<blockquote>
+<p><em>if</em> := <em>ifbase</em> <em>else</em> <strong>;</strong> | <em>ifbase</em> <strong>;</strong><br />
+<em>ifbase</em> := <strong>if</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>funcbody</em> <em>newline</em><br />
+| <strong>if</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>funcbody</em> <em>newline</em> <em>loopctl</em> <em>newline</em><br />
+| <strong>if</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>retfuncbody</em> <em>newline</em><br />
+<em>else</em> := <em>elsebase</em> | <em>else</em> <em>elsebase</em><br />
+<em>elsebase</em> := <strong>else</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>funcbody</em> <em>newline</em><br />
+| <strong>else</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>retfuncbody</em> <em>newline</em></p>
+</blockquote>
+<p>Loop expressions:</p>
+<blockquote>
+<p><em>loopctl</em> := <strong>break</strong> | <strong>continue</strong>
+<em>for</em> := <strong>for</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
+| <strong>for</strong> <em>expr</em> <em>newline</em> <em>funcbody</em> <strong>;</strong>|
+| <strong>for</strong> <em>expr</em> <strong>;</strong> <em>expr</em> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
+| <strong>for</strong> <em>expr</em> <strong>;</strong> <em>expr</em> <strong>;</strong> <em>expr</em> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
+<em>do</em> <em>newline</em> <em>funcbody</em> <strong>;</strong> <strong>for</strong> <em>expr</em><br />
+| <em>do</em> <em>expr</em> <em>newline</em> <em>funcbody</em> <strong>;</strong> <strong>for</strong> <em>expr</em><br />
+| <em>do</em> <em>expr</em> <strong>;</strong> <em>expr</em> <em>newline</em> <em>funcbody</em> <strong>;</strong> <strong>for</strong> <em>expr</em></p>
+</blockquote>
+<p>Operators:</p>
+<blockquote>
+<p><em>biopexpr</em> := <em>expr0</em> <em>biop</em> <em>expr1</em><br />
+<em>unopexpr</em> := <em>expr</em> <em>runop</em> | <em>lunop</em> *expr *<br />
+<em>biop</em> := <strong>+</strong> | <strong>-</strong> | <strong>*</strong> | <strong>/</strong> | <strong>**</strong> | <strong>%</strong> <br />
+| <strong>&amp;</strong> | <strong>|</strong> | <strong>^</strong> | <strong>&lt;&lt;</strong> | <strong>&gt;&gt;</strong> <br />
+| <strong>==</strong> | <strong>!=</strong> | <strong>&lt;</strong> | <strong>&gt;</strong> | <strong>&lt;=</strong> | <strong>&gt;=</strong><br />
+| <strong>&amp;&amp;</strong> | <strong>||</strong>
+<strong>+=</strong> | <strong>-=</strong> | <strong>*=</strong> | <strong>/=</strong> | <strong>**=</strong> | <strong>%=</strong><br />
+| <strong>&amp;=</strong> | <strong>|=</strong> | <strong>^=</strong> | <strong>&lt;&lt;=</strong> | <strong>&gt;&gt;=</strong> <br />
+<em>runop</em> := <strong>*</strong> | <strong>!</strong><br />
+<em>lunop</em> := <strong>++</strong> | <strong>--</strong></p>
 </blockquote>
 <a class="header" href="#kernel" id="kernel"><h1>Kernel</h1></a>
 <p>The Kernel provides basic functionality, like integers or the Option trait.</p>

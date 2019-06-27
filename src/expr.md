@@ -43,10 +43,12 @@ the chapter [Lexical Elements](./lexical.md).
 > *strs* := *str* | **(** *strm* **)**\
 > *strm* := *str* | *str* **,** *strm*\
 > *idcall* := *id* | *id* **.** *idcall*\
-> *idcalls* := *idcall* | **(** *idcallm* **)**\
+> *idcalls* := *idcall* | **(** *idcall* **,** *idcallm* **)**\
 > *idcallm* := *idcall* | *idcall* **,** *idcallm*
 
 > *program* := externs program-body *EOF* | program-body *EOF* | *EOF*
+
+External dependencies:
 
 > *externs*  := includes import | includes | imports\
 > *includes* := *include* | *include* *newline* *includes*\
@@ -54,23 +56,132 @@ the chapter [Lexical Elements](./lexical.md).
 > *imports*  := *import* | *import* *newline* *imports*\
 > *import* := **import** *idcalls*
 
-> *program-body* := *def* | *def* *newline* *program-body*\
-> *def* := *func* | *trait* | *class* | *enum* | *vardef*
+General program:
 
-> *template* :=  **{** *templdecls* **}**\
-> *templdecls := *templdecl* | *templdecl* **,** *templdecls*\
-> *templdecl* := *id* | *id* **::** *templidcall*\
-> *templidcalls* := *templidcall* | *templidcall* **,** *templidcalls*\
+> *program-body* := *def* | *def* *newline* *program-body*\
+> *def* := *func* | *trait* | *class* | *enum* | *module* | *vardef*
+
+Templates:
+
+> *template* :=  **{** *templdecls* **}** \
+> *templdecls := *templdecl* | *templdecl* **,** *templdecls* \
+> *templdecl* := *id* | *id* **:** *templidcall* \
+> *templidcalls* := *templidcall* | *templidcall* **,** *templidcalls* \
 > *templidcall* := *idcall* | *idcall* *template*
 
-> *func* := **func** *funcdecl* *funcbody* *newline* **;**
-> | **func** *funcdecl* **:** *return-type* *retfuncbody*\
-> *funcdecl* := *template* *funcdeclx* | *space* *funcdeclx*\
-> *funcdeclx* := *id* **(** *funcvars* **)**\
-> *return-types* := *templidcall* | **(** *return-typem* **)**\
-> *return-typem* := *id* **:** *templidcall* | *templidcall*
-> | *templidcall* **,** *return-typem*\
-> *funcbody* := *expr* | *expr* *newline* *funcbody*\
-> *retfuncbody* := *funcbody* **return** *expr* *newline* **;**
-> | *funcbody* *expr* **;**
+Functions:
 
+> *func* := **func** *funcdecl* *funcbody* *newline* **;** \
+> | **func** *funcdecl* **:** *returntype* *newline* *retfuncbody* **;**\
+> | **func** *funcdecl* **:** *newline* *retfuncbody*\
+> | *funcnb*\
+> *funcnb* := **func** *funcdecl* **;**
+> | **func** *funcdecl* **:** *returntype* **;**\
+> *funcdecl* := *template* *funcdeclx* | *space* *funcdeclx*
+> | *template* *caps* *funcdeclx* | *caps* *func* *funcdeclx*\
+> *funcdeclx* := *id* | *id* **(** *funcvars* **)**\
+> *funcvars* := *funcvar* | *funcvar* *funcvars*\
+> *funcvar* := *vardecl* | *vardecl **|** *expr*\
+> *returntype* := *templidcall* | *vardecltuple* \
+> *returntypetuple* := **(** *returntuplex* **)** \
+> *returntuplex* := *returntupleunit*
+> \| *returntupleunit* **,** *returntuplex*\
+> *returntupleunit* := *templidcall* | *id* : *templidcall*\
+> *funcbody* := *expr* | *expr* *newline* *funcbody*\
+> *retfuncbody* := *funcbody* **return** *expr* *newline* \| *funcbody*
+
+Traits:
+
+> *trait* := **trait** *traitdecl* *newline* *traitbody* **;**\
+> *traitdecl* := *id* | *id* **:** *templcalls*\
+> *traitbody* := *funcnb* | *funcnb* *newline* *traitbody*
+
+Classes:
+
+> *class* := **class** *classdecl* *newline* *classbody* **;**\
+> | **class** *classdecl* *classcons* *newline* *classbody* **;**\
+> *classdecl* := *space* *id* | *template* *id*\
+> | *space* *id* **:** *templidcalls* | *template* *id* **:** *templidcalls*\
+> *classcons* := **(** *vardecls* **)**
+> *classbody* := *classunit* | *classunit* *newline* *classbody*\
+> *classunit* := *vardecl* | *func*
+
+Enums:
+
+> *enum* := **enum** *enumdecl* *newline* *enumbody* **;**\
+> *enumdecl* := *id*\
+> *enumbody* := *id* | *id* **(** *templidcalls* **)**
+
+Modules:
+
+> *module* := **module** *moduledecl* *newline* *program-body*\
+> *moduledecl* := *id*
+
+General Expression:
+
+> *expr* := *def* | *vardecl*
+> | **(** *expr* **)**
+> | *biopexpr*  | *unopexpr*
+> | *fctl*
+
+Variable declaration:
+
+> *vardecl* := *id* **:** *templidcall* | *id* **:** *vardecltuple*
+>              | **mut** *id* **:** *templidcall*\
+> *vardecltuple* := **(** *vardecltupleunit* **,** *vardecltuplex* **)**\
+> *vardecltuplex* := *vardecltupleunit*
+>                    | *vardecltupleunit* **,** *vardecltuplex*\
+> *vardecltupleunit* := *templidcall* | *id* : *templidcall*
+>                       | **mut** *id* : *templidcall*\
+> *vardecls* := *vardecl* | *vardecl* **,** *vardecls*
+
+Variable definition:
+
+> *vardef* := *vardecl* **=** *expr* | *idcalls* **=** *expr*
+>             | *idcalls* **:=** *expr* | **mut** *idcalls* **:=**  *expr*
+
+Capabilities:
+
+> *caps* := *cap* | *cap* *caps*\
+> *cap* := **@** *capid*\
+> *capid* := **MMM** | **Trait** | **Value** | **Unique**
+
+Flow-control expressions:
+
+> *fctl* := *cond* | *loop*\
+> *cond* := *if* | *match*\
+> *loop* := *for* | *do*
+
+Conditional expressions:
+
+> *if* := *ifbase* *else* **;** | *ifbase* **;**\
+> *ifbase* := **if** *space* *expr* *newline* *funcbody* *newline*\
+> \| **if** *space* *expr* *newline* *funcbody* *newline* *loopctl* *newline*\
+> \| **if** *space* *expr* *newline* *retfuncbody* *newline*\
+> *else* := *elsebase* \| *else* *elsebase*\
+> *elsebase* := **else** *space* *expr* *newline* *funcbody* *newline*\
+> | **else** *space* *expr* *newline* *retfuncbody* *newline*
+
+Loop expressions:
+
+> *loopctl* := **break** | **continue**
+> *for* := **for** *newline* *funcbody* **;**\
+> | **for** *expr* *newline* *funcbody* **;**|
+> | **for** *expr* **;** *expr* *newline* *funcbody* **;**\
+> | **for** *expr* **;** *expr* **;** *expr* *newline* *funcbody* **;**\
+> *do* *newline* *funcbody* **;** **for** *expr*\
+> | *do* *expr* *newline* *funcbody* **;** **for** *expr*\
+> | *do* *expr* **;** *expr* *newline* *funcbody* **;** **for** *expr*
+
+Operators:
+
+> *biopexpr* := *expr0* *biop* *expr1*\
+> *unopexpr* := *expr* *runop* | *lunop* *expr *\
+> *biop* := **+** | **-** | **\*** | **/** | **\*\*** | **%** \
+> | **\&** | **|** | **^** | **<<** | **>>** \
+> | **==** | **!=** | **<** | **>** | **<=** | **>=**\
+> | **&&** | **||**
+> **+=** | **-=** | **\*=** | **/=** | **\*\*=** | **%=**\
+> | **\&=** | **|=** | **^=** | **<<=** | **>>=** \
+> *runop* := **\*** | **!**\
+> *lunop* := **++** | **--**
