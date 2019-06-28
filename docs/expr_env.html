@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Functions - Feder: Reference Manual</title>
+        <title>Environment - Feder: Reference Manual</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Reference manual for the Feder programming language.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html" class="active"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html" class="active"><strong aria-hidden="true">3.1.</strong> Environment</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -140,45 +140,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#functions" id="functions"><h2>Functions</h2></a>
-<a class="header" href="#floating-point" id="floating-point"><h3>Floating-point</h3></a>
-<pre><code>namespace std
-
-/**@return Returns true, if float is a special IEEE-754 value.
- */
-func@Safe isSpecialFloat(float32) : bool;
-
-/**@return Returns true, if float is a special IEEE-754 value.
- */
-func@Safe isSpecialFloat(float64) : bool;
-
-/**@return Returns true, if float is a special IEEE-754 value.
- */
-func@Safe,Unique isSpecialFloat32(float32) : bool;
-
-/**@return Returns true, if float is a special IEEE-754 value.
- */
-func@Safe,Unique isSpecialFloat64(float64) : bool;
-
-/** Terminates program.
- */
-func@Safe panic ;
-
-;
-</code></pre>
+                        <a class="header" href="#environment" id="environment"><h2>Environment</h2></a>
+<p>An environment is assembly of semantics<sup class="footnote-reference"><a href="#sem">1</a></sup> which can be referenced by an
+<em>identifier</em><sup class="footnote-reference"><a href="#id">2</a></sup>. There can be semantics with the same <em>identifier</em>, when this is
+the case, a reference will point to the newest semantic. The environment has
+either no parent (if it is the environemnt of the whole document) or one
+parent.</p>
+<div class="footnote-definition" id="sem"><sup class="footnote-definition-label">1</sup>
+<p>All function bodies, program-bodies, modules and classes(only
+functions) have an own environment.</p>
+</div>
+<div class="footnote-definition" id="id"><sup class="footnote-definition-label">2</sup>
+<p>This is also <em>funcvars</em> or <em>template</em> not just the <em>id</em>.</p>
+</div>
+<a class="header" href="#shadowing" id="shadowing"><h3>Shadowing</h3></a>
+<p>As mentioned above, semantics with the same <em>identifier</em> can be added
+to a single <em>environment</em>. This is only possible, if:</p>
+<ul>
+<li>The previous semantic in the environemnt is a variable</li>
+<li>The semantic is an template specialization of of the previous semantic
+(where all semantics which are already specializations are ignored).</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="kernel_option.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="expr.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="kernel_tuples.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="kernel.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -190,13 +185,13 @@ func@Safe panic ;
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="kernel_option.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="expr.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="kernel_tuples.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="kernel.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

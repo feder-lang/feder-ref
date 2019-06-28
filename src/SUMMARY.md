@@ -13,6 +13,7 @@
 	* [Separators](./lex_separators.md)
 	* [Space](./lex_space.md)
 - [Expressions](./expr.md)
+	* [Environment](./expr_env.md)
 - [Kernel](./kernel.md)
 	* [Data Types](./kernel_types.md)
 		- [bool](./kernel_bool.md)
