@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.2.</strong> Anonymous semantics</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.2.</strong> Anonymous semantics</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.3.</strong> Classes</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -417,7 +417,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p>Templates:</p>
 <blockquote>
 <p><em>template</em> :=  <strong>{</strong> <em>templdecls</em> <strong>}</strong> <br />
-*templdecls := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdecls</em> <br />
+<em>templdecls</em> := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdecls</em> <br />
 <em>templdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> <br />
 <em>templidcalls</em> := <em>templidcall</em> | <em>templidcall</em> <strong>,</strong> <em>templidcalls</em> <br />
 <em>templidcall</em> := <em>idcall</em> | <em>idcall</em> <em>template</em></p>
@@ -439,9 +439,13 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>returntypetuple</em> := <strong>(</strong> <em>returntuplex</em> <strong>)</strong> <br />
 <em>returntuplex</em> := <em>returntupleunit</em>
 | <em>returntupleunit</em> <strong>,</strong> <em>returntuplex</em><br />
-<em>returntupleunit</em> := <em>templidcall</em> | <em>id</em> : <em>templidcall</em><br />
+<em>returntupleunit</em> := <em>templidcall</em> | <em>id</em> : <em>templidcall</em> | <em>func</em>
+| <em>functype</em><br />
 <em>funcbody</em> := <em>expr</em> | <em>expr</em> <em>newline</em> <em>funcbody</em><br />
-<em>retfuncbody</em> := <em>funcbody</em> <strong>return</strong> <em>expr</em> <em>newline</em> | <em>funcbody</em></p>
+<em>retfuncbody</em> := <em>funcbody</em> <strong>return</strong> <em>expr</em> <em>newline</em> | <em>funcbody</em>
+<em>functype</em> := <strong>func</strong> | <strong>func</strong> <strong>:</strong> <em>return-type</em>
+| <strong>func</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong>
+| <strong>func</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong> <strong>:</strong> <em>return-type</em></p>
 </blockquote>
 <p>Traits:</p>
 <blockquote>
@@ -455,7 +459,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <strong>class</strong> <em>classdecl</em> <em>classcons</em> <em>newline</em> <em>classbody</em> <strong>;</strong><br />
 <em>classdecl</em> := <em>space</em> <em>id</em> | <em>template</em> <em>id</em><br />
 | <em>space</em> <em>id</em> <strong>:</strong> <em>templidcalls</em> | <em>template</em> <em>id</em> <strong>:</strong> <em>templidcalls</em><br />
-<em>classcons</em> := <strong>(</strong> <em>vardecls</em> <strong>)</strong>
+<em>classcons</em> := <strong>(</strong> <em>vardecls</em> <strong>)</strong> <br />
 <em>classbody</em> := <em>classunit</em> | <em>classunit</em> <em>newline</em> <em>classbody</em><br />
 <em>classunit</em> := <em>vardecl</em> | <em>func</em></p>
 </blockquote>
@@ -484,8 +488,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>vardecltuple</em> := <strong>(</strong> <em>vardecltupleunit</em> <strong>,</strong> <em>vardecltuplex</em> <strong>)</strong><br />
 <em>vardecltuplex</em> := <em>vardecltupleunit</em>
 | <em>vardecltupleunit</em> <strong>,</strong> <em>vardecltuplex</em><br />
-<em>vardecltupleunit</em> := <em>templidcall</em> | <em>id</em> : <em>templidcall</em>
-| <strong>mut</strong> <em>id</em> : <em>templidcall</em><br />
+<em>vardecltupleunit</em> := <em>returntupleunit</em> | <strong>mut</strong> <em>space</em> <em>functype</em>
+| <strong>mut</strong> <em>space</em>  <em>id</em> : <em>templidcall</em><br />
 <em>vardecls</em> := <em>vardecl</em> | <em>vardecl</em> <strong>,</strong> <em>vardecls</em></p>
 </blockquote>
 <p>Variable definition:</p>
@@ -577,6 +581,33 @@ to a single <em>environment</em>. This is only possible, if:</p>
 <p>Every <em>def</em> (except <em>vardef</em>) not used in a top-level expression is an
 anonymous semantic, it's referenced will not be added to the current
 environment.</p>
+<a class="header" href="#classes" id="classes"><h2>Classes</h2></a>
+<p>Classes have attributes, constructors and functions:</p>
+<ul>
+<li>Attributes: Every vardecl in <em>classcons</em> and <em>classunit</em> which is a
+<em>vardecl</em>.</li>
+<li>Constructors: <em>classcons</em> is a constructor which has <em>vardecls</em> as
+parameters, where every attribute declared in <em>classcons</em> is assigned with
+the corresponding argument (the exact same). All other constructors are the
+class's functions which have the exact same name as the class.  Every
+constructor with the additional <strong>_init</strong> function must initialize all
+attributes declared in the class.  The function called <strong>_init</strong> will always
+be called before the constructor function. Constructor functions mustn't
+have a return-type.</li>
+<li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.</li>
+</ul>
+<a class="header" href="#creating-an-object" id="creating-an-object"><h3>Creating an object</h3></a>
+<p>An object is created by making function call where the called function
+is a reference to the class. The arguments are these of the constructors except
+<strong>this</strong>.</p>
+<a class="header" href="#function-access" id="function-access"><h3>Function access</h3></a>
+<p>When a class's function is accessed via the class semantic, the returned
+function is same as if it would be accessed in a program body.  If the function
+is accessed via an object, the returned function is the function accessed via
+the class semantic where the first argument is bound with the object.</p>
+<a class="header" href="#functions" id="functions"><h3>Functions</h3></a>
+<p>The first parameter of every class's function and constructor must be either
+<strong>this</strong> or, if its a function, <strong>This</strong>.</p>
 <a class="header" href="#kernel" id="kernel"><h1>Kernel</h1></a>
 <p>The Kernel provides basic functionality, like integers or the Option trait.</p>
 <ul>
@@ -757,7 +788,7 @@ equal (<em>expr0</em> - <em>expr1</em> is not equal to 0), otherwise True. <em>e
   Some(T)
 ;
 </code></pre>
-<a class="header" href="#functions" id="functions"><h2>Functions</h2></a>
+<a class="header" href="#functions-1" id="functions-1"><h2>Functions</h2></a>
 <a class="header" href="#floating-point" id="floating-point"><h3>Floating-point</h3></a>
 <pre><code>namespace std
 

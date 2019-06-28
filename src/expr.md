@@ -64,7 +64,7 @@ General program:
 Templates:
 
 > *template* :=  **{** *templdecls* **}** \
-> *templdecls := *templdecl* | *templdecl* **,** *templdecls* \
+> *templdecls* := *templdecl* | *templdecl* **,** *templdecls* \
 > *templdecl* := *id* | *id* **:** *templidcall* \
 > *templidcalls* := *templidcall* | *templidcall* **,** *templidcalls* \
 > *templidcall* := *idcall* | *idcall* *template*
@@ -86,9 +86,13 @@ Functions:
 > *returntypetuple* := **(** *returntuplex* **)** \
 > *returntuplex* := *returntupleunit*
 > \| *returntupleunit* **,** *returntuplex*\
-> *returntupleunit* := *templidcall* | *id* : *templidcall*\
+> *returntupleunit* := *templidcall* | *id* : *templidcall* | *func*
+>                      | *functype*\
 > *funcbody* := *expr* | *expr* *newline* *funcbody*\
 > *retfuncbody* := *funcbody* **return** *expr* *newline* \| *funcbody*
+> *functype* := **func** | **func** **:** *return-type*
+> | **func** **(** *vardecls* **)**
+> | **func** **(** *vardecls* **)** **:** *return-type*
 
 Traits:
 
@@ -102,7 +106,7 @@ Classes:
 > | **class** *classdecl* *classcons* *newline* *classbody* **;**\
 > *classdecl* := *space* *id* | *template* *id*\
 > | *space* *id* **:** *templidcalls* | *template* *id* **:** *templidcalls*\
-> *classcons* := **(** *vardecls* **)**
+> *classcons* := **(** *vardecls* **)** \
 > *classbody* := *classunit* | *classunit* *newline* *classbody*\
 > *classunit* := *vardecl* | *func*
 
@@ -131,8 +135,8 @@ Variable declaration:
 > *vardecltuple* := **(** *vardecltupleunit* **,** *vardecltuplex* **)**\
 > *vardecltuplex* := *vardecltupleunit*
 >                    | *vardecltupleunit* **,** *vardecltuplex*\
-> *vardecltupleunit* := *templidcall* | *id* : *templidcall*
->                       | **mut** *id* : *templidcall*\
+> *vardecltupleunit* := *returntupleunit* | **mut** *space* *functype*
+>                       | **mut** *space*  *id* : *templidcall*\
 > *vardecls* := *vardecl* | *vardecl* **,** *vardecls*
 
 Variable definition:
