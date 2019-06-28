@@ -288,7 +288,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>cond</em> := <em>if</em> | <em>match</em><br />
 <em>loop</em> := <em>for</em> | <em>do</em></p>
 </blockquote>
-<p>Conditional expressions:</p>
+<p>If expressions:</p>
 <blockquote>
 <p><em>if</em> := <em>ifbase</em> <em>else</em> <strong>;</strong> | <em>ifbase</em> <strong>;</strong><br />
 <em>ifbase</em> := <strong>if</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>funcbody</em> <em>newline</em><br />
@@ -297,6 +297,18 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>else</em> := <em>elsebase</em> | <em>else</em> <em>elsebase</em><br />
 <em>elsebase</em> := <strong>else</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>funcbody</em> <em>newline</em><br />
 | <strong>else</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>retfuncbody</em> <em>newline</em></p>
+</blockquote>
+<p>Match expression:</p>
+<blockquote>
+<p><em>match</em> := <em>matchbase</em> <em>newline</em> <em>matchbody</em> <em>newline</em> <em>;</em><br />
+<em>matchbase</em> := <strong>match</strong> <em>expr</em><br />
+<em>matchbody</em> := <em>matchcase</em> | <em>matchcase</em> <em>matchbody</em><br />
+<em>matchcase</em> := <em>matchcasecond</em> <strong>=&gt;</strong> <em>funcbody</em> <strong>;</strong>
+| <em>matchcasesecond</em> <strong>=&gt;</strong> <em>retfuncbody</em> <strong>;</strong><br />
+<em>matchcasecond</em> := <em>matchcasecons</em> | <em>matchcasecons</em> <em>expr</em><br />
+<em>matchcasecons</em> := <em>idcall</em> | <em>idcall</em> <strong>(</strong> <em>matchids</em> <strong>)</strong><br />
+<em>matchids</em> := <em>matchid</em> | <em>matchid</em> <strong>,</strong> <em>matchids</em><br />
+<em>matchid</em> := <strong>_</strong> | <em>id</em></p>
 </blockquote>
 <p>Loop expressions:</p>
 <blockquote>
@@ -319,6 +331,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <strong>&amp;&amp;</strong> | <strong>||</strong>
 <strong>+=</strong> | <strong>-=</strong> | <strong>*=</strong> | <strong>/=</strong> | <strong>**=</strong> | <strong>%=</strong><br />
 | <strong>&amp;=</strong> | <strong>|=</strong> | <strong>^=</strong> | <strong>&lt;&lt;=</strong> | <strong>&gt;&gt;=</strong> <br />
+| <strong>&lt;&gt;</strong>
 <em>runop</em> := <strong>*</strong> | <strong>!</strong><br />
 <em>lunop</em> := <strong>++</strong> | <strong>--</strong></p>
 </blockquote>

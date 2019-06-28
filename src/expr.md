@@ -152,7 +152,7 @@ Flow-control expressions:
 > *cond* := *if* | *match*\
 > *loop* := *for* | *do*
 
-Conditional expressions:
+If expressions:
 
 > *if* := *ifbase* *else* **;** | *ifbase* **;**\
 > *ifbase* := **if** *space* *expr* *newline* *funcbody* *newline*\
@@ -161,6 +161,18 @@ Conditional expressions:
 > *else* := *elsebase* \| *else* *elsebase*\
 > *elsebase* := **else** *space* *expr* *newline* *funcbody* *newline*\
 > | **else** *space* *expr* *newline* *retfuncbody* *newline*
+
+Match expression:
+
+> *match* := *matchbase* *newline* *matchbody* *newline* *;*\
+> *matchbase* := **match** *expr*\
+> *matchbody* := *matchcase* | *matchcase* *matchbody*\
+> *matchcase* := *matchcasecond* **=>** *funcbody* **;**
+> | *matchcasesecond* **=>** *retfuncbody* **;**\
+> *matchcasecond* := *matchcasecons* | *matchcasecons* *expr*\
+> *matchcasecons* := *idcall* | *idcall* **(** *matchids* **)**\
+> *matchids* := *matchid* | *matchid* **,** *matchids*\
+> *matchid* := **_** | *id*
 
 Loop expressions:
 
@@ -183,5 +195,6 @@ Operators:
 > | **&&** | **||**
 > **+=** | **-=** | **\*=** | **/=** | **\*\*=** | **%=**\
 > | **\&=** | **|=** | **^=** | **<<=** | **>>=** \
+> | **<>**
 > *runop* := **\*** | **!**\
 > *lunop* := **++** | **--**
