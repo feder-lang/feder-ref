@@ -59,7 +59,8 @@ External dependencies:
 General program:
 
 > *program-body* := *def* | *def* *newline* *program-body*\
-> *def* := *func* | *trait* | *class* | *enum* | *module* | *vardef*
+> *def* := *func* | *trait* | *class* | *traitimpl*
+> | *enum* | *module* | *vardef*
 
 Templates:
 
@@ -120,6 +121,11 @@ Classes:
 > *classcons* := **(** *vardecls* **)** \
 > *classbody* := *classunit* | *classunit* *newline* *classbody*\
 > *classunit* := *vardecl* | *clfunc*
+
+> *traitimpl* := **class** *space* **trait** *traitimpldecl* *newline* *traitimplbody* **;**\
+> *traitimpldecl* := *space* *idcall* **:** *templidcall*
+> | *template* *idcall* **:** *templidcall*\
+> *traitimplbody* := *clfuncnb* | *clfuncnb* *newline* *clfuncnb*
 
 Enums:
 

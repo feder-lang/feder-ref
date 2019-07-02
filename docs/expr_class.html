@@ -155,6 +155,11 @@ be called before the constructor function. Constructor functions mustn't
 have a return-type.</li>
 <li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.</li>
 </ul>
+<a class="header" href="#implementing-traits" id="implementing-traits"><h3>Implementing traits</h3></a>
+<p>Functions declared can be implemented by classes to support polymorphism.
+<em>traitimpl</em> must contain all functions declared by the mentioned trait
+after <strong>:</strong> in <em>traitimplbody</em>. A trait already implemenated in the functions
+cannot be reimplemented.</p>
 <a class="header" href="#creating-an-object" id="creating-an-object"><h3>Creating an object</h3></a>
 <p>An object is created by making function call where the called function
 is a reference to the class. The first argument must be <strong>this</strong>.</p>

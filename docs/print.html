@@ -416,7 +416,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p>General program:</p>
 <blockquote>
 <p><em>program-body</em> := <em>def</em> | <em>def</em> <em>newline</em> <em>program-body</em><br />
-<em>def</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>enum</em> | <em>module</em> | <em>vardef</em></p>
+<em>def</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
+| <em>enum</em> | <em>module</em> | <em>vardef</em></p>
 </blockquote>
 <p>Templates:</p>
 <blockquote>
@@ -477,6 +478,12 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>classcons</em> := <strong>(</strong> <em>vardecls</em> <strong>)</strong> <br />
 <em>classbody</em> := <em>classunit</em> | <em>classunit</em> <em>newline</em> <em>classbody</em><br />
 <em>classunit</em> := <em>vardecl</em> | <em>clfunc</em></p>
+</blockquote>
+<blockquote>
+<p><em>traitimpl</em> := <strong>class</strong> <em>space</em> <strong>trait</strong> <em>traitimpldecl</em> <em>newline</em> <em>traitimplbody</em> <strong>;</strong><br />
+<em>traitimpldecl</em> := <em>space</em> <em>idcall</em> <strong>:</strong> <em>templidcall</em>
+| <em>template</em> <em>idcall</em> <strong>:</strong> <em>templidcall</em><br />
+<em>traitimplbody</em> := <em>clfuncnb</em> | <em>clfuncnb</em> <em>newline</em> <em>clfuncnb</em></p>
 </blockquote>
 <p>Enums:</p>
 <blockquote>
@@ -611,6 +618,11 @@ be called before the constructor function. Constructor functions mustn't
 have a return-type.</li>
 <li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.</li>
 </ul>
+<a class="header" href="#implementing-traits" id="implementing-traits"><h3>Implementing traits</h3></a>
+<p>Functions declared can be implemented by classes to support polymorphism.
+<em>traitimpl</em> must contain all functions declared by the mentioned trait
+after <strong>:</strong> in <em>traitimplbody</em>. A trait already implemenated in the functions
+cannot be reimplemented.</p>
 <a class="header" href="#creating-an-object" id="creating-an-object"><h3>Creating an object</h3></a>
 <p>An object is created by making function call where the called function
 is a reference to the class. The first argument must be <strong>this</strong>.</p>

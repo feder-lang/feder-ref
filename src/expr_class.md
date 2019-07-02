@@ -14,6 +14,13 @@ Classes have attributes, constructors and functions:
   have a return-type.
 - Functions: Every *classunit* which is a *func*, which isn't a constructor.
 
+### Implementing traits
+
+Functions declared can be implemented by classes to support polymorphism.
+*traitimpl* must contain all functions declared by the mentioned trait
+after **:** in *traitimplbody*. A trait already implemenated in the functions
+cannot be reimplemented.
+
 ### Creating an object
 
 An object is created by making function call where the called function
