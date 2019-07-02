@@ -1,9 +1,12 @@
 # Introduction
 
 Feder is an imperative programming language, which focuses on runtime speed,
-intuitive design and more reliable programs. As such, Feder uses a garbage
-collection, looks a lot like script-like programs and doesn't have
-null-pointers.
+simple, yet powerful design and more reliable programs. As such, Feder uses
+
+- Garbage collection
+- No null pointers
+- Tuples & tuple-based enumerations
+- Templates
 
 ## Target audience
 
