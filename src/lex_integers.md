@@ -38,10 +38,10 @@ is used the data type is int32.
 
 - u: Can be front of the suffixes s, S, l and L. Denotes that the data type
 is unsigned.
-- s: Very short. Data type is int8 or uint8 if preceeded by u.
-- S: Short. Data type is int16 or uint16 if preceeded by u.
-- l: long. Data type is int32 or uint32 if preceeded by u.
-- L: Very long. Data type is int64 or uint64 if preceeded by u.
+- s: Very short. Data type is i8 or u8 if preceeded by u.
+- S: Short. Data type is i16 or u16 if preceeded by u.
+- l: long. Data type is i32 or u32 if preceeded by u.
+- L: Very long. Data type is i64 or u64 if preceeded by u.
 
 All other letters are invalid, resulting in an error. So
 
