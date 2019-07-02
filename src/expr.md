@@ -77,9 +77,20 @@ Functions:
 > | *funcnb*\
 > *funcnb* := **func** *funcdecl* **;**
 > | **func** *funcdecl* **:** *returntype* **;**\
+> *clfunc* := **func** *clfuncdecl* *newline* **;**\
+> | **func** *clfuncdecl* **:** *returntype* *newline* *retfuncbody* **;**\
+> | **func** *clfuncdecl* **:** *newline* *retfuncbody* **;**
+> | *clfuncnb*\
+> *clfuncnb* := **func** *clfuncdecl* **;**
+> | **func** *clfuncdecl* **;** *returntype* **;**\
 > *funcdecl* := *template* *funcdeclx* | *space* *funcdeclx*
-> | *template* *caps* *funcdeclx* | *caps* *func* *funcdeclx*\
-> *funcdeclx* := *id* | *id* **(** *funcvars* **)**\
+> | *template* *caps* *funcdeclx* | *caps* *space* *funcdeclx*\
+> *funcdeclx* := *idcall* | *idcall* **(** *funcvars* **)**\
+> *clfuncdecl* := *template* *clfuncdeclx* | *space* *clfuncdeclx*\
+> | *template* *caps* *clfuncdeclx* | *caps* *space* *clfuncdeclx*\
+> *this* := **This** | **this**\
+> *clfuncdeclx* := *id* **(** *this* **)**
+> | *id* **(** *this* **,** *funcvars* **)**\
 > *funcvars* := *funcvar* | *funcvar* *funcvars*\
 > *funcvar* := *vardecl* | *vardecl **|** *expr*\
 > *returntype* := *templidcall* | *vardecltuple* \
@@ -98,7 +109,7 @@ Traits:
 
 > *trait* := **trait** *traitdecl* *newline* *traitbody* **;**\
 > *traitdecl* := *id* | *id* **:** *templcalls*\
-> *traitbody* := *funcnb* | *funcnb* *newline* *traitbody*
+> *traitbody* := *clfuncnb* | *clfuncnb* *newline* *traitbody*
 
 Classes:
 
@@ -108,7 +119,7 @@ Classes:
 > | *space* *id* **:** *templidcalls* | *template* *id* **:** *templidcalls*\
 > *classcons* := **(** *vardecls* **)** \
 > *classbody* := *classunit* | *classunit* *newline* *classbody*\
-> *classunit* := *vardecl* | *func*
+> *classunit* := *vardecl* | *clfunc*
 
 Enums:
 

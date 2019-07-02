@@ -213,9 +213,20 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>funcnb</em><br />
 <em>funcnb</em> := <strong>func</strong> <em>funcdecl</em> <strong>;</strong>
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>;</strong><br />
+<em>clfunc</em> := <strong>func</strong> <em>clfuncdecl</em> <em>newline</em> <strong>;</strong><br />
+| <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
+| <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong>
+| <em>clfuncnb</em><br />
+<em>clfuncnb</em> := <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong>
+| <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong> <em>returntype</em> <strong>;</strong><br />
 <em>funcdecl</em> := <em>template</em> <em>funcdeclx</em> | <em>space</em> <em>funcdeclx</em>
-| <em>template</em> <em>caps</em> <em>funcdeclx</em> | <em>caps</em> <em>func</em> <em>funcdeclx</em><br />
-<em>funcdeclx</em> := <em>id</em> | <em>id</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
+| <em>template</em> <em>caps</em> <em>funcdeclx</em> | <em>caps</em> <em>space</em> <em>funcdeclx</em><br />
+<em>funcdeclx</em> := <em>idcall</em> | <em>idcall</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
+<em>clfuncdecl</em> := <em>template</em> <em>clfuncdeclx</em> | <em>space</em> <em>clfuncdeclx</em><br />
+| <em>template</em> <em>caps</em> <em>clfuncdeclx</em> | <em>caps</em> <em>space</em> <em>clfuncdeclx</em><br />
+<em>this</em> := <strong>This</strong> | <strong>this</strong><br />
+<em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>this</em> <strong>)</strong>
+| <em>id</em> <strong>(</strong> <em>this</em> <strong>,</strong> <em>funcvars</em> <strong>)</strong><br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <em>funcvars</em><br />
 <em>funcvar</em> := <em>vardecl</em> | *vardecl <strong>|</strong> <em>expr</em><br />
 <em>returntype</em> := <em>templidcall</em> | <em>vardecltuple</em> <br />
@@ -234,7 +245,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
 <p><em>trait</em> := <strong>trait</strong> <em>traitdecl</em> <em>newline</em> <em>traitbody</em> <strong>;</strong><br />
 <em>traitdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templcalls</em><br />
-<em>traitbody</em> := <em>funcnb</em> | <em>funcnb</em> <em>newline</em> <em>traitbody</em></p>
+<em>traitbody</em> := <em>clfuncnb</em> | <em>clfuncnb</em> <em>newline</em> <em>traitbody</em></p>
 </blockquote>
 <p>Classes:</p>
 <blockquote>
@@ -244,7 +255,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>space</em> <em>id</em> <strong>:</strong> <em>templidcalls</em> | <em>template</em> <em>id</em> <strong>:</strong> <em>templidcalls</em><br />
 <em>classcons</em> := <strong>(</strong> <em>vardecls</em> <strong>)</strong> <br />
 <em>classbody</em> := <em>classunit</em> | <em>classunit</em> <em>newline</em> <em>classbody</em><br />
-<em>classunit</em> := <em>vardecl</em> | <em>func</em></p>
+<em>classunit</em> := <em>vardecl</em> | <em>clfunc</em></p>
 </blockquote>
 <p>Enums:</p>
 <blockquote>
