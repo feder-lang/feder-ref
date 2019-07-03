@@ -134,11 +134,12 @@ Classes:
 > | *template* *idcall* **:** *templidcall*\
 > *traitimplbody* := *clfuncnb* | *clfuncnb* *newline* *clfuncnb*
 
-Enums:
+[Enumerations](./expr_enums.md):
 
 > *enum* := **enum** *enumdecl* *newline* *enumbody* **;**\
 > *enumdecl* := *id*\
-> *enumbody* := *id* | *id* **(** *templidcalls* **)**
+> *enumbody* := *enumunit* | *enumunit* *newline* *enumbody*\
+> *enumunit* := *id* | *id* **(** *templidcalls* **)**
 
 Modules:
 
@@ -150,7 +151,7 @@ General Expression:
 > *expr* := *def* | *vardecl*
 > | **(** *expr* **)**
 > | *biopexpr*  | *unopexpr*
-> | *fctl*
+> | *fctl* | *lambda*
 
 Variable declaration:
 

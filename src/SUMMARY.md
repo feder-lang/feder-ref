@@ -18,6 +18,7 @@
 	* [Functions](./expr_fn.md)
 	* [Traits](./expr_traits.md)
 	* [Classes](./expr_class.md)
+	* [Enumerations](./expr_enums.md)
 - [Kernel](./kernel.md)
 	* [Data Types](./kernel_types.md)
 		- [bool](./kernel_bool.md)
