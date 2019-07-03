@@ -3,7 +3,8 @@
 Classes have attributes, constructors and functions:
 
 - Attributes: Every vardecl in *classcons* and *classunit* which is a
-  *vardecl*.
+  *vardecl*. Added to the environment of the an object which has the type
+  of the class.
 - Constructors: *classcons* is a constructor which has *vardecls* as
   parameters, where every attribute declared in *classcons* is assigned with
   the corresponding argument (the exact same). All other constructors are the
@@ -12,7 +13,10 @@ Classes have attributes, constructors and functions:
   attributes declared in the class.  The function called **_init** will always
   be called before the constructor function. Constructor functions mustn't
   have a return-type.
+  Contructors are added to the parent environment of the class.
 - Functions: Every *classunit* which is a *func*, which isn't a constructor.
+  Functions are added to the environment of the class semantic and
+  without **This** or **this** in an object which has the type of the class. 
 
 ### Implementing traits
 

@@ -78,20 +78,9 @@ Functions:
 > | *funcnb*\
 > *funcnb* := **func** *funcdecl* **;**
 > | **func** *funcdecl* **:** *returntype* **;**\
-> *clfunc* := **func** *clfuncdecl* *newline* **;**\
-> | **func** *clfuncdecl* **:** *returntype* *newline* *retfuncbody* **;**\
-> | **func** *clfuncdecl* **:** *newline* *retfuncbody* **;**
-> | *clfuncnb*\
-> *clfuncnb* := **func** *clfuncdecl* **;**
-> | **func** *clfuncdecl* **;** *returntype* **;**\
 > *funcdecl* := *template* *funcdeclx* | *space* *funcdeclx*
 > | *template* *caps* *funcdeclx* | *caps* *space* *funcdeclx*\
 > *funcdeclx* := *idcall* | *idcall* **(** *funcvars* **)**\
-> *clfuncdecl* := *template* *clfuncdeclx* | *space* *clfuncdeclx*\
-> | *template* *caps* *clfuncdeclx* | *caps* *space* *clfuncdeclx*\
-> *this* := **This** | **this**\
-> *clfuncdeclx* := *id* **(** *this* **)**
-> | *id* **(** *this* **,** *funcvars* **)**\
 > *funcvars* := *funcvar* | *funcvar* *funcvars*\
 > *funcvar* := *vardecl* | *vardecl **|** *expr*\
 > *returntype* := *templidcall* | *vardecltuple* \
@@ -105,6 +94,18 @@ Functions:
 > *functype* := **func** | **func** **:** *return-type*
 > | **func** **(** *vardecls* **)**
 > | **func** **(** *vardecls* **)** **:** *return-type*
+
+> *clfunc* := **func** *clfuncdecl* *newline* **;**\
+> | **func** *clfuncdecl* **:** *returntype* *newline* *retfuncbody* **;**\
+> | **func** *clfuncdecl* **:** *newline* *retfuncbody* **;**
+> | *clfuncnb*\
+> *clfuncnb* := **func** *clfuncdecl* **;**
+> | **func** *clfuncdecl* **;** *returntype* **;**\
+> *clfuncdecl* := *template* *clfuncdeclx* | *space* *clfuncdeclx*\
+> | *template* *caps* *clfuncdeclx* | *caps* *space* *clfuncdeclx*\
+> *this* := **This** | **this**\
+> *clfuncdeclx* := *id* **(** *this* **)**
+> | *id* **(** *this* **,** *funcvars* **)**\
 
 Traits:
 

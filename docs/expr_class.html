@@ -144,7 +144,8 @@
 <p>Classes have attributes, constructors and functions:</p>
 <ul>
 <li>Attributes: Every vardecl in <em>classcons</em> and <em>classunit</em> which is a
-<em>vardecl</em>.</li>
+<em>vardecl</em>. Added to the environment of the an object which has the type
+of the class.</li>
 <li>Constructors: <em>classcons</em> is a constructor which has <em>vardecls</em> as
 parameters, where every attribute declared in <em>classcons</em> is assigned with
 the corresponding argument (the exact same). All other constructors are the
@@ -152,8 +153,11 @@ class's functions which have the exact same name as the class.  Every
 constructor with the additional <strong>_init</strong> function must initialize all
 attributes declared in the class.  The function called <strong>_init</strong> will always
 be called before the constructor function. Constructor functions mustn't
-have a return-type.</li>
-<li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.</li>
+have a return-type.
+Contructors are added to the parent environment of the class.</li>
+<li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.
+Functions are added to the environment of the class semantic and
+without <strong>This</strong> or <strong>this</strong> in an object which has the type of the class.</li>
 </ul>
 <a class="header" href="#implementing-traits" id="implementing-traits"><h3>Implementing traits</h3></a>
 <p>Functions declared can be implemented by classes to support polymorphism.

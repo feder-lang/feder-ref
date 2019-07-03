@@ -435,20 +435,9 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>funcnb</em><br />
 <em>funcnb</em> := <strong>func</strong> <em>funcdecl</em> <strong>;</strong>
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>;</strong><br />
-<em>clfunc</em> := <strong>func</strong> <em>clfuncdecl</em> <em>newline</em> <strong>;</strong><br />
-| <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
-| <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong>
-| <em>clfuncnb</em><br />
-<em>clfuncnb</em> := <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong>
-| <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong> <em>returntype</em> <strong>;</strong><br />
 <em>funcdecl</em> := <em>template</em> <em>funcdeclx</em> | <em>space</em> <em>funcdeclx</em>
 | <em>template</em> <em>caps</em> <em>funcdeclx</em> | <em>caps</em> <em>space</em> <em>funcdeclx</em><br />
 <em>funcdeclx</em> := <em>idcall</em> | <em>idcall</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
-<em>clfuncdecl</em> := <em>template</em> <em>clfuncdeclx</em> | <em>space</em> <em>clfuncdeclx</em><br />
-| <em>template</em> <em>caps</em> <em>clfuncdeclx</em> | <em>caps</em> <em>space</em> <em>clfuncdeclx</em><br />
-<em>this</em> := <strong>This</strong> | <strong>this</strong><br />
-<em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>this</em> <strong>)</strong>
-| <em>id</em> <strong>(</strong> <em>this</em> <strong>,</strong> <em>funcvars</em> <strong>)</strong><br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <em>funcvars</em><br />
 <em>funcvar</em> := <em>vardecl</em> | *vardecl <strong>|</strong> <em>expr</em><br />
 <em>returntype</em> := <em>templidcall</em> | <em>vardecltuple</em> <br />
@@ -462,6 +451,19 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>functype</em> := <strong>func</strong> | <strong>func</strong> <strong>:</strong> <em>return-type</em>
 | <strong>func</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong>
 | <strong>func</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong> <strong>:</strong> <em>return-type</em></p>
+</blockquote>
+<blockquote>
+<p><em>clfunc</em> := <strong>func</strong> <em>clfuncdecl</em> <em>newline</em> <strong>;</strong><br />
+| <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
+| <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong>
+| <em>clfuncnb</em><br />
+<em>clfuncnb</em> := <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong>
+| <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong> <em>returntype</em> <strong>;</strong><br />
+<em>clfuncdecl</em> := <em>template</em> <em>clfuncdeclx</em> | <em>space</em> <em>clfuncdeclx</em><br />
+| <em>template</em> <em>caps</em> <em>clfuncdeclx</em> | <em>caps</em> <em>space</em> <em>clfuncdeclx</em><br />
+<em>this</em> := <strong>This</strong> | <strong>this</strong><br />
+<em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>this</em> <strong>)</strong>
+| <em>id</em> <strong>(</strong> <em>this</em> <strong>,</strong> <em>funcvars</em> <strong>)</strong>\</p>
 </blockquote>
 <p>Traits:</p>
 <blockquote>
@@ -607,7 +609,8 @@ environment.</p>
 <p>Classes have attributes, constructors and functions:</p>
 <ul>
 <li>Attributes: Every vardecl in <em>classcons</em> and <em>classunit</em> which is a
-<em>vardecl</em>.</li>
+<em>vardecl</em>. Added to the environment of the an object which has the type
+of the class.</li>
 <li>Constructors: <em>classcons</em> is a constructor which has <em>vardecls</em> as
 parameters, where every attribute declared in <em>classcons</em> is assigned with
 the corresponding argument (the exact same). All other constructors are the
@@ -615,8 +618,11 @@ class's functions which have the exact same name as the class.  Every
 constructor with the additional <strong>_init</strong> function must initialize all
 attributes declared in the class.  The function called <strong>_init</strong> will always
 be called before the constructor function. Constructor functions mustn't
-have a return-type.</li>
-<li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.</li>
+have a return-type.
+Contructors are added to the parent environment of the class.</li>
+<li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.
+Functions are added to the environment of the class semantic and
+without <strong>This</strong> or <strong>this</strong> in an object which has the type of the class.</li>
 </ul>
 <a class="header" href="#implementing-traits" id="implementing-traits"><h3>Implementing traits</h3></a>
 <p>Functions declared can be implemented by classes to support polymorphism.
