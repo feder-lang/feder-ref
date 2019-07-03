@@ -70,7 +70,7 @@ Templates:
 > *templidcalls* := *templidcall* | *templidcall* **,** *templidcalls* \
 > *templidcall* := *idcall* | *idcall* *template*
 
-Functions:
+[Functions](./expr_fn.md):
 
 > *func* := **func** *funcdecl* *funcbody* *newline* **;** \
 > | **func** *funcdecl* **:** *returntype* *newline* *retfuncbody* **;**\
@@ -106,6 +106,11 @@ Functions:
 > *this* := **This** | **this**\
 > *clfuncdeclx* := *id* **(** *this* **)**
 > | *id* **(** *this* **,** *funcvars* **)**\
+
+[Lambdas](./expr_fn.md):
+
+> *lambda* := **(** *vardecls* **)** **->** *retfuncbody* **;**
+> | *vardecl* **->** *retfuncbody* **;**
 
 Traits:
 
