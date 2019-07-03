@@ -82,7 +82,8 @@ Templates:
 > | *template* *caps* *funcdeclx* | *caps* *space* *funcdeclx*\
 > *funcdeclx* := *idcall* | *idcall* **(** *funcvars* **)**\
 > *funcvars* := *funcvar* | *funcvar* *funcvars*\
-> *funcvar* := *vardecl* | *vardecl **|** *expr*\
+> *funcvar* := *vardecl* | *vardecl* *guard*\
+> *guard* := **|** *expr0* | **|* *expr0* **=>** *expr1*.
 > *returntype* := *templidcall* | *vardecltuple* \
 > *returntypetuple* := **(** *returntuplex* **)** \
 > *returntuplex* := *returntupleunit*

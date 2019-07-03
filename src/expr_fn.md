@@ -7,7 +7,7 @@ the function called like the most right *id* is added to the environment
 referenced to be the *id*s in fron of the last one. The environment
 has to be a [class](./expr_class.md) or and [module](./expr_mod.md).
 
-A function with no *retfuncbody* returns the empty tuple ``()``.
+A function with no *retfuncbody* or *return-type* returns the empty tuple ``()``.
 
 ### Guards
 

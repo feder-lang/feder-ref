@@ -218,7 +218,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>template</em> <em>caps</em> <em>funcdeclx</em> | <em>caps</em> <em>space</em> <em>funcdeclx</em><br />
 <em>funcdeclx</em> := <em>idcall</em> | <em>idcall</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <em>funcvars</em><br />
-<em>funcvar</em> := <em>vardecl</em> | *vardecl <strong>|</strong> <em>expr</em><br />
+<em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em><br />
+<em>guard</em> := <strong>|</strong> <em>expr0</em> | *<em>|</em> <em>expr0</em> <strong>=&gt;</strong> <em>expr1</em>.
 <em>returntype</em> := <em>templidcall</em> | <em>vardecltuple</em> <br />
 <em>returntypetuple</em> := <strong>(</strong> <em>returntuplex</em> <strong>)</strong> <br />
 <em>returntuplex</em> := <em>returntupleunit</em>

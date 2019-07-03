@@ -441,7 +441,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>template</em> <em>caps</em> <em>funcdeclx</em> | <em>caps</em> <em>space</em> <em>funcdeclx</em><br />
 <em>funcdeclx</em> := <em>idcall</em> | <em>idcall</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <em>funcvars</em><br />
-<em>funcvar</em> := <em>vardecl</em> | *vardecl <strong>|</strong> <em>expr</em><br />
+<em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em><br />
+<em>guard</em> := <strong>|</strong> <em>expr0</em> | *<em>|</em> <em>expr0</em> <strong>=&gt;</strong> <em>expr1</em>.
 <em>returntype</em> := <em>templidcall</em> | <em>vardecltuple</em> <br />
 <em>returntypetuple</em> := <strong>(</strong> <em>returntuplex</em> <strong>)</strong> <br />
 <em>returntuplex</em> := <em>returntupleunit</em>
@@ -621,7 +622,7 @@ environment.</p>
 the function called like the most right <em>id</em> is added to the environment
 referenced to be the <em>id</em>s in fron of the last one. The environment
 has to be a <a href="./expr_class.html">class</a> or and <a href="./expr_mod.html">module</a>.</p>
-<p>A function with no <em>retfuncbody</em> returns the empty tuple <code>()</code>.</p>
+<p>A function with no <em>retfuncbody</em> or <em>return-type</em> returns the empty tuple <code>()</code>.</p>
 <a class="header" href="#guards" id="guards"><h3>Guards</h3></a>
 <p>The <em>expr0</em> of the guard has to evaluate to an object with the type <em>bool</em>.  If
 <em>expr0</em> evaluates to <strong>True</strong> nothing happens, the functions is called normally
