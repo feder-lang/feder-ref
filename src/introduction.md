@@ -20,7 +20,9 @@ A hello world program
 ```
 import std.io.println
 
-println("Hello, World!")
+func main
+	println("Hello, World!")
+;
 ```
 
 which prints

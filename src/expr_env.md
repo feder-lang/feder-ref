@@ -19,3 +19,8 @@ to a single *environment*. This is only possible, if:
 - The previous semantic in the environemnt is a variable
 - The semantic is an template specialization of of the previous semantic
   (where all semantics which are already specializations are ignored).
+
+### Visibility
+
+Semantics starting with **_** are only visible to children environments.
+All other semantics are can always be referenced if not shadowed.

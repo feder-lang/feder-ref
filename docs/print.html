@@ -156,7 +156,9 @@ means a guide for beginners.</p>
 <p>A hello world program</p>
 <pre><code>import std.io.println
 
-println(&quot;Hello, World!&quot;)
+func main
+    println(&quot;Hello, World!&quot;)
+;
 </code></pre>
 <p>which prints</p>
 <pre><code>Hello, World!
@@ -606,6 +608,9 @@ to a single <em>environment</em>. This is only possible, if:</p>
 <li>The semantic is an template specialization of of the previous semantic
 (where all semantics which are already specializations are ignored).</li>
 </ul>
+<a class="header" href="#visibility" id="visibility"><h3>Visibility</h3></a>
+<p>Semantics starting with <strong>_</strong> are only visible to children environments.
+All other semantics are can always be referenced if not shadowed.</p>
 <a class="header" href="#anonymous-semantics" id="anonymous-semantics"><h2>Anonymous semantics</h2></a>
 <p>Every <em>def</em> (except <em>vardef</em>) not used in a top-level expression is an
 anonymous semantic, it's referenced will not be added to the current
