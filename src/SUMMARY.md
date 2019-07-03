@@ -16,6 +16,7 @@
 	* [Environment](./expr_env.md)
 	* [Anonymous semantics](./expr_anon.md)
 	* [Functions](./expr_fn.md)
+	* [Traits](./expr_traits.md)
 	* [Classes](./expr_class.md)
 - [Kernel](./kernel.md)
 	* [Data Types](./kernel_types.md)
