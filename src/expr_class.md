@@ -18,6 +18,9 @@ Classes have attributes, constructors and functions:
   Functions are added to the environment of the class semantic and
   without **This** or **this** in an object which has the type of the class. 
 
+The name of the class (second expression *id* in *classdecl*) must start with
+an uppercase character with optional leading '_'.
+
 ### Implementing traits
 
 Functions declared can be implemented by classes to support polymorphism.
