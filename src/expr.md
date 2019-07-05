@@ -156,19 +156,17 @@ General Expression:
 
 Variable declaration:
 
-> *vardecl* := *id* **:** *templidcall* | *id* **:** *vardecltuple*
->              | **mut** *id* **:** *templidcall*\
-> *vardecltuple* := **(** *vardecltupleunit* **,** *vardecltuplex* **)**\
-> *vardecltuplex* := *vardecltupleunit*
->                    | *vardecltupleunit* **,** *vardecltuplex*\
-> *vardecltupleunit* := *returntupleunit* | **mut** *space* *functype*
->                       | **mut** *space*  *id* : *templidcall*\
-> *vardecls* := *vardecl* | *vardecl* **,** *vardecls*
+> *vardecl* := *vardeclunit* | **(** *vardeclunits* **)**\
+> *vardeclunits* := *vardeclunit* | *vardeclunit* **,** *vardeclunits*\
+> *vardeclunit* := *id* **:** *templidcall*
+> | **mut** *space* *id* **:** *templidcall*\
+> *varids* := *varid* | *varid* **,** *varids*\
+> *varid* := *id* | **mut** *space* *id*
 
 Variable definition:
 
-> *vardef* := *vardecl* **=** *expr* | *idcalls* **=** *expr*
->             | *idcalls* **:=** *expr* | **mut** *idcalls* **:=**  *expr*
+> *vardef* := *vardecl* **=** *expr* | *varid* **:=** *expr*
+> | **(** *varids* **)** **:=** expr
 
 Capabilities:
 
@@ -225,6 +223,7 @@ Operators:
 > | **&&** | **||**
 > **+=** | **-=** | **\*=** | **/=** | **\*\*=** | **%=**\
 > | **\&=** | **|=** | **^=** | **<<=** | **>>=** \
-> | **<>**
+> | **=**
+> | **<>**\
 > *runop* := **\*** | **!**\
 > *lunop* := **++** | **--**
