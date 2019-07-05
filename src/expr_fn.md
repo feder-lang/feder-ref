@@ -2,6 +2,12 @@
 
 Normal functions can't use non-global variables from parent environments.
 
+A function beginning with a lowercase character with possible leading '_', no
+function with the same parameters and function name must exist in the current
+environment. Otherwise, if the function starts with a uppercase character with
+possible leading '_', no other semantic with the same name must exist in the
+current environment.
+
 If the *idcall* before the function's parameters consist of multiple *id*s
 the function called like the most right *id* is added to the environment
 referenced to be the *id*s in fron of the last one. The environment

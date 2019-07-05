@@ -112,6 +112,7 @@ Templates:
 
 > *lambda* := **(** *vardecls* **)** **->** *retfuncbody* **;**
 > | *vardecl* **->** *retfuncbody* **;**
+> | **(** **)** **->** *retfuncbody* **;**
 
 Traits:
 
@@ -173,7 +174,7 @@ Capabilities:
 
 > *caps* := *cap* | *cap* *caps*\
 > *cap* := **@** *capid*\
-> *capid* := **MMM** | **Trait** | **Value** | **Unique**
+> *capid* := **Var** | **Label**
 
 Flow-control expressions:
 
