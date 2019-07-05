@@ -8,6 +8,9 @@ The environment of an object which has the trait as type, contains all declared
 functions in *traitbody*. When referencing the fucntion a function without the
 **this** or **This** parameter is returned.
 
+The name of the trait (first expression *id* in *traitdecl*) must start with
+an uppercase character with optional leading '_'.
+
 ### Trait inheritance
 
 Traits can inherited function declarations from other traits with
