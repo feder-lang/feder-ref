@@ -18,6 +18,7 @@
 	* [Modules](./expr_mods.md)
 	* [Functions](./expr_fn.md)
 	* [Traits](./expr_traits.md)
+	* [Templates](./expr_templs.md)
 	* [Variables](./expr_vars.md)
 	* [Classes](./expr_class.md)
 	* [Enumerations](./expr_enums.md)

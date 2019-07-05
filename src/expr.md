@@ -62,7 +62,7 @@ General program:
 > *def* := *func* | *trait* | *class* | *traitimpl*
 > | *enum* | *module* | *vardef*
 
-Templates:
+[Templates](./expr_templs.md):
 
 > *template* :=  **{** *templdecls* **}** \
 > *templdecls* := *templdecl* | *templdecl* **,** *templdecls* \

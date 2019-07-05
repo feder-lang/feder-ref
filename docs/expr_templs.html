@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Integers - Feder: Reference Manual</title>
+        <title>Templates - Feder: Reference Manual</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Reference manual for the Feder programming language.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.2.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.3.</strong> Modules</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.4.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.5.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.6.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.7.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.8.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.9.</strong> Enumerations</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html" class="active"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.2.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.3.</strong> Modules</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.4.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.5.</strong> Traits</a></li><li><a href="expr_templs.html" class="active"><strong aria-hidden="true">3.6.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.7.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.8.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.9.</strong> Enumerations</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,112 +133,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="kernel_integers.html#integers" id="integers"><h1>Integers</h1></a>
-<ul>
-<li>i8: 8-bit integer (signed octet)</li>
-<li>u8: 8-bit unsigned integer (unsigned octet)</li>
-<li>i16: 16-bit integer (signed short)</li>
-<li>u16: 16-bit unsigned integer (unsigned short)</li>
-<li>i32: 32-bit integer (unsigned int)</li>
-<li>u32: 32-bit unsigned integer (signed int)</li>
-<li>i64: 64-bit integer (signed quad)</li>
-<li>u64: 64-bit unsigned integer (unsigned quad)</li>
-<li>iptr: Architecture dependent size (signed)</li>
-<li>uptr: Architecture dependent size (unsigned). Used for pointers and size
-of arrays.</li>
-</ul>
-<p>More about integers at
-<a href="https://en.wikipedia.org/wiki/Integer_%28computer_science%29">Wikipedia</a>.
-Every integer-type starting with <strong>u</strong> are unsigned, all others are signed.</p>
-<p>Unary operators defined on integers:</p>
-<ul>
-<li><strong>-</strong> <em>expr0</em>: Return <em>expr0</em> multiplied by -1. Return-type is the one of
-<em>expr0</em>.</li>
-<li><strong>~</strong> <em>expr0</em>: Bitwise inverse of <em>expr0</em>. Return-type is the one of <em>expr0</em>.</li>
-</ul>
-<p>Binary operators defined on integers:</p>
-<ul>
-<li>
-<p><em>expr0</em> <strong>+</strong> <em>expr1</em>: Return sum of <em>expr0</em> and <em>expr1</em>. <em>expr0</em> and <em>expr1</em>
-must have the same type. Return-type is the one of <em>expr0</em>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>-</strong> <em>expr1</em>: Returns sum of <em>expr0</em> and <strong>-</strong> <em>expr1</em>. <em>expr0</em> and
-<em>expr1</em> must have the same type. Return-type is the one of <em>expr0</em>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>*</strong> <em>expr1</em>: Returns <em>expr0</em> multiplied by <em>expr1</em>. <em>expr0</em> and
-<em>expr1</em> must have the same type. Return-type is the one of <em>expr0</em>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>/</strong> <em>expr1</em>: Returns <em>expr0</em> divided by <em>expr1</em>. <em>expr0</em> and
-<em>expr1</em> must have the same type. Return-type is the one of <em>expr0</em>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>&amp;</strong> <em>expr1</em>: Return bitwise conjunction of <em>expr0</em> and <em>expr1</em>.
-<em>expr0</em> and <em>expr1</em> must have the same type. Return-type is the on of
-<em>expr0</em>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>|</strong> <em>expr1</em>: Return bitwise inclusive conjunction of <em>expr0</em> and
-<em>expr1</em>.  <em>expr0</em> and <em>expr1</em> must have the same type. Return-type is the on
-of <em>expr0</em>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>^</strong> <em>expr1</em>: Return bitwise exclusive conjunction of <em>expr0</em> and
-<em>expr1</em>.  <em>expr0</em> and <em>expr1</em> must have the same type. Return-type is the on
-of <em>expr0</em>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>&lt;&lt;</strong> <em>expr1</em>. Return number <em>expr0</em> shifted <em>expr1</em> to the left.
-<em>expr1</em> must have the type <strong>uint16</strong>. Return type is the one of <em>expr0</em>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>&gt;&gt;</strong> <em>expr1</em>. Return number <em>expr0</em> shifted <em>expr1</em> to the right.
-If <em>expr0</em> is a signed-type, the new bits are either 0 (if positive) or 1 (if
-negative).  <em>expr1</em> must have the type <strong>uint16</strong>. Return type is the one of
-<em>expr0</em>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>==</strong> <em>expr1</em>: Returns True if numbers <em>expr0</em> and <em>expr1</em> are equal
-(<em>expr0</em> - <em>expr1</em> is equal to 0), otherwise False.  <em>expr0</em> and <em>expr1</em> must
-have the same type. Return-type is <a href="./kernel_bool.md">bool</a>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>!=</strong> <em>expr1</em>: Returns False if numbers <em>expr0</em> and <em>expr1</em> are
-equal (<em>expr0</em> - <em>expr1</em> is not equal to 0), otherwise True. <em>expr0</em> and
-<em>expr1</em> must have the same type. Return-type is <a href="./kernel_bool.md">bool</a>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>++</strong>: Post-increment <em>expr0</em>. Returns <em>expr0</em> and then executes
-<em>expr0</em> <strong>+=</strong> <strong>1</strong>.</p>
-</li>
-<li>
-<p><em>expr0</em> <strong>--</strong>: Post-decrement <em>expr0</em>. Returns <em>expr0</em> and then executes
-<em>expr0</em> <strong>-=</strong> <strong>1</strong>.</p>
-</li>
-<li>
-<p><strong>++</strong> <em>expr0</em>: Pre-increment <em>expr0</em>. Executes <em>expr0</em> <strong>+=</strong> <strong>1</strong> and then
-returns <em>expr0</em>.</p>
-</li>
-<li>
-<p><strong>--</strong> <em>expr0</em>: Pre-decrement <em>expr0</em>. Executes <em>expr0</em> <strong>-=</strong> <strong>1</strong> and then
-returns <em>expr0</em>.</p>
-</li>
-</ul>
+                        <a class="header" href="expr_templs.html#templates" id="templates"><h2>Templates</h2></a>
+<p>Every behaviour of an object, which have the template type as type, must be
+provided by the template variable. This is realized with traits, which declare
+the behaviour.</p>
+<p>Semantics which declare templates, must have defined behaviour. They cannot
+have <em>only</em> declared behaviour.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="kernel_bool.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="expr_traits.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="kernel_floats.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="expr_vars.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -250,13 +163,13 @@ returns <em>expr0</em>.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="kernel_bool.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="expr_traits.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="kernel_floats.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="expr_vars.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
