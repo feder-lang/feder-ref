@@ -623,6 +623,9 @@ environment.</p>
 is added as <em>id</em> from <em>moduledecl</em> to the parent environment. A module's
 <em>id</em> must start with an lowercase, alphabetic character.</p>
 <p>Libraries are also just modules.</p>
+<a class="header" href="#variables" id="variables"><h3>Variables</h3></a>
+<p>Variables in modules can be either <strong>global</strong>, if the module has only modules
+and library as parents otherwise the variable is <strong>local</strong>.</p>
 <a class="header" href="#functions" id="functions"><h2>Functions</h2></a>
 <p>Normal functions can't use non-global variables from parent environments.</p>
 <p>A function beginning with a lowercase character with possible leading '<em>', no
