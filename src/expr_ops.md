@@ -1,0 +1,4 @@
+## Operators
+
+| Operator | Precedence | Associativity |
+| :---:    | :---:      | :---:         |

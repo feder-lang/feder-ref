@@ -114,13 +114,13 @@ General program:
 > | *vardecl* **->** *retfuncbody* **;**
 > | **(** **)** **->** *retfuncbody* **;**
 
-Traits:
+[Traits](./expr_traits.md):
 
 > *trait* := **trait** *traitdecl* *newline* *traitbody* **;**\
 > *traitdecl* := *id* | *id* **:** *templcalls*\
 > *traitbody* := *clfuncnb* | *clfuncnb* *newline* *traitbody*
 
-Classes:
+[Classes](./expr_classes.md):
 
 > *class* := **class** *classdecl* *newline* *classbody* **;**\
 > | **class** *classdecl* *classcons* *newline* *classbody* **;**\
@@ -142,7 +142,7 @@ Classes:
 > *enumbody* := *enumunit* | *enumunit* *newline* *enumbody*\
 > *enumunit* := *id* | *id* **(** *templidcalls* **)**
 
-Modules:
+[Modules](./expr_mods.md):
 
 > *module* := **module** *moduledecl* *newline* *program-body*\
 > *moduledecl* := *id*
