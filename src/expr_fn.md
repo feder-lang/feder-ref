@@ -11,7 +11,8 @@ current environment.
 If the *idcall* before the function's parameters consist of multiple *id*s
 the function called like the most right *id* is added to the environment
 referenced to be the *id*s in fron of the last one. The environment
-has to be a [class](./expr_class.md) or and [module](./expr_mod.md).
+has to be a [class](./expr_class.md), [module](./expr_mod.md)
+or primitive datatype.
 
 A function with no *retfuncbody* or *return-type* returns the empty tuple ``()``.
 

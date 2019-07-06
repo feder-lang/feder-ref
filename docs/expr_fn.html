@@ -155,7 +155,8 @@ current environment.</p>
 <p>If the <em>idcall</em> before the function's parameters consist of multiple <em>id</em>s
 the function called like the most right <em>id</em> is added to the environment
 referenced to be the <em>id</em>s in fron of the last one. The environment
-has to be a <a href="./expr_class.html">class</a> or and <a href="./expr_mod.html">module</a>.</p>
+has to be a <a href="./expr_class.html">class</a>, <a href="./expr_mod.html">module</a>
+or primitive datatype.</p>
 <p>A function with no <em>retfuncbody</em> or <em>return-type</em> returns the empty tuple <code>()</code>.</p>
 <h3><a class="header" href="#guards" id="guards">Guards</a></h3>
 <p>The <em>expr0</em> of the guard has to evaluate to an object with the type <em>bool</em>.  If
@@ -213,21 +214,6 @@ variables as additional parameters and are then bound to the function (via
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
