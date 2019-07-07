@@ -1,8 +1,8 @@
 # Floating-point numbers
 
-- float32: IEC-559/IEEE-754 32-bit float-point number (float, in IEEE-754:
+- f32: IEC-559/IEEE-754 32-bit float-point number (float, in IEEE-754:
   binary32)
-- float64: IEC-559/IEEE-754 64-bit float-point number (double, in IEEE-754:
+- f64: IEC-559/IEEE-754 64-bit float-point number (double, in IEEE-754:
   binary64)
 
 More about floats at [Wikipedia](https://en.wikipedia.org/wiki/IEEE_754).

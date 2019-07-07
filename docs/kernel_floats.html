@@ -4,8 +4,6 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Floating-point numbers - Feder: Reference Manual</title>
-        
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Reference manual for the Feder programming language.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,7 +56,7 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
             if (theme === null || theme === undefined) { theme = default_theme; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
@@ -77,10 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.2.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.3.</strong> Modules</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.4.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.5.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.6.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.7.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.8.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.9.</strong> Enumerations</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html" class="active"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_ops.html"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.5.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.6.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.7.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.8.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.9.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.10.</strong> Enumerations</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html" class="active"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -110,7 +105,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">Feder: Reference Manual</h1>
+                        <h1 class="menu-title">Feder: Reference Manual</h1> 
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -145,11 +140,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#floating-point-numbers" id="floating-point-numbers">Floating-point numbers</a></h1>
+                        <a class="header" href="#floating-point-numbers" id="floating-point-numbers"><h1>Floating-point numbers</h1></a>
 <ul>
-<li>float32: IEC-559/IEEE-754 32-bit float-point number (float, in IEEE-754:
+<li>f32: IEC-559/IEEE-754 32-bit float-point number (float, in IEEE-754:
 binary32)</li>
-<li>float64: IEC-559/IEEE-754 64-bit float-point number (double, in IEEE-754:
+<li>f64: IEC-559/IEEE-754 64-bit float-point number (double, in IEEE-754:
 binary64)</li>
 </ul>
 <p>More about floats at <a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a>.</p>
@@ -225,6 +220,21 @@ equal (<em>expr0</em> - <em>expr1</em> is not equal to 0), otherwise True. <em>e
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

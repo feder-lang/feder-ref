@@ -14,6 +14,7 @@
 	* [Space](./lex_space.md)
 - [Expressions](./expr.md)
 	* [Environment](./expr_env.md)
+	* [Operators](./expr_ops.md)
 	* [Anonymous semantics](./expr_anon.md)
 	* [Modules](./expr_mods.md)
 	* [Functions](./expr_fn.md)

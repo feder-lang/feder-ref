@@ -4,10 +4,6 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Feder: Reference Manual</title>
-        
-        <meta name="robots" content="noindex" />
-        
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Reference manual for the Feder programming language.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,7 +56,7 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
             if (theme === null || theme === undefined) { theme = default_theme; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
@@ -79,10 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.2.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.3.</strong> Modules</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.4.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.5.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.6.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.7.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.8.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.9.</strong> Enumerations</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_ops.html"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.5.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.6.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.7.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.8.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.9.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.10.</strong> Enumerations</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -112,7 +105,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">Feder: Reference Manual</h1>
+                        <h1 class="menu-title">Feder: Reference Manual</h1> 
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -147,7 +140,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+                        <a class="header" href="#introduction" id="introduction"><h1>Introduction</h1></a>
 <p>Feder is an imperative programming language, which focuses on runtime speed,
 simple, yet powerful design and more reliable programs. As such, Feder uses</p>
 <ul>
@@ -156,22 +149,22 @@ simple, yet powerful design and more reliable programs. As such, Feder uses</p>
 <li>Tuples &amp; tuple-based enumerations</li>
 <li>Templates</li>
 </ul>
-<h2><a class="header" href="#target-audience" id="target-audience">Target audience</a></h2>
+<a class="header" href="#target-audience" id="target-audience"><h2>Target audience</h2></a>
 <p>Targeted are those, who seek in-depth knowledge about Feder. This is by no
 means a guide for beginners.</p>
-<h2><a class="header" href="#example-program" id="example-program">Example program</a></h2>
+<a class="header" href="#example-program" id="example-program"><h2>Example program</h2></a>
 <p>A hello world program</p>
 <pre><code>import std.io.println
 
 func main
-	println(&quot;Hello, World!&quot;)
+    println(&quot;Hello, World!&quot;)
 ;
 </code></pre>
 <p>which prints</p>
 <pre><code>Hello, World!
 </code></pre>
 <p>to standard output.</p>
-<h1><a class="header" href="#lexical-elements" id="lexical-elements">Lexical elements</a></h1>
+<a class="header" href="#lexical-elements" id="lexical-elements"><h1>Lexical elements</h1></a>
 <ul>
 <li><a href="./lex_identifiers.html">Identifiers</a></li>
 <li><a href="./lex_keywords">Keywords</a></li>
@@ -187,12 +180,12 @@ func main
 <li><a href="./lex_separators.html">Separators</a></li>
 <li><a href="./lex_space.html">Space</a></li>
 </ul>
-<h2><a class="header" href="#identifiers" id="identifiers">Identifiers</a></h2>
+<a class="header" href="#identifiers" id="identifiers"><h2>Identifiers</h2></a>
 <p>Identifiers are character sequences for naming variables, functions,
 classes, enumerations, traits and namespaces. Identifiers are represented with
 the decimal digits, letters and the '_' character.</p>
 <p>An identifier mustn't start with a decimal digit.</p>
-<h2><a class="header" href="#keywords" id="keywords">Keywords</a></h2>
+<a class="header" href="#keywords" id="keywords"><h2>Keywords</h2></a>
 <p>Keywords are reserved identifiers for syntax elements which cannot be used for
 anything else. These are:</p>
 <pre><code>func null module class enum trait type return mut
@@ -200,7 +193,7 @@ if else match switch for do continue break safe include import
 True False
 _
 </code></pre>
-<h2><a class="header" href="#constants" id="constants">Constants</a></h2>
+<a class="header" href="#constants" id="constants"><h2>Constants</h2></a>
 <p>A constant is a literal numeric or character values, like 'a' or 5. They all
 have a data type.</p>
 <ul>
@@ -209,7 +202,7 @@ have a data type.</p>
 <li><a href="./lex_chars.html">Characters</a></li>
 <li><a href="./lex_strings.html">Strings</a></li>
 </ul>
-<h3><a class="header" href="#integers" id="integers">Integers</a></h3>
+<a class="header" href="#integers" id="integers"><h3>Integers</h3></a>
 <p>Integers are digit sequences, which depending on the prefix, allow different
 characters. The digit sequences must be at least one digit long (prefix
 excluded).</p>
@@ -254,7 +247,7 @@ is unsigned.</li>
 100sD
 </code></pre>
 <p>are all invalid.</p>
-<h3><a class="header" href="#float-point-numbers" id="float-point-numbers">Float-point numbers</a></h3>
+<a class="header" href="#float-point-numbers" id="float-point-numbers"><h3>Float-point numbers</h3></a>
 <p>Floating-number are two decimal digit sequences separated by '.'. Both
 sequence must have at least one digit. Example:</p>
 <pre><code>0.0
@@ -276,7 +269,7 @@ If no suffix is used the data type is float64.</p>
 <pre><code>0.0fx
 </code></pre>
 <p>is invalid.</p>
-<h3><a class="header" href="#characters" id="characters">Characters</a></h3>
+<a class="header" href="#characters" id="characters"><h3>Characters</h3></a>
 <p>A character constant is enclosed within single quotation marks, such as 'a'.
 Between the quotation marks is usually a single printable character, except
 character which cannot be represented, like the single quotation mark itself.
@@ -312,7 +305,7 @@ They are represented with escape sequences, which start with \.</p>
   Vertical tabulator
 </code></pre>
 <p>All other character following \ are invalid.</p>
-<h3><a class="header" href="#strings" id="strings">Strings</a></h3>
+<a class="header" href="#strings" id="strings"><h3>Strings</h3></a>
 <p>A string constant is a character sequence, which is enclosed within double
 quotation marks. The sequence is zero or more characters long.</p>
 <p>The escape sequences of operators can be used within strings, too.</p>
@@ -321,11 +314,11 @@ quotation marks. The sequence is zero or more characters long.</p>
 &quot;....\n&quot;
 &quot;\&quot;my string\&quot;&quot;
 </code></pre>
-<h3><a class="header" href="#operators" id="operators">Operators</a></h3>
+<a class="header" href="#operators" id="operators"><h3>Operators</h3></a>
 <p>These are tokens representing an operation or function. More about operators in
 <a href="./syntax_operators.html">Operator expressions</a>. Operators also act as token
 separators.</p>
-<h3><a class="header" href="#separators" id="separators">Separators</a></h3>
+<a class="header" href="#separators" id="separators"><h3>Separators</h3></a>
 <p>Characters, which separate tokens are the line-feed and
 carriage-return character and also:</p>
 <pre><code>( ) [ ] { } ;
@@ -340,7 +333,7 @@ with // and range till the next newline character. Therefore</p>
 <pre><code>myFunction() // this is a function call
 </code></pre>
 <p><a href="./lex_operators.html">Operators</a> are also separators.</p>
-<h3><a class="header" href="#space" id="space">Space</a></h3>
+<a class="header" href="#space" id="space"><h3>Space</h3></a>
 <p>Space characters are the space character, the tab character, the vertical tab
 character and form-feed character and region-comments. Space characters are
 ignore, therefore is optional, except when used to seperate tokens.</p>
@@ -360,24 +353,24 @@ ignore, therefore is optional, except when used to seperate tokens.</p>
 <p>Also newlines following a newline are regarded as space. This means the
 expressions</p>
 <pre><code>trait MyTrait
-	Func myfunc ;
+    Func myfunc ;
 ;
 </code></pre>
 <p>and</p>
 <pre><code>trait MyTrait
 
-	Func myfunc ;
+    Func myfunc ;
 ;
 </code></pre>
 <p>represent equal semantics.</p>
-<h1><a class="header" href="#expressions" id="expressions">Expressions</a></h1>
+<a class="header" href="#expressions" id="expressions"><h1>Expressions</h1></a>
 <p>This chapter specifies the syntax and semantics.</p>
-<h2><a class="header" href="#notation" id="notation">Notation</a></h2>
+<a class="header" href="#notation" id="notation"><h2>Notation</h2></a>
 <p>Non-terminals are written <em>italic</em> and literal terminals are written in
 <strong>bold</strong> style.  Numbers in <em>terminals</em> are used as indices. The syntax is
 defined with the BNF with operator-precedence and expressions are defined with
 the operator <strong>:=</strong>. <em>Z</em> represents notation for <em>no-characters</em>.</p>
-<h2><a class="header" href="#ignored-characters" id="ignored-characters">Ignored characters</a></h2>
+<a class="header" href="#ignored-characters" id="ignored-characters"><h2>Ignored characters</h2></a>
 <p>Between every expression can be space (vertical,horizontal tabulator and the
 space character). In case <em>space</em> must be used, it the <em>space</em> expression will
 be used.</p>
@@ -386,7 +379,7 @@ end-ofline. Also characters between '/<em>' and '</em>/' will be ignored, includ
 '/<em>' and '</em>/'.  These ignored characters are called <em>comments</em>. Where a comment
 started with '//' will be interpreted as an end-of-line/<em>newline</em> and a comment
 started with '/*' as <em>space</em>.</p>
-<h2><a class="header" href="#syntax-specification" id="syntax-specification">Syntax specification</a></h2>
+<a class="header" href="#syntax-specification" id="syntax-specification"><h2>Syntax specification</h2></a>
 <p>The starting symbol is <em>program</em>. The <em>terminals</em> where defined in
 the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
@@ -473,7 +466,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>template</em> <em>caps</em> <em>clfuncdeclx</em> | <em>caps</em> <em>space</em> <em>clfuncdeclx</em><br />
 <em>this</em> := <strong>This</strong> | <strong>this</strong><br />
 <em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>this</em> <strong>)</strong>
-| <em>id</em> <strong>(</strong> <em>this</em> <strong>,</strong> <em>funcvars</em> <strong>)</strong></p>
+| <em>id</em> <strong>(</strong> <em>this</em> <strong>,</strong> <em>funcvars</em> <strong>)</strong>\</p>
 </blockquote>
 <p><a href="./expr_fn.html">Lambdas</a>:</p>
 <blockquote>
@@ -596,7 +589,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>runop</em> := <strong>*</strong> | <strong>!</strong><br />
 <em>lunop</em> := <strong>++</strong> | <strong>--</strong></p>
 </blockquote>
-<h2><a class="header" href="#environment" id="environment">Environment</a></h2>
+<a class="header" href="#environment" id="environment"><h2>Environment</h2></a>
 <p>An environment is assembly of semantics<sup class="footnote-reference"><a href="#sem">1</a></sup> which can be referenced by an
 <em>identifier</em><sup class="footnote-reference"><a href="#id">2</a></sup>. There can be semantics with the same <em>identifier</em>, when this is
 the case, a reference will point to the newest semantic. The environment has
@@ -609,7 +602,7 @@ functions) have an own environment.</p>
 <div class="footnote-definition" id="id"><sup class="footnote-definition-label">2</sup>
 <p>This is also <em>funcvars</em> or <em>template</em> not just the <em>id</em>.</p>
 </div>
-<h3><a class="header" href="#shadowing" id="shadowing">Shadowing</a></h3>
+<a class="header" href="#shadowing" id="shadowing"><h3>Shadowing</h3></a>
 <p>As mentioned above, semantics with the same <em>identifier</em> can be added
 to a single <em>environment</em>. This is only possible, if:</p>
 <ul>
@@ -617,22 +610,61 @@ to a single <em>environment</em>. This is only possible, if:</p>
 <li>The semantic is an template specialization of of the previous semantic
 (where all semantics which are already specializations are ignored).</li>
 </ul>
-<h3><a class="header" href="#visibility" id="visibility">Visibility</a></h3>
+<a class="header" href="#visibility" id="visibility"><h3>Visibility</h3></a>
 <p>Semantics starting with <strong>_</strong> are only visible to children environments.
 All other semantics are can always be referenced if not shadowed.</p>
-<h2><a class="header" href="#anonymous-semantics" id="anonymous-semantics">Anonymous semantics</a></h2>
+<a class="header" href="#operators-1" id="operators-1"><h2>Operators</h2></a>
+<p>The less precedence an operator has, the less it binds.</p>
+<p>Operator associativity:</p>
+<ul>
+<li><strong>l</strong>: Operator is left associative</li>
+<li><strong>r</strong>: Operator is right associative</li>
+</ul>
+<table><thead><tr><th align="center"> Operator </th><th align="center"> Precedence </th><th align="center"> Associativity </th><th align="left"> Description                         </th></tr></thead><tbody>
+<tr><td align="center"> ,        </td><td align="center"> 1          </td><td align="center"> l             </td><td align="left"> Comma, Tuple/argument separator     </td></tr>
+<tr><td align="center"> :=       </td><td align="center"> 2          </td><td align="center"> r             </td><td align="left"> Declaring assignment                </td></tr>
+<tr><td align="center"> &amp;= ^=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
+<tr><td align="center"> |=      </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
+<tr><td align="center"> &lt;&lt;=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
+<tr><td align="center"> &gt;&gt;=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
+<tr><td align="center"> %=       </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
+<tr><td align="center"> /= *=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
+<tr><td align="center"> += -=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
+<tr><td align="center"> =        </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> Variable  assignment                </td></tr>
+<tr><td align="center"> ||     </td><td align="center"> 4          </td><td align="center"> l             </td><td align="left"> Lazy-logical or                     </td></tr>
+<tr><td align="center"> &amp;&amp;       </td><td align="center"> 5          </td><td align="center"> l             </td><td align="left"> Lazy-logical and                    </td></tr>
+<tr><td align="center"> |       </td><td align="center"> 6          </td><td align="center"> l             </td><td align="left"> Bitwise or                          </td></tr>
+<tr><td align="center"> ^        </td><td align="center"> 7          </td><td align="center"> l             </td><td align="left"> Bitwise xor                         </td></tr>
+<tr><td align="center"> &amp;        </td><td align="center"> 8          </td><td align="center"> l             </td><td align="left"> Bitwise and                         </td></tr>
+<tr><td align="center"> == !=    </td><td align="center"> 9          </td><td align="center"> l             </td><td align="left"> Value equaltity                     </td></tr>
+<tr><td align="center"> &lt; &lt;=   </td><td align="center"> 10         </td><td align="center"> l             </td><td align="left"> Less, Minimum                       </td></tr>
+<tr><td align="center"> &gt; &gt;=   </td><td align="center"> 10         </td><td align="center"> l             </td><td align="left"> Greater, Maximum                    </td></tr>
+<tr><td align="center"> &gt;&gt; &lt;&lt; </td><td align="center"> 11        </td><td align="center"> l             </td><td align="left"> Bitwise right/left shift            </td></tr>
+<tr><td align="center"> a+b a-b  </td><td align="center"> 12         </td><td align="center"> l             </td><td align="left"> Addition, substraction              </td></tr>
+<tr><td align="center"> a%b      </td><td align="center"> 12         </td><td align="center"> l             </td><td align="left"> Remainder                           </td></tr>
+<tr><td align="center"> a*b a/b  </td><td align="center"> 13         </td><td align="center"> l             </td><td align="left"> Multiplication, Division            </td></tr>
+<tr><td align="center"> :        </td><td align="center"> 14         </td><td align="center"> r             </td><td align="left"> Variable declaration                </td></tr>
+<tr><td align="center"> ++a --a  </td><td align="center"> 15         </td><td align="center"> r             </td><td align="left"> Increment, Decrement                </td></tr>
+<tr><td align="center"> +a   -a  </td><td align="center"> 15         </td><td align="center"> r             </td><td align="left"> Positive,Negative                   </td></tr>
+<tr><td align="center"> ! ~      </td><td align="center"> 15         </td><td align="center"> r             </td><td align="left"> Logical not, Bitwise not            </td></tr>
+<tr><td align="center"> safe a   </td><td align="center"> 15         </td><td align="center"> r             </td><td align="left"> Safe allocation                     </td></tr>
+<tr><td align="center"> mut a    </td><td align="center"> 15         </td><td align="center"> r             </td><td align="left"> Mutable variable                    </td></tr>
+<tr><td align="center"> sizeof a </td><td align="center"> 15         </td><td align="center"> r             </td><td align="left"> Sizeof type                         </td></tr>
+<tr><td align="center"> *a       </td><td align="center"> 15         </td><td align="center"> r             </td><td align="left"> &quot;Dereference&quot;                       </td></tr>
+</tbody></table>
+<a class="header" href="#anonymous-semantics" id="anonymous-semantics"><h2>Anonymous semantics</h2></a>
 <p>Every <em>def</em> (except <em>vardef</em>) not used in a top-level expression is an
 anonymous semantic, it's referenced will not be added to the current
 environment.</p>
-<h2><a class="header" href="#modules" id="modules">Modules</a></h2>
+<a class="header" href="#modules" id="modules"><h2>Modules</h2></a>
 <p>Modules separate code by functionality. A module has an own environment and
 is added as <em>id</em> from <em>moduledecl</em> to the parent environment. A module's
 <em>id</em> must start with an lowercase, alphabetic character.</p>
 <p>Libraries are also just modules.</p>
-<h3><a class="header" href="#variables" id="variables">Variables</a></h3>
+<a class="header" href="#variables" id="variables"><h3>Variables</h3></a>
 <p>Variables in modules can be either <strong>global</strong>, if the module has only modules
 and library as parents otherwise the variable is <strong>local</strong>.</p>
-<h2><a class="header" href="#functions" id="functions">Functions</a></h2>
+<a class="header" href="#functions" id="functions"><h2>Functions</h2></a>
 <p>Normal functions can't use non-global variables from parent environments.</p>
 <p>A function beginning with a lowercase character with possible leading '<em>', no
 function with the same parameters and function name must exist in the current
@@ -645,7 +677,7 @@ referenced to be the <em>id</em>s in fron of the last one. The environment
 has to be a <a href="./expr_class.html">class</a>, <a href="./expr_mod.html">module</a>
 or primitive datatype.</p>
 <p>A function with no <em>retfuncbody</em> or <em>return-type</em> returns the empty tuple <code>()</code>.</p>
-<h3><a class="header" href="#guards" id="guards">Guards</a></h3>
+<a class="header" href="#guards" id="guards"><h3>Guards</h3></a>
 <p>The <em>expr0</em> of the guard has to evaluate to an object with the type <em>bool</em>.  If
 <em>expr0</em> evaluates to <strong>True</strong> nothing happens, the functions is called normally
 (other guards are respected of course). Otherwise a panic is generated,
@@ -654,16 +686,16 @@ must be the same type as the return-type, of course.</p>
 <p>The guard can be checked at compile, if possible and must be checked during
 return-time. The guard of the function definition (with <em>funcbody</em>) has
 precedence.</p>
-<h3><a class="header" href="#argument-binding" id="argument-binding">Argument binding</a></h3>
+<a class="header" href="#argument-binding" id="argument-binding"><h3>Argument binding</h3></a>
 <p>The operator <strong>&lt;&gt;</strong> is used to bind a function (LHS) to an object (RHS) which
 replaces the last parameter. The function must have at least one parameter. The
 returned function is is missing the last parameter.</p>
-<h3><a class="header" href="#lambda-expressions" id="lambda-expressions">Lambda expressions</a></h3>
+<a class="header" href="#lambda-expressions" id="lambda-expressions"><h3>Lambda expressions</h3></a>
 <p>Lambda functions can also use non-global variables from a parent environment in
 <em>retfuncbody</em>. They are equivalent to normal <em>functions</em> which have these
 variables as additional parameters and are then bound to the function (via
 <strong>&lt;&gt;</strong>).</p>
-<h2><a class="header" href="#traits" id="traits">Traits</a></h2>
+<a class="header" href="#traits" id="traits"><h2>Traits</h2></a>
 <p>They are added to the current
 environment using the <em>id</em> in <em>traitdecl</em>. Traits have an own environment which
 can't be referenced, which contains the template variables.</p>
@@ -672,17 +704,17 @@ functions in <em>traitbody</em>. When referencing the fucntion a function withou
 <strong>this</strong> or <strong>This</strong> parameter is returned.</p>
 <p>The name of the trait (first expression <em>id</em> in <em>traitdecl</em>) must start with
 an uppercase character with optional leading '_'.</p>
-<h3><a class="header" href="#trait-inheritance" id="trait-inheritance">Trait inheritance</a></h3>
+<a class="header" href="#trait-inheritance" id="trait-inheritance"><h3>Trait inheritance</h3></a>
 <p>Traits can inherited function declarations from other traits with
 <em>templidcalls</em>, where every <em>templidcall</em> must be a trait. Traits can't be
 inherited if a the traits have functions with the same name and parameters.</p>
-<h2><a class="header" href="#templates" id="templates">Templates</a></h2>
+<a class="header" href="#templates" id="templates"><h2>Templates</h2></a>
 <p>Every behaviour of an object, which have the template type as type, must be
 provided by the template variable. This is realized with traits, which declare
 the behaviour.</p>
 <p>Semantics which declare templates, must have defined behaviour. They cannot
 have <em>only</em> declared behaviour.</p>
-<h2><a class="header" href="#variables-1" id="variables-1">Variables</a></h2>
+<a class="header" href="#variables-1" id="variables-1"><h2>Variables</h2></a>
 <p>Private, constant and mutability:</p>
 <ul>
 <li>
@@ -699,11 +731,11 @@ are called <strong>constant</strong>. Their environment has only <strong>constan
 with <strong>mut</strong>. So variables are <strong>immutable</strong> at default.</p>
 </li>
 </ul>
-<h3><a class="header" href="#representing-an-object" id="representing-an-object">Representing an object</a></h3>
+<a class="header" href="#representing-an-object" id="representing-an-object"><h3>Representing an object</h3></a>
 <p>A variable returns <code>()</code> if it isn't initialized.  A variable can be
 initialized using <strong>=</strong> or <strong>:=</strong> to declare and define the variable at the
 same time.</p>
-<h3><a class="header" href="#assignments" id="assignments">Assignments</a></h3>
+<a class="header" href="#assignments" id="assignments"><h3>Assignments</h3></a>
 <p>Assigning a variable with <strong>=</strong> (re-)initializes the variable. Reinitialization
 <sup class="footnote-reference"><a href="#reinit">1</a></sup> is only possible if variable is <strong>mutable</strong>. The assigned object (RHS)
 is returned.</p>
@@ -712,10 +744,10 @@ the variable. Returns <code>()</code>.</p>
 <div class="footnote-definition" id="reinit"><sup class="footnote-definition-label">1</sup>
 <p>The variable is already initialized.</p>
 </div>
-<h3><a class="header" href="#local-and-global" id="local-and-global">Local and global</a></h3>
+<a class="header" href="#local-and-global" id="local-and-global"><h3>Local and global</h3></a>
 <p><strong>Local</strong> variables are dropped after a <em>funcbody</em> scope ends. <strong>Global</strong>
 variables are dropped when the program terminates.</p>
-<h2><a class="header" href="#classes" id="classes">Classes</a></h2>
+<a class="header" href="#classes" id="classes"><h2>Classes</h2></a>
 <p>Classes have attributes, constructors and functions:</p>
 <ul>
 <li>Attributes: Every vardecl in <em>classcons</em> and <em>classunit</em> which is a
@@ -732,47 +764,47 @@ have a return-type.
 Contructors are added to the parent environment of the class.</li>
 <li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.
 Functions are added to the environment of the class semantic and
-without <strong>This</strong> or <strong>this</strong> in an object which has the type of the class. </li>
+without <strong>This</strong> or <strong>this</strong> in an object which has the type of the class.</li>
 </ul>
 <p>The name of the class (second expression <em>id</em> in <em>classdecl</em>) must start with
 an uppercase character with optional leading '_'.</p>
-<h3><a class="header" href="#implementing-traits" id="implementing-traits">Implementing traits</a></h3>
+<a class="header" href="#implementing-traits" id="implementing-traits"><h3>Implementing traits</h3></a>
 <p>Functions declared can be implemented by classes to support polymorphism.
 <em>traitimpl</em> must contain all functions declared by the mentioned trait
 after <strong>:</strong> in <em>traitimplbody</em>. A trait already implemenated in the functions
 cannot be reimplemented.</p>
-<h3><a class="header" href="#creating-an-object" id="creating-an-object">Creating an object</a></h3>
+<a class="header" href="#creating-an-object" id="creating-an-object"><h3>Creating an object</h3></a>
 <p>An object is created by making function call where the called function
 is a reference to the class. The first argument must be <strong>this</strong>.</p>
-<h3><a class="header" href="#function-access" id="function-access">Function access</a></h3>
+<a class="header" href="#function-access" id="function-access"><h3>Function access</h3></a>
 <p>When a class's function is accessed via the class semantic, the returned
 function is same as if it would be accessed in a program body.  If the function
 is accessed via an object, the returned function is the function accessed via
 the class semantic where the first argument is bound with the object.</p>
-<h3><a class="header" href="#functions-1" id="functions-1">Functions</a></h3>
+<a class="header" href="#functions-1" id="functions-1"><h3>Functions</h3></a>
 <p>The first parameter of every class's function and constructor must be either
 <strong>this</strong> or, if its a function, <strong>This</strong>.</p>
-<h2><a class="header" href="#enumerations" id="enumerations">Enumerations</a></h2>
+<a class="header" href="#enumerations" id="enumerations"><h2>Enumerations</h2></a>
 <p>Enumerations have consist of several constructors. Each constructor can
 be accompanied by a tuple with types. The tuple can be extracted with the match
 expression. All constructors are added to the parent environment. An enumeration
 has an own environment which is not added to the parent environment which stores
 template variables. A reference to the enum type will be added to the parent
 of environment. The reference is called like <em>id</em> in <em>enumdecl</em>.</p>
-<h1><a class="header" href="#kernel" id="kernel">Kernel</a></h1>
+<a class="header" href="#kernel" id="kernel"><h1>Kernel</h1></a>
 <p>The Kernel provides basic functionality, like integers or the Option trait.</p>
 <ul>
 <li><a href="./kernel_types.html">Data types</a></li>
 <li><a href="./kernel_option.html">Enum Option</a></li>
 </ul>
-<h1><a class="header" href="#data-types" id="data-types">Data types</a></h1>
+<a class="header" href="#data-types" id="data-types"><h1>Data types</h1></a>
 <p>Basic data types provided by the kernel:</p>
 <ul>
 <li><a href="./kernel_bool.html">bool</a></li>
 <li><a href="./kernel_integers.html">Integer</a></li>
 <li><a href="./kernel_floats.html">Floating-point numbers</a></li>
 </ul>
-<h1><a class="header" href="#bool" id="bool">bool</a></h1>
+<a class="header" href="#bool" id="bool"><h1>bool</h1></a>
 <p>Bool(ean) data-type. Values are either the tokens <strong>True</strong> or <strong>False</strong>.</p>
 <p>Operators defined on booleans:</p>
 <ul>
@@ -798,7 +830,7 @@ returned.</p>
 <strong>!</strong> <strong>(</strong> <em>expr0</em> <strong>==</strong> <em>expr1</em> <strong>)</strong></p>
 </li>
 </ul>
-<h1><a class="header" href="#integers-1" id="integers-1">Integers</a></h1>
+<a class="header" href="#integers-1" id="integers-1"><h1>Integers</h1></a>
 <ul>
 <li>i8: 8-bit integer (signed octet)</li>
 <li>u8: 8-bit unsigned integer (unsigned octet)</li>
@@ -891,11 +923,11 @@ returns <em>expr0</em>.</p>
 returns <em>expr0</em>.</p>
 </li>
 </ul>
-<h1><a class="header" href="#floating-point-numbers" id="floating-point-numbers">Floating-point numbers</a></h1>
+<a class="header" href="#floating-point-numbers" id="floating-point-numbers"><h1>Floating-point numbers</h1></a>
 <ul>
-<li>float32: IEC-559/IEEE-754 32-bit float-point number (float, in IEEE-754:
+<li>f32: IEC-559/IEEE-754 32-bit float-point number (float, in IEEE-754:
 binary32)</li>
-<li>float64: IEC-559/IEEE-754 64-bit float-point number (double, in IEEE-754:
+<li>f64: IEC-559/IEEE-754 64-bit float-point number (double, in IEEE-754:
 binary64)</li>
 </ul>
 <p>More about floats at <a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a>.</p>
@@ -933,14 +965,14 @@ equal (<em>expr0</em> - <em>expr1</em> is not equal to 0), otherwise True. <em>e
 <em>expr1</em> must have the same type. Return-type is <a href="./kernel_bool.html">bool</a>.</p>
 </li>
 </ul>
-<h2><a class="header" href="#enum-option" id="enum-option">Enum Option</a></h2>
+<a class="header" href="#enum-option" id="enum-option"><h2>Enum Option</h2></a>
 <pre><code>enum{T} Option
   None
   Some(T)
 ;
 </code></pre>
-<h2><a class="header" href="#functions-2" id="functions-2">Functions</a></h2>
-<h3><a class="header" href="#floating-point" id="floating-point">Floating-point</a></h3>
+<a class="header" href="#functions-2" id="functions-2"><h2>Functions</h2></a>
+<a class="header" href="#floating-point" id="floating-point"><h3>Floating-point</h3></a>
 <pre><code>namespace std
 
 /**@return Returns true, if float is a special IEEE-754 value.
@@ -965,7 +997,7 @@ func@Safe panic ;
 
 ;
 </code></pre>
-<h2><a class="header" href="#tuples" id="tuples">Tuples</a></h2>
+<a class="header" href="#tuples" id="tuples"><h2>Tuples</h2></a>
 <p>Every tuple supports two operations (<em>expr0</em> and <em>expr1</em> are tuples filled with
 defined variables):</p>
 <ul>
@@ -984,7 +1016,7 @@ same as the <em>i</em>th-type in <em>expr1</em>. Returns <strong>False</strong>,
 otherwise <strong>True</strong>.</p>
 </li>
 </ul>
-<h2><a class="header" href="#mit-license" id="mit-license">MIT License</a></h2>
+<a class="header" href="#mit-license" id="mit-license"><h2>MIT License</h2></a>
 <p>Copyright 2019 Fionn Langhans</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the &quot;Software&quot;), to deal in
@@ -1023,6 +1055,21 @@ SOFTWARE.</p>
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
