@@ -16,6 +16,9 @@ or primitive datatype.
 
 A function with no *retfuncbody* or *return-type* returns the empty tuple ``()``.
 
+Only variables which have a function as type, can be represented as objects.
+This is done by assigning an variable to an anonymous function.
+
 ### Guards
 
 The *expr0* of the guard has to evaluate to an object with the type *bool*.  If
@@ -30,9 +33,10 @@ precedence.
 
 ### Argument binding
 
-The operator **<>** is used to bind a function (LHS) to an object (RHS) which
-replaces the last parameter. The function must have at least one parameter. The
-returned function is is missing the last parameter.
+The operator **<>** is used to bind a function (LHS), which is also a
+variable/anonymous function, to an object (RHS) which replaces the last
+parameter. The function must have at least one parameter. The returned function
+is is missing the last parameter.
 
 ### Lambda expressions
 

@@ -677,6 +677,8 @@ referenced to be the <em>id</em>s in fron of the last one. The environment
 has to be a <a href="./expr_class.html">class</a>, <a href="./expr_mod.html">module</a>
 or primitive datatype.</p>
 <p>A function with no <em>retfuncbody</em> or <em>return-type</em> returns the empty tuple <code>()</code>.</p>
+<p>Only variables which have a function as type, can be represented as objects.
+This is done by assigning an variable to an anonymous function.</p>
 <a class="header" href="#guards" id="guards"><h3>Guards</h3></a>
 <p>The <em>expr0</em> of the guard has to evaluate to an object with the type <em>bool</em>.  If
 <em>expr0</em> evaluates to <strong>True</strong> nothing happens, the functions is called normally
@@ -687,9 +689,10 @@ must be the same type as the return-type, of course.</p>
 return-time. The guard of the function definition (with <em>funcbody</em>) has
 precedence.</p>
 <a class="header" href="#argument-binding" id="argument-binding"><h3>Argument binding</h3></a>
-<p>The operator <strong>&lt;&gt;</strong> is used to bind a function (LHS) to an object (RHS) which
-replaces the last parameter. The function must have at least one parameter. The
-returned function is is missing the last parameter.</p>
+<p>The operator <strong>&lt;&gt;</strong> is used to bind a function (LHS), which is also a
+variable/anonymous function, to an object (RHS) which replaces the last
+parameter. The function must have at least one parameter. The returned function
+is is missing the last parameter.</p>
 <a class="header" href="#lambda-expressions" id="lambda-expressions"><h3>Lambda expressions</h3></a>
 <p>Lambda functions can also use non-global variables from a parent environment in
 <em>retfuncbody</em>. They are equivalent to normal <em>functions</em> which have these
@@ -1055,21 +1058,6 @@ SOFTWARE.</p>
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
