@@ -20,21 +20,22 @@ Operator associativity:
 | =        | 3          | r             | Variable  assignment                |
 | \|\|     | 4          | l             | Lazy-logical or                     |
 | &&       | 5          | l             | Lazy-logical and                    |
-| \|       | 6          | l             | Bitwise or                          |
-| ^        | 7          | l             | Bitwise xor                         |
-| &        | 8          | l             | Bitwise and                         |
-| == !=    | 9          | l             | Value equaltity                     |
-| \< \<=   | 10         | l             | Less, Minimum                       |
-| \> \>=   | 10         | l             | Greater, Maximum                    |
-| \>\> \<\< | 11        | l             | Bitwise right/left shift            |
-| a+b a-b  | 12         | l             | Addition, substraction              |
-| a%b      | 12         | l             | Remainder                           |
-| a*b a/b  | 13         | l             | Multiplication, Division            |
-| :        | 14         | r             | Variable declaration                |
-| ++a --a  | 15         | r             | Increment, Decrement                |
-| +a   -a  | 15         | r             | Positive,Negative                   |
-| ! ~      | 15         | r             | Logical not, Bitwise not            |
-| safe a   | 15         | r             | Safe allocation                     |
-| mut a    | 15         | r             | Mutable variable                    |
-| sizeof a | 15         | r             | Sizeof type                         |
-| *a       | 15         | r             | "Dereference"                       |
+| <>       | 6          | l             | Argument binding                    |
+| \|       | 7          | l             | Bitwise or                          |
+| ^        | 8          | l             | Bitwise xor                         |
+| &        | 9          | l             | Bitwise and                         |
+| == !=    | 10         | l             | Value equaltity                     |
+| \< \<=   | 11         | l             | Less, Minimum                       |
+| \> \>=   | 11         | l             | Greater, Maximum                    |
+| \>\> \<\< | 12        | l             | Bitwise right/left shift            |
+| a+b a-b  | 13         | l             | Addition, substraction              |
+| a%b      | 13         | l             | Remainder                           |
+| a*b a/b  | 14         | l             | Multiplication, Division            |
+| :        | 15         | r             | Variable declaration                |
+| ++a --a  | 16         | r             | Increment, Decrement                |
+| +a   -a  | 16         | r             | Positive,Negative                   |
+| ! ~      | 16         | r             | Logical not, Bitwise not            |
+| safe a   | 16         | r             | Safe allocation                     |
+| mut a    | 16         | r             | Mutable variable                    |
+| sizeof a | 16         | r             | Sizeof type                         |
+| *a       | 16         | r             | "Dereference"                       |
