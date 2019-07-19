@@ -16,8 +16,8 @@ or primitive datatype.
 
 A function with no *retfuncbody* or *return-type* returns the empty tuple ``()``.
 
-Only variables which have a function as type, can be represented as objects.
-This is done by assigning an variable to an anonymous function.
+Only functions which are declared with the **Unique** capabilitiy can be used
+as an object, all others must only be used for complete function calls.
 
 ### Guards
 
