@@ -354,7 +354,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p>Operators:</p>
 <blockquote>
 <p><em>biopexpr</em> := <em>expr0</em> <em>biop</em> <em>expr1</em><br />
-<em>unopexpr</em> := <em>expr</em> <em>runop</em> | <em>lunop</em> *expr *<br />
+<em>unopexpr</em> := <em>expr</em> <em>runop</em><br />
 <em>biop</em> := <strong>+</strong> | <strong>-</strong> | <strong>*</strong> | <strong>/</strong> | <strong>**</strong> | <strong>%</strong> <br />
 | <strong>&amp;</strong> | <strong>|</strong> | <strong>^</strong> | <strong>&lt;&lt;</strong> | <strong>&gt;&gt;</strong> <br />
 | <strong>==</strong> | <strong>!=</strong> | <strong>&lt;</strong> | <strong>&gt;</strong> | <strong>&lt;=</strong> | <strong>&gt;=</strong><br />
@@ -363,8 +363,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <strong>&amp;=</strong> | <strong>|=</strong> | <strong>^=</strong> | <strong>&lt;&lt;=</strong> | <strong>&gt;&gt;=</strong> <br />
 | <strong>=</strong>
 | <strong>&lt;&gt;</strong><br />
-<em>runop</em> := <strong>*</strong> | <strong>!</strong><br />
-<em>lunop</em> := <strong>++</strong> | <strong>--</strong></p>
+<em>runop</em> := <strong>*</strong> | <strong>!</strong> | <strong>safe</strong> | <strong>mut</strong> | <strong>sizeof</strong> | <strong>null</strong>
+| <strong>+</strong> | <strong>-</strong> | <strong>++</strong> | <strong>--</strong></p>
 </blockquote>
 
                     </main>
@@ -404,6 +404,21 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

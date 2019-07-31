@@ -174,6 +174,10 @@ is is missing the last parameter.</p>
 <em>retfuncbody</em>. They are equivalent to normal <em>functions</em> which have these
 variables as additional parameters and are then bound to the function (via
 <strong>&lt;&gt;</strong>).</p>
+<a class="header" href="#function-body" id="function-body"><h3>Function body</h3></a>
+<p>Every <em>expr</em> (but not <em>expr</em> in <em>expr</em>) is a statement. These statements must
+return <em>()</em> as type or an L-value. Otherwise the <em>expr</em> is invalid. This can
+be fixed with the <strong>null</strong> operator.</p>
 
                     </main>
 
@@ -212,6 +216,21 @@ variables as additional parameters and are then bound to the function (via
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

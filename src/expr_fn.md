@@ -44,3 +44,9 @@ Lambda functions can also use non-global variables from a parent environment in
 *retfuncbody*. They are equivalent to normal *functions* which have these
 variables as additional parameters and are then bound to the function (via
 **<>**).
+
+### Function body
+
+Every *expr* (but not *expr* in *expr*) is a statement. These statements must
+return *()* as type or an L-value. Otherwise the *expr* is invalid. This can
+be fixed with the **null** operator.
