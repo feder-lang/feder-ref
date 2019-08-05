@@ -31,4 +31,5 @@
 	* [Enum Option](./kernel_option.md)
 	* [Functions](./kernel_functions.md)
 	* [Tuples](./kernel_tuples.md)
+	* [Traits](./kernel_traits.md)
 - [License](./LICENSE.md)
