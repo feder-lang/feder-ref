@@ -188,7 +188,7 @@ the decimal digits, letters and the '_' character.</p>
 <a class="header" href="#keywords" id="keywords"><h2>Keywords</h2></a>
 <p>Keywords are reserved identifiers for syntax elements which cannot be used for
 anything else. These are:</p>
-<pre><code>func null module class enum trait type return mut
+<pre><code>func null module class enum trait type return mut This
 if else match switch for do continue break safe include import
 True False
 _
@@ -771,9 +771,7 @@ attributes declared in the class.  The function called <strong>_init</strong> wi
 be called before the constructor function. Constructor functions mustn't
 have a return-type.
 Contructors are added to the parent environment of the class.</li>
-<li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.
-Functions are added to the environment of the class semantic and
-without <strong>This</strong> or <strong>this</strong> in an object which has the type of the class.</li>
+<li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.</li>
 </ul>
 <p>The name of the class (second expression <em>id</em> in <em>classdecl</em>) must start with
 an uppercase character with optional leading '_'.</p>
@@ -790,9 +788,17 @@ is a reference to the class. The first argument must be <strong>this</strong>.</
 function is same as if it would be accessed in a program body.  If the function
 is accessed via an object, the returned function is the function accessed via
 the class semantic where the first argument is bound with the object.</p>
+<a class="header" href="#this" id="this"><h3>This</h3></a>
+<p>This must only be used in an class expression. It represent the closest class
+type.</p>
 <a class="header" href="#functions-1" id="functions-1"><h3>Functions</h3></a>
-<p>The first parameter of every class's function and constructor must be either
-<strong>this</strong> or, if its a function, <strong>This</strong>.</p>
+<p>The first parameter of every class function must have the same type as the
+class. This can be achieved with <a href="./expr_class.html#This">This</a>. If the first
+parameter doesn't have a variable name (just the type), then the variable
+<strong>this</strong> with current class as type is added to the environment of the function
+body.</p>
+<p>Functions are added to the environment of the class semantic and
+are added to class' instances without the first parameter.</p>
 <a class="header" href="#enumerations" id="enumerations"><h2>Enumerations</h2></a>
 <p>Enumerations have consist of several constructors. Each constructor can
 be accompanied by a tuple with types. The tuple can be extracted with the match

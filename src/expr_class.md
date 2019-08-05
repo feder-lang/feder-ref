@@ -15,8 +15,6 @@ Classes have attributes, constructors and functions:
   have a return-type.
   Contructors are added to the parent environment of the class.
 - Functions: Every *classunit* which is a *func*, which isn't a constructor.
-  Functions are added to the environment of the class semantic and
-  without **This** or **this** in an object which has the type of the class. 
 
 The name of the class (second expression *id* in *classdecl*) must start with
 an uppercase character with optional leading '_'.
@@ -40,7 +38,18 @@ function is same as if it would be accessed in a program body.  If the function
 is accessed via an object, the returned function is the function accessed via
 the class semantic where the first argument is bound with the object.
 
+### This
+
+This must only be used in an class expression. It represent the closest class
+type.
+
 ### Functions
 
-The first parameter of every class's function and constructor must be either
-**this** or, if its a function, **This**.
+The first parameter of every class function must have the same type as the
+class. This can be achieved with [This](./expr_class.md#This). If the first
+parameter doesn't have a variable name (just the type), then the variable
+**this** with current class as type is added to the environment of the function
+body.
+
+Functions are added to the environment of the class semantic and
+are added to class' instances without the first parameter.
