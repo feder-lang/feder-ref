@@ -67,7 +67,8 @@ General program:
 > *template* :=  **{** *templdecls* **}** \
 > *templdecls* := *templdecl* | *templdecl* **,** *templdecls* \
 > *templdecl* := *id* | *id* **:** *templidcall* \
-> *templidcalls* := *templidcall* | *templidcall* **,** *templidcalls* \
+> *templidcalls* := *templidcall* | *templidcall* **,** *templidcalls* 
+> | *templidcall* **,** *newline* *templidcalls* \
 > *templidcall* := *idcall* | *idcall* *template*
 
 [Functions](./expr_fn.md):
@@ -117,7 +118,8 @@ General program:
 [Traits](./expr_traits.md):
 
 > *trait* := **trait** *traitdecl* *newline* *traitbody* **;**\
-> *traitdecl* := *id* | *id* **:** *templcalls*\
+> | **trait** *traitdecl* *newline* **;**
+> *traitdecl* := *id* | *id* **:** *templidcalls*\
 > *traitbody* := *clfuncnb* | *clfuncnb* *newline* *traitbody*
 
 [Classes](./expr_classes.md):

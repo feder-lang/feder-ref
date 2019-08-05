@@ -203,7 +203,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><em>template</em> :=  <strong>{</strong> <em>templdecls</em> <strong>}</strong> <br />
 <em>templdecls</em> := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdecls</em> <br />
 <em>templdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> <br />
-<em>templidcalls</em> := <em>templidcall</em> | <em>templidcall</em> <strong>,</strong> <em>templidcalls</em> <br />
+<em>templidcalls</em> := <em>templidcall</em> | <em>templidcall</em> <strong>,</strong> <em>templidcalls</em>
+| <em>templidcall</em> <strong>,</strong> <em>newline</em> <em>templidcalls</em> <br />
 <em>templidcall</em> := <em>idcall</em> | <em>idcall</em> <em>template</em></p>
 </blockquote>
 <p><a href="./expr_fn.html">Functions</a>:</p>
@@ -254,7 +255,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><a href="./expr_traits.html">Traits</a>:</p>
 <blockquote>
 <p><em>trait</em> := <strong>trait</strong> <em>traitdecl</em> <em>newline</em> <em>traitbody</em> <strong>;</strong><br />
-<em>traitdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templcalls</em><br />
+| <strong>trait</strong> <em>traitdecl</em> <em>newline</em> <strong>;</strong>
+<em>traitdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcalls</em><br />
 <em>traitbody</em> := <em>clfuncnb</em> | <em>clfuncnb</em> <em>newline</em> <em>traitbody</em></p>
 </blockquote>
 <p><a href="./expr_classes.html">Classes</a>:</p>
