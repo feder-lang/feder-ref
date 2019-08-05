@@ -31,13 +31,6 @@ cannot be reimplemented.
 An object is created by making function call where the called function
 is a reference to the class. The first argument must be **this**.
 
-### Function access
-
-When a class's function is accessed via the class semantic, the returned
-function is same as if it would be accessed in a program body.  If the function
-is accessed via an object, the returned function is the function accessed via
-the class semantic where the first argument is bound with the object.
-
 ### This
 
 This must only be used in an class expression. It represent the closest class
