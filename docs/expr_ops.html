@@ -4,6 +4,8 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Operators - Feder: Reference Manual</title>
+        
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Reference manual for the Feder programming language.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,7 +58,7 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
@@ -75,7 +77,10 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_ops.html" class="active"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.5.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.6.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.7.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.8.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.9.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.10.</strong> Enumerations</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li><li><a href="kernel_traits.html"><strong aria-hidden="true">4.5.</strong> Traits</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_ops.html" class="active"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.5.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.6.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.7.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.8.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.9.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.10.</strong> Enumerations</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li><li><a href="kernel_traits.html"><strong aria-hidden="true">4.5.</strong> Traits</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -105,7 +110,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">Feder: Reference Manual</h1> 
+                        <h1 class="menu-title">Feder: Reference Manual</h1>
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -140,46 +145,46 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#operators" id="operators"><h2>Operators</h2></a>
+                        <h2><a class="header" href="#operators" id="operators">Operators</a></h2>
 <p>The less precedence an operator has, the less it binds.</p>
 <p>Operator associativity:</p>
 <ul>
 <li><strong>l</strong>: Operator is left associative</li>
 <li><strong>r</strong>: Operator is right associative</li>
 </ul>
-<table><thead><tr><th align="center"> Operator </th><th align="center"> Precedence </th><th align="center"> Associativity </th><th align="left"> Description                         </th></tr></thead><tbody>
-<tr><td align="center"> ,        </td><td align="center"> 1          </td><td align="center"> l             </td><td align="left"> Comma, Tuple/argument separator     </td></tr>
-<tr><td align="center"> :=       </td><td align="center"> 2          </td><td align="center"> r             </td><td align="left"> Declaring assignment                </td></tr>
-<tr><td align="center"> &amp;= ^=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
-<tr><td align="center"> |=      </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
-<tr><td align="center"> &lt;&lt;=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
-<tr><td align="center"> &gt;&gt;=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
-<tr><td align="center"> %=       </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
-<tr><td align="center"> /= *=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
-<tr><td align="center"> += -=    </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> On-object operation                 </td></tr>
-<tr><td align="center"> =        </td><td align="center"> 3          </td><td align="center"> r             </td><td align="left"> Variable  assignment                </td></tr>
-<tr><td align="center"> null a   </td><td align="center"> 4          </td><td align="center"> r             </td><td align="left"> Make empty, returns <strong>()</strong>          </td></tr>
-<tr><td align="center"> ||     </td><td align="center"> 5          </td><td align="center"> l             </td><td align="left"> Lazy-logical or                     </td></tr>
-<tr><td align="center"> &amp;&amp;       </td><td align="center"> 6          </td><td align="center"> l             </td><td align="left"> Lazy-logical and                    </td></tr>
-<tr><td align="center"> &lt;&gt;       </td><td align="center"> 7          </td><td align="center"> l             </td><td align="left"> Argument binding                    </td></tr>
-<tr><td align="center"> |       </td><td align="center"> 8          </td><td align="center"> l             </td><td align="left"> Bitwise or                          </td></tr>
-<tr><td align="center"> ^        </td><td align="center"> 9          </td><td align="center"> l             </td><td align="left"> Bitwise xor                         </td></tr>
-<tr><td align="center"> &amp;        </td><td align="center"> 10         </td><td align="center"> l             </td><td align="left"> Bitwise and                         </td></tr>
-<tr><td align="center"> == !=    </td><td align="center"> 11         </td><td align="center"> l             </td><td align="left"> Value equaltity                     </td></tr>
-<tr><td align="center"> &lt; &lt;=   </td><td align="center"> 12         </td><td align="center"> l             </td><td align="left"> Less, Minimum                       </td></tr>
-<tr><td align="center"> &gt; &gt;=   </td><td align="center"> 12         </td><td align="center"> l             </td><td align="left"> Greater, Maximum                    </td></tr>
-<tr><td align="center"> &gt;&gt; &lt;&lt; </td><td align="center"> 13        </td><td align="center"> l             </td><td align="left"> Bitwise right/left shift            </td></tr>
-<tr><td align="center"> a+b a-b  </td><td align="center"> 14         </td><td align="center"> l             </td><td align="left"> Addition, substraction              </td></tr>
-<tr><td align="center"> a%b      </td><td align="center"> 14         </td><td align="center"> l             </td><td align="left"> Remainder                           </td></tr>
-<tr><td align="center"> a*b a/b  </td><td align="center"> 15         </td><td align="center"> l             </td><td align="left"> Multiplication, Division            </td></tr>
-<tr><td align="center"> :        </td><td align="center"> 16         </td><td align="center"> r             </td><td align="left"> Variable declaration                </td></tr>
-<tr><td align="center"> ++a --a  </td><td align="center"> 17         </td><td align="center"> r             </td><td align="left"> Increment, Decrement                </td></tr>
-<tr><td align="center"> +a   -a  </td><td align="center"> 17         </td><td align="center"> r             </td><td align="left"> Positive,Negative                   </td></tr>
-<tr><td align="center"> ! ~      </td><td align="center"> 17         </td><td align="center"> r             </td><td align="left"> Logical not, Bitwise not            </td></tr>
-<tr><td align="center"> safe a   </td><td align="center"> 17         </td><td align="center"> r             </td><td align="left"> Safe allocation                     </td></tr>
-<tr><td align="center"> mut a    </td><td align="center"> 17         </td><td align="center"> r             </td><td align="left"> Mutable variable                    </td></tr>
-<tr><td align="center"> sizeof a </td><td align="center"> 17         </td><td align="center"> r             </td><td align="left"> Sizeof type                         </td></tr>
-<tr><td align="center"> *a       </td><td align="center"> 17         </td><td align="center"> r             </td><td align="left"> &quot;Dereference&quot;                       </td></tr>
+<table><thead><tr><th align="center">Operator</th><th align="center">Precedence</th><th align="center">Associativity</th><th align="left">Description</th></tr></thead><tbody>
+<tr><td align="center">,</td><td align="center">1</td><td align="center">l</td><td align="left">Comma, Tuple/argument separator</td></tr>
+<tr><td align="center">:=</td><td align="center">2</td><td align="center">r</td><td align="left">Declaring assignment</td></tr>
+<tr><td align="center">&amp;= ^=</td><td align="center">3</td><td align="center">r</td><td align="left">On-object operation</td></tr>
+<tr><td align="center">|=</td><td align="center">3</td><td align="center">r</td><td align="left">On-object operation</td></tr>
+<tr><td align="center">&lt;&lt;=</td><td align="center">3</td><td align="center">r</td><td align="left">On-object operation</td></tr>
+<tr><td align="center">&gt;&gt;=</td><td align="center">3</td><td align="center">r</td><td align="left">On-object operation</td></tr>
+<tr><td align="center">%=</td><td align="center">3</td><td align="center">r</td><td align="left">On-object operation</td></tr>
+<tr><td align="center">/= *=</td><td align="center">3</td><td align="center">r</td><td align="left">On-object operation</td></tr>
+<tr><td align="center">+= -=</td><td align="center">3</td><td align="center">r</td><td align="left">On-object operation</td></tr>
+<tr><td align="center">=</td><td align="center">3</td><td align="center">r</td><td align="left">Variable  assignment</td></tr>
+<tr><td align="center">null a</td><td align="center">4</td><td align="center">r</td><td align="left">Make empty, returns <strong>()</strong></td></tr>
+<tr><td align="center">||</td><td align="center">5</td><td align="center">l</td><td align="left">Lazy-logical or</td></tr>
+<tr><td align="center">&amp;&amp;</td><td align="center">6</td><td align="center">l</td><td align="left">Lazy-logical and</td></tr>
+<tr><td align="center">&lt;&gt;</td><td align="center">7</td><td align="center">l</td><td align="left">Argument binding</td></tr>
+<tr><td align="center">|</td><td align="center">8</td><td align="center">l</td><td align="left">Bitwise or</td></tr>
+<tr><td align="center">^</td><td align="center">9</td><td align="center">l</td><td align="left">Bitwise xor</td></tr>
+<tr><td align="center">&amp;</td><td align="center">10</td><td align="center">l</td><td align="left">Bitwise and</td></tr>
+<tr><td align="center">== !=</td><td align="center">11</td><td align="center">l</td><td align="left">Value equaltity</td></tr>
+<tr><td align="center">&lt; &lt;=</td><td align="center">12</td><td align="center">l</td><td align="left">Less, Minimum</td></tr>
+<tr><td align="center">&gt; &gt;=</td><td align="center">12</td><td align="center">l</td><td align="left">Greater, Maximum</td></tr>
+<tr><td align="center">&gt;&gt; &lt;&lt;</td><td align="center">13</td><td align="center">l</td><td align="left">Bitwise right/left shift</td></tr>
+<tr><td align="center">a+b a-b</td><td align="center">14</td><td align="center">l</td><td align="left">Addition, substraction</td></tr>
+<tr><td align="center">a%b</td><td align="center">14</td><td align="center">l</td><td align="left">Remainder</td></tr>
+<tr><td align="center">a*b a/b</td><td align="center">15</td><td align="center">l</td><td align="left">Multiplication, Division</td></tr>
+<tr><td align="center">:</td><td align="center">16</td><td align="center">r</td><td align="left">Variable declaration</td></tr>
+<tr><td align="center">++a --a</td><td align="center">17</td><td align="center">r</td><td align="left">Increment, Decrement</td></tr>
+<tr><td align="center">+a   -a</td><td align="center">17</td><td align="center">r</td><td align="left">Positive,Negative</td></tr>
+<tr><td align="center">! ~</td><td align="center">17</td><td align="center">r</td><td align="left">Logical not, Bitwise not</td></tr>
+<tr><td align="center">safe a</td><td align="center">17</td><td align="center">r</td><td align="left">Safe allocation</td></tr>
+<tr><td align="center">mut a</td><td align="center">17</td><td align="center">r</td><td align="left">Mutable variable</td></tr>
+<tr><td align="center">sizeof a</td><td align="center">17</td><td align="center">r</td><td align="left">Sizeof type</td></tr>
+<tr><td align="center">*a</td><td align="center">17</td><td align="center">r</td><td align="left">&quot;Dereference&quot;</td></tr>
 </tbody></table>
 
                     </main>

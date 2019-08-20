@@ -19,6 +19,49 @@ A function with no *retfuncbody* or *return-type* returns the empty tuple ``()``
 Only functions which are declared with the **Unique** capabilitiy can be used
 as an object, all others must only be used for complete function calls.
 
+Example (functions without return type):
+
+```
+// print hello world
+func printHello0(out: OutputStream)
+  null out.println("hello, world!")
+;
+
+// multiple instructions
+func printHello1(out: OutputStream, user: String)
+  null out.print("hello, ")
+  null out.print(user)
+  null out.print("!")
+;
+```
+
+Example (functions with return type):
+
+```
+/*
+ * How to write a function which returns the sum of the first and second
+ * argument in Feder
+ */
+
+// sum function with **return** keyword and explicit return-type
+func add0(x: int32, y: int32): int32
+  return x + y
+;
+
+// sum function with **return** keyword and implicit return-type
+func add1(x: int32, y: int32):
+  return x + y
+;
+
+// sum function without **return** keyword but explicit return-type
+func add2(x: int32, y: int32): int32
+  x + y;
+
+// sum function with **return** keyword and implicit return-type
+func add3(x: int32, y: int32):
+  x + y;
+```
+
 ### Guards
 
 The *expr0* of the guard has to evaluate to an object with the type *bool*.  If
@@ -31,12 +74,37 @@ The guard can be checked at compile, if possible and must be checked during
 return-time. The guard of the function definition (with *funcbody*) has
 precedence.
 
+Example:
+
+```
+// Division with Division-by-zero exception
+func div(x: int32, y: int32 | y != 0): int32
+  x / y;
+
+// Dvision with Division-by-zero returns 0
+func div(x: in32, y: int32 | y != 0 => 0): int32
+  x / y;
+```
+
 ### Argument binding
 
 The operator **<>** is used to bind a function (LHS), which is also a
 variable/anonymous function, to an object (RHS) which replaces the last
 parameter. The function must have at least one parameter. The returned function
 is is missing the last parameter.
+
+```
+// normal integer addition
+func add(x: int32, y: int32): int32
+  x + y;
+
+// sum number one and argument and return result
+add1 := add <> 1
+
+func main
+  null io.out.println(add1(2)) // prints 3 to standard output
+;
+```
 
 ### Lambda expressions
 
