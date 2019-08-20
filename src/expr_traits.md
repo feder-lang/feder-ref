@@ -4,9 +4,9 @@ They are added to the current
 environment using the *id* in *traitdecl*. Traits have an own environment which
 can't be referenced, which contains the template variables.
 
-The environment of an object which has the trait as type, contains all declared
-functions in *traitbody*. When referencing the fucntion a function without the
-**this** or **This** parameter is returned.
+The environment of an object which has the trait as type, contains all
+functions declared in *traitbody*. When referencing a function, it is returned
+without the **this** or **This** parameter.
 
 The name of the trait (first expression *id* in *traitdecl*) must start with
 an uppercase character with optional leading '_'.
