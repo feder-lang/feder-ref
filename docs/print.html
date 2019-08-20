@@ -687,7 +687,9 @@ the function called like the most right <em>id</em> is added to the environment
 referenced to be the <em>id</em>s in fron of the last one. The environment
 has to be a <a href="./expr_class.html">class</a>, <a href="./expr_mod.html">module</a>
 or primitive datatype.</p>
-<p>A function with no <em>retfuncbody</em> or <em>return-type</em> returns the empty tuple <code>()</code>.</p>
+<p>A function with no <em>retfuncbody</em> or <em>return-type</em> returns the empty tuple <code>()</code>.
+A function with a return type (a function with <strong>:</strong> after the parameters or
+function name) must not have the return type <strong>()</strong> (empty type).</p>
 <p>Only functions which are declared with the <strong>Unique</strong> capabilitiy can be used
 as an object, all others must only be used for complete function calls.</p>
 <p>Example (functions without return type):</p>

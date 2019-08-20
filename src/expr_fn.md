@@ -15,6 +15,8 @@ has to be a [class](./expr_class.md), [module](./expr_mod.md)
 or primitive datatype.
 
 A function with no *retfuncbody* or *return-type* returns the empty tuple ``()``.
+A function with a return type (a function with **:** after the parameters or
+function name) must not have the return type **()** (empty type).
 
 Only functions which are declared with the **Unique** capabilitiy can be used
 as an object, all others must only be used for complete function calls.
