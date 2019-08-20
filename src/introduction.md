@@ -18,10 +18,10 @@ means a guide for beginners.
 A hello world program
 
 ```
-import std.io.println
+import std
 
 func main
-	println("Hello, World!")
+	null io.out.println("Hello, World!")
 ;
 ```
 
