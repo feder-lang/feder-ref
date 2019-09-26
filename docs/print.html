@@ -323,7 +323,7 @@ quotation marks. The sequence is zero or more characters long.</p>
 </code></pre>
 <h3><a class="header" href="#operators" id="operators">Operators</a></h3>
 <p>These are tokens representing an operation or function. More about operators in
-<a href="./syntax_operators.html">Operator expressions</a>. Operators also act as token
+<a href="./expr_ops.html">Operator expressions</a>. Operators also act as token
 separators.</p>
 <h3><a class="header" href="#separators" id="separators">Separators</a></h3>
 <p>Characters, which separate tokens are the line-feed and
@@ -1160,21 +1160,6 @@ SOFTWARE.</p>
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
