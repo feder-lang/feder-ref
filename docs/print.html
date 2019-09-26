@@ -874,6 +874,32 @@ Contructors are added to the parent environment of the class.</li>
 </ul>
 <p>The name of the class (second expression <em>id</em> in <em>classdecl</em>) must start with
 an uppercase character with optional leading '_'.</p>
+<p>Examples:</p>
+<pre><code>class Person
+	mut _name : String
+	mut _age : u8
+
+	func Person(mut name : String, mut age : u8)
+		._name = name
+		._age = age
+	;
+
+	func getName:
+		_name;
+	
+	func getAge:
+		_age;
+;
+</code></pre>
+<pre><code>// A bit less code ...
+class Person(mut _name : String, mut _age : u8)
+	func getName:
+		_name;
+
+	func getAge:
+		_age;
+;
+</code></pre>
 <h3><a class="header" href="#implementing-traits" id="implementing-traits">Implementing traits</a></h3>
 <p>Functions declared can be implemented by classes to support polymorphism.
 <em>traitimpl</em> must contain all functions declared by the mentioned trait

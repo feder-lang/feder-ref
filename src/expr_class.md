@@ -17,7 +17,38 @@ Classes have attributes, constructors and functions:
 - Functions: Every *classunit* which is a *func*, which isn't a constructor.
 
 The name of the class (second expression *id* in *classdecl*) must start with
-an uppercase character with optional leading '_'.
+an uppercase character with optional leading '\_'.
+
+Examples:
+
+```
+class Person
+	mut _name : String
+	mut _age : u8
+
+	func Person(mut name : String, mut age : u8)
+		._name = name
+		._age = age
+	;
+
+	func getName:
+		_name;
+	
+	func getAge:
+		_age;
+;
+```
+
+```
+// A bit less code ...
+class Person(mut _name : String, mut _age : u8)
+	func getName:
+		_name;
+
+	func getAge:
+		_age;
+;
+```
 
 ### Implementing traits
 
