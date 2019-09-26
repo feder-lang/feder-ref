@@ -150,9 +150,40 @@
 is added as <em>id</em> from <em>moduledecl</em> to the parent environment. A module's
 <em>id</em> must start with an lowercase, alphabetic character.</p>
 <p>Libraries are also just modules.</p>
+<p>Example:</p>
+<pre><code>module hello
+	func world
+		null io.println(&quot;Hello, World!&quot;)
+	;
+;
+
+func main
+	hello.world() // Prints hello world to standard output
+;
+</code></pre>
 <h3><a class="header" href="#variables" id="variables">Variables</a></h3>
 <p>Variables in modules can be either <strong>global</strong>, if the module has only modules
 and library as parents otherwise the variable is <strong>local</strong>.</p>
+<p>Non-primitive, <strong>global</strong> variables are initialized when <em>first called</em>.</p>
+<p>Examples:</p>
+<pre><code>module mymod
+	class Person (mut name : String,
+		          mut age : u8)
+		func getName:
+			name;
+		func getAge:
+			age;
+	;
+
+	myglobvalue := 100          // primitive global variable
+	me := Person(&quot;Someone&quot;, 16) // me is not initialized !!!
+;
+
+func main
+	io.println(mymod.myglobvalue)
+	io.println(mymod.me.getName()) // Initialized mymod.me
+;
+</code></pre>
 
                     </main>
 
@@ -191,6 +222,21 @@ and library as parents otherwise the variable is <strong>local</strong>.</p>
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
