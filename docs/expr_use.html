@@ -149,7 +149,20 @@
 <p>The <em>idcall</em>s following the use keyword are either variables or namespaces.
 All public-visible semantics of the variable or namespace will be added to the
 current environment. Semantics defined in the current environment have
-precedence (semantics added via <strong>use</strong> cannot shadow local semantics).</p>
+precedence (semantics added with <strong>use</strong> cannot shadow semantics in current
+environment <em>and</em> parent environments).</p>
+<p>Example:</p>
+<pre><code>mod mymod
+	func printHello
+		io.println(&quot;Hello, world!&quot;)
+	;
+;
+
+func main
+	use mymod
+	printHello()
+;
+</code></pre>
 
                     </main>
 
