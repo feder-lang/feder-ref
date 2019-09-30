@@ -151,7 +151,7 @@ is added as <em>id</em> from <em>moduledecl</em> to the parent environment. A mo
 <em>id</em> must start with an lowercase, alphabetic character.</p>
 <p>Libraries are also just modules.</p>
 <p>Example:</p>
-<pre><code>module hello
+<pre><code>mod hello
 	func world
 		null io.println(&quot;Hello, World!&quot;)
 	;
@@ -166,7 +166,7 @@ func main
 and library as parents otherwise the variable is <strong>local</strong>.</p>
 <p>Non-primitive, <strong>global</strong> variables are initialized when <em>first called</em>.</p>
 <p>Examples:</p>
-<pre><code>module mymod
+<pre><code>mod mymod
 	class Person (mut name : String,
 		          mut age : u8)
 		func getName:

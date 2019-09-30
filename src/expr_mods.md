@@ -9,7 +9,7 @@ Libraries are also just modules.
 Example:
 
 ```
-module hello
+mod hello
 	func world
 		null io.println("Hello, World!")
 	;
@@ -30,7 +30,7 @@ Non-primitive, **global** variables are initialized when *first called*.
 Examples:
 
 ```
-module mymod
+mod mymod
 	class Person (mut name : String,
 		          mut age : u8)
 		func getName:

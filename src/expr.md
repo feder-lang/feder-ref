@@ -146,7 +146,7 @@ General program:
 
 [Modules](./expr_mods.md):
 
-> *module* := **module** *moduledecl* *newline* *program-body*\
+> *module* := **mod** *moduledecl* *newline* *program-body*\
 > *moduledecl* := *id*
 
 General Expression:

@@ -195,7 +195,7 @@ the decimal digits, letters and the '_' character.</p>
 <h2><a class="header" href="#keywords" id="keywords">Keywords</a></h2>
 <p>Keywords are reserved identifiers for syntax elements which cannot be used for
 anything else. These are:</p>
-<pre><code>func null module class enum trait type return mut This
+<pre><code>func null mod class enum trait type return mut This
 if else match switch for do continue break safe include import
 True False
 _
@@ -514,7 +514,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p><a href="./expr_mods.html">Modules</a>:</p>
 <blockquote>
-<p><em>module</em> := <strong>module</strong> <em>moduledecl</em> <em>newline</em> <em>program-body</em><br />
+<p><em>module</em> := <strong>mod</strong> <em>moduledecl</em> <em>newline</em> <em>program-body</em><br />
 <em>moduledecl</em> := <em>id</em></p>
 </blockquote>
 <p>General Expression:</p>
@@ -673,7 +673,7 @@ is added as <em>id</em> from <em>moduledecl</em> to the parent environment. A mo
 <em>id</em> must start with an lowercase, alphabetic character.</p>
 <p>Libraries are also just modules.</p>
 <p>Example:</p>
-<pre><code>module hello
+<pre><code>mod hello
 	func world
 		null io.println(&quot;Hello, World!&quot;)
 	;
@@ -688,7 +688,7 @@ func main
 and library as parents otherwise the variable is <strong>local</strong>.</p>
 <p>Non-primitive, <strong>global</strong> variables are initialized when <em>first called</em>.</p>
 <p>Examples:</p>
-<pre><code>module mymod
+<pre><code>mod mymod
 	class Person (mut name : String,
 		          mut age : u8)
 		func getName:
