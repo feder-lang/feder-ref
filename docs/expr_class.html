@@ -169,25 +169,25 @@ an uppercase character with optional leading '_'.</p>
 	mut _name : String
 	mut _age : u8
 
-	func Person(mut name : String, mut age : u8)
+	func Person(This, mut name : String, mut age : u8)
 		._name = name
 		._age = age
 	;
 
-	func getName:
-		_name;
+	func getName(This):
+		._name;
 	
-	func getAge:
-		_age;
+	func getAge(This):
+		._age;
 ;
 </code></pre>
 <pre><code>// A bit less code ...
 class Person(mut _name : String, mut _age : u8)
-	func getName:
-		_name;
+	func getName(This):
+		._name;
 
-	func getAge:
-		_age;
+	func getAge(This):
+		._age;
 ;
 </code></pre>
 <h3><a class="header" href="#implementing-traits" id="implementing-traits">Implementing traits</a></h3>
@@ -197,10 +197,22 @@ after <strong>:</strong> in <em>traitimplbody</em>. A trait already implemenated
 cannot be reimplemented.</p>
 <h3><a class="header" href="#creating-an-object" id="creating-an-object">Creating an object</a></h3>
 <p>An object is created by making function call where the called function
-is a reference to the class. The first argument must be <strong>this</strong>.</p>
+is a reference to the class. </p>
+<h3><a class="header" href="#class-environment" id="class-environment">Class environment</a></h3>
+<p>Accessing the environment of the class:</p>
+<ul>
+<li>
+<p>Every function has every direct attribute and function of the class in
+the parent environment</p>
+</li>
+<li>
+<p>To access the class environment directly the left-unrary operator <strong>.</strong> must
+be used</p>
+</li>
+</ul>
 <h3><a class="header" href="#this" id="this">This</a></h3>
-<p>This must only be used in an class expression. It represent the closest class
-type.</p>
+<p><strong>This</strong> is the keyword which represents the closest parent class environment
+as type (same as writing the class name).</p>
 <h3><a class="header" href="#functions" id="functions">Functions</a></h3>
 <p>The first parameter of every class function must have the same type as the
 class. This can be achieved with <a href="./expr_class.html#This">This</a>. If the first

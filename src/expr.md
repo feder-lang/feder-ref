@@ -105,9 +105,8 @@ General program:
 > | **func** *clfuncdecl* **;** *returntype* **;**\
 > *clfuncdecl* := *template* *clfuncdeclx* | *space* *clfuncdeclx*\
 > | *template* *caps* *clfuncdeclx* | *caps* *space* *clfuncdeclx*\
-> *this* := **This** | **this**\
-> *clfuncdeclx* := *id* **(** *this* **)**
-> | *id* **(** *this* **,** *funcvars* **)**\
+> *clfuncdeclx* := *id* **(** *vardecl*  **)**
+> | *id* **(** *vardecl* **,** *funcvars* **)**\
 
 [Lambdas](./expr_fn.md):
 

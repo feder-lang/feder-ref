@@ -26,27 +26,27 @@ class Person
 	mut _name : String
 	mut _age : u8
 
-	func Person(mut name : String, mut age : u8)
+	func Person(This, mut name : String, mut age : u8)
 		._name = name
 		._age = age
 	;
 
-	func getName:
-		_name;
+	func getName(This):
+		._name;
 	
-	func getAge:
-		_age;
+	func getAge(This):
+		._age;
 ;
 ```
 
 ```
 // A bit less code ...
 class Person(mut _name : String, mut _age : u8)
-	func getName:
-		_name;
+	func getName(This):
+		._name;
 
-	func getAge:
-		_age;
+	func getAge(This):
+		._age;
 ;
 ```
 
@@ -60,12 +60,22 @@ cannot be reimplemented.
 ### Creating an object
 
 An object is created by making function call where the called function
-is a reference to the class. The first argument must be **this**.
+is a reference to the class. 
+
+### Class environment
+
+Accessing the environment of the class:
+
+- Every function has every direct attribute and function of the class in
+the parent environment
+
+- To access the class environment directly the left-unrary operator **.** must
+be used
 
 ### This
 
-This must only be used in an class expression. It represent the closest class
-type.
+**This** is the keyword which represents the closest parent class environment
+as type (same as writing the class name).
 
 ### Functions
 
