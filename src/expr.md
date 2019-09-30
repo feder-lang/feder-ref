@@ -59,8 +59,11 @@ External dependencies:
 General program:
 
 > *program-body* := *def* | *def* *newline* *program-body*\
-> *def* := *func* | *trait* | *class* | *traitimpl*
+> *def* := *use* | *func* | *trait* | *class* | *traitimpl*
 > | *enum* | *module* | *vardef*
+
+[Use](./expr_use.md):
+> *use* := **use** *idcallm*
 
 [Templates](./expr_templs.md):
 

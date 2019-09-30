@@ -17,6 +17,7 @@
 	* [Operators](./expr_ops.md)
 	* [Anonymous semantics](./expr_anon.md)
 	* [Modules](./expr_mods.md)
+	* [Use](./expr_use.md)
 	* [Functions](./expr_fn.md)
 	* [Traits](./expr_traits.md)
 	* [Templates](./expr_templs.md)
