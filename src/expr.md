@@ -84,8 +84,8 @@ General program:
 > | **func** *funcdecl* **:** *returntype* **;**\
 > *funcdecl* := *template* *funcdeclx* | *space* *funcdeclx*
 > | *template* *caps* *funcdeclx* | *caps* *space* *funcdeclx*\
-> *funcdeclx* := *idcall* | *idcall* **(** *funcvars* **)**\
-> *funcvars* := *funcvar* | *funcvar* *funcvars*\
+> *funcdeclx* := *idcall* | *idcall* **(** *funcvars* **)** \
+> *funcvars* := *funcvar* | *funcvar* **,** *funcvars*\
 > *funcvar* := *vardecl* | *vardecl* *guard*\
 > *guard* := **|** *expr0* | **|* *expr0* **=>** *expr1*.
 > *returntype* := *templidcall* | *vardecltuple* \
@@ -157,6 +157,8 @@ General Expression:
 > | **(** *expr* **)**
 > | *biopexpr*  | *unopexpr*
 > | *fctl* | *lambda*
+> | *expr* **(** *expr* **)**
+> | *expr* **[** *expr* **]**
 
 Variable declaration:
 
