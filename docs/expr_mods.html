@@ -167,11 +167,11 @@ and library as parents otherwise the variable is <strong>local</strong>.</p>
 <p>Non-primitive, <strong>global</strong> variables are initialized when <em>first called</em>.</p>
 <p>Examples:</p>
 <pre><code>mod mymod
-	class Person (mut name : String,
-		          mut age : u8)
-		func getName:
+	class Person (name : String,
+		          age : u8)
+		func getName(this : This):
 			name;
-		func getAge:
+		func getAge(this : This):
 			age;
 	;
 

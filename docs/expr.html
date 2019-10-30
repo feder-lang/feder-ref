@@ -308,10 +308,9 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
 <p><em>vardecl</em> := <em>vardeclunit</em> | <strong>(</strong> <em>vardeclunits</em> <strong>)</strong><br />
 <em>vardeclunits</em> := <em>vardeclunit</em> | <em>vardeclunit</em> <strong>,</strong> <em>vardeclunits</em><br />
-<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em>
-| <strong>mut</strong> <em>space</em> <em>id</em> <strong>:</strong> <em>templidcall</em><br />
+<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em><br />
 <em>varids</em> := <em>varid</em> | <em>varid</em> <strong>,</strong> <em>varids</em><br />
-<em>varid</em> := <em>id</em> | <strong>mut</strong> <em>space</em> <em>id</em></p>
+<em>varid</em> := <em>id</em></p>
 </blockquote>
 <p>Variable definition:</p>
 <blockquote>
@@ -363,10 +362,15 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>do</em> <em>expr</em> <em>newline</em> <em>funcbody</em> <strong>;</strong> <strong>for</strong> <em>expr</em><br />
 | <em>do</em> <em>expr</em> <strong>;</strong> <em>expr</em> <em>newline</em> <em>funcbody</em> <strong>;</strong> <strong>for</strong> <em>expr</em></p>
 </blockquote>
+<p>Safe expression:</p>
+<blockquote>
+<p><em>safe</em> := <strong>safe</strong> <em>templidcall</em> <strong>(</strong> <em>expr</em> <strong>)</strong><br />
+| <strong>safe</strong> <em>arraylit</em></p>
+</blockquote>
 <p>Operators:</p>
 <blockquote>
 <p><em>biopexpr</em> := <em>expr0</em> <em>biop</em> <em>expr1</em><br />
-<em>unopexpr</em> := <em>expr</em> <em>runop</em><br />
+<em>unopexpr</em> :=  <em>lunop</em> <em>expr</em><br />
 <em>biop</em> := <strong>+</strong> | <strong>-</strong> | <strong>*</strong> | <strong>/</strong> | <strong>**</strong> | <strong>%</strong> <br />
 | <strong>&amp;</strong> | <strong>|</strong> | <strong>^</strong> | <strong>&lt;&lt;</strong> | <strong>&gt;&gt;</strong> <br />
 | <strong>==</strong> | <strong>!=</strong> | <strong>&lt;</strong> | <strong>&gt;</strong> | <strong>&lt;=</strong> | <strong>&gt;=</strong><br />
@@ -375,7 +379,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <strong>&amp;=</strong> | <strong>|=</strong> | <strong>^=</strong> | <strong>&lt;&lt;=</strong> | <strong>&gt;&gt;=</strong> <br />
 | <strong>=</strong>
 | <strong>&lt;&gt;</strong><br />
-<em>runop</em> := <strong>*</strong> | <strong>!</strong> | <strong>safe</strong> | <strong>mut</strong> | <strong>sizeof</strong> | <strong>null</strong> 
+<em>lunop</em> := <strong>*</strong> | <strong>!</strong> | <strong>null</strong> 
 | <strong>+</strong> | <strong>-</strong> | <strong>++</strong> | <strong>--</strong></p>
 </blockquote>
 

@@ -195,7 +195,7 @@ the decimal digits, letters and the '_' character.</p>
 <h2><a class="header" href="#keywords" id="keywords">Keywords</a></h2>
 <p>Keywords are reserved identifiers for syntax elements which cannot be used for
 anything else. These are:</p>
-<pre><code>func null mod class enum trait type return mut This use
+<pre><code>func mod class enum trait type return use
 if else match switch for do continue break safe include import
 True False
 _
@@ -533,10 +533,9 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
 <p><em>vardecl</em> := <em>vardeclunit</em> | <strong>(</strong> <em>vardeclunits</em> <strong>)</strong><br />
 <em>vardeclunits</em> := <em>vardeclunit</em> | <em>vardeclunit</em> <strong>,</strong> <em>vardeclunits</em><br />
-<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em>
-| <strong>mut</strong> <em>space</em> <em>id</em> <strong>:</strong> <em>templidcall</em><br />
+<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em><br />
 <em>varids</em> := <em>varid</em> | <em>varid</em> <strong>,</strong> <em>varids</em><br />
-<em>varid</em> := <em>id</em> | <strong>mut</strong> <em>space</em> <em>id</em></p>
+<em>varid</em> := <em>id</em></p>
 </blockquote>
 <p>Variable definition:</p>
 <blockquote>
@@ -588,10 +587,15 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>do</em> <em>expr</em> <em>newline</em> <em>funcbody</em> <strong>;</strong> <strong>for</strong> <em>expr</em><br />
 | <em>do</em> <em>expr</em> <strong>;</strong> <em>expr</em> <em>newline</em> <em>funcbody</em> <strong>;</strong> <strong>for</strong> <em>expr</em></p>
 </blockquote>
+<p>Safe expression:</p>
+<blockquote>
+<p><em>safe</em> := <strong>safe</strong> <em>templidcall</em> <strong>(</strong> <em>expr</em> <strong>)</strong><br />
+| <strong>safe</strong> <em>arraylit</em></p>
+</blockquote>
 <p>Operators:</p>
 <blockquote>
 <p><em>biopexpr</em> := <em>expr0</em> <em>biop</em> <em>expr1</em><br />
-<em>unopexpr</em> := <em>expr</em> <em>runop</em><br />
+<em>unopexpr</em> :=  <em>lunop</em> <em>expr</em><br />
 <em>biop</em> := <strong>+</strong> | <strong>-</strong> | <strong>*</strong> | <strong>/</strong> | <strong>**</strong> | <strong>%</strong> <br />
 | <strong>&amp;</strong> | <strong>|</strong> | <strong>^</strong> | <strong>&lt;&lt;</strong> | <strong>&gt;&gt;</strong> <br />
 | <strong>==</strong> | <strong>!=</strong> | <strong>&lt;</strong> | <strong>&gt;</strong> | <strong>&lt;=</strong> | <strong>&gt;=</strong><br />
@@ -600,7 +604,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <strong>&amp;=</strong> | <strong>|=</strong> | <strong>^=</strong> | <strong>&lt;&lt;=</strong> | <strong>&gt;&gt;=</strong> <br />
 | <strong>=</strong>
 | <strong>&lt;&gt;</strong><br />
-<em>runop</em> := <strong>*</strong> | <strong>!</strong> | <strong>safe</strong> | <strong>mut</strong> | <strong>sizeof</strong> | <strong>null</strong> 
+<em>lunop</em> := <strong>*</strong> | <strong>!</strong> | <strong>null</strong> 
 | <strong>+</strong> | <strong>-</strong> | <strong>++</strong> | <strong>--</strong></p>
 </blockquote>
 <h2><a class="header" href="#environment" id="environment">Environment</a></h2>
@@ -663,9 +667,6 @@ All other semantics are can always be referenced if not shadowed.</p>
 <tr><td align="center">++a --a</td><td align="center">17</td><td align="center">r</td><td align="left">Increment, Decrement</td></tr>
 <tr><td align="center">+a   -a</td><td align="center">17</td><td align="center">r</td><td align="left">Positive,Negative</td></tr>
 <tr><td align="center">! ~</td><td align="center">17</td><td align="center">r</td><td align="left">Logical not, Bitwise not</td></tr>
-<tr><td align="center">safe a</td><td align="center">17</td><td align="center">r</td><td align="left">Safe allocation</td></tr>
-<tr><td align="center">mut a</td><td align="center">17</td><td align="center">r</td><td align="left">Mutable variable</td></tr>
-<tr><td align="center">sizeof a</td><td align="center">17</td><td align="center">r</td><td align="left">Sizeof type</td></tr>
 <tr><td align="center">*a</td><td align="center">17</td><td align="center">r</td><td align="left">&quot;Dereference&quot;</td></tr>
 </tbody></table>
 <h2><a class="header" href="#anonymous-semantics" id="anonymous-semantics">Anonymous semantics</a></h2>
@@ -694,11 +695,11 @@ and library as parents otherwise the variable is <strong>local</strong>.</p>
 <p>Non-primitive, <strong>global</strong> variables are initialized when <em>first called</em>.</p>
 <p>Examples:</p>
 <pre><code>mod mymod
-	class Person (mut name : String,
-		          mut age : u8)
-		func getName:
+	class Person (name : String,
+		          age : u8)
+		func getName(this : This):
 			name;
-		func getAge:
+		func getAge(this : This):
 			age;
 	;
 
@@ -854,12 +855,10 @@ the current environment and current environment's children</p>
 </li>
 <li>
 <p>Variables starting with an uppercase character (optionally with leading '_')
-are called <strong>constant</strong>. Their environment has only <strong>constant</strong> functions and
-<strong>immutable</strong>, <strong>constant</strong> variables.</p>
-</li>
-<li>
-<p>When a variable is declared its pointer cannot be changed unless declared
-with <strong>mut</strong>. So variables are <strong>immutable</strong> at default.</p>
+are called <strong>immutable</strong>. Their environment has only <strong>immutable</strong> functions
+and <strong>immutable</strong> variables, where <strong>mutable</strong> variables in the original
+environment will also be <strong>immutable</strong>. Defined constant variables must not
+be reassigned.</p>
 </li>
 </ul>
 <h3><a class="header" href="#representing-an-object" id="representing-an-object">Representing an object</a></h3>
@@ -868,8 +867,8 @@ initialized using <strong>=</strong> or <strong>:=</strong> to declare and defin
 same time.</p>
 <h3><a class="header" href="#assignments" id="assignments">Assignments</a></h3>
 <p>Assigning a variable with <strong>=</strong> (re-)initializes the variable. Reinitialization
-<sup class="footnote-reference"><a href="#reinit">1</a></sup> is only possible if variable is <strong>mutable</strong>. The assigned object (RHS)
-is returned.</p>
+<sup class="footnote-reference"><a href="#reinit">1</a></sup> is only possible if variable is <strong>mutable</strong>. The assigned object
+(RHS) is returned.</p>
 <p>Assigning a variable with <strong>:=</strong> declares the variable and the initializes
 the variable. Returns <code>()</code>.</p>
 <div class="footnote-definition" id="reinit"><sup class="footnote-definition-label">1</sup>
@@ -890,8 +889,8 @@ the corresponding argument (the exact same). All other constructors are the
 class's functions which have the exact same name as the class.  Every
 constructor with the additional <strong>_init</strong> function must initialize all
 attributes declared in the class.  The function called <strong>_init</strong> will always
-be called before the constructor function. Constructor functions mustn't
-have a return-type.
+be called before the constructor function. Constructor functions mustn't have
+a return-type. <em>Immutable</em> variables can be assigned once in the constructor.
 Contructors are added to the parent environment of the class.</li>
 <li>Functions: Every <em>classunit</em> which is a <em>func</em>, which isn't a constructor.</li>
 </ul>
@@ -899,11 +898,11 @@ Contructors are added to the parent environment of the class.</li>
 an uppercase character with optional leading '_'.</p>
 <p>Examples:</p>
 <pre><code>class Person
-	mut _name : String
-	mut _age : u8
+	_Name : String
+	_age : u8
 
-	func Person(This, mut name : String, mut age : u8)
-		._name = name
+	func Person(This, Name : String, age : u8)
+		._Name = Name
 		._age = age
 	;
 
@@ -915,7 +914,7 @@ an uppercase character with optional leading '_'.</p>
 ;
 </code></pre>
 <pre><code>// A bit less code ...
-class Person(mut _name : String, mut _age : u8)
+class Person(_name : String, _age : u8)
 	func getName(This):
 		._name;
 

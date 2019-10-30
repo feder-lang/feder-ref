@@ -154,12 +154,10 @@ the current environment and current environment's children</p>
 </li>
 <li>
 <p>Variables starting with an uppercase character (optionally with leading '_')
-are called <strong>constant</strong>. Their environment has only <strong>constant</strong> functions and
-<strong>immutable</strong>, <strong>constant</strong> variables.</p>
-</li>
-<li>
-<p>When a variable is declared its pointer cannot be changed unless declared
-with <strong>mut</strong>. So variables are <strong>immutable</strong> at default.</p>
+are called <strong>immutable</strong>. Their environment has only <strong>immutable</strong> functions
+and <strong>immutable</strong> variables, where <strong>mutable</strong> variables in the original
+environment will also be <strong>immutable</strong>. Defined constant variables must not
+be reassigned.</p>
 </li>
 </ul>
 <h3><a class="header" href="#representing-an-object" id="representing-an-object">Representing an object</a></h3>
@@ -168,8 +166,8 @@ initialized using <strong>=</strong> or <strong>:=</strong> to declare and defin
 same time.</p>
 <h3><a class="header" href="#assignments" id="assignments">Assignments</a></h3>
 <p>Assigning a variable with <strong>=</strong> (re-)initializes the variable. Reinitialization
-<sup class="footnote-reference"><a href="#reinit">1</a></sup> is only possible if variable is <strong>mutable</strong>. The assigned object (RHS)
-is returned.</p>
+<sup class="footnote-reference"><a href="#reinit">1</a></sup> is only possible if variable is <strong>mutable</strong>. The assigned object
+(RHS) is returned.</p>
 <p>Assigning a variable with <strong>:=</strong> declares the variable and the initializes
 the variable. Returns <code>()</code>.</p>
 <div class="footnote-definition" id="reinit"><sup class="footnote-definition-label">1</sup>

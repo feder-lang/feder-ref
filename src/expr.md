@@ -164,10 +164,9 @@ Variable declaration:
 
 > *vardecl* := *vardeclunit* | **(** *vardeclunits* **)**\
 > *vardeclunits* := *vardeclunit* | *vardeclunit* **,** *vardeclunits*\
-> *vardeclunit* := *id* **:** *templidcall*
-> | **mut** *space* *id* **:** *templidcall*\
+> *vardeclunit* := *id* **:** *templidcall*\
 > *varids* := *varid* | *varid* **,** *varids*\
-> *varid* := *id* | **mut** *space* *id*
+> *varid* := *id*
 
 Variable definition:
 
@@ -219,10 +218,15 @@ Loop expressions:
 > | *do* *expr* *newline* *funcbody* **;** **for** *expr*\
 > | *do* *expr* **;** *expr* *newline* *funcbody* **;** **for** *expr*
 
+Safe expression:
+
+> *safe* := **safe** *templidcall* **(** *expr* **)**\
+> | **safe** *arraylit*
+
 Operators:
 
 > *biopexpr* := *expr0* *biop* *expr1*\
-> *unopexpr* := *expr* *runop*\
+> *unopexpr* :=  *lunop* *expr*\
 > *biop* := **+** | **-** | **\*** | **/** | **\*\*** | **%** \
 > | **\&** | **|** | **^** | **<<** | **>>** \
 > | **==** | **!=** | **<** | **>** | **<=** | **>=**\
@@ -231,5 +235,5 @@ Operators:
 > | **\&=** | **|=** | **^=** | **<<=** | **>>=** \
 > | **=**
 > | **<>**\
-> *runop* := **\*** | **!** | **safe** | **mut** | **sizeof** | **null** 
+> *lunop* := **\*** | **!** | **null** 
 > | **+** | **-** | **++** | **--**

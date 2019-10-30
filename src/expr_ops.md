@@ -36,7 +36,4 @@ Operator associativity:
 | ++a --a  | 17         | r             | Increment, Decrement                |
 | +a   -a  | 17         | r             | Positive,Negative                   |
 | ! ~      | 17         | r             | Logical not, Bitwise not            |
-| safe a   | 17         | r             | Safe allocation                     |
-| mut a    | 17         | r             | Mutable variable                    |
-| sizeof a | 17         | r             | Sizeof type                         |
 | *a       | 17         | r             | "Dereference"                       |

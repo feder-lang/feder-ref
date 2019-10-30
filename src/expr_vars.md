@@ -2,15 +2,14 @@
 
 Private, constant and mutability:
 
-- Variables starting with '_' are private variable and can only be reached by
+- Variables starting with '\_' are private variable and can only be reached by
   the current environment and current environment's children
 
-- Variables starting with an uppercase character (optionally with leading '_')
-are called **constant**. Their environment has only **constant** functions and
-**immutable**, **constant** variables.
-
-- When a variable is declared its pointer cannot be changed unless declared
-with **mut**. So variables are **immutable** at default.
+- Variables starting with an uppercase character (optionally with leading '\_')
+  are called **immutable**. Their environment has only **immutable** functions
+  and **immutable** variables, where **mutable** variables in the original
+  environment will also be **immutable**. Defined constant variables must not
+  be reassigned.
 
 ### Representing an object
 
@@ -21,8 +20,8 @@ same time.
 ### Assignments
 
 Assigning a variable with **=** (re-)initializes the variable. Reinitialization
-[^reinit] is only possible if variable is **mutable**. The assigned object (RHS)
-is returned.
+[^reinit] is only possible if variable is **mutable**. The assigned object
+(RHS) is returned.
 
 Assigning a variable with **:=** declares the variable and the initializes
 the variable. Returns ``()``.

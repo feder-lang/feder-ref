@@ -11,8 +11,8 @@ Classes have attributes, constructors and functions:
   class's functions which have the exact same name as the class.  Every
   constructor with the additional **_init** function must initialize all
   attributes declared in the class.  The function called **_init** will always
-  be called before the constructor function. Constructor functions mustn't
-  have a return-type.
+  be called before the constructor function. Constructor functions mustn't have
+  a return-type. *Immutable* variables can be assigned once in the constructor.
   Contructors are added to the parent environment of the class.
 - Functions: Every *classunit* which is a *func*, which isn't a constructor.
 
@@ -23,11 +23,11 @@ Examples:
 
 ```
 class Person
-	mut _name : String
-	mut _age : u8
+	_Name : String
+	_age : u8
 
-	func Person(This, mut name : String, mut age : u8)
-		._name = name
+	func Person(This, Name : String, age : u8)
+		._Name = Name
 		._age = age
 	;
 
@@ -41,7 +41,7 @@ class Person
 
 ```
 // A bit less code ...
-class Person(mut _name : String, mut _age : u8)
+class Person(_name : String, _age : u8)
 	func getName(This):
 		._name;
 

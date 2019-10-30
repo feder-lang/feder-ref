@@ -31,11 +31,11 @@ Examples:
 
 ```
 mod mymod
-	class Person (mut name : String,
-		          mut age : u8)
-		func getName:
+	class Person (name : String,
+		          age : u8)
+		func getName(this : This):
 			name;
-		func getAge:
+		func getAge(this : This):
 			age;
 	;
 
