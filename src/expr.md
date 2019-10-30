@@ -60,7 +60,7 @@ General program:
 
 > *program-body* := *def* | *def* *newline* *program-body*\
 > *def* := *use* | *func* | *trait* | *class* | *traitimpl*
-> | *enum* | *module* | *vardef*
+> | *enum* | *module* | *vardef* | *capsdef*
 
 [Use](./expr_use.md):
 > *use* := **use** *idcallm*
@@ -82,8 +82,7 @@ General program:
 > | *funcnb*\
 > *funcnb* := **func** *funcdecl* **;**
 > | **func** *funcdecl* **:** *returntype* **;**\
-> *funcdecl* := *template* *funcdeclx* | *space* *funcdeclx*
-> | *template* *caps* *funcdeclx* | *caps* *space* *funcdeclx*\
+> *funcdecl* := *template* *funcdeclx* | *space* *funcdeclx* \
 > *funcdeclx* := *idcall* | *idcall* **(** *funcvars* **)** \
 > *funcvars* := *funcvar* | *funcvar* **,** *funcvars*\
 > *funcvar* := *vardecl* | *vardecl* *guard*\
@@ -107,7 +106,6 @@ General program:
 > *clfuncnb* := **func** *clfuncdecl* **;**
 > | **func** *clfuncdecl* **;** *returntype* **;**\
 > *clfuncdecl* := *template* *clfuncdeclx* | *space* *clfuncdeclx*\
-> | *template* *caps* *clfuncdeclx* | *caps* *space* *clfuncdeclx*\
 > *clfuncdeclx* := *id* **(** *vardecl*  **)**
 > | *id* **(** *vardecl* **,** *funcvars* **)**\
 
@@ -132,7 +130,7 @@ General program:
 > | *space* *id* **:** *templidcalls* | *template* *id* **:** *templidcalls*\
 > *classcons* := **(** *vardecls* **)** \
 > *classbody* := *classunit* | *classunit* *newline* *classbody*\
-> *classunit* := *vardecl* | *clfunc*
+> *classunit* := *vardecl* | *caps* *vardecl* | *clfunc* | *caps* *clfunc*
 
 > *traitimpl* := **class** *space* **trait** *traitimpldecl* *newline* *traitimplbody* **;**\
 > *traitimpldecl* := *space* *idcall* **:** *templidcall*
@@ -183,9 +181,10 @@ Variable definition:
 
 Capabilities:
 
-> *caps* := *cap* | *cap* *caps*\
-> *cap* := **@** *capid*\
-> *capid* := **Var** | **Label**
+> *caps* := **#** *capid* | **#** **(** *capsl* **)** \
+> *capsl* := *capid* **,** *capsl*\
+> *capid* := **Unused** | **Inline**\
+> *capsdef* := *caps* *func* | *caps* *class* | *caps* *enum* | *caps* *vardef*
 
 Flow-control expressions:
 

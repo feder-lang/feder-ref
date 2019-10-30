@@ -428,7 +428,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
 <p><em>program-body</em> := <em>def</em> | <em>def</em> <em>newline</em> <em>program-body</em><br />
 <em>def</em> := <em>use</em> | <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
-| <em>enum</em> | <em>module</em> | <em>vardef</em></p>
+| <em>enum</em> | <em>module</em> | <em>vardef</em> | <em>capsdef</em></p>
 </blockquote>
 <p><a href="./expr_use.html">Use</a>:</p>
 <blockquote>
@@ -451,8 +451,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>funcnb</em><br />
 <em>funcnb</em> := <strong>func</strong> <em>funcdecl</em> <strong>;</strong>
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>;</strong><br />
-<em>funcdecl</em> := <em>template</em> <em>funcdeclx</em> | <em>space</em> <em>funcdeclx</em>
-| <em>template</em> <em>caps</em> <em>funcdeclx</em> | <em>caps</em> <em>space</em> <em>funcdeclx</em><br />
+<em>funcdecl</em> := <em>template</em> <em>funcdeclx</em> | <em>space</em> <em>funcdeclx</em> <br />
 <em>funcdeclx</em> := <em>idcall</em> | <em>idcall</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong> <br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <strong>,</strong> <em>funcvars</em><br />
 <em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em><br />
@@ -477,7 +476,6 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>clfuncnb</em> := <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong>
 | <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong> <em>returntype</em> <strong>;</strong><br />
 <em>clfuncdecl</em> := <em>template</em> <em>clfuncdeclx</em> | <em>space</em> <em>clfuncdeclx</em><br />
-| <em>template</em> <em>caps</em> <em>clfuncdeclx</em> | <em>caps</em> <em>space</em> <em>clfuncdeclx</em><br />
 <em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>vardecl</em>  <strong>)</strong>
 | <em>id</em> <strong>(</strong> <em>vardecl</em> <strong>,</strong> <em>funcvars</em> <strong>)</strong></p>
 </blockquote>
@@ -502,7 +500,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>space</em> <em>id</em> <strong>:</strong> <em>templidcalls</em> | <em>template</em> <em>id</em> <strong>:</strong> <em>templidcalls</em><br />
 <em>classcons</em> := <strong>(</strong> <em>vardecls</em> <strong>)</strong> <br />
 <em>classbody</em> := <em>classunit</em> | <em>classunit</em> <em>newline</em> <em>classbody</em><br />
-<em>classunit</em> := <em>vardecl</em> | <em>clfunc</em></p>
+<em>classunit</em> := <em>vardecl</em> | <em>caps</em> <em>vardecl</em> | <em>clfunc</em> | <em>caps</em> <em>clfunc</em></p>
 </blockquote>
 <blockquote>
 <p><em>traitimpl</em> := <strong>class</strong> <em>space</em> <strong>trait</strong> <em>traitimpldecl</em> <em>newline</em> <em>traitimplbody</em> <strong>;</strong><br />
@@ -554,9 +552,10 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p>Capabilities:</p>
 <blockquote>
-<p><em>caps</em> := <em>cap</em> | <em>cap</em> <em>caps</em><br />
-<em>cap</em> := <strong>@</strong> <em>capid</em><br />
-<em>capid</em> := <strong>Var</strong> | <strong>Label</strong></p>
+<p><em>caps</em> := <strong>#</strong> <em>capid</em> | <strong>#</strong> <strong>(</strong> <em>capsl</em> <strong>)</strong> <br />
+<em>capsl</em> := <em>capid</em> <strong>,</strong> <em>capsl</em><br />
+<em>capid</em> := <strong>Unused</strong> | <strong>Inline</strong><br />
+<em>capsdef</em> := <em>caps</em> <em>func</em> | <em>caps</em> <em>class</em> | <em>caps</em> <em>enum</em> | <em>caps</em> <em>vardef</em></p>
 </blockquote>
 <p>Flow-control expressions:</p>
 <blockquote>
