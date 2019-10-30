@@ -24,6 +24,7 @@
 	* [Variables](./expr_vars.md)
 	* [Classes](./expr_class.md)
 	* [Enumerations](./expr_enums.md)
+	* [Arrays](./expr_arrays.md)
 - [Kernel](./kernel.md)
 	* [Data Types](./kernel_types.md)
 		- [bool](./kernel_bool.md)

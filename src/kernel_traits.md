@@ -1,5 +1,7 @@
 ## Traits
 
+Build-in traits:
+
 ```
 mod std
   // the following traits allow a program to use operators with user
@@ -24,6 +26,14 @@ mod std
   // sum '+', '-', '*' and '/'
   trait{T,R} Field : Addition{T,R}, Subtraction{T,R},
                      Multiplication{T,R}, Division{T,R}
+  ;
+
+  trait{T} Array
+    // Access element index (start couting from 0)
+	// panic if index > length()
+  	func [] (uintptr index)
+	// How many elements can be accessed with func []
+	func length : uintptr ;
   ;
 ;
 ```

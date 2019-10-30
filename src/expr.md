@@ -159,6 +159,8 @@ General Expression:
 > | *fctl* | *lambda*
 > | *expr* **(** *expr* **)**
 > | *expr* **[** *expr* **]**
+> | *array*
+> | *safe*
 
 Variable declaration:
 
@@ -172,6 +174,12 @@ Variable definition:
 
 > *vardef* := *vardecl* **=** *expr* | *varid* **:=** *expr*
 > | **(** *varids* **)** **:=** expr
+
+[Arrays](./expr_arrays.md):
+
+> *array* := *arraylit* | *arraycpy*\
+> *arraylit* := **[** *expr* **]**
+> *arraycpy* := **[** *expr0* *;* *expr1* **]**
 
 Capabilities:
 
