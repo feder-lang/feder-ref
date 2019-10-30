@@ -7,6 +7,7 @@ simple, yet powerful design and more reliable programs. As such, Feder uses
 - No null pointers
 - Tuples & tuple-based enumerations
 - Templates
+- Parts from functional programming
 
 ## Target audience
 
