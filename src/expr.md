@@ -181,7 +181,7 @@ Variable definition:
 
 Capabilities:
 
-> *caps* := **#** *capid* | **#** **(** *capsl* **)** \
+> *caps* := **#** *capid* *newline* | **#** **(** *capsl* **)** *newline* \
 > *capsl* := *capid* **,** *capsl*\
 > *capid* := **Unused** | **Inline**\
 > *capsdef* := *caps* *func* | *caps* *class* | *caps* *enum* | *caps* *vardef*
