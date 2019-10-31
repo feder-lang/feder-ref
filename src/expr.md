@@ -16,10 +16,10 @@ space character). In case *space* must be used, it the *space* expression will
 be used.
 
 Characters between '//' and end-of-line will be ignored, including '//' and
-end-ofline. Also characters between '/*' and '*/' will be ignored, including
-'/*' and '*/'.  These ignored characters are called *comments*. Where a comment
+end-ofline. Also characters between '/\*' and '\*/' will be ignored, including
+'/\*' and '\*/'.  These ignored characters are called *comments*. Where a comment
 started with '//' will be interpreted as an end-of-line/*newline* and a comment
-started with '/*' as *space*.
+started with '/\*' as *space*.
 
 ## Syntax specification
 
@@ -86,14 +86,14 @@ General program:
 > *funcdeclx* := *idcall* | *idcall* **(** *funcvars* **)** \
 > *funcvars* := *funcvar* | *funcvar* **,** *funcvars*\
 > *funcvar* := *vardecl* | *vardecl* *guard*\
-> *guard* := **|** *expr0* | **|* *expr0* **=>** *expr1*.
-> *returntype* := *templidcall* | *vardecltuple* \
+> *guard* := **|** *expr0* | **\|** *expr0* **=>** *expr1*.
+> *returntype* := *templidcall* \| *vardecltuple* \
 > *returntypetuple* := **(** *returntuplex* **)** \
 > *returntuplex* := *returntupleunit*
 > \| *returntupleunit* **,** *returntuplex*\
-> *returntupleunit* := *templidcall* | *id* : *templidcall* | *func*
->                      | *functype*\
-> *funcbody* := *expr* | *expr* *newline* *funcbody*\
+> *returntupleunit* := *templidcall* \| *id* : *templidcall* \| *func*
+>                      \| *functype*\
+> *funcbody* := *expr* \| *expr* *newline* *funcbody*\
 > *retfuncbody* := *funcbody* **return** *expr* *newline* \| *funcbody*
 > *functype* := **func** | **func** **:** *return-type*
 > | **func** **(** *vardecls* **)**
@@ -212,7 +212,7 @@ Match expression:
 > *matchcasecond* := *matchcasecons* | *matchcasecons* *expr*\
 > *matchcasecons* := *idcall* | *idcall* **(** *matchids* **)**\
 > *matchids* := *matchid* | *matchid* **,** *matchids*\
-> *matchid* := **_** | *id*
+> *matchid* := **\_** | *id*
 
 Loop expressions:
 
@@ -230,17 +230,18 @@ Safe expression:
 > *safe* := **safe** *templidcall* **(** *expr* **)**\
 > | **safe** *arraylit*
 
-Operators:
+[Operators](./expr_ops.md):
 
 > *biopexpr* := *expr0* *biop* *expr1*\
 > *unopexpr* :=  *lunop* *expr*\
-> *biop* := **+** | **-** | **\*** | **/** | **\*\*** | **%** \
+> *biop* := **+** | **-** | \* | **/** | \*\* | **%** \
 > | **\&** | **|** | **^** | **<<** | **>>** \
 > | **==** | **!=** | **<** | **>** | **<=** | **>=**\
 > | **&&** | **||**
-> **+=** | **-=** | **\*=** | **/=** | **\*\*=** | **%=**\
+> **+=** | **-=** | **\*=** | **/=** | \*= | **%=**\
 > | **\&=** | **|=** | **^=** | **<<=** | **>>=** \
 > | **=**
-> | **<>**\
-> *lunop* := **\*** | **!** | **null** 
+> | **<\>**\
+> | **.** | **-\>**\
+> *lunop* := \* | **!** | **null** 
 > | **+** | **-** | **++** | **--**

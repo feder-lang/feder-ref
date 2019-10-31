@@ -157,8 +157,8 @@ the operator <strong>:=</strong>. <em>Z</em> represents notation for <em>no-char
 space character). In case <em>space</em> must be used, it the <em>space</em> expression will
 be used.</p>
 <p>Characters between '//' and end-of-line will be ignored, including '//' and
-end-ofline. Also characters between '/<em>' and '</em>/' will be ignored, including
-'/<em>' and '</em>/'.  These ignored characters are called <em>comments</em>. Where a comment
+end-ofline. Also characters between '/*' and '*/' will be ignored, including
+'/*' and '*/'.  These ignored characters are called <em>comments</em>. Where a comment
 started with '//' will be interpreted as an end-of-line/<em>newline</em> and a comment
 started with '/*' as <em>space</em>.</p>
 <h2><a class="header" href="#syntax-specification" id="syntax-specification">Syntax specification</a></h2>
@@ -228,7 +228,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>funcdeclx</em> := <em>idcall</em> | <em>idcall</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong> <br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <strong>,</strong> <em>funcvars</em><br />
 <em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em><br />
-<em>guard</em> := <strong>|</strong> <em>expr0</em> | *<em>|</em> <em>expr0</em> <strong>=&gt;</strong> <em>expr1</em>.
+<em>guard</em> := <strong>|</strong> <em>expr0</em> | <strong>|</strong> <em>expr0</em> <strong>=&gt;</strong> <em>expr1</em>.
 <em>returntype</em> := <em>templidcall</em> | <em>vardecltuple</em> <br />
 <em>returntypetuple</em> := <strong>(</strong> <em>returntuplex</em> <strong>)</strong> <br />
 <em>returntuplex</em> := <em>returntupleunit</em>
@@ -374,19 +374,20 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><em>safe</em> := <strong>safe</strong> <em>templidcall</em> <strong>(</strong> <em>expr</em> <strong>)</strong><br />
 | <strong>safe</strong> <em>arraylit</em></p>
 </blockquote>
-<p>Operators:</p>
+<p><a href="./expr_ops.html">Operators</a>:</p>
 <blockquote>
 <p><em>biopexpr</em> := <em>expr0</em> <em>biop</em> <em>expr1</em><br />
 <em>unopexpr</em> :=  <em>lunop</em> <em>expr</em><br />
-<em>biop</em> := <strong>+</strong> | <strong>-</strong> | <strong>*</strong> | <strong>/</strong> | <strong>**</strong> | <strong>%</strong> <br />
+<em>biop</em> := <strong>+</strong> | <strong>-</strong> | * | <strong>/</strong> | ** | <strong>%</strong> <br />
 | <strong>&amp;</strong> | <strong>|</strong> | <strong>^</strong> | <strong>&lt;&lt;</strong> | <strong>&gt;&gt;</strong> <br />
 | <strong>==</strong> | <strong>!=</strong> | <strong>&lt;</strong> | <strong>&gt;</strong> | <strong>&lt;=</strong> | <strong>&gt;=</strong><br />
 | <strong>&amp;&amp;</strong> | <strong>||</strong>
-<strong>+=</strong> | <strong>-=</strong> | <strong>*=</strong> | <strong>/=</strong> | <strong>**=</strong> | <strong>%=</strong><br />
+<strong>+=</strong> | <strong>-=</strong> | <strong>*=</strong> | <strong>/=</strong> | *= | <strong>%=</strong><br />
 | <strong>&amp;=</strong> | <strong>|=</strong> | <strong>^=</strong> | <strong>&lt;&lt;=</strong> | <strong>&gt;&gt;=</strong> <br />
 | <strong>=</strong>
 | <strong>&lt;&gt;</strong><br />
-<em>lunop</em> := <strong>*</strong> | <strong>!</strong> | <strong>null</strong> 
+| <strong>.</strong> | <strong>-&gt;</strong><br />
+<em>lunop</em> := * | <strong>!</strong> | <strong>null</strong> 
 | <strong>+</strong> | <strong>-</strong> | <strong>++</strong> | <strong>--</strong></p>
 </blockquote>
 

@@ -15,7 +15,7 @@ Operator associativity:
 | \<\<=    | 3          | r             | On-object operation                 |
 | \>\>=    | 3          | r             | On-object operation                 |
 | %=       | 3          | r             | On-object operation                 |
-| /= *=    | 3          | r             | On-object operation                 |
+| /= \*=   | 3          | r             | On-object operation                 |
 | += -=    | 3          | r             | On-object operation                 |
 | =        | 3          | r             | Variable  assignment                |
 | null a   | 4          | r             | Make empty, returns **()**          |
@@ -31,9 +31,11 @@ Operator associativity:
 | \>\> \<\< | 13        | l             | Bitwise right/left shift            |
 | a+b a-b  | 14         | l             | Addition, substraction              |
 | a%b      | 14         | l             | Remainder                           |
-| a*b a/b  | 15         | l             | Multiplication, Division            |
+| a\*b a/b | 15         | l             | Multiplication, Division            |
 | :        | 16         | r             | Variable declaration                |
 | ++a --a  | 17         | r             | Increment, Decrement                |
 | +a   -a  | 17         | r             | Positive,Negative                   |
 | ! ~      | 17         | r             | Logical not, Bitwise not            |
-| *a       | 17         | r             | "Dereference"                       |
+| \*a      | 17         | r             | "Dereference"                       |
+| .        | 18         | l             | Member access                       |
+| ->       | 18         | l             | "Dereference" member access         |
