@@ -35,6 +35,9 @@ They are represented with escape sequences, which start with \\.
 
 \v
   Vertical tabulator
+
+\xXX
+  Byte represented with two XX hexadecimal characters
 ```
 
 All other character following \\ are invalid.
