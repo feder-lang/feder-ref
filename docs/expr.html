@@ -219,8 +219,11 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><a href="./expr_fn.html">Functions</a>:</p>
 <blockquote>
 <p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>funcbody</em> <em>newline</em> <strong>;</strong> <br />
+| <strong>func</strong> <em>funcdecl</em> <em>newline</em> <strong>;</strong><br />
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
-| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em><br />
+| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
+| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
+| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <em>funcnb</em><br />
 <em>funcnb</em> := <strong>func</strong> <em>funcdecl</em> <strong>;</strong>
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>;</strong><br />
@@ -236,7 +239,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>returntupleunit</em> := <em>templidcall</em> | <em>id</em> : <em>templidcall</em> | <em>func</em>
 | <em>functype</em><br />
 <em>funcbody</em> := <em>expr</em> | <em>expr</em> <em>newline</em> <em>funcbody</em><br />
-<em>retfuncbody</em> := <em>funcbody</em> <strong>return</strong> <em>expr</em> <em>newline</em> | <em>funcbody</em>
+<em>retfuncbody</em> := <em>funcbody</em> <strong>return</strong> <em>expr</em> <em>newline</em> <br />
 <em>functype</em> := <strong>func</strong> | <strong>func</strong> <strong>:</strong> <em>return-type</em>
 | <strong>func</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong>
 | <strong>func</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong> <strong>:</strong> <em>return-type</em></p>

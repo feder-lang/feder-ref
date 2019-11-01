@@ -77,8 +77,11 @@ General program:
 [Functions](./expr_fn.md):
 
 > *func* := **func** *funcdecl* *funcbody* *newline* **;** \
+> | **func** *funcdecl* *newline* **;**\
 > | **func** *funcdecl* **:** *returntype* *newline* *retfuncbody* **;**\
-> | **func** *funcdecl* **:** *newline* *retfuncbody*\
+> | **func** *funcdecl* **:** *newline* *retfuncbody* **;**\
+> | **func** *funcdecl* **:** *returntype* *newline* *funcbody* **;**\
+> | **func** *funcdecl* **:** *newline* *funcbody* **;**\
 > | *funcnb*\
 > *funcnb* := **func** *funcdecl* **;**
 > | **func** *funcdecl* **:** *returntype* **;**\
@@ -94,7 +97,7 @@ General program:
 > *returntupleunit* := *templidcall* \| *id* : *templidcall* \| *func*
 >                      \| *functype*\
 > *funcbody* := *expr* \| *expr* *newline* *funcbody*\
-> *retfuncbody* := *funcbody* **return** *expr* *newline* \| *funcbody*
+> *retfuncbody* := *funcbody* **return** *expr* *newline* \
 > *functype* := **func** | **func** **:** *return-type*
 > | **func** **(** *vardecls* **)**
 > | **func** **(** *vardecls* **)** **:** *return-type*
