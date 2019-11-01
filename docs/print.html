@@ -681,6 +681,9 @@ All other semantics are can always be referenced if not shadowed.</p>
 <tr><td align="center">+a   -a</td><td align="center">17</td><td align="center">r</td><td align="left">Positive,Negative</td></tr>
 <tr><td align="center">! ~</td><td align="center">17</td><td align="center">r</td><td align="left">Logical not, Bitwise not</td></tr>
 <tr><td align="center">*a</td><td align="center">17</td><td align="center">r</td><td align="left">&quot;Dereference&quot;</td></tr>
+<tr><td align="center">a()</td><td align="center">18</td><td align="center">l</td><td align="left">Function call</td></tr>
+<tr><td align="center">a{}</td><td align="center">18</td><td align="center">l</td><td align="left">Template call</td></tr>
+<tr><td align="center">a[]</td><td align="center">18</td><td align="center">l</td><td align="left">Index call</td></tr>
 <tr><td align="center">.</td><td align="center">18</td><td align="center">l</td><td align="left">Member access</td></tr>
 <tr><td align="center">-&gt;</td><td align="center">18</td><td align="center">l</td><td align="left">&quot;Dereference&quot; member access</td></tr>
 </tbody></table>
@@ -1287,6 +1290,21 @@ SOFTWARE.</p>
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
