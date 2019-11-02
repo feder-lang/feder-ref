@@ -35,4 +35,5 @@
 	* [Functions](./kernel_functions.md)
 	* [Tuples](./kernel_tuples.md)
 	* [Traits](./kernel_traits.md)
+    * [Classes](./kernel_class.md)
 - [License](./LICENSE.md)
