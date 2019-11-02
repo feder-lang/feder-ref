@@ -112,11 +112,14 @@ General program:
 > *clfuncdeclx* := *id* **(** *vardecl*  **)**
 > | *id* **(** *vardecl* **,** *funcvars* **)**\
 
-[Lambdas](./expr_fn.md):
+[Lambdas](./expr_lambdas.md):
 
-> *lambda* := **(** *vardecls* **)** **->** *retfuncbody* **;**
-> | *vardecl* **->** *retfuncbody* **;**
-> | **(** **)** **->** *retfuncbody* **;**
+> *lambda* := **lambda** **(** *vardecls* **)** *newline* *retfuncbody* **;**\
+> | **lamda** **(** *vardelcs* **)** *newline* *funcbody* **;**\
+> | **lamda** **(** *vardelcs* **)** *newline* *funcbody* *newline* **;**\
+> | **lambda** *newline* *retfuncbody* **;**\
+> | **lamda** *newline* *funcbody* **;**\
+> | **lamda** *newline* *funcbody* *newline* **;**
 
 [Traits](./expr_traits.md):
 
