@@ -1,6 +1,6 @@
 ## Variables
 
-Private, constant and mutability:
+Private and mutability:
 
 - Variables starting with '\_' are private variable and can only be reached by
   the current environment and current environment's children
@@ -8,8 +8,8 @@ Private, constant and mutability:
 - Variables starting with an uppercase character (optionally with leading '\_')
   are called **immutable**. Their environment has only **immutable** functions
   and **immutable** variables, where **mutable** variables in the original
-  environment will also be **immutable**. Defined constant variables must not
-  be reassigned.
+  environment will also be **immutable**. Defined **immutable** variables must
+  not be reassigned.
 
 ### Representing an object
 
