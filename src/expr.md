@@ -189,7 +189,7 @@ Capabilities:
 > *capid* := **Unused** | **Inline**\
 > *capsdef* := *caps* *func* | *caps* *class* | *caps* *enum* | *caps* *vardef*
 
-Flow-control expressions:
+Control-flow expressions:
 
 > *fctl* := *cond* | *loop*\
 > *cond* := *if* | *match*\
