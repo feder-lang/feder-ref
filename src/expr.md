@@ -219,7 +219,7 @@ Match expression:
 
 Loop expressions:
 
-> *loopctl* := **break** | **continue**
+> *loopctl* := **break** | **continue**\
 > *for* := **for** *newline* *funcbody* **;**\
 > | **for** *expr* *newline* *funcbody* **;**|
 > | **for** *expr* **;** *expr* *newline* *funcbody* **;**\
