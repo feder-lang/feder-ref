@@ -32,3 +32,10 @@ the variable. Returns ``()``.
 
 **Local** variables are dropped after a *funcbody* scope ends. **Global**
 variables are dropped when the program terminates.
+
+### Initialization
+
+The value of a *funcbody* variable can be used, if the variable was definitly
+initialized, otherwise only initialization is allowed. The initization of
+variables in *funcbody* can only be done in the scope the variable was
+declared.

@@ -31,7 +31,7 @@ mod std
   trait{T} Array
     // Access element index (start couting from 0)
 	// panic if index > length()
-  	func [] (uintptr index)
+    func [] (uintptr index)
 	// How many elements can be accessed with func []
 	func length : uintptr ;
   ;

@@ -898,6 +898,11 @@ the variable. Returns <code>()</code>.</p>
 <h3><a class="header" href="#local-and-global" id="local-and-global">Local and global</a></h3>
 <p><strong>Local</strong> variables are dropped after a <em>funcbody</em> scope ends. <strong>Global</strong>
 variables are dropped when the program terminates.</p>
+<h3><a class="header" href="#initialization" id="initialization">Initialization</a></h3>
+<p>The value of a <em>funcbody</em> variable can be used, if the variable was definitly
+initialized, otherwise only initialization is allowed. The initization of
+variables in <em>funcbody</em> can only be done in the scope the variable was
+declared.</p>
 <h2><a class="header" href="#classes" id="classes">Classes</a></h2>
 <p>Classes have attributes, constructors and functions:</p>
 <ul>
@@ -1251,7 +1256,7 @@ otherwise <strong>True</strong>.</p>
   trait{T} Array
     // Access element index (start couting from 0)
 	// panic if index &gt; length()
-  	func [] (uintptr index)
+    func [] (uintptr index)
 	// How many elements can be accessed with func []
 	func length : uintptr ;
   ;
