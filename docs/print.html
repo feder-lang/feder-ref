@@ -684,7 +684,7 @@ All other semantics are can always be referenced if not shadowed.</p>
 <tr><td align="center">+a   -a</td><td align="center">17</td><td align="center">r</td><td align="left">Positive,Negative</td></tr>
 <tr><td align="center">! ~</td><td align="center">17</td><td align="center">r</td><td align="left">Logical not, Bitwise not</td></tr>
 <tr><td align="center">*a</td><td align="center">17</td><td align="center">r</td><td align="left">&quot;Dereference&quot;</td></tr>
-<tr><td align="center">a()</td><td align="center">18</td><td align="center">l</td><td align="left">Function call</td></tr>
+<tr><td align="center">a()</td><td align="center">18</td><td align="center">l</td><td align="left"><a href="./expr_fn.html#function-call">Function call</a></td></tr>
 <tr><td align="center">a{}</td><td align="center">18</td><td align="center">l</td><td align="left">Template call</td></tr>
 <tr><td align="center">a[]</td><td align="center">18</td><td align="center">l</td><td align="left">Index call</td></tr>
 <tr><td align="center">.</td><td align="center">18</td><td align="center">l</td><td align="left">Member access</td></tr>
@@ -848,6 +848,23 @@ variables as additional parameters and are then bound to the function (via
 <p>Every <em>expr</em> (but not <em>expr</em> in <em>expr</em>) is a statement. These statements must
 return <em>()</em> as type or an L-value. Otherwise the <em>expr</em> is invalid. This can
 be fixed with the <strong>null</strong> operator.</p>
+<h3><a class="header" href="#function-call" id="function-call">Function call</a></h3>
+<p>A function is called with <em>expr</em> <strong>(</strong> x <strong>)</strong> where x is either nothing, a
+value or tuple of values. The <em>expr</em> value count must be the same as the
+parameter count of the function declaration.</p>
+<p>Example:</p>
+<pre><code>func add(x: int32, y: int32):
+  x + y;
+
+func main
+  null add(2, 3)
+;
+</code></pre>
+<p>Invalid add function calls:</p>
+<pre><code>add(2) // invalid argument count, no add(x: int32) function declaration
+add(2.0f, 3) // invalid argument 2.0f (not type int32),
+             // no add(x: float32, y: int32) function declaration
+</code></pre>
 <h2><a class="header" href="#traits" id="traits">Traits</a></h2>
 <p>They are added to the current
 environment using the <em>id</em> in <em>traitdecl</em>. Traits have an own environment which

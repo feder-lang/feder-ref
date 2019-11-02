@@ -120,3 +120,28 @@ variables as additional parameters and are then bound to the function (via
 Every *expr* (but not *expr* in *expr*) is a statement. These statements must
 return *()* as type or an L-value. Otherwise the *expr* is invalid. This can
 be fixed with the **null** operator.
+
+### Function call
+
+A function is called with *expr* **(** x **)** where x is either nothing, a
+value or tuple of values. The *expr* value count must be the same as the
+parameter count of the function declaration.
+
+Example:
+
+```
+func add(x: int32, y: int32):
+  x + y;
+
+func main
+  null add(2, 3)
+;
+```
+
+Invalid add function calls:
+
+```
+add(2) // invalid argument count, no add(x: int32) function declaration
+add(2.0f, 3) // invalid argument 2.0f (not type int32),
+             // no add(x: float32, y: int32) function declaration
+```

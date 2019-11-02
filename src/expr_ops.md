@@ -37,7 +37,7 @@ Operator associativity:
 | +a   -a  | 17         | r             | Positive,Negative                   |
 | ! ~      | 17         | r             | Logical not, Bitwise not            |
 | \*a      | 17         | r             | "Dereference"                       |
-| a()      | 18         | l             | Function call                       |
+| a()      | 18         | l             | [Function call](./expr_fn.md#function-call) |
 | a{}      | 18         | l             | Template call                       |
 | a[]      | 18         | l             | Index call                          |
 | .        | 18         | l             | Member access                       |

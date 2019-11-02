@@ -242,6 +242,23 @@ variables as additional parameters and are then bound to the function (via
 <p>Every <em>expr</em> (but not <em>expr</em> in <em>expr</em>) is a statement. These statements must
 return <em>()</em> as type or an L-value. Otherwise the <em>expr</em> is invalid. This can
 be fixed with the <strong>null</strong> operator.</p>
+<h3><a class="header" href="#function-call" id="function-call">Function call</a></h3>
+<p>A function is called with <em>expr</em> <strong>(</strong> x <strong>)</strong> where x is either nothing, a
+value or tuple of values. The <em>expr</em> value count must be the same as the
+parameter count of the function declaration.</p>
+<p>Example:</p>
+<pre><code>func add(x: int32, y: int32):
+  x + y;
+
+func main
+  null add(2, 3)
+;
+</code></pre>
+<p>Invalid add function calls:</p>
+<pre><code>add(2) // invalid argument count, no add(x: int32) function declaration
+add(2.0f, 3) // invalid argument 2.0f (not type int32),
+             // no add(x: float32, y: int32) function declaration
+</code></pre>
 
                     </main>
 
