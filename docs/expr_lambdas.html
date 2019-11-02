@@ -150,7 +150,8 @@
 <em>funcbody</em> scopes. Lambdas are treated as functions with bound arguments, where
 the bound arguments are variables, used in the lambda <em>funcbody</em>, from previous
 <em>funcbody</em> scopes. These bound variables must be initialized and will be passed
-by call-by-reference.</p>
+by using call-by-reference. Variables in <em>vardecls</em> are passed by using
+call-by-value (like normal function parameters).</p>
 <p>Example:</p>
 <pre><code>status = &quot;0&quot;
 printStatus := lambda 

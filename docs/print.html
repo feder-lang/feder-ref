@@ -830,7 +830,7 @@ func div(x: in32, y: int32 | y != 0 =&gt; 0): int32
 <p>The operator <strong>&lt;&gt;</strong> is used to bind a function (LHS), which is also a
 variable/anonymous function, to an object (RHS) which replaces the last
 parameter. The function must have at least one parameter. The returned function
-is is missing the last parameter.</p>
+is is missing the last parameter. Values are bound by using call-by-value.</p>
 <pre><code>// normal integer addition
 func add(x: int32, y: int32): int32
   x + y;
@@ -842,11 +842,6 @@ func main
   null io.out.println(add1(2)) // prints 3 to standard output
 ;
 </code></pre>
-<h3><a class="header" href="#lambda-expressions" id="lambda-expressions">Lambda expressions</a></h3>
-<p>Lambda functions can also use non-global variables from a parent environment in
-<em>retfuncbody</em>. They are equivalent to normal <em>functions</em> which have these
-variables as additional parameters and are then bound to the function (via
-<strong>&lt;&gt;</strong>).</p>
 <h3><a class="header" href="#function-body" id="function-body">Function body</a></h3>
 <p>Every <em>expr</em> (but not <em>expr</em> in <em>expr</em>) is a statement. These statements must
 return <em>()</em> as type or an L-value. Otherwise the <em>expr</em> is invalid. This can
@@ -854,7 +849,8 @@ be fixed with the <strong>null</strong> operator.</p>
 <h3><a class="header" href="#function-call" id="function-call">Function call</a></h3>
 <p>A function is called with <em>expr</em> <strong>(</strong> x <strong>)</strong> where x is either nothing, a
 value or tuple of values. The <em>expr</em> value count must be the same as the
-parameter count of the function declaration.</p>
+parameter count of the function declaration. Values (and variables) are passed
+by using call-by-value.</p>
 <p>Example:</p>
 <pre><code>func add(x: int32, y: int32):
   x + y;
@@ -1023,7 +1019,8 @@ null std.io.println(myarray.length()) // print 4
 <em>funcbody</em> scopes. Lambdas are treated as functions with bound arguments, where
 the bound arguments are variables, used in the lambda <em>funcbody</em>, from previous
 <em>funcbody</em> scopes. These bound variables must be initialized and will be passed
-by call-by-reference.</p>
+by using call-by-reference. Variables in <em>vardecls</em> are passed by using
+call-by-value (like normal function parameters).</p>
 <p>Example:</p>
 <pre><code>status = &quot;0&quot;
 printStatus := lambda 

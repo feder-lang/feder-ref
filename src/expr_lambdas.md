@@ -4,7 +4,8 @@ In Feder a lambda is a function which can use *variables* declared in previous
 *funcbody* scopes. Lambdas are treated as functions with bound arguments, where
 the bound arguments are variables, used in the lambda *funcbody*, from previous
 *funcbody* scopes. These bound variables must be initialized and will be passed
-by call-by-reference.
+by using call-by-reference. Variables in *vardecls* are passed by using
+call-by-value (like normal function parameters).
 
 Example:
 

@@ -93,7 +93,7 @@ func div(x: in32, y: int32 | y != 0 => 0): int32
 The operator **<>** is used to bind a function (LHS), which is also a
 variable/anonymous function, to an object (RHS) which replaces the last
 parameter. The function must have at least one parameter. The returned function
-is is missing the last parameter.
+is is missing the last parameter. Values are bound by using call-by-value.
 
 ```
 // normal integer addition
@@ -108,13 +108,6 @@ func main
 ;
 ```
 
-### Lambda expressions
-
-Lambda functions can also use non-global variables from a parent environment in
-*retfuncbody*. They are equivalent to normal *functions* which have these
-variables as additional parameters and are then bound to the function (via
-**<>**).
-
 ### Function body
 
 Every *expr* (but not *expr* in *expr*) is a statement. These statements must
@@ -125,7 +118,8 @@ be fixed with the **null** operator.
 
 A function is called with *expr* **(** x **)** where x is either nothing, a
 value or tuple of values. The *expr* value count must be the same as the
-parameter count of the function declaration.
+parameter count of the function declaration. Values (and variables) are passed
+by using call-by-value.
 
 Example:
 
