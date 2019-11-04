@@ -189,7 +189,7 @@ Capabilities:
 
 > *caps* := **#** *capid* *newline* | **#** **(** *capsl* **)** *newline* \
 > *capsl* := *capid* **,** *capsl*\
-> *capid* := **Unused** | **Inline**\
+> *capid* := **Unused** | **Inline** | **Constant** \
 > *capsdef* := *caps* *func* | *caps* *class* | *caps* *enum* | *caps* *vardef*
 
 Control-flow expressions:
