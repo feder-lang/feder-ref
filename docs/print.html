@@ -622,7 +622,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <strong>&amp;=</strong> | <strong>|=</strong> | <strong>^=</strong> | <strong>&lt;&lt;=</strong> | <strong>&gt;&gt;=</strong> <br />
 | <strong>=</strong>
 | <strong>&lt;&gt;</strong><br />
-| <strong>.</strong> | <strong>-&gt;</strong><br />
+| <strong>.</strong> | <strong>-&gt;</strong>\ | <strong>,</strong> | <strong>;</strong>
 <em>lunop</em> := * | <strong>!</strong> | <strong>null</strong> 
 | <strong>+</strong> | <strong>-</strong> | <strong>++</strong> | <strong>--</strong></p>
 </blockquote>
@@ -658,6 +658,7 @@ All other semantics are can always be referenced if not shadowed.</p>
 <li><strong>r</strong>: Operator is right associative</li>
 </ul>
 <table><thead><tr><th align="center">Operator</th><th align="center">Precedence</th><th align="center">Associativity</th><th align="left">Description</th></tr></thead><tbody>
+<tr><td align="center">;</td><td align="center">0</td><td align="center">l</td><td align="left">Statement separator</td></tr>
 <tr><td align="center">,</td><td align="center">1</td><td align="center">l</td><td align="left">Comma, Tuple/argument separator</td></tr>
 <tr><td align="center">:=</td><td align="center">2</td><td align="center">r</td><td align="left">Declaring assignment</td></tr>
 <tr><td align="center">&amp;= ^=</td><td align="center">3</td><td align="center">r</td><td align="left">On-object operation</td></tr>

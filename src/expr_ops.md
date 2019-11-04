@@ -8,6 +8,7 @@ Operator associativity:
 
 | Operator | Precedence | Associativity | Description                         |
 | :---:    | :---:      | :---:         | :---                                |
+| ;        | 0          | l             | Statement separator                 |
 | ,        | 1          | l             | Comma, Tuple/argument separator     |
 | :=       | 2          | r             | Declaring assignment                |
 | &= ^=    | 3          | r             | On-object operation                 | 
