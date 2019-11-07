@@ -462,7 +462,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <strong>,</strong> <em>funcvars</em><br />
 <em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em><br />
 <em>guard</em> := <strong>|</strong> <em>expr0</em> | <strong>|</strong> <em>expr0</em> <strong>=&gt;</strong> <em>expr1</em>.
-<em>returntype</em> := <em>templidcall</em> | <em>vardecltuple</em> <br />
+<em>returntype</em> := <em>templidcall</em> | <em>vardecl</em> <br />
 <em>returntypetuple</em> := <strong>(</strong> <em>returntuplex</em> <strong>)</strong> <br />
 <em>returntuplex</em> := <em>returntupleunit</em>
 | <em>returntupleunit</em> <strong>,</strong> <em>returntuplex</em><br />
@@ -546,12 +546,13 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>vardeclunits</em> := <em>vardeclunit</em> | <em>vardeclunit</em> <strong>,</strong> <em>vardeclunits</em><br />
 <em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em><br />
 <em>varids</em> := <em>varid</em> | <em>varid</em> <strong>,</strong> <em>varids</em><br />
-<em>varid</em> := <em>id</em></p>
+<em>varid</em> := <em>id</em><br />
+<em>vardecls</em> := <em>vardecl</em> | <em>vardecl</em> <strong>,</strong> <em>vardecls</em></p>
 </blockquote>
 <p>Variable definition:</p>
 <blockquote>
-<p><em>vardef</em> := <em>vardecl</em> <strong>=</strong> <em>expr</em> | <em>varid</em> <strong>:=</strong> <em>expr</em>
-| <strong>(</strong> <em>varids</em> <strong>)</strong> <strong>:=</strong> expr</p>
+<p><em>vardef</em> := <em>vardecl</em> <strong>=</strong> <em>expr</em>
+| <strong>(</strong> <em>varids</em> <strong>)</strong> <strong>:=</strong> <em>expr</em></p>
 </blockquote>
 <p><a href="./expr_arrays.html">Arrays</a>:</p>
 <blockquote>

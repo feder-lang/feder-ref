@@ -90,7 +90,7 @@ General program:
 > *funcvars* := *funcvar* | *funcvar* **,** *funcvars*\
 > *funcvar* := *vardecl* | *vardecl* *guard*\
 > *guard* := **|** *expr0* | **\|** *expr0* **=>** *expr1*.
-> *returntype* := *templidcall* \| *vardecltuple* \
+> *returntype* := *templidcall* \| *vardecl* \
 > *returntypetuple* := **(** *returntuplex* **)** \
 > *returntuplex* := *returntupleunit*
 > \| *returntupleunit* **,** *returntuplex*\
@@ -172,12 +172,13 @@ Variable declaration:
 > *vardeclunits* := *vardeclunit* | *vardeclunit* **,** *vardeclunits*\
 > *vardeclunit* := *id* **:** *templidcall*\
 > *varids* := *varid* | *varid* **,** *varids*\
-> *varid* := *id*
+> *varid* := *id*\
+> *vardecls* := *vardecl* | *vardecl* **,** *vardecls*
 
 Variable definition:
 
-> *vardef* := *vardecl* **=** *expr* | *varid* **:=** *expr*
-> | **(** *varids* **)** **:=** expr
+> *vardef* := *vardecl* **=** *expr*
+> | **(** *varids* **)** **:=** *expr*
 
 [Arrays](./expr_arrays.md):
 
