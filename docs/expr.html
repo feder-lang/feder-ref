@@ -201,7 +201,9 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
 <p><em>program-body</em> := <em>def</em> | <em>def</em> <em>newline</em> <em>program-body</em><br />
 <em>def</em> := <em>use</em> | <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
-| <em>enum</em> | <em>module</em> | <em>vardef</em> | <em>capsdef</em></p>
+| <em>enum</em> | <em>module</em> | <em>vardef</em> | <em>capsdef</em>
+<em>exprdef</em> := <em>use</em> | <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
+| <em>enum</em> | <em>exprvardef</em> | <em>capsdef</em></p>
 </blockquote>
 <p><a href="./expr_use.html">Use</a>:</p>
 <blockquote>
@@ -238,7 +240,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>returntupleunit</em> <strong>,</strong> <em>returntuplex</em><br />
 <em>returntupleunit</em> := <em>templidcall</em> | <em>id</em> : <em>templidcall</em> | <em>func</em>
 | <em>functype</em><br />
-<em>funcbody</em> := <em>expr</em> | <em>expr</em> <em>newline</em> <em>funcbody</em><br />
+<em>funcbody</em> := <em>stmt</em> | <em>stmt</em> <em>newline</em> <em>funcbody</em><br />
 <em>retfuncbody</em> := <em>funcbody</em> <strong>return</strong> <em>expr</em> <em>newline</em> <br />
 <em>functype</em> := <strong>func</strong> | <strong>func</strong> <strong>:</strong> <em>return-type</em>
 | <strong>func</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong>
@@ -301,14 +303,17 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p>General Expression:</p>
 <blockquote>
-<p><em>expr</em> := <em>def</em> | <em>vardecl</em>
+<p><em>expr</em> := <em>exprdef</em>
 | <strong>(</strong> <em>expr</em> <strong>)</strong>
 | <em>biopexpr</em>  | <em>unopexpr</em>
 | <em>fctl</em> | <em>lambda</em>
 | <em>expr</em> <strong>(</strong> <em>expr</em> <strong>)</strong>
 | <em>expr</em> <strong>[</strong> <em>expr</em> <strong>]</strong>
 | <em>array</em>
-| <em>safe</em></p>
+| <em>safe</em>
+| <em>id</em>
+| <em>literal</em><br />
+<em>stmt</em> := <em>expr</em> | <em>vardecl</em> | <em>vardef</em> | <em>stmt</em> <strong>;</strong> <em>stmt</em></p>
 </blockquote>
 <p>Variable declaration:</p>
 <blockquote>
@@ -391,9 +396,9 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <strong>&amp;&amp;</strong> | <strong>||</strong>
 <strong>+=</strong> | <strong>-=</strong> | <strong>*=</strong> | <strong>/=</strong> | *= | <strong>%=</strong><br />
 | <strong>&amp;=</strong> | <strong>|=</strong> | <strong>^=</strong> | <strong>&lt;&lt;=</strong> | <strong>&gt;&gt;=</strong> <br />
-| <strong>=</strong>
 | <strong>&lt;&gt;</strong><br />
-| <strong>.</strong> | <strong>-&gt;</strong>\ | <strong>,</strong> | <strong>;</strong>
+| <strong>=</strong>
+| <strong>.</strong> | <strong>-&gt;</strong>\ | <strong>,</strong>
 <em>lunop</em> := * | <strong>!</strong> | <strong>null</strong> 
 | <strong>+</strong> | <strong>-</strong> | <strong>++</strong> | <strong>--</strong></p>
 </blockquote>

@@ -61,6 +61,8 @@ General program:
 > *program-body* := *def* | *def* *newline* *program-body*\
 > *def* := *use* | *func* | *trait* | *class* | *traitimpl*
 > | *enum* | *module* | *vardef* | *capsdef*
+> *exprdef* := *use* | *func* | *trait* | *class* | *traitimpl*
+> | *enum* | *exprvardef* | *capsdef*
 
 [Use](./expr_use.md):
 > *use* := **use** *idcallm*
@@ -96,7 +98,7 @@ General program:
 > \| *returntupleunit* **,** *returntuplex*\
 > *returntupleunit* := *templidcall* \| *id* : *templidcall* \| *func*
 >                      \| *functype*\
-> *funcbody* := *expr* \| *expr* *newline* *funcbody*\
+> *funcbody* := *stmt* \| *stmt* *newline* *funcbody*\
 > *retfuncbody* := *funcbody* **return** *expr* *newline* \
 > *functype* := **func** | **func** **:** *return-type*
 > | **func** **(** *vardecls* **)**
@@ -157,7 +159,7 @@ General program:
 
 General Expression:
 
-> *expr* := *def* | *vardecl*
+> *expr* := *exprdef*
 > | **(** *expr* **)**
 > | *biopexpr*  | *unopexpr*
 > | *fctl* | *lambda*
@@ -165,6 +167,9 @@ General Expression:
 > | *expr* **[** *expr* **]**
 > | *array*
 > | *safe*
+> | *id*
+> | *literal*\
+> *stmt* := *expr* | *vardecl* | *vardef* | *stmt* **;** *stmt*
 
 Variable declaration:
 
@@ -178,7 +183,7 @@ Variable declaration:
 Variable definition:
 
 > *vardef* := *vardecl* **=** *expr*
-> | **(** *varids* **)** **:=** *expr*
+> | **(** *varids* **)** **:=** *expr*\
 
 [Arrays](./expr_arrays.md):
 
@@ -247,8 +252,8 @@ Safe expression:
 > | **&&** | **||**
 > **+=** | **-=** | **\*=** | **/=** | \*= | **%=**\
 > | **\&=** | **|=** | **^=** | **<<=** | **>>=** \
-> | **=**
 > | **<\>**\
-> | **.** | **-\>**\ | **,** | **;**
+> | **=**
+> | **.** | **-\>**\ | **,**
 > *lunop* := \* | **!** | **null** 
 > | **+** | **-** | **++** | **--**
