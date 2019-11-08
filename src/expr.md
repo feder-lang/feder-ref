@@ -21,6 +21,13 @@ end-ofline. Also characters between '/\*' and '\*/' will be ignored, including
 started with '//' will be interpreted as an end-of-line/*newline* and a comment
 started with '/\*' as *space*.
 
+## Library name
+
+The optional first expression of an *program* is *progname*. This specifies
+where all top-level public semantics in the file should be added to.
+if *progname* is not used, the *program*'s semantics won't be visible to other
+files.
+
 ## Syntax specification
 
 The starting symbol is *program*. The *terminals* where defined in
@@ -46,26 +53,23 @@ the chapter [Lexical Elements](./lexical.md).
 > *idcalls* := *idcall* | **(** *idcall* **,** *idcallm* **)**\
 > *idcallm* := *idcall* | *idcall* **,** *idcallm*
 
-> *program* := externs program-body *EOF* | program-body *EOF* | *EOF*
-
-External dependencies:
-
-> *externs*  := includes import | includes | imports\
-> *includes* := *include* | *include* *newline* *includes*\
-> *include* := **include** *strs*\
-> *imports*  := *import* | *import* *newline* *imports*\
-> *import* := **import** *idcalls*
+> *program* := *progname* *newline* *program-body*
+> | *progname* *EOF* \
+> | *program-body* *EOF* | *EOF* \
+> *progname* := **use** **mod** *id*
 
 General program:
 
-> *program-body* := *def* | *def* *newline* *program-body*\
-> *def* := *use* | *func* | *trait* | *class* | *traitimpl*
+> *program-body* := *def* *newline* | *def* *EOF*
+> | *def* *newline* *program-body*\
+> | *use* *newline* | *use* *EOF* | *use* *newline* *program-body*\
+> *def* := *func* | *trait* | *class* | *traitimpl*
 > | *enum* | *module* | *vardef* | *capsdef*
-> *exprdef* := *use* | *func* | *trait* | *class* | *traitimpl*
+> *exprdef* := *func* | *trait* | *class* | *traitimpl*
 > | *enum* | *exprvardef* | *capsdef*
 
 [Use](./expr_use.md):
-> *use* := **use** *idcallm*
+> *use* := **use** *idcall* | **use** *idcall* **.** \*
 
 [Templates](./expr_templs.md):
 

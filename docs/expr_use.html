@@ -146,21 +146,24 @@
                 <div id="content" class="content">
                     <main>
                         <h2><a class="header" href="#use" id="use">Use</a></h2>
-<p>The <em>idcall</em>s following the use keyword are either variables or namespaces.
-All public-visible semantics of the variable or namespace will be added to the
-current environment. Semantics defined in the current environment have
-precedence (semantics added with <strong>use</strong> cannot shadow semantics in current
-environment <em>and</em> parent environments).</p>
+<p>The first <em>id</em> in <em>idcall</em> is either a module or library (libraries are
+declared with <em>progname</em>). If <em>use</em> ends with <code>.*</code>, then all public semantics
+of <em>idcall</em> are accessible in the current environment and all children
+environemts otherwise only the semantic referenced by <em>idcall</em> can be accessed.</p>
 <p>Example:</p>
-<pre><code>mod mymod
-	func printHello
-		io.println(&quot;Hello, world!&quot;)
-	;
+<p><em>hello.feder</em>:</p>
+<pre><code>use mod helloprinter
+use std.io
+
+func printHello
+    io.out.println(&quot;Hello, World!&quot;)
 ;
+</code></pre>
+<p><em>program.feder</em>:</p>
+<pre><code>use helloprinter
 
 func main
-	use mymod
-	printHello()
+    io.out.println(&quot;Hello, World!&quot;)
 ;
 </code></pre>
 

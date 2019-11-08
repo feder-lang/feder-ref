@@ -161,6 +161,11 @@ end-ofline. Also characters between '/*' and '*/' will be ignored, including
 '/*' and '*/'.  These ignored characters are called <em>comments</em>. Where a comment
 started with '//' will be interpreted as an end-of-line/<em>newline</em> and a comment
 started with '/*' as <em>space</em>.</p>
+<h2><a class="header" href="#library-name" id="library-name">Library name</a></h2>
+<p>The optional first expression of an <em>program</em> is <em>progname</em>. This specifies
+where all top-level public semantics in the file should be added to.
+if <em>progname</em> is not used, the <em>program</em>'s semantics won't be visible to other
+files.</p>
 <h2><a class="header" href="#syntax-specification" id="syntax-specification">Syntax specification</a></h2>
 <p>The starting symbol is <em>program</em>. The <em>terminals</em> where defined in
 the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
@@ -187,27 +192,24 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>idcallm</em> := <em>idcall</em> | <em>idcall</em> <strong>,</strong> <em>idcallm</em></p>
 </blockquote>
 <blockquote>
-<p><em>program</em> := externs program-body <em>EOF</em> | program-body <em>EOF</em> | <em>EOF</em></p>
-</blockquote>
-<p>External dependencies:</p>
-<blockquote>
-<p><em>externs</em>  := includes import | includes | imports<br />
-<em>includes</em> := <em>include</em> | <em>include</em> <em>newline</em> <em>includes</em><br />
-<em>include</em> := <strong>include</strong> <em>strs</em><br />
-<em>imports</em>  := <em>import</em> | <em>import</em> <em>newline</em> <em>imports</em><br />
-<em>import</em> := <strong>import</strong> <em>idcalls</em></p>
+<p><em>program</em> := <em>progname</em> <em>newline</em> <em>program-body</em>
+| <em>progname</em> <em>EOF</em> <br />
+| <em>program-body</em> <em>EOF</em> | <em>EOF</em> <br />
+<em>progname</em> := <strong>use</strong> <strong>mod</strong> <em>id</em></p>
 </blockquote>
 <p>General program:</p>
 <blockquote>
-<p><em>program-body</em> := <em>def</em> | <em>def</em> <em>newline</em> <em>program-body</em><br />
-<em>def</em> := <em>use</em> | <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
+<p><em>program-body</em> := <em>def</em> <em>newline</em> | <em>def</em> <em>EOF</em>
+| <em>def</em> <em>newline</em> <em>program-body</em><br />
+| <em>use</em> <em>newline</em> | <em>use</em> <em>EOF</em> | <em>use</em> <em>newline</em> <em>program-body</em><br />
+<em>def</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
 | <em>enum</em> | <em>module</em> | <em>vardef</em> | <em>capsdef</em>
-<em>exprdef</em> := <em>use</em> | <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
+<em>exprdef</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
 | <em>enum</em> | <em>exprvardef</em> | <em>capsdef</em></p>
 </blockquote>
 <p><a href="./expr_use.html">Use</a>:</p>
 <blockquote>
-<p><em>use</em> := <strong>use</strong> <em>idcallm</em></p>
+<p><em>use</em> := <strong>use</strong> <em>idcall</em> | <strong>use</strong> <em>idcall</em> <strong>.</strong> *</p>
 </blockquote>
 <p><a href="./expr_templs.html">Templates</a>:</p>
 <blockquote>

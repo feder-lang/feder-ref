@@ -198,7 +198,7 @@ not have only '_' as characters. After leading '_' there mustn't be a digit.</p>
 <p>Keywords are reserved identifiers for syntax elements which cannot be used for
 anything else. These are:</p>
 <pre><code>func mod class enum trait type return use lambda
-if else match switch for do continue break safe include import
+if else match switch for do continue break safe
 True False
 _
 </code></pre>
@@ -391,6 +391,11 @@ end-ofline. Also characters between '/*' and '*/' will be ignored, including
 '/*' and '*/'.  These ignored characters are called <em>comments</em>. Where a comment
 started with '//' will be interpreted as an end-of-line/<em>newline</em> and a comment
 started with '/*' as <em>space</em>.</p>
+<h2><a class="header" href="#library-name" id="library-name">Library name</a></h2>
+<p>The optional first expression of an <em>program</em> is <em>progname</em>. This specifies
+where all top-level public semantics in the file should be added to.
+if <em>progname</em> is not used, the <em>program</em>'s semantics won't be visible to other
+files.</p>
 <h2><a class="header" href="#syntax-specification" id="syntax-specification">Syntax specification</a></h2>
 <p>The starting symbol is <em>program</em>. The <em>terminals</em> where defined in
 the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
@@ -417,27 +422,24 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>idcallm</em> := <em>idcall</em> | <em>idcall</em> <strong>,</strong> <em>idcallm</em></p>
 </blockquote>
 <blockquote>
-<p><em>program</em> := externs program-body <em>EOF</em> | program-body <em>EOF</em> | <em>EOF</em></p>
-</blockquote>
-<p>External dependencies:</p>
-<blockquote>
-<p><em>externs</em>  := includes import | includes | imports<br />
-<em>includes</em> := <em>include</em> | <em>include</em> <em>newline</em> <em>includes</em><br />
-<em>include</em> := <strong>include</strong> <em>strs</em><br />
-<em>imports</em>  := <em>import</em> | <em>import</em> <em>newline</em> <em>imports</em><br />
-<em>import</em> := <strong>import</strong> <em>idcalls</em></p>
+<p><em>program</em> := <em>progname</em> <em>newline</em> <em>program-body</em>
+| <em>progname</em> <em>EOF</em> <br />
+| <em>program-body</em> <em>EOF</em> | <em>EOF</em> <br />
+<em>progname</em> := <strong>use</strong> <strong>mod</strong> <em>id</em></p>
 </blockquote>
 <p>General program:</p>
 <blockquote>
-<p><em>program-body</em> := <em>def</em> | <em>def</em> <em>newline</em> <em>program-body</em><br />
-<em>def</em> := <em>use</em> | <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
+<p><em>program-body</em> := <em>def</em> <em>newline</em> | <em>def</em> <em>EOF</em>
+| <em>def</em> <em>newline</em> <em>program-body</em><br />
+| <em>use</em> <em>newline</em> | <em>use</em> <em>EOF</em> | <em>use</em> <em>newline</em> <em>program-body</em><br />
+<em>def</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
 | <em>enum</em> | <em>module</em> | <em>vardef</em> | <em>capsdef</em>
-<em>exprdef</em> := <em>use</em> | <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
+<em>exprdef</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
 | <em>enum</em> | <em>exprvardef</em> | <em>capsdef</em></p>
 </blockquote>
 <p><a href="./expr_use.html">Use</a>:</p>
 <blockquote>
-<p><em>use</em> := <strong>use</strong> <em>idcallm</em></p>
+<p><em>use</em> := <strong>use</strong> <em>idcall</em> | <strong>use</strong> <em>idcall</em> <strong>.</strong> *</p>
 </blockquote>
 <p><a href="./expr_templs.html">Templates</a>:</p>
 <blockquote>
@@ -745,21 +747,24 @@ func main
 ;
 </code></pre>
 <h2><a class="header" href="#use" id="use">Use</a></h2>
-<p>The <em>idcall</em>s following the use keyword are either variables or namespaces.
-All public-visible semantics of the variable or namespace will be added to the
-current environment. Semantics defined in the current environment have
-precedence (semantics added with <strong>use</strong> cannot shadow semantics in current
-environment <em>and</em> parent environments).</p>
+<p>The first <em>id</em> in <em>idcall</em> is either a module or library (libraries are
+declared with <em>progname</em>). If <em>use</em> ends with <code>.*</code>, then all public semantics
+of <em>idcall</em> are accessible in the current environment and all children
+environemts otherwise only the semantic referenced by <em>idcall</em> can be accessed.</p>
 <p>Example:</p>
-<pre><code>mod mymod
-	func printHello
-		io.println(&quot;Hello, world!&quot;)
-	;
+<p><em>hello.feder</em>:</p>
+<pre><code>use mod helloprinter
+use std.io
+
+func printHello
+    io.out.println(&quot;Hello, World!&quot;)
 ;
+</code></pre>
+<p><em>program.feder</em>:</p>
+<pre><code>use helloprinter
 
 func main
-	use mymod
-	printHello()
+    io.out.println(&quot;Hello, World!&quot;)
 ;
 </code></pre>
 <h2><a class="header" href="#functions" id="functions">Functions</a></h2>

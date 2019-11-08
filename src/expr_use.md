@@ -1,21 +1,30 @@
 ## Use
 
-The *idcall*s following the use keyword are either variables or namespaces.
-All public-visible semantics of the variable or namespace will be added to the
-current environment. Semantics defined in the current environment have
-precedence (semantics added with **use** cannot shadow semantics in current
-environment *and* parent environments).
+The first *id* in *idcall* is either a module or library (libraries are
+declared with *progname*). If *use* ends with ``.*``, then all public semantics
+of *idcall* are accessible in the current environment and all children
+environemts otherwise only the semantic referenced by *idcall* can be accessed.
 
 Example:
 
+
+*hello.feder*:
+
 ```
-mod mymod
-	func printHello
-		io.println("Hello, world!")
-	;
+use mod helloprinter
+use std.io
+
+func printHello
+    io.out.println("Hello, World!")
 ;
+```
+
+*program.feder*:
+
+```
+use helloprinter
 
 func main
-	use mymod
-	printHello()
+    io.out.println("Hello, World!")
 ;
+```

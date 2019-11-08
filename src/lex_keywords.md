@@ -5,7 +5,7 @@ anything else. These are:
 
 ```
 func mod class enum trait type return use lambda
-if else match switch for do continue break safe include import
+if else match switch for do continue break safe
 True False
 _
 ```
