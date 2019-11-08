@@ -16,21 +16,21 @@ mod std
         ;
     ;
 
-    class NativeString(_chars: Array{char}, _hash,: u8) : Array{char}
+    class NativeString(_chars: Array{char}, _hash,: u8)
     ;
 
     class trait NativeString : Hash{u8}
-        func hash =
+        func hash(This) =
             _hash
         ;
     ;
 
     class trait NativeString : Array{char}
-        func at(index: uptr): T =
+        func at(This, index: uptr): T =
             _chars[index]
         ;
 
-        func length =
+        func length(This) =
             _chars.length()
         ;
     ;

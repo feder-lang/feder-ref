@@ -25,7 +25,8 @@ Operator associativity:
 | \|       | 8          | l             | Bitwise or                          |
 | ^        | 9          | l             | Bitwise xor                         |
 | &        | 10         | l             | Bitwise and                         |
-| == !=    | 11         | l             | Value equaltity                     |
+| == !=    | 11         | l             | Direct value equaltity              |
+| ~=       | 11         | l             | Compare (used by Equals)            |
 | \< \<=   | 12         | l             | Less, Minimum                       |
 | \> \>=   | 12         | l             | Greater, Maximum                    |
 | \>\> \<\< | 13        | l             | Bitwise right/left shift            |

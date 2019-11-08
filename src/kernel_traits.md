@@ -28,6 +28,11 @@ mod std
                      Multiplication{T,R}, Division{T,R}
   ;
 
+  // binary operator '~='
+  trait{R, T} ComparisonEquals
+    func equals(T): R;
+  ;
+
   // operator [x]
   trait{T, R} Map
     func at(index: T): R;
@@ -36,12 +41,12 @@ mod std
   trait{T} Array : Map{uptr, T}
     // Access element index (start couting from 0)
 	// panic if index > length()
-    func at(uptr index): T;
+    func at(index: uptr): T;
 	// How many elements can be accessed with func []
 	func length: uptr ;
   ;
 
-  trait{T} Hash
+  trait{T: ComparisonEquals{bool, T}} Hash
     func hash: T
   ;
 ;

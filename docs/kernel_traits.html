@@ -173,7 +173,7 @@
   ;
 
   // binary operator '~='
-  trait{R, T} ComparisonEqual
+  trait{R, T} ComparisonEquals
     func equals(T): R;
   ;
 
@@ -190,7 +190,7 @@
 	func length: uptr ;
   ;
 
-  trait{T: ComparisonEqual{bool, T}} Hash
+  trait{T: ComparisonEquals{bool, T}} Hash
     func hash: T
   ;
 ;
