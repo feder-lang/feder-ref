@@ -17,6 +17,9 @@ mod std
     ;
 
     class NativeString(_chars: Array{char}, _hash,: u8) : Array{char}
+    ;
+
+    class trait NativeString : Hash{u8}
         func hash =
             _hash
         ;

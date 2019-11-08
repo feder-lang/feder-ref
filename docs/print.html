@@ -1321,6 +1321,10 @@ otherwise <strong>True</strong>.</p>
 	// How many elements can be accessed with func []
 	func length: uptr ;
   ;
+
+  trait{T} Hash
+    func hash: T
+  ;
 ;
 </code></pre>
 <h2><a class="header" href="#classes-1" id="classes-1">Classes</a></h2>
@@ -1339,6 +1343,9 @@ otherwise <strong>True</strong>.</p>
     ;
 
     class NativeString(_chars: Array{char}, _hash,: u8) : Array{char}
+    ;
+
+    class trait NativeString : Hash{u8}
         func hash =
             _hash
         ;

@@ -40,5 +40,9 @@ mod std
 	// How many elements can be accessed with func []
 	func length: uptr ;
   ;
+
+  trait{T} Hash
+    func hash: T
+  ;
 ;
 ```
