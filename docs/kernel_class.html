@@ -148,14 +148,32 @@
                         <h2><a class="header" href="#classes" id="classes">Classes</a></h2>
 <p>Classes implemented into the kernel:</p>
 <pre><code>mod std
-    class{Type} Box(Var : Type)
-        func *:
-            Var;
+    class{Type} Box(Var: Type)
+        func * =
+            Var
+        ;
     ;
     
-    class{Type} MutBox(var : Type)
-        func *:
-            var;
+    class{Type} MutBox(var: Type)
+        func * =
+            var
+        ;
+    ;
+
+    class NativeString(_chars: Array{char}, _hash,: u8) : Array{char}
+        func hash =
+            _hash
+        ;
+    ;
+
+    class trait NativeString : Array{char}
+        func at(index: uptr): T =
+            _chars[index]
+        ;
+
+        func length =
+            _chars.length()
+        ;
     ;
 ;
 </code></pre>

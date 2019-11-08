@@ -153,31 +153,36 @@
 
   // binary operator '+'
   trait{T,R} Addition
-    func add(T): R;
+    func add(rhs: T): R;
   ;
   // binary operator '-'
   trait{T,R} Subtraction
-    func sub(T): R;
+    func sub(rhs: T): R;
   ;
   // binary operator '*'
   trait{T,R} Multiplication
-    func mul(T): R;
+    func mul(rhs: T): R;
   ;
   // binary operator '/'
   trait{T,R} Division
-    func div(T): R;
+    func div(rhs: T): R;
   ;
   // sum '+', '-', '*' and '/'
   trait{T,R} Field : Addition{T,R}, Subtraction{T,R},
                      Multiplication{T,R}, Division{T,R}
   ;
 
-  trait{T} Array
+  // operator [x]
+  trait{T, R} Map
+    func at(index: T): R;
+  ;
+
+  trait{T} Array : Map{uptr, T}
     // Access element index (start couting from 0)
 	// panic if index &gt; length()
-    func [] (uintptr index)
+    func at(uptr index): T;
 	// How many elements can be accessed with func []
-	func length : uintptr ;
+	func length: uptr ;
   ;
 ;
 </code></pre>

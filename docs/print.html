@@ -320,7 +320,8 @@ They are represented with escape sequences, which start with \.</p>
 <h3><a class="header" href="#strings" id="strings">Strings</a></h3>
 <p>A string constant is a character sequence, which is enclosed within double
 quotation marks. The sequence is zero or more characters long.</p>
-<p>The escape sequences of operators can be used within strings, too.</p>
+<p>The escape sequences of operators can be used within strings, too. Their
+return-value is <strong>NativeString</strong>.</p>
 <p>Example:</p>
 <pre><code>&quot;Hello, World!&quot;
 &quot;....\n&quot;
@@ -1289,45 +1290,68 @@ otherwise <strong>True</strong>.</p>
 
   // binary operator '+'
   trait{T,R} Addition
-    func add(T): R;
+    func add(rhs: T): R;
   ;
   // binary operator '-'
   trait{T,R} Subtraction
-    func sub(T): R;
+    func sub(rhs: T): R;
   ;
   // binary operator '*'
   trait{T,R} Multiplication
-    func mul(T): R;
+    func mul(rhs: T): R;
   ;
   // binary operator '/'
   trait{T,R} Division
-    func div(T): R;
+    func div(rhs: T): R;
   ;
   // sum '+', '-', '*' and '/'
   trait{T,R} Field : Addition{T,R}, Subtraction{T,R},
                      Multiplication{T,R}, Division{T,R}
   ;
 
-  trait{T} Array
+  // operator [x]
+  trait{T, R} Map
+    func at(index: T): R;
+  ;
+
+  trait{T} Array : Map{uptr, T}
     // Access element index (start couting from 0)
 	// panic if index &gt; length()
-    func [] (uintptr index)
+    func at(uptr index): T;
 	// How many elements can be accessed with func []
-	func length : uintptr ;
+	func length: uptr ;
   ;
 ;
 </code></pre>
 <h2><a class="header" href="#classes-1" id="classes-1">Classes</a></h2>
 <p>Classes implemented into the kernel:</p>
 <pre><code>mod std
-    class{Type} Box(Var : Type)
-        func *:
-            Var;
+    class{Type} Box(Var: Type)
+        func * =
+            Var
+        ;
     ;
     
-    class{Type} MutBox(var : Type)
-        func *:
-            var;
+    class{Type} MutBox(var: Type)
+        func * =
+            var
+        ;
+    ;
+
+    class NativeString(_chars: Array{char}, _hash,: u8) : Array{char}
+        func hash =
+            _hash
+        ;
+    ;
+
+    class trait NativeString : Array{char}
+        func at(index: uptr): T =
+            _chars[index]
+        ;
+
+        func length =
+            _chars.length()
+        ;
     ;
 ;
 </code></pre>
