@@ -33,9 +33,9 @@ Examples:
 mod mymod
 	class Person (name : String,
 		          age : u8)
-		func getName(this : This):
+		func getName(this : This) =
 			name;
-		func getAge(this : This):
+		func getAge(this : This) =
 			age;
 	;
 

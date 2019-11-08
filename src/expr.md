@@ -79,7 +79,8 @@ General program:
 [Functions](./expr_fn.md):
 
 > *func* := **func** *funcdecl* *newline* **;**
-> | **func** *funcdecl* **=** *newline* *expr* *newline* **;** \
+> | **func** *funcdecl* **=** *newline* *expr* **;** \
+> | **func** *funcdecl* **:** *returntype* **=** *newline* *expr* **;** \
 > | **func** *funcdecl* *newline* *funcbody* **;**\
 > | **func** *funcdecl* **:** *returntype* *newline* *retfuncbody* **;**\
 > | **func** *funcdecl* **:** *newline* *retfuncbody* **;**\
@@ -106,13 +107,13 @@ General program:
 > *clfunc* := **func** *clfuncdecl* *newline* **;**\
 > | **func** *clfuncdecl* **:** *returntype* *newline* *retfuncbody* **;**\
 > | **func** *clfuncdecl* **:** *newline* *retfuncbody* **;**
+> | **func** *clfuncdecl* **=** *newline* *expr* **;** \
+> | **func** *clfuncdecl* **:** *returntype* **=** *newline* *expr* **;** \
 > | *clfuncnb*\
 > *clfuncnb* := **func** *clfuncdecl* **;**
 > | **func** *clfuncdecl* **;** *returntype* **;**\
 > *clfuncdecl* := *template* *clfuncdeclx* | *space* *clfuncdeclx*\
-> *clfuncdeclx* := *id* **(** *funcvars*  **)**\
-> | *biop* **(** *funcvar* **,** *funcvar* **)**\
-> | *unop* **(** *funcvar* **)**\
+> *clfuncdeclx* := *id* **(** *funcvars*  **)**
 
 [Lambdas](./expr_lambdas.md):
 

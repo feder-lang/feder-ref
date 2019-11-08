@@ -9,7 +9,7 @@ functions declared in *traitbody*. When referencing a function, it is returned
 without the **this** or **This** parameter.
 
 The name of the trait (first expression *id* in *traitdecl*) must start with
-an uppercase character with optional leading '_'.
+an uppercase character with optional leading '\_'.
 
 ### Trait inheritance
 

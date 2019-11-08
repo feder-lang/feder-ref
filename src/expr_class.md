@@ -31,10 +31,10 @@ class Person
 		._age = age
 	;
 
-	func getName(This):
+	func getName(This) =
 		._name;
 	
-	func getAge(This):
+	func getAge(This) =
 		._age;
 ;
 ```
@@ -42,10 +42,10 @@ class Person
 ```
 // A bit less code ...
 class Person(_name : String, _age : u8)
-	func getName(This):
+	func getName(This) =
 		._name;
 
-	func getAge(This):
+	func getAge(This) =
 		._age;
 ;
 ```

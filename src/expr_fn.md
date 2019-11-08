@@ -2,10 +2,10 @@
 
 Normal functions can't use non-global variables from parent environments.
 
-A function beginning with a lowercase character with possible leading '_', no
+A function beginning with a lowercase character with possible leading '\_', no
 function with the same parameters and function name must exist in the current
 environment. Otherwise, if the function starts with a uppercase character with
-possible leading '_', no other semantic with the same name must exist in the
+possible leading '\_', no other semantic with the same name must exist in the
 current environment.
 
 If the *idcall* before the function's parameters consist of multiple *id*s
@@ -56,12 +56,14 @@ func add1(x: int32, y: int32):
 ;
 
 // sum function without **return** keyword but explicit return-type
-func add2(x: int32, y: int32): int32
-  x + y;
+func add2(x: int32, y: int32): int32 =
+  x + y
+;
 
 // sum function with **return** keyword and implicit return-type
-func add3(x: int32, y: int32):
-  x + y;
+func add3(x: int32, y: int32) =
+  x + y
+;
 ```
 
 ### Guards
@@ -80,12 +82,14 @@ Example:
 
 ```
 // Division with Division-by-zero exception
-func div(x: int32, y: int32 | y != 0): int32
-  x / y;
+func div(x: int32, y: int32 | y != 0): int32 =
+  x / y
+;
 
 // Dvision with Division-by-zero returns 0
-func div(x: in32, y: int32 | y != 0 => 0): int32
-  x / y;
+func div(x: in32, y: int32 | y != 0 => 0): int32 =
+  x / y
+;
 ```
 
 ### Argument binding
@@ -97,8 +101,9 @@ is is missing the last parameter. Values are bound by using call-by-value.
 
 ```
 // normal integer addition
-func add(x: int32, y: int32): int32
-  x + y;
+func add(x: int32, y: int32): int32 =
+  x + y
+;
 
 // sum number one and argument and return result
 add1 := add <> 1
@@ -124,8 +129,9 @@ by using call-by-value.
 Example:
 
 ```
-func add(x: int32, y: int32):
-  x + y;
+func add(x: int32, y: int32) =
+  x + y
+;
 
 func main
   null add(2, 3)
