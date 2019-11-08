@@ -78,17 +78,16 @@ General program:
 
 [Functions](./expr_fn.md):
 
-> *func* := **func** *funcdecl* *funcbody* *newline* **;** \
-> | **func** *funcdecl* *newline* **;**\
+> *func* := **func** *funcdecl* *newline* **;**
+> | **func** *funcdecl* **=** *newline* *expr* *newline* **;** \
+> | **func** *funcdecl* *newline* *funcbody* **;**\
 > | **func** *funcdecl* **:** *returntype* *newline* *retfuncbody* **;**\
 > | **func** *funcdecl* **:** *newline* *retfuncbody* **;**\
-> | **func** *funcdecl* **:** *returntype* *newline* *funcbody* **;**\
-> | **func** *funcdecl* **:** *newline* *funcbody* **;**\
 > | *funcnb*\
 > *funcnb* := **func** *funcdecl* **;**
 > | **func** *funcdecl* **:** *returntype* **;**\
 > *funcdecl* := *template* *funcdeclx* | *space* *funcdeclx* \
-> *funcdeclx* := *idcall* | *idcall* **(** *funcvars* **)** \
+> *funcdeclx* := *id* | *id* **(** *funcvars* **)**\
 > *funcvars* := *funcvar* | *funcvar* **,** *funcvars*\
 > *funcvar* := *vardecl* | *vardecl* *guard*\
 > *guard* := **|** *expr0* | **\|** *expr0* **=>** *expr1*.
@@ -111,8 +110,9 @@ General program:
 > *clfuncnb* := **func** *clfuncdecl* **;**
 > | **func** *clfuncdecl* **;** *returntype* **;**\
 > *clfuncdecl* := *template* *clfuncdeclx* | *space* *clfuncdeclx*\
-> *clfuncdeclx* := *id* **(** *vardecl*  **)**
-> | *id* **(** *vardecl* **,** *funcvars* **)**\
+> *clfuncdeclx* := *id* **(** *funcvars*  **)**\
+> | *biop* **(** *funcvar* **,** *funcvar* **)**\
+> | *unop* **(** *funcvar* **)**\
 
 [Lambdas](./expr_lambdas.md):
 

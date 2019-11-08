@@ -169,9 +169,9 @@ and library as parents otherwise the variable is <strong>local</strong>.</p>
 <pre><code>mod mymod
 	class Person (name : String,
 		          age : u8)
-		func getName(this : This):
+		func getName(this : This) =
 			name;
-		func getAge(this : This):
+		func getAge(this : This) =
 			age;
 	;
 

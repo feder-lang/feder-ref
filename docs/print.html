@@ -450,17 +450,17 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p><a href="./expr_fn.html">Functions</a>:</p>
 <blockquote>
-<p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>funcbody</em> <em>newline</em> <strong>;</strong> <br />
-| <strong>func</strong> <em>funcdecl</em> <em>newline</em> <strong>;</strong><br />
+<p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>newline</em> <strong>;</strong>
+| <strong>func</strong> <em>funcdecl</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
+| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
+| <strong>func</strong> <em>funcdecl</em> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
-| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
-| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <em>funcnb</em><br />
 <em>funcnb</em> := <strong>func</strong> <em>funcdecl</em> <strong>;</strong>
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>;</strong><br />
 <em>funcdecl</em> := <em>template</em> <em>funcdeclx</em> | <em>space</em> <em>funcdeclx</em> <br />
-<em>funcdeclx</em> := <em>idcall</em> | <em>idcall</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong> <br />
+<em>funcdeclx</em> := <em>id</em> | <em>id</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <strong>,</strong> <em>funcvars</em><br />
 <em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em><br />
 <em>guard</em> := <strong>|</strong> <em>expr0</em> | <strong>|</strong> <em>expr0</em> <strong>=&gt;</strong> <em>expr1</em>.
@@ -480,12 +480,13 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><em>clfunc</em> := <strong>func</strong> <em>clfuncdecl</em> <em>newline</em> <strong>;</strong><br />
 | <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong>
+| <strong>func</strong> <em>clfuncdecl</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
+| <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>returntype</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
 | <em>clfuncnb</em><br />
 <em>clfuncnb</em> := <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong>
 | <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong> <em>returntype</em> <strong>;</strong><br />
 <em>clfuncdecl</em> := <em>template</em> <em>clfuncdeclx</em> | <em>space</em> <em>clfuncdeclx</em><br />
-<em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>vardecl</em>  <strong>)</strong>
-| <em>id</em> <strong>(</strong> <em>vardecl</em> <strong>,</strong> <em>funcvars</em> <strong>)</strong></p>
+<em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>funcvars</em>  <strong>)</strong></p>
 </blockquote>
 <p><a href="./expr_lambdas.html">Lambdas</a>:</p>
 <blockquote>
@@ -729,9 +730,9 @@ and library as parents otherwise the variable is <strong>local</strong>.</p>
 <pre><code>mod mymod
 	class Person (name : String,
 		          age : u8)
-		func getName(this : This):
+		func getName(this : This) =
 			name;
-		func getAge(this : This):
+		func getAge(this : This) =
 			age;
 	;
 
@@ -764,10 +765,10 @@ func main
 </code></pre>
 <h2><a class="header" href="#functions" id="functions">Functions</a></h2>
 <p>Normal functions can't use non-global variables from parent environments.</p>
-<p>A function beginning with a lowercase character with possible leading '<em>', no
+<p>A function beginning with a lowercase character with possible leading '_', no
 function with the same parameters and function name must exist in the current
 environment. Otherwise, if the function starts with a uppercase character with
-possible leading '</em>', no other semantic with the same name must exist in the
+possible leading '_', no other semantic with the same name must exist in the
 current environment.</p>
 <p>If the <em>idcall</em> before the function's parameters consist of multiple <em>id</em>s
 the function called like the most right <em>id</em> is added to the environment
@@ -809,12 +810,14 @@ func add1(x: int32, y: int32):
 ;
 
 // sum function without **return** keyword but explicit return-type
-func add2(x: int32, y: int32): int32
-  x + y;
+func add2(x: int32, y: int32): int32 =
+  x + y
+;
 
 // sum function with **return** keyword and implicit return-type
-func add3(x: int32, y: int32):
-  x + y;
+func add3(x: int32, y: int32) =
+  x + y
+;
 </code></pre>
 <h3><a class="header" href="#guards" id="guards">Guards</a></h3>
 <p>The <em>expr0</em> of the guard has to evaluate to an object with the type <em>bool</em>.  If
@@ -827,12 +830,14 @@ return-time. The guard of the function definition (with <em>funcbody</em>) has
 precedence.</p>
 <p>Example:</p>
 <pre><code>// Division with Division-by-zero exception
-func div(x: int32, y: int32 | y != 0): int32
-  x / y;
+func div(x: int32, y: int32 | y != 0): int32 =
+  x / y
+;
 
 // Dvision with Division-by-zero returns 0
-func div(x: in32, y: int32 | y != 0 =&gt; 0): int32
-  x / y;
+func div(x: in32, y: int32 | y != 0 =&gt; 0): int32 =
+  x / y
+;
 </code></pre>
 <h3><a class="header" href="#argument-binding" id="argument-binding">Argument binding</a></h3>
 <p>The operator <strong>&lt;&gt;</strong> is used to bind a function (LHS), which is also a
@@ -840,8 +845,9 @@ variable/anonymous function, to an object (RHS) which replaces the last
 parameter. The function must have at least one parameter. The returned function
 is is missing the last parameter. Values are bound by using call-by-value.</p>
 <pre><code>// normal integer addition
-func add(x: int32, y: int32): int32
-  x + y;
+func add(x: int32, y: int32): int32 =
+  x + y
+;
 
 // sum number one and argument and return result
 add1 := add &lt;&gt; 1
@@ -860,8 +866,9 @@ value or tuple of values. The <em>expr</em> value count must be the same as the
 parameter count of the function declaration. Values (and variables) are passed
 by using call-by-value.</p>
 <p>Example:</p>
-<pre><code>func add(x: int32, y: int32):
-  x + y;
+<pre><code>func add(x: int32, y: int32) =
+  x + y
+;
 
 func main
   null add(2, 3)
@@ -956,19 +963,19 @@ an uppercase character with optional leading '_'.</p>
 		._age = age
 	;
 
-	func getName(This):
+	func getName(This) =
 		._name;
 	
-	func getAge(This):
+	func getAge(This) =
 		._age;
 ;
 </code></pre>
 <pre><code>// A bit less code ...
 class Person(_name : String, _age : u8)
-	func getName(This):
+	func getName(This) =
 		._name;
 
-	func getAge(This):
+	func getAge(This) =
 		._age;
 ;
 </code></pre>

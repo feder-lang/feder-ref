@@ -220,17 +220,17 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p><a href="./expr_fn.html">Functions</a>:</p>
 <blockquote>
-<p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>funcbody</em> <em>newline</em> <strong>;</strong> <br />
-| <strong>func</strong> <em>funcdecl</em> <em>newline</em> <strong>;</strong><br />
+<p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>newline</em> <strong>;</strong>
+| <strong>func</strong> <em>funcdecl</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
+| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
+| <strong>func</strong> <em>funcdecl</em> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
-| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
-| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <em>funcnb</em><br />
 <em>funcnb</em> := <strong>func</strong> <em>funcdecl</em> <strong>;</strong>
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>;</strong><br />
 <em>funcdecl</em> := <em>template</em> <em>funcdeclx</em> | <em>space</em> <em>funcdeclx</em> <br />
-<em>funcdeclx</em> := <em>idcall</em> | <em>idcall</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong> <br />
+<em>funcdeclx</em> := <em>id</em> | <em>id</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <strong>,</strong> <em>funcvars</em><br />
 <em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em><br />
 <em>guard</em> := <strong>|</strong> <em>expr0</em> | <strong>|</strong> <em>expr0</em> <strong>=&gt;</strong> <em>expr1</em>.
@@ -250,12 +250,13 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><em>clfunc</em> := <strong>func</strong> <em>clfuncdecl</em> <em>newline</em> <strong>;</strong><br />
 | <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong>
+| <strong>func</strong> <em>clfuncdecl</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
+| <strong>func</strong> <em>clfuncdecl</em> <strong>:</strong> <em>returntype</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
 | <em>clfuncnb</em><br />
 <em>clfuncnb</em> := <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong>
 | <strong>func</strong> <em>clfuncdecl</em> <strong>;</strong> <em>returntype</em> <strong>;</strong><br />
 <em>clfuncdecl</em> := <em>template</em> <em>clfuncdeclx</em> | <em>space</em> <em>clfuncdeclx</em><br />
-<em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>vardecl</em>  <strong>)</strong>
-| <em>id</em> <strong>(</strong> <em>vardecl</em> <strong>,</strong> <em>funcvars</em> <strong>)</strong></p>
+<em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>funcvars</em>  <strong>)</strong></p>
 </blockquote>
 <p><a href="./expr_lambdas.html">Lambdas</a>:</p>
 <blockquote>

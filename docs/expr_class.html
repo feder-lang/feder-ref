@@ -174,19 +174,19 @@ an uppercase character with optional leading '_'.</p>
 		._age = age
 	;
 
-	func getName(This):
+	func getName(This) =
 		._name;
 	
-	func getAge(This):
+	func getAge(This) =
 		._age;
 ;
 </code></pre>
 <pre><code>// A bit less code ...
 class Person(_name : String, _age : u8)
-	func getName(This):
+	func getName(This) =
 		._name;
 
-	func getAge(This):
+	func getAge(This) =
 		._age;
 ;
 </code></pre>
