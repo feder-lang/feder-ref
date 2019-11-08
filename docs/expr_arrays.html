@@ -147,11 +147,14 @@
                     <main>
                         <h2><a class="header" href="#arrays" id="arrays">Arrays</a></h2>
 <p>Arrays can store multiple elements. The elements are accessed with an index (an
-<em>uintptr</em> value) starting from 0. <em>arraylit</em> returns <strong>Array{type}</strong>, where type
-is LHS of <em>expr</em> (length = count of comma operator + 1), if <em>expr</em> is an binary
-operator expression using comma, otherwise the type of of <em>expr</em> (length = 1).
-<em>arraycpy</em> returns <strong>Array{type}</strong>, where type is type of <em>expr0</em> and the array's
-length is determined by <em>expr1</em>. <em>expr1</em> must return the type <em>uintptr</em>.</p>
+<em>uintptr</em> value) starting from 0. <em>arraylit</em> returns <strong>Array{type}</strong>, where
+type is LHS of <em>expr</em> (length = count of comma operator + 1), if <em>expr</em> is an
+binary operator expression using comma, otherwise the type of of <em>expr</em> (length
+= 1).  <em>arraycpy</em> returns <strong>Array{type}</strong>, where type is type of the object
+<em>expr0</em> and every element of the array has the value of <em>expr0</em> and the array's
+length is determined by <em>expr1</em>. <em>expr1</em> must return the type <em>uintptr</em>.
+<em>arrayempty</em> returns an array with length 0 with the type <strong>Array{type}</strong>,
+where type is an the type referenced by <em>expr</em>.</p>
 <p>Example:</p>
 <pre><code>Array{int32} myarray = [1,1,2,3]
 null std.io.println(myarray[0]) // print 1

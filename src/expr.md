@@ -187,9 +187,10 @@ Variable definition:
 
 [Arrays](./expr_arrays.md):
 
-> *array* := *arraylit* | *arraycpy*\
-> *arraylit* := **[** *expr* **]**
+> *array* := *arraylit* | *arraycpy* | *arrayempty*\
+> *arraylit* := **[** *expr* **]** | **[** **]**
 > *arraycpy* := **[** *expr0* *;* *expr1* **]**
+> *arrayempty* :=  **[** *expr* *;* **]**
 
 Capabilities:
 
