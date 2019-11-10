@@ -201,12 +201,13 @@ Variable definition:
 > *arrayempty* :=  **[** *expr* **]**\
 > *arrayfor* := **[** **for** *id* **:** *expr0* *newline* *retfuncbody* **]**
 
-Capabilities:
+[Capabilities](./expr_caps.md):
 
 > *caps* := **#** *capid* *newline* | **#** *capid* *newline* *caps*\
 > *capid* := **!** *capsensure* | **Unused** | **Inline** | **Constant** \
 > *require* := **ensure** *space* *ensurecond*
-> | **ensures** *space* *ensurecond*\
+> | **ensures** *space* *ensurecond*
+> | **ensures** *space* *ensurecond* **=>** *ensurecond*\
 > *capsdef* := *caps* *func* | *caps* *class* | *caps* *enum* | *caps* *vardef*
 
 Control-flow expressions:

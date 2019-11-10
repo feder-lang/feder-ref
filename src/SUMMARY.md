@@ -27,6 +27,7 @@
 	* [Arrays](./expr_arrays.md)
 	* [Lambda functions](./expr_lambdas.md)
     * [Ensure](./expr_ensure.md)
+    * [Capabilities](./expr_caps.md)
 - [Kernel](./kernel.md)
 	* [Data Types](./kernel_types.md)
 		- [bool](./kernel_bool.md)
