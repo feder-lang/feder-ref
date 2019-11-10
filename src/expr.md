@@ -205,9 +205,9 @@ Variable definition:
 
 > *caps* := **#** *capid* *newline* | **#** *capid* *newline* *caps*\
 > *capid* := **!** *capsensure* | **Unused** | **Inline** | **Constant** \
-> *require* := **ensure** *space* *ensurecond*
+> *require* := **requires** *space* *ensurecond*
 > | **ensures** *space* *ensurecond*
-> | **ensures** *space* *ensurecond* **=>** *ensurecond*\
+> | **ensures** *space* *ensurecond0* **=>** *ensurecond1*\
 > *capsdef* := *caps* *func* | *caps* *class* | *caps* *enum* | *caps* *vardef*
 
 Control-flow expressions:

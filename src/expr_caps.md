@@ -14,7 +14,7 @@ compile time informations about an object.
 - **Constant**: Function can be computed at compile time. Only primitive
   datatypes can be used.
 
-**Ensure**:
+**Requires**:
 
 - Ensure that certain properties are valid. *id* in *ensurecond* can also be
   functions in the same class which only have the class as parameter, next
@@ -40,9 +40,9 @@ Example:
 
 ```
 class Client(_addr : Address)
-    _nativeConn : Option{NativeClientConnection}
+    _nativeConn : &Option{NativeClientConnection}
 
-    #!ensure connected == false
+    #!requires connected == false
     func _init
         _nativeConn = Option{NativeClientConnection}.None()
     ;
@@ -56,7 +56,7 @@ class Client(_addr : Address)
         ;
     ;
 
-    #!ensure connected == false
+    #!requires connected == false
     #!ensures result == true => connected == true
     #!ensures result == false => connected == false
     func connect(This) : bool
@@ -67,22 +67,22 @@ class Client(_addr : Address)
         ;
     ;
 
-    #!ensure connected == true
+    #!requires connected == true
     #!ensures connected == false
     func disconnect
-        Option.Some(conn) = _nativeConn
+        conn := _nativeConn :: Option.Some
         conn.disconnect()
     ;
 
-    #!ensure connected == true
+    #!requires connected == true
     func send(This, msg : Array{u8})
-        Option.Some(conn) = _nativeConn
+        conn = _nativeConn :: Option.Some
         conn.send(msg)
     ;
 
-    #!ensure connected == true
+    #!require connected == true
     func receive(This, msg : Array{u8})
-        Option.Some(conn) = _nativeConn
+        conn = _nativeConn :: Option.Some
         conn.send(msg)
     ;
 ;
