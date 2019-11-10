@@ -154,20 +154,31 @@ the current environment and current environment's children</p>
 </li>
 <li>
 <p>Variables starting with an uppercase character (optionally with leading '_')
-are called <strong>immutable</strong>. Their environment has only <strong>immutable</strong> functions
-and <strong>immutable</strong> variables, where <strong>mutable</strong> variables in the original
-environment will also be <strong>immutable</strong>. Defined <strong>immutable</strong> variables must
-not be reassigned.</p>
+are called <strong>value immutable</strong>. Their environment has only <strong>immutable</strong>
+functions (functions starting where the first parameter is <strong>value
+immutable</strong>) and <strong>immutable</strong> variables, where <strong>mutable</strong> variables in the
+original environment will also be <strong>immutable</strong>.</p>
+</li>
+<li>
+<p>Variables which have the type <code>&amp;expr</code> are <strong>pointer mutable</strong>. They can be
+reassigned after initialization. Variables with other types cannot be
+reassigned. Conversion between pointer (im-)mutable types is done implicitly.</p>
 </li>
 </ul>
+<p>Example:</p>
+<pre><code>&amp;x := 100
+x = 101 // works
+y := 100
+y = 101 // doesn't compile
+</code></pre>
 <h3><a class="header" href="#representing-an-object" id="representing-an-object">Representing an object</a></h3>
 <p>A variable returns <code>()</code> if it isn't initialized.  A variable can be
 initialized using <strong>=</strong> or <strong>:=</strong> to declare and define the variable at the
 same time.</p>
 <h3><a class="header" href="#assignments" id="assignments">Assignments</a></h3>
 <p>Assigning a variable with <strong>=</strong> (re-)initializes the variable. Reinitialization
-<sup class="footnote-reference"><a href="#reinit">1</a></sup> is only possible if variable is <strong>mutable</strong>. The assigned object
-(RHS) is returned.</p>
+<sup class="footnote-reference"><a href="#reinit">1</a></sup> is only possible if variable is <strong>pointer mutable</strong>. The assigned
+object (RHS) is returned.</p>
 <p>Assigning a variable with <strong>:=</strong> declares the variable and the initializes
 the variable. Returns <code>()</code>.</p>
 <div class="footnote-definition" id="reinit"><sup class="footnote-definition-label">1</sup>

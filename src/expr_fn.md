@@ -16,7 +16,8 @@ or primitive datatype.
 
 A function with no *retfuncbody* or *return-type* returns the empty tuple ``()``.
 A function with a return type (a function with **:** after the parameters or
-function name) must not have the return type **()** (empty type).
+function name) must not have the return type **()** (empty type). Every
+element of the return-type must be **pointer immutable**.
 
 Only functions which are declared with the **Unique** capabilitiy can be used
 as an object, all others must only be used for complete function calls.

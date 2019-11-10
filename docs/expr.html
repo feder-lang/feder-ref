@@ -205,7 +205,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>def</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
 | <em>enum</em> | <em>module</em> | <em>vardef</em> | <em>capsdef</em>
 <em>exprdef</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
-| <em>enum</em> | <em>exprvardef</em> | <em>capsdef</em></p>
+| <em>enum</em> | <em>capsdef</em></p>
 </blockquote>
 <p><a href="./expr_use.html">Use</a>:</p>
 <blockquote>
@@ -322,7 +322,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
 <p><em>vardecl</em> := <em>vardeclunit</em> | <strong>(</strong> <em>vardeclunits</em> <strong>)</strong><br />
 <em>vardeclunits</em> := <em>vardeclunit</em> | <em>vardeclunit</em> <strong>,</strong> <em>vardeclunits</em><br />
-<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em><br />
+<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id</em> <strong>:</strong> <strong>&amp;</strong> <em>templidcall</em><br />
 <em>varids</em> := <em>varid</em> | <em>varid</em> <strong>,</strong> <em>varids</em><br />
 <em>varid</em> := <em>id</em><br />
 <em>vardecls</em> := <em>vardecl</em> | <em>vardecl</em> <strong>,</strong> <em>vardecls</em></p>
@@ -330,7 +330,10 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p>Variable definition:</p>
 <blockquote>
 <p><em>vardef</em> := <em>vardecl</em> <strong>=</strong> <em>expr</em>
-| <strong>(</strong> <em>varids</em> <strong>)</strong> <strong>:=</strong> <em>expr</em></p>
+| <em>vardefid</em> <strong>:=</strong> <em>expr</em>
+| <strong>(</strong> <em>vardefids</em> <strong>)</strong> <strong>:=</strong> <em>expr</em><br />
+<em>vardefids</em> := <em>vardefid</em> | <em>vardefid</em> <strong>,</strong> <em>vardefids</em><br />
+<em>vardefid</em> := <strong>&amp;</strong> <em>id</em> | <em>id</em></p>
 </blockquote>
 <p><a href="./expr_arrays.html">Arrays</a>:</p>
 <blockquote>

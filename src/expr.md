@@ -66,7 +66,7 @@ General program:
 > *def* := *func* | *trait* | *class* | *traitimpl*
 > | *enum* | *module* | *vardef* | *capsdef*
 > *exprdef* := *func* | *trait* | *class* | *traitimpl*
-> | *enum* | *exprvardef* | *capsdef*
+> | *enum* | *capsdef*
 
 [Use](./expr_use.md):
 > *use* := **use** *idcall* | **use** *idcall* **.** \*
@@ -180,7 +180,7 @@ Variable declaration:
 
 > *vardecl* := *vardeclunit* | **(** *vardeclunits* **)**\
 > *vardeclunits* := *vardeclunit* | *vardeclunit* **,** *vardeclunits*\
-> *vardeclunit* := *id* **:** *templidcall*\
+> *vardeclunit* := *id* **:** *templidcall* | *id* **:** **&** *templidcall*\
 > *varids* := *varid* | *varid* **,** *varids*\
 > *varid* := *id*\
 > *vardecls* := *vardecl* | *vardecl* **,** *vardecls*
@@ -188,7 +188,10 @@ Variable declaration:
 Variable definition:
 
 > *vardef* := *vardecl* **=** *expr*
-> | **(** *varids* **)** **:=** *expr*\
+> | *vardefid* **:=** *expr*
+> | **(** *vardefids* **)** **:=** *expr*\
+> *vardefids* := *vardefid* | *vardefid* **,** *vardefids*\
+> *vardefid* := **&** *id* | *id*
 
 [Arrays](./expr_arrays.md):
 

@@ -436,7 +436,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>def</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
 | <em>enum</em> | <em>module</em> | <em>vardef</em> | <em>capsdef</em>
 <em>exprdef</em> := <em>func</em> | <em>trait</em> | <em>class</em> | <em>traitimpl</em>
-| <em>enum</em> | <em>exprvardef</em> | <em>capsdef</em></p>
+| <em>enum</em> | <em>capsdef</em></p>
 </blockquote>
 <p><a href="./expr_use.html">Use</a>:</p>
 <blockquote>
@@ -553,7 +553,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
 <p><em>vardecl</em> := <em>vardeclunit</em> | <strong>(</strong> <em>vardeclunits</em> <strong>)</strong><br />
 <em>vardeclunits</em> := <em>vardeclunit</em> | <em>vardeclunit</em> <strong>,</strong> <em>vardeclunits</em><br />
-<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em><br />
+<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id</em> <strong>:</strong> <strong>&amp;</strong> <em>templidcall</em><br />
 <em>varids</em> := <em>varid</em> | <em>varid</em> <strong>,</strong> <em>varids</em><br />
 <em>varid</em> := <em>id</em><br />
 <em>vardecls</em> := <em>vardecl</em> | <em>vardecl</em> <strong>,</strong> <em>vardecls</em></p>
@@ -561,7 +561,10 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p>Variable definition:</p>
 <blockquote>
 <p><em>vardef</em> := <em>vardecl</em> <strong>=</strong> <em>expr</em>
-| <strong>(</strong> <em>varids</em> <strong>)</strong> <strong>:=</strong> <em>expr</em></p>
+| <em>vardefid</em> <strong>:=</strong> <em>expr</em>
+| <strong>(</strong> <em>vardefids</em> <strong>)</strong> <strong>:=</strong> <em>expr</em><br />
+<em>vardefids</em> := <em>vardefid</em> | <em>vardefid</em> <strong>,</strong> <em>vardefids</em><br />
+<em>vardefid</em> := <strong>&amp;</strong> <em>id</em> | <em>id</em></p>
 </blockquote>
 <p><a href="./expr_arrays.html">Arrays</a>:</p>
 <blockquote>
@@ -699,6 +702,7 @@ All other semantics are can always be referenced if not shadowed.</p>
 <tr><td align="center">++a --a</td><td align="center">17</td><td align="center">r</td><td align="left">Increment, Decrement</td></tr>
 <tr><td align="center">+a   -a</td><td align="center">17</td><td align="center">r</td><td align="left">Positive,Negative</td></tr>
 <tr><td align="center">! ~</td><td align="center">17</td><td align="center">r</td><td align="left">Logical not, Bitwise not</td></tr>
+<tr><td align="center">&amp;a</td><td align="center">17</td><td align="center">r</td><td align="left">Mutable</td></tr>
 <tr><td align="center">*a</td><td align="center">17</td><td align="center">r</td><td align="left">&quot;Dereference&quot;</td></tr>
 <tr><td align="center">a()</td><td align="center">18</td><td align="center">l</td><td align="left"><a href="./expr_fn.html#function-call">Function call</a></td></tr>
 <tr><td align="center">a{}</td><td align="center">18</td><td align="center">l</td><td align="left">Template call</td></tr>
@@ -784,7 +788,8 @@ has to be a <a href="./expr_class.html">class</a>, <a href="./expr_mod.html">mod
 or primitive datatype.</p>
 <p>A function with no <em>retfuncbody</em> or <em>return-type</em> returns the empty tuple <code>()</code>.
 A function with a return type (a function with <strong>:</strong> after the parameters or
-function name) must not have the return type <strong>()</strong> (empty type).</p>
+function name) must not have the return type <strong>()</strong> (empty type). Every
+element of the return-type must be <strong>pointer immutable</strong>.</p>
 <p>Only functions which are declared with the <strong>Unique</strong> capabilitiy can be used
 as an object, all others must only be used for complete function calls.</p>
 <p>Example (functions without return type):</p>
@@ -916,20 +921,31 @@ the current environment and current environment's children</p>
 </li>
 <li>
 <p>Variables starting with an uppercase character (optionally with leading '_')
-are called <strong>immutable</strong>. Their environment has only <strong>immutable</strong> functions
-and <strong>immutable</strong> variables, where <strong>mutable</strong> variables in the original
-environment will also be <strong>immutable</strong>. Defined <strong>immutable</strong> variables must
-not be reassigned.</p>
+are called <strong>value immutable</strong>. Their environment has only <strong>immutable</strong>
+functions (functions starting where the first parameter is <strong>value
+immutable</strong>) and <strong>immutable</strong> variables, where <strong>mutable</strong> variables in the
+original environment will also be <strong>immutable</strong>.</p>
+</li>
+<li>
+<p>Variables which have the type <code>&amp;expr</code> are <strong>pointer mutable</strong>. They can be
+reassigned after initialization. Variables with other types cannot be
+reassigned. Conversion between pointer (im-)mutable types is done implicitly.</p>
 </li>
 </ul>
+<p>Example:</p>
+<pre><code>&amp;x := 100
+x = 101 // works
+y := 100
+y = 101 // doesn't compile
+</code></pre>
 <h3><a class="header" href="#representing-an-object" id="representing-an-object">Representing an object</a></h3>
 <p>A variable returns <code>()</code> if it isn't initialized.  A variable can be
 initialized using <strong>=</strong> or <strong>:=</strong> to declare and define the variable at the
 same time.</p>
 <h3><a class="header" href="#assignments" id="assignments">Assignments</a></h3>
 <p>Assigning a variable with <strong>=</strong> (re-)initializes the variable. Reinitialization
-<sup class="footnote-reference"><a href="#reinit">1</a></sup> is only possible if variable is <strong>mutable</strong>. The assigned object
-(RHS) is returned.</p>
+<sup class="footnote-reference"><a href="#reinit">1</a></sup> is only possible if variable is <strong>pointer mutable</strong>. The assigned
+object (RHS) is returned.</p>
 <p>Assigning a variable with <strong>:=</strong> declares the variable and the initializes
 the variable. Returns <code>()</code>.</p>
 <div class="footnote-definition" id="reinit"><sup class="footnote-definition-label">1</sup>

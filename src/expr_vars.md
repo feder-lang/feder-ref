@@ -6,10 +6,23 @@ Private and mutability:
   the current environment and current environment's children
 
 - Variables starting with an uppercase character (optionally with leading '\_')
-  are called **immutable**. Their environment has only **immutable** functions
-  and **immutable** variables, where **mutable** variables in the original
-  environment will also be **immutable**. Defined **immutable** variables must
-  not be reassigned.
+  are called **value immutable**. Their environment has only **immutable**
+  functions (functions starting where the first parameter is **value
+  immutable**) and **immutable** variables, where **mutable** variables in the
+  original environment will also be **immutable**.
+
+- Variables which have the type ``&expr`` are **pointer mutable**. They can be
+  reassigned after initialization. Variables with other types cannot be
+  reassigned. Conversion between pointer (im-)mutable types is done implicitly.
+
+Example:
+
+```
+&x := 100
+x = 101 // works
+y := 100
+y = 101 // doesn't compile
+```
 
 ### Representing an object
 
@@ -20,8 +33,8 @@ same time.
 ### Assignments
 
 Assigning a variable with **=** (re-)initializes the variable. Reinitialization
-[^reinit] is only possible if variable is **mutable**. The assigned object
-(RHS) is returned.
+[^reinit] is only possible if variable is **pointer mutable**. The assigned
+object (RHS) is returned.
 
 Assigning a variable with **:=** declares the variable and the initializes
 the variable. Returns ``()``.
