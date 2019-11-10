@@ -334,10 +334,11 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p><a href="./expr_arrays.html">Arrays</a>:</p>
 <blockquote>
-<p><em>array</em> := <em>arraylit</em> | <em>arraycpy</em> | <em>arrayempty</em><br />
-<em>arraylit</em> := <strong>[</strong> <em>expr</em> <strong>]</strong> | <strong>[</strong> <strong>]</strong>
-<em>arraycpy</em> := <strong>[</strong> <em>expr0</em> <em>;</em> <em>expr1</em> <strong>]</strong>
-<em>arrayempty</em> :=  <strong>[</strong> <em>expr</em> <em>;</em> <strong>]</strong></p>
+<p><em>array</em> := <em>arraylit</em> | <em>arraycpy</em> | <em>arrayfor</em> <br />
+<em>arraylit</em> := <strong>[</strong> <em>expr0</em> <strong>,</strong> <em>expr1</em> <strong>]</strong><br />
+<em>arraycpy</em> := <strong>[</strong> <em>expr0</em> <em>;</em> <em>expr1</em> <strong>]</strong><br />
+<em>arrayempty</em> :=  <strong>[</strong> <em>expr</em> <strong>]</strong><br />
+<em>arrayfor</em> := <strong>[</strong> <strong>for</strong> <em>id</em> <strong>:</strong> <em>expr0</em> <em>newline</em> <em>retfuncbody</em> <strong>]</strong></p>
 </blockquote>
 <p>Capabilities:</p>
 <blockquote>

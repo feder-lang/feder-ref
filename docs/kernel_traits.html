@@ -168,13 +168,25 @@
     func div(rhs: T): R;
   ;
   // sum '+', '-', '*' and '/'
-  trait{T,R} Field : Addition{T,R}, Subtraction{T,R},
-                     Multiplication{T,R}, Division{T,R}
+  // compiler assumes the following is correct:
+  //   - a + b = b + a
+  //   - a * b = b * a
+  //   - a * (b+c) = (a*b) + (a*c)
+  //   - a * (b-c) = (a*b) - (a*c)
+  trait{T,R} StdField : Addition{T,R}, Subtraction{T,R},
+      Multiplication{T,R}, Division{T,R}
   ;
 
   // binary operator '~='
   trait{R, T} ComparisonEquals
     func equals(T): R;
+  ;
+
+  // binary operator &lt;, &gt;
+  // operator a &gt; b is replaced by b &lt; a
+  trait{R, T} Comparison : ComparisonEquals{R, T}
+    func lesserThan(T): R;
+    func less
   ;
 
   // operator [x]

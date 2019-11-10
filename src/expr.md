@@ -192,10 +192,11 @@ Variable definition:
 
 [Arrays](./expr_arrays.md):
 
-> *array* := *arraylit* | *arraycpy* | *arrayempty*\
-> *arraylit* := **[** *expr* **]** | **[** **]**
-> *arraycpy* := **[** *expr0* *;* *expr1* **]**
-> *arrayempty* :=  **[** *expr* *;* **]**
+> *array* := *arraylit* | *arraycpy* | *arrayfor* \
+> *arraylit* := **[** *expr0* **,** *expr1* **]**\
+> *arraycpy* := **[** *expr0* *;* *expr1* **]**\
+> *arrayempty* :=  **[** *expr* **]**\
+> *arrayfor* := **[** **for** *id* **:** *expr0* *newline* *retfuncbody* **]**
 
 Capabilities:
 
