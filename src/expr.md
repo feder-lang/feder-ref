@@ -203,15 +203,16 @@ Variable definition:
 
 Capabilities:
 
-> *caps* := **#** *capid* *newline* | **#** **(** *capsl* **)** *newline* \
-> *capsl* := *capid* **,** *capsl*\
-> *capid* := **Unused** | **Inline** | **Constant** \
+> *caps* := **#** *capid* *newline* | **#** *capid* *newline* *caps*\
+> *capid* := **!** *capsensure* | **Unused** | **Inline** | **Constant** \
+> *require* := **ensure** *space* *ensurecond*
+> | **ensures** *space* *ensurecond*\
 > *capsdef* := *caps* *func* | *caps* *class* | *caps* *enum* | *caps* *vardef*
 
 Control-flow expressions:
 
 > *fctl* := *cond* | *loop*\
-> *cond* := *if* | *match*\
+> *cond* := *if* | *match* | *ensure*\
 > *loop* := *for* | *do*
 
 If expressions:
@@ -223,6 +224,14 @@ If expressions:
 > *else* := *elsebase* \| *else* *elsebase*\
 > *elsebase* := **else** *space* *expr* *newline* *funcbody* *newline*\
 > | **else** *space* *expr* *newline* *retfuncbody* *newline*
+
+Ensure expression:
+
+> *ensure* := *ensureunit* **;** | *ensureunit* **else** *ensure*
+> | *ensure* **else** *newline* *funcbody* **;**\
+> *ensureunit* := **ensure** *ensurecond* *newline* *funcbody*
+> *ensurecond* := *idcall* *ensurecondop* *expr*\
+> *ensurecondop* := **==** | **!=** | **~=** | **>** | **>=** | **<** | **<=** | **::**
 
 Match expression:
 

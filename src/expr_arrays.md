@@ -30,3 +30,8 @@ squared := [for i : 20
 
 null std.io.println(squared[10]) // prints 100
 ```
+
+### Static-length arrays
+
+Array-types can be set to a definite length. This is done with
+``expr : integer``.

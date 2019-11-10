@@ -28,10 +28,11 @@ Binary operators defined on integers:
   must have the same type. Return-type is the one of *expr0*.
 - *expr0* **-** *expr1*: Returns sum of *expr0* and **-** *expr1*. *expr0* and
   *expr1* must have the same type. Return-type is the one of *expr0*.
-- *expr0* **\*** *expr1*: Returns *expr0* multiplied by *expr1*. *expr0* and
+- *expr0* ** \* ** *expr1*: Returns *expr0* multiplied by *expr1*. *expr0* and
   *expr1* must have the same type. Return-type is the one of *expr0*.
 - *expr0* **/** *expr1*: Returns *expr0* divided by *expr1*. *expr0* and
   *expr1* must have the same type. Return-type is the one of *expr0*.
+  *expr1* must be ensured not to be equal to 0.
 
 - *expr0* **&** *expr1*: Return bitwise conjunction of *expr0* and *expr1*.
   *expr0* and *expr1* must have the same type. Return-type is the on of

@@ -69,28 +69,21 @@ func add3(x: int32, y: int32) =
 
 ### Guards
 
-The *expr0* of the guard has to evaluate to an object with the type *bool*.  If
-*expr0* evaluates to **True** nothing happens, the functions is called normally
-(other guards are respected of course). Otherwise a panic is generated,
-if **=>** isn't following *expr0*, or *expr1* is returned. The returned object
-must be the same type as the return-type, of course.
+The *expr0* of the guard has to evaluate to an object with the type *bool*.
 
-The guard can be checked at compile, if possible and must be checked during
-return-time. The guard of the function definition (with *funcbody*) has
-precedence.
+The guard is an [ensurance](./expr_ensure.md), if **=>** is not used. The given
+argument must be ensured to be compatible. The **=>** evaluates and returns
+*expr1* if *expr0* returns **False**.
 
 Example:
 
 ```
-// Division with Division-by-zero exception
 func div(x: int32, y: int32 | y != 0): int32 =
   x / y
 ;
 
-// Dvision with Division-by-zero returns 0
-func div(x: in32, y: int32 | y != 0 => 0): int32 =
-  x / y
-;
+// Using the
+
 ```
 
 ### Argument binding
