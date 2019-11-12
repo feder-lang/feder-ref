@@ -235,7 +235,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>funcdeclx</em> := <em>id</em> | <em>id</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <strong>,</strong> <em>funcvars</em><br />
 <em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em><br />
-<em>guard</em> := <strong>|</strong> <em>expr0</em> | <strong>|</strong> <em>expr0</em> <strong>=&gt;</strong> <em>expr1</em>.
+<em>guard</em> := <strong>|</strong> <em>expr0</em> | <strong>|</strong> <em>expr0</em> <strong>=</strong> <em>expr1</em>.
 <em>returntype</em> := <em>templidcall</em> | <em>vardecl</em> <br />
 <em>returntypetuple</em> := <strong>(</strong> <em>returntuplex</em> <strong>)</strong> <br />
 <em>returntuplex</em> := <em>returntupleunit</em>
@@ -368,7 +368,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>elsebase</em> := <strong>else</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>funcbody</em> <em>newline</em><br />
 | <strong>else</strong> <em>space</em> <em>expr</em> <em>newline</em> <em>retfuncbody</em> <em>newline</em></p>
 </blockquote>
-<p>Ensure expression:</p>
+<p><a href="./expr_ensure.html">Ensure expression</a>:</p>
 <blockquote>
 <p><em>ensure</em> := <em>ensureunit</em> <strong>;</strong> | <em>ensureunit</em> <strong>else</strong> <em>ensure</em>
 | <em>ensure</em> <strong>else</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />

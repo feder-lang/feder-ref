@@ -95,13 +95,13 @@ General program:
 > *funcdeclx* := *id* | *id* **(** *funcvars* **)**\
 > *funcvars* := *funcvar* | *funcvar* **,** *funcvars*\
 > *funcvar* := *vardecl* | *vardecl* *guard*\
-> *guard* := **|** *expr0* | **\|** *expr0* **=>** *expr1*.
+> *guard* := **|** *expr0* | **\|** *expr0* **=** *expr1*.
 > *returntype* := *templidcall* \| *vardecl* \
 > *returntypetuple* := **(** *returntuplex* **)** \
 > *returntuplex* := *returntupleunit*
 > \| *returntupleunit* **,** *returntuplex*\
 > *returntupleunit* := *templidcall* \| *id* : *templidcall* \| *func*
->                      \| *functype*\
+> \| *functype*\
 > *funcbody* := *stmt* \| *stmt* *newline* *funcbody*\
 > *retfuncbody* := *funcbody* **return** *expr* *newline* \
 > *functype* := **func** | **func** **:** *return-type*
@@ -226,7 +226,7 @@ If expressions:
 > *elsebase* := **else** *space* *expr* *newline* *funcbody* *newline*\
 > | **else** *space* *expr* *newline* *retfuncbody* *newline*
 
-Ensure expression:
+[Ensure expression](./expr_ensure.md):
 
 > *ensure* := *ensureunit* **;** | *ensureunit* **else** *ensure*
 > | *ensure* **else** *newline* *funcbody* **;**\
