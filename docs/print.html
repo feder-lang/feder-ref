@@ -1121,7 +1121,8 @@ compile time informations about an object.</p>
 <li>
 <p><strong>Inline</strong>: Function name is removed its own environment (prevents direct
 recursion). Tells compiler to eventually directly implement function
-instead of calling it.</p>
+instead of calling it. Classes are used as tuples, which cannot be casted
+to traits.</p>
 </li>
 <li>
 <p><strong>Constant</strong>: Function can be computed at compile time. Only primitive

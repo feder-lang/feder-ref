@@ -9,7 +9,8 @@ compile time informations about an object.
 
 - **Inline**: Function name is removed its own environment (prevents direct
   recursion). Tells compiler to eventually directly implement function
-  instead of calling it.
+  instead of calling it. Classes are used as tuples, which cannot be casted
+  to traits.
 
 - **Constant**: Function can be computed at compile time. Only primitive
   datatypes can be used.
