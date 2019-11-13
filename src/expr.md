@@ -94,8 +94,8 @@ General program:
 > *funcdecl* := *template* *funcdeclx* | *space* *funcdeclx* \
 > *funcdeclx* := *id* | *id* **(** *funcvars* **)**\
 > *funcvars* := *funcvar* | *funcvar* **,** *funcvars*\
-> *funcvar* := *vardecl* | *vardecl* *guard*\
-> *guard* := **|** *expr0* | **\|** *expr0* **=** *expr1*.
+> *funcvar* := *vardecl* | *vardecl* *guard* \
+> *guard* := **|** *expr0* | **\|** *expr0* **=** *expr1*\
 > *returntype* := *templidcall* \| *vardecl* \
 > *returntypetuple* := **(** *returntuplex* **)** \
 > *returntuplex* := *returntupleunit*
@@ -104,9 +104,9 @@ General program:
 > \| *functype*\
 > *funcbody* := *stmt* \| *stmt* *newline* *funcbody*\
 > *retfuncbody* := *funcbody* **return** *expr* *newline* \
-> *functype* := **func** | **func** **:** *return-type*
-> | **func** **(** *vardecls* **)**
-> | **func** **(** *vardecls* **)** **:** *return-type*
+> *functype* := **func** **type** | **func** **type** **:** *return-type*
+> | **func** **type** **(** *funcvars* **)**
+> | **func** **type** **(** *funcvars* **)** **:** *return-type*
 
 > *clfunc* := **func** *clfuncdecl* *newline* **;**\
 > | **func** *clfuncdecl* **:** *returntype* *newline* *retfuncbody* **;**\
@@ -181,6 +181,7 @@ Variable declaration:
 > *vardecl* := *vardeclunit* | **(** *vardeclunits* **)**\
 > *vardeclunits* := *vardeclunit* | *vardeclunit* **,** *vardeclunits*\
 > *vardeclunit* := *id* **:** *templidcall* | *id* **:** **&** *templidcall*\
+> | *id* **:** *functype* | *id* **:** **&** *functype*
 > *varids* := *varid* | *varid* **,** *varids*\
 > *varid* := *id*\
 > *vardecls* := *vardecl* | *vardecl* **,** *vardecls*

@@ -234,8 +234,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>funcdecl</em> := <em>template</em> <em>funcdeclx</em> | <em>space</em> <em>funcdeclx</em> <br />
 <em>funcdeclx</em> := <em>id</em> | <em>id</em> <strong>(</strong> <em>funcvars</em> <strong>)</strong><br />
 <em>funcvars</em> := <em>funcvar</em> | <em>funcvar</em> <strong>,</strong> <em>funcvars</em><br />
-<em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em><br />
-<em>guard</em> := <strong>|</strong> <em>expr0</em> | <strong>|</strong> <em>expr0</em> <strong>=</strong> <em>expr1</em>.
+<em>funcvar</em> := <em>vardecl</em> | <em>vardecl</em> <em>guard</em> <br />
+<em>guard</em> := <strong>|</strong> <em>expr0</em> | <strong>|</strong> <em>expr0</em> <strong>=</strong> <em>expr1</em><br />
 <em>returntype</em> := <em>templidcall</em> | <em>vardecl</em> <br />
 <em>returntypetuple</em> := <strong>(</strong> <em>returntuplex</em> <strong>)</strong> <br />
 <em>returntuplex</em> := <em>returntupleunit</em>
@@ -244,9 +244,9 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <em>functype</em><br />
 <em>funcbody</em> := <em>stmt</em> | <em>stmt</em> <em>newline</em> <em>funcbody</em><br />
 <em>retfuncbody</em> := <em>funcbody</em> <strong>return</strong> <em>expr</em> <em>newline</em> <br />
-<em>functype</em> := <strong>func</strong> | <strong>func</strong> <strong>:</strong> <em>return-type</em>
-| <strong>func</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong>
-| <strong>func</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong> <strong>:</strong> <em>return-type</em></p>
+<em>functype</em> := <strong>func</strong> <strong>type</strong> | <strong>func</strong> <strong>type</strong> <strong>:</strong> <em>return-type</em>
+| <strong>func</strong> <strong>type</strong> <strong>(</strong> <em>funcvars</em> <strong>)</strong>
+| <strong>func</strong> <strong>type</strong> <strong>(</strong> <em>funcvars</em> <strong>)</strong> <strong>:</strong> <em>return-type</em></p>
 </blockquote>
 <blockquote>
 <p><em>clfunc</em> := <strong>func</strong> <em>clfuncdecl</em> <em>newline</em> <strong>;</strong><br />
@@ -323,6 +323,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><em>vardecl</em> := <em>vardeclunit</em> | <strong>(</strong> <em>vardeclunits</em> <strong>)</strong><br />
 <em>vardeclunits</em> := <em>vardeclunit</em> | <em>vardeclunit</em> <strong>,</strong> <em>vardeclunits</em><br />
 <em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id</em> <strong>:</strong> <strong>&amp;</strong> <em>templidcall</em><br />
+| <em>id</em> <strong>:</strong> <em>functype</em> | <em>id</em> <strong>:</strong> <strong>&amp;</strong> <em>functype</em>
 <em>varids</em> := <em>varid</em> | <em>varid</em> <strong>,</strong> <em>varids</em><br />
 <em>varid</em> := <em>id</em><br />
 <em>vardecls</em> := <em>vardecl</em> | <em>vardecl</em> <strong>,</strong> <em>vardecls</em></p>
