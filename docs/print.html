@@ -454,8 +454,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><a href="./expr_fn.html">Functions</a>:</p>
 <blockquote>
 <p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>newline</em> <strong>;</strong>
-| <strong>func</strong> <em>funcdecl</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
-| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>=</strong> <em>newline</em> <em>expr</em> <strong>;</strong> <br />
+| <strong>func</strong> <em>funcdecl</em> <strong>=</strong>  <em>expr</em> <em>newline</em> <br />
+| <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <strong>=</strong> <em>expr</em> <em>newline</em> <br />
 | <strong>func</strong> <em>funcdecl</em> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>returntype</em> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>func</strong> <em>funcdecl</em> <strong>:</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
@@ -495,10 +495,8 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
 <p><em>lambda</em> := <strong>lambda</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>lamda</strong> <strong>(</strong> <em>vardelcs</em> <strong>)</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
-| <strong>lamda</strong> <strong>(</strong> <em>vardelcs</em> <strong>)</strong> <em>newline</em> <em>funcbody</em> <em>newline</em> <strong>;</strong><br />
 | <strong>lambda</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
-| <strong>lamda</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
-| <strong>lamda</strong> <em>newline</em> <em>funcbody</em> <em>newline</em> <strong>;</strong></p>
+| <strong>lamda</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong></p>
 </blockquote>
 <p><a href="./expr_traits.html">Traits</a>:</p>
 <blockquote>
@@ -1156,13 +1154,18 @@ certain way. This also can be conditional on the result, so if the
 user ensures the <em>ensurecond0</em>, <em>ensurecond1</em> would automatically be valid.</p>
 </li>
 <li>
-<p>The ensurance is not further executed, no further deductions are made.</p>
+<p>Deductions are made based on the implication <em>ensurecond0</em> =&gt; <em>ensurecond1</em>.
+If <em>ensurecond0</em> is valid <em>ensurecond1</em> is also valid.  Then <em>ensurecond1</em> is
+checked if it is <em>ensurecond1</em> in an implication.</p>
 </li>
 <li>
 <p>The <em>idcall</em> in <em>ensurecond</em> or <em>ensurecond1</em> will be reset before ensurance
 is made. Meaning if <code>connected == false</code> was ensured and
 <code>#!ensure connected == true</code> is called, <code>connected == false</code> will no
 longer be valid.</p>
+</li>
+<li>
+<p>Ensurances are type checked</p>
 </li>
 </ul>
 <p>Example:</p>

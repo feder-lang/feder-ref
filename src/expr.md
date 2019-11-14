@@ -83,8 +83,8 @@ General program:
 [Functions](./expr_fn.md):
 
 > *func* := **func** *funcdecl* *newline* **;**
-> | **func** *funcdecl* **=** *newline* *expr* **;** \
-> | **func** *funcdecl* **:** *returntype* **=** *newline* *expr* **;** \
+> | **func** *funcdecl* **=**  *expr* *newline* \
+> | **func** *funcdecl* **:** *returntype* **=** *expr* *newline* \
 > | **func** *funcdecl* *newline* *funcbody* **;**\
 > | **func** *funcdecl* **:** *returntype* *newline* *retfuncbody* **;**\
 > | **func** *funcdecl* **:** *newline* *retfuncbody* **;**\
@@ -123,10 +123,8 @@ General program:
 
 > *lambda* := **lambda** **(** *vardecls* **)** *newline* *retfuncbody* **;**\
 > | **lamda** **(** *vardelcs* **)** *newline* *funcbody* **;**\
-> | **lamda** **(** *vardelcs* **)** *newline* *funcbody* *newline* **;**\
 > | **lambda** *newline* *retfuncbody* **;**\
 > | **lamda** *newline* *funcbody* **;**\
-> | **lamda** *newline* *funcbody* *newline* **;**
 
 [Traits](./expr_traits.md):
 
