@@ -30,12 +30,16 @@ compile time informations about an object.
   certain way. This also can be conditional on the result, so if the 
   user ensures the *ensurecond0*, *ensurecond1* would automatically be valid.
 
-- The ensurance is not further executed, no further deductions are made.
+- Deductions are made based on the implication *ensurecond0* => *ensurecond1*.
+  If *ensurecond0* is valid *ensurecond1* is also valid.  Then *ensurecond1* is
+  checked if it is *ensurecond1* in an implication.
 
 - The *idcall* in *ensurecond* or *ensurecond1* will be reset before ensurance
   is made. Meaning if ``connected == false`` was ensured and
   ``#!ensure connected == true`` is called, ``connected == false`` will no
   longer be valid.
+
+- Ensurances are type checked
 
 Example:
 
