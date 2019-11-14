@@ -187,6 +187,12 @@ the variable. Returns <code>()</code>.</p>
 <h3><a class="header" href="#local-and-global" id="local-and-global">Local and global</a></h3>
 <p><strong>Local</strong> variables are dropped after a <em>funcbody</em> scope ends. <strong>Global</strong>
 variables are dropped when the program terminates.</p>
+<h3><a class="header" href="#shadowing" id="shadowing">Shadowing</a></h3>
+<p>With <em>shadowing</em> identifiers used by previous variable declarations can be used
+in another variable declaration. Afterwardss, as long the new variable isn't
+dropped, this variable will be referenced when mentioning the identifier
+instead of the old one. A variable can only be shadowed if it was declared
+in a parent scope.</p>
 <h3><a class="header" href="#initialization" id="initialization">Initialization</a></h3>
 <p>The value of a <em>funcbody</em> variable can be used, if the variable was definitly
 initialized, otherwise only initialization is allowed. The initization of

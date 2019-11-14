@@ -46,6 +46,14 @@ the variable. Returns ``()``.
 **Local** variables are dropped after a *funcbody* scope ends. **Global**
 variables are dropped when the program terminates.
 
+### Shadowing
+
+With *shadowing* identifiers used by previous variable declarations can be used
+in another variable declaration. Afterwardss, as long the new variable isn't
+dropped, this variable will be referenced when mentioning the identifier
+instead of the old one. A variable can only be shadowed if it was declared
+in a parent scope.
+
 ### Initialization
 
 The value of a *funcbody* variable can be used, if the variable was definitly
