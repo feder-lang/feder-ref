@@ -84,7 +84,6 @@ General program:
 
 > *func* := **func** *funcdecl* *newline* **;**
 > | **func** *funcdecl* **=**  *expr* *newline* \
-> | **func** *funcdecl* **:** *returntype* **=** *expr* *newline* \
 > | **func** *funcdecl* *newline* *funcbody* **;**\
 > | **func** *funcdecl* **:** *returntype* *newline* *retfuncbody* **;**\
 > | **func** *funcdecl* **:** *newline* *retfuncbody* **;**\
