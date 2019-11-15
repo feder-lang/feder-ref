@@ -124,6 +124,8 @@ General program:
 > | **lamda** **(** *vardelcs* **)** *newline* *funcbody* **;**\
 > | **lambda** *newline* *retfuncbody* **;**\
 > | **lamda** *newline* *funcbody* **;**\
+> | **lambda** **=** *expr*
+> | **lambda** **(** *vardecls** **)** **=** *expr*
 
 [Traits](./expr_traits.md):
 
