@@ -9,7 +9,7 @@ Libraries are also just modules.
 Example:
 
 ```
-mod hello
+module hello
 	func world
 		null io.println("Hello, World!")
 	;
@@ -25,12 +25,13 @@ func main
 Variables in modules can be either **global**, if the module has only modules
 and library as parents otherwise the variable is **local**.
 
-Non-primitive, **global** variables are initialized when *first called*.
+Non-primitive, **global** variables are initialized when *first called*
+(lazy-initialization).
 
 Examples:
 
 ```
-mod mymod
+module mymod
 	class Person (name : String,
 		          age : u8)
 		func getName(this : This) =

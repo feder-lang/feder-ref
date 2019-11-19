@@ -197,7 +197,7 @@ not have only '_' as characters. After leading '_' there mustn't be a digit.</p>
 <h2><a class="header" href="#keywords" id="keywords">Keywords</a></h2>
 <p>Keywords are reserved identifiers for syntax elements which cannot be used for
 anything else. These are:</p>
-<pre><code>func mod class enum trait type return use lambda
+<pre><code>func module class enum trait type return use lambda
 if else match switch for do continue break safe
 True False
 _
@@ -426,7 +426,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><em>program</em> := <em>progname</em> <em>newline</em> <em>program-body</em>
 | <em>progname</em> <em>EOF</em> <br />
 | <em>program-body</em> <em>EOF</em> | <em>EOF</em> <br />
-<em>progname</em> := <strong>use</strong> <strong>mod</strong> <em>id</em></p>
+<em>progname</em> := <strong>use</strong> <strong>module</strong> <em>id</em></p>
 </blockquote>
 <p>General program:</p>
 <blockquote>
@@ -531,7 +531,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p><a href="./expr_mods.html">Modules</a>:</p>
 <blockquote>
-<p><em>module</em> := <strong>mod</strong> <em>moduledecl</em> <em>newline</em> <em>program-body</em><br />
+<p><em>module</em> := <strong>module</strong> <em>moduledecl</em> <em>newline</em> <em>program-body</em><br />
 <em>moduledecl</em> := <em>id</em></p>
 </blockquote>
 <p>General Expression:</p>
@@ -730,7 +730,7 @@ is added as <em>id</em> from <em>moduledecl</em> to the parent environment. A mo
 <em>id</em> must start with an lowercase, alphabetic character.</p>
 <p>Libraries are also just modules.</p>
 <p>Example:</p>
-<pre><code>mod hello
+<pre><code>module hello
 	func world
 		null io.println(&quot;Hello, World!&quot;)
 	;
@@ -743,9 +743,10 @@ func main
 <h3><a class="header" href="#variables" id="variables">Variables</a></h3>
 <p>Variables in modules can be either <strong>global</strong>, if the module has only modules
 and library as parents otherwise the variable is <strong>local</strong>.</p>
-<p>Non-primitive, <strong>global</strong> variables are initialized when <em>first called</em>.</p>
+<p>Non-primitive, <strong>global</strong> variables are initialized when <em>first called</em>
+(lazy-initialization).</p>
 <p>Examples:</p>
-<pre><code>mod mymod
+<pre><code>module mymod
 	class Person (name : String,
 		          age : u8)
 		func getName(this : This) =
@@ -1412,14 +1413,16 @@ equal (<em>expr0</em> - <em>expr1</em> is not equal to 0), otherwise True. <em>e
 </li>
 </ul>
 <h2><a class="header" href="#enum-option" id="enum-option">Enum Option</a></h2>
-<pre><code>enum{T} Option
+<pre><code>use module std
+
+enum{T} Option
   None
   Some(T)
 ;
 </code></pre>
 <h2><a class="header" href="#functions-2" id="functions-2">Functions</a></h2>
 <h3><a class="header" href="#floating-point" id="floating-point">Floating-point</a></h3>
-<pre><code>namespace std
+<pre><code>use module std
 
 /**@return Returns true, if float is a special IEEE-754 value.
  */
@@ -1440,8 +1443,6 @@ func@Safe,Unique isSpecialFloat64(float64) : bool;
 /** Terminates program.
  */
 func@Safe panic ;
-
-;
 </code></pre>
 <h2><a class="header" href="#tuples" id="tuples">Tuples</a></h2>
 <p>Every tuple supports two operations (<em>expr0</em> and <em>expr1</em> are tuples filled with
@@ -1464,98 +1465,97 @@ otherwise <strong>True</strong>.</p>
 </ul>
 <h2><a class="header" href="#traits-1" id="traits-1">Traits</a></h2>
 <p>Build-in traits:</p>
-<pre><code>mod std
-  // the following traits allow a program to use operators with user
-  // defined types
+<pre><code>use module std
+// the following traits allow a program to use operators with user
+// defined types
 
-  // binary operator '+'
-  trait{T,R} Addition
-    func add(rhs: T): R;
-  ;
-  // binary operator '-'
-  trait{T,R} Subtraction
-    func sub(rhs: T): R;
-  ;
-  // binary operator '*'
-  trait{T,R} Multiplication
-    func mul(rhs: T): R;
-  ;
-  // binary operator '/'
-  trait{T,R} Division
-    func div(rhs: T): R;
-  ;
-  // sum '+', '-', '*' and '/'
-  // compiler assumes the following is correct:
-  //   - a + b = b + a
-  //   - a * b = b * a
-  //   - a * (b+c) = (a*b) + (a*c)
-  //   - a * (b-c) = (a*b) - (a*c)
-  trait{T,R} StdField : Addition{T,R}, Subtraction{T,R},
-      Multiplication{T,R}, Division{T,R}
-  ;
+// binary operator '+'
+trait{T,R} Addition
+  func add(rhs: T): R;
+;
+// binary operator '-'
+trait{T,R} Subtraction
+  func sub(rhs: T): R;
+;
+// binary operator '*'
+trait{T,R} Multiplication
+  func mul(rhs: T): R;
+;
+// binary operator '/'
+trait{T,R} Division
+  func div(rhs: T): R;
+;
+// sum '+', '-', '*' and '/'
+// compiler assumes the following is correct:
+//   - a + b = b + a
+//   - a * b = b * a
+//   - a * (b+c) = (a*b) + (a*c)
+//   - a * (b-c) = (a*b) - (a*c)
+trait{T,R} StdField : Addition{T,R}, Subtraction{T,R},
+    Multiplication{T,R}, Division{T,R}
+;
 
-  // binary operator '~='
-  trait{R, T} ComparisonEquals
-    func equals(T): R;
-  ;
+// binary operator '~='
+trait{R, T} ComparisonEquals
+  func equals(T): R;
+;
 
-  // binary operator &lt;, &gt;
-  // operator a &gt; b is replaced by b &lt; a
-  trait{R, T} Comparison : ComparisonEquals{R, T}
-    func lesserThan(T): R;
-    func less
-  ;
+// binary operator &lt;, &gt;
+// operator a &gt; b is replaced by b &lt; a
+trait{R, T} Comparison : ComparisonEquals{R, T}
+  func lesserThan(T): R;
+  func less
+;
 
-  // operator [x]
-  trait{T, R} Map
-    func at(index: T): R;
-  ;
+// operator [x]
+trait{T, R} Map
+  func at(index: T): R;
+;
 
-  trait{T} Array : Map{uptr, T}
-    // Access element index (start couting from 0)
-	// panic if index &gt; length()
-    func at(index: uptr): T;
-	// How many elements can be accessed with func []
-	func length: uptr ;
-  ;
+trait{T} Array : Map{uptr, T}
+  // Access element index (start couting from 0)
+  // panic if index &gt; length()
+  func at(index: uptr): T;
+  // How many elements can be accessed with func []
+  func length: uptr ;
+;
 
-  trait{T: ComparisonEquals{bool, T}} Hash
-    func hash: T
-  ;
+trait{T: ComparisonEquals{bool, T}} Hash
+  func hash: T
 ;
 </code></pre>
 <h2><a class="header" href="#classes-1" id="classes-1">Classes</a></h2>
 <p>Classes implemented into the kernel:</p>
-<pre><code>mod std
-    class{Type} Box(Var: Type)
-        func * =
-            Var
-        ;
+<pre><code>use module std
+
+class{Type} Box(Var: Type)
+    func * =
+        Var
     ;
-    
-    class{Type} MutBox(var: Type)
-        func * =
-            var
-        ;
+;
+
+class{Type} MutBox(var: Type)
+    func * =
+        var
+    ;
+;
+
+class NativeString(_chars: Array{char}, _hash,: u8)
+;
+
+class trait NativeString : Hash{u8}
+    func hash(This) =
+        _hash
+    ;
+;
+
+class trait NativeString : Array{char}
+    func at(This, index: uptr): T =
+        _chars[index]
     ;
 
-    class NativeString(_chars: Array{char}, _hash,: u8)
-    ;
-
-    class trait NativeString : Hash{u8}
-        func hash(This) =
-            _hash
-        ;
-    ;
-
-    class trait NativeString : Array{char}
-        func at(This, index: uptr): T =
-            _chars[index]
-        ;
-
-        func length(This) =
-            _chars.length()
-        ;
+    func length(This) =
+        _chars.length()
     ;
 ;
 </code></pre>

@@ -3,7 +3,7 @@
 ### Floating-point
 
 ```
-namespace std
+use module std
 
 /**@return Returns true, if float is a special IEEE-754 value.
  */
@@ -24,6 +24,4 @@ func@Safe,Unique isSpecialFloat64(float64) : bool;
 /** Terminates program.
  */
 func@Safe panic ;
-
-;
 ```

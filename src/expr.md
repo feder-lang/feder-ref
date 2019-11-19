@@ -56,7 +56,7 @@ the chapter [Lexical Elements](./lexical.md).
 > *program* := *progname* *newline* *program-body*
 > | *progname* *EOF* \
 > | *program-body* *EOF* | *EOF* \
-> *progname* := **use** **mod** *id*
+> *progname* := **use** **module** *id*
 
 General program:
 
@@ -158,7 +158,7 @@ General program:
 
 [Modules](./expr_mods.md):
 
-> *module* := **mod** *moduledecl* *newline* *program-body*\
+> *module* := **module** *moduledecl* *newline* *program-body*\
 > *moduledecl* := *id*
 
 General Expression:
