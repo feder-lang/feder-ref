@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Integers - Feder: Reference Manual</title>
+        <title>Tuples - Feder: Reference Manual</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html" class="active"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_ops.html"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li><a href="expr_use.html"><strong aria-hidden="true">3.5.</strong> Use</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.6.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.7.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.8.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.9.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.10.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.11.</strong> Enumerations</a></li><li><a href="expr_arrays.html"><strong aria-hidden="true">3.12.</strong> Arrays</a></li><li><a href="expr_lambdas.html"><strong aria-hidden="true">3.13.</strong> Lambda functions</a></li><li><a href="expr_ensure.html"><strong aria-hidden="true">3.14.</strong> Ensure</a></li><li><a href="expr_caps.html"><strong aria-hidden="true">3.15.</strong> Capabilities</a></li><li><a href="expr_tuples.html"><strong aria-hidden="true">3.16.</strong> Tuples</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li><li><a href="kernel_traits.html"><strong aria-hidden="true">4.5.</strong> Traits</a></li><li><a href="kernel_class.html"><strong aria-hidden="true">4.6.</strong> Classes</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+                <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_ops.html"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li><a href="expr_use.html"><strong aria-hidden="true">3.5.</strong> Use</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.6.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.7.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.8.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.9.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.10.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.11.</strong> Enumerations</a></li><li><a href="expr_arrays.html"><strong aria-hidden="true">3.12.</strong> Arrays</a></li><li><a href="expr_lambdas.html"><strong aria-hidden="true">3.13.</strong> Lambda functions</a></li><li><a href="expr_ensure.html"><strong aria-hidden="true">3.14.</strong> Ensure</a></li><li><a href="expr_caps.html"><strong aria-hidden="true">3.15.</strong> Capabilities</a></li><li><a href="expr_tuples.html" class="active"><strong aria-hidden="true">3.16.</strong> Tuples</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li><li><a href="kernel_traits.html"><strong aria-hidden="true">4.5.</strong> Traits</a></li><li><a href="kernel_class.html"><strong aria-hidden="true">4.6.</strong> Classes</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,64 +145,27 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h3><a class="header" href="#integers" id="integers">Integers</a></h3>
-<p>Integers are digit sequences, which depending on the prefix, allow different
-characters. The digit sequences must be at least one digit long (prefix
-excluded).</p>
-<p>Decimal integers, which don't have a prefix, but cannot start with 0. They use
-the decimal digits. Example:</p>
-<pre><code>0
-100
-44
-// but not: 0
-</code></pre>
-<p>Hexidecimal integers (base 16) start with the prefix '0x'. They use decimal
-digits and the letters A - F, both lowercase and uppercase. Example:</p>
-<pre><code>0xFF
-0x10
-0xFA1
-// but not: 0x
-</code></pre>
-<p>Octal integers (base 8) start with the prefix '0o'. The use the digits 0 - 7.
-Example:</p>
-<pre><code>0o1
-0o71
-// but not: 0o
-</code></pre>
-<p>To further denote the data type of the integer, suffixes are used. If no suffix
-is used the data type is int32.</p>
-<ul>
-<li>u: Can be front of the suffixes s, S, l and L. Denotes that the data type
-is unsigned.</li>
-<li>s: Very short. Data type is i8 or u8 if preceeded by u.</li>
-<li>S: Short. Data type is i16 or u16 if preceeded by u.</li>
-<li>l: long. Data type is i32 or u32 if preceeded by u.</li>
-<li>L: Very long. Data type is i64 or u64 if preceeded by u.</li>
-</ul>
-<p>All other letters are invalid, resulting in an error. So</p>
-<pre><code>0z
-0h
-0j
-</code></pre>
-<p>are considered invalid. Also letters after the suffix are invalid. Therefore</p>
-<pre><code>0ula
-0la
-100sD
-</code></pre>
-<p>are all invalid.</p>
+                        <h2><a class="header" href="#tuples" id="tuples">Tuples</a></h2>
+<p>A tuple is a primary expression <strong>(</strong> <em>expr</em> <strong>)</strong>,
+where at least <em>expr</em> is a binary operator <strong>,</strong> comma expression.</p>
+<p>A tuple with <strong>&amp;</strong> <em>id</em> or <em>id</em> as elements must be the the left
+hand side of the <strong>:=</strong> assignment. Tuples with <em>vardecl</em> as elements
+must be the left hand side of the <strong>=</strong> assignment. Tuples with just
+types must be a function's result-type. Tuple with just values as elements
+must be a the function's return-value.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="lex_constants.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="expr_caps.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="lex_floats.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="kernel.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -214,13 +177,13 @@ is unsigned.</li>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="lex_constants.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="expr_caps.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="lex_floats.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="kernel.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
