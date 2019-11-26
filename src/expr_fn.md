@@ -31,7 +31,7 @@ func printHello0(out: OutputStream)
 ;
 
 // multiple instructions
-func printHello1(out: OutputStream, user: String)
+func printHello1(out: OutputStream, User: String)
   null out.print("hello, ")
   null out.print(user)
   null out.print("!")

@@ -23,8 +23,8 @@ Examples:
 
 ```
 class Person
-	_Name : String
-	_age : u8
+	&_Name : String
+	&_age : u8
 
 	func Person(This, Name : String, age : u8)
 		._Name = Name
@@ -41,7 +41,7 @@ class Person
 
 ```
 // A bit less code ...
-class Person(_name : String, _age : u8)
+class Person(&_name : String, &_age : u8)
 	func getName(This) =
 		._name;
 
