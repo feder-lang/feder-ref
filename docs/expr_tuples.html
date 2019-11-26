@@ -152,7 +152,22 @@ where at least <em>expr</em> is a binary operator <strong>,</strong> comma expre
 hand side of the <strong>:=</strong> assignment. Tuples with <em>vardecl</em> as elements
 must be the left hand side of the <strong>=</strong> assignment. Tuples with just
 types must be a function's result-type. Tuple with just values as elements
-must be a the function's return-value.</p>
+must be a the function's return-value, but can also be used in normal code.
+In the last case the are expanded, as if you would have written the contents
+with surrounding brackets. Thus</p>
+<pre><code>myfunc(hello, (1, 2, 3), 4)
+</code></pre>
+<p>is transformed to</p>
+<pre><code>myfunc(hello, 1, 2, 3, 4)
+</code></pre>
+<p>The rules are:</p>
+<ul>
+<li>First every tuple that is in a tuple is expanded, afterwards itself will
+be expanded</li>
+<li>As the comma operator is left associative, the most left element will be
+the first on to be removed from the tuple and added to the left side. While
+the operator on the left is automatically removed.</li>
+</ul>
 
                     </main>
 

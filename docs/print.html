@@ -415,10 +415,15 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | Comment starting with <em>//</em><br />
 <em>newline</em> := <em>EOL</em> | <em>EOL</em> <em>newline</em></p>
 </blockquote>
+<pre><code>object(int).
+object(float).
+object(str).
+typename(&quot;std.Const&lt;std.String&gt;&quot;, str).
+object(char).
+typename(&quot;std.u8&quot;, char).
+</code></pre>
 <blockquote>
-<p><em>strs</em> := <em>str</em> | <strong>(</strong> <em>strm</em> <strong>)</strong><br />
-<em>strm</em> := <em>str</em> | <em>str</em> <strong>,</strong> <em>strm</em><br />
-<em>idcall</em> := <em>id</em> | <em>id</em> <strong>.</strong> <em>idcall</em><br />
+<p><em>idcall</em> := <em>id</em> | <em>id</em> <strong>.</strong> <em>idcall</em><br />
 <em>idcalls</em> := <em>idcall</em> | <strong>(</strong> <em>idcall</em> <strong>,</strong> <em>idcallm</em> <strong>)</strong><br />
 <em>idcallm</em> := <em>idcall</em> | <em>idcall</em> <strong>,</strong> <em>idcallm</em></p>
 </blockquote>
@@ -446,11 +451,22 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <blockquote>
 <p><em>template</em> :=  <strong>{</strong> <em>templdecls</em> <strong>}</strong> <br />
 <em>templdecls</em> := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdecls</em> <br />
-<em>templdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> <br />
+<em>templdecl</em> := <em>templidcall</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> <br />
 <em>templidcalls</em> := <em>templidcall</em> | <em>templidcall</em> <strong>,</strong> <em>templidcalls</em> 
 | <em>templidcall</em> <strong>,</strong> <em>newline</em> <em>templidcalls</em> <br />
 <em>templidcall</em> := <em>idcall</em> | <em>idcall</em> <em>template</em></p>
 </blockquote>
+<pre><code>templatetype(X) :- trait(ctx, X).
+templatetype(X) :- typename(&quot;std.i8&quot;, X).
+templatetype(X) :- typename(&quot;std.i16&quot;, X).
+templatetype(X) :- typename(&quot;std.i32&quot;, X).
+templatetype(X) :- typename(&quot;std.i64&quot;, X).
+templatetype(X) :- typename(&quot;std.u8&quot;, X).
+templatetype(X) :- typename(&quot;std.u16&quot;, X).
+templatetype(X) :- typename(&quot;std.u32&quot;, X).
+templatetype(X) :- typename(&quot;std.u64&quot;, X).
+type(ctx, id) :- templatedecl(ctx, id, templidcall), templatetype(ctx, templidcall).
+</code></pre>
 <p><a href="./expr_fn.html">Functions</a>:</p>
 <blockquote>
 <p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>newline</em> <strong>;</strong>
@@ -490,6 +506,9 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <em>clfuncdecl</em> := <em>template</em> <em>clfuncdeclx</em> | <em>space</em> <em>clfuncdeclx</em><br />
 <em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>funcvars</em>  <strong>)</strong></p>
 </blockquote>
+<pre><code>object(X) :- function(X).
+function([ctx.]id) :- func(
+</code></pre>
 <p><a href="./expr_lambdas.html">Lambdas</a>:</p>
 <blockquote>
 <p><em>lambda</em> := <strong>lambda</strong> <strong>(</strong> <em>vardecl</em> <strong>)</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
@@ -1240,7 +1259,22 @@ where at least <em>expr</em> is a binary operator <strong>,</strong> comma expre
 hand side of the <strong>:=</strong> assignment. Tuples with <em>vardecl</em> as elements
 must be the left hand side of the <strong>=</strong> assignment. Tuples with just
 types must be a function's result-type. Tuple with just values as elements
-must be a the function's return-value.</p>
+must be a the function's return-value, but can also be used in normal code.
+In the last case the are expanded, as if you would have written the contents
+with surrounding brackets. Thus</p>
+<pre><code>myfunc(hello, (1, 2, 3), 4)
+</code></pre>
+<p>is transformed to</p>
+<pre><code>myfunc(hello, 1, 2, 3, 4)
+</code></pre>
+<p>The rules are:</p>
+<ul>
+<li>First every tuple that is in a tuple is expanded, afterwards itself will
+be expanded</li>
+<li>As the comma operator is left associative, the most left element will be
+the first on to be removed from the tuple and added to the left side. While
+the operator on the left is automatically removed.</li>
+</ul>
 <h1><a class="header" href="#kernel" id="kernel">Kernel</a></h1>
 <p>The Kernel provides basic functionality, like integers or the Option trait.</p>
 <ul>

@@ -47,8 +47,15 @@ the chapter [Lexical Elements](./lexical.md).
 > | Comment starting with *//*\
 > *newline* := *EOL* | *EOL* *newline*
 
-> *strs* := *str* | **(** *strm* **)**\
-> *strm* := *str* | *str* **,** *strm*\
+```
+object(int).
+object(float).
+object(str).
+typename("std.Const<std.String>", str).
+object(char).
+typename("std.u8", char).
+```
+
 > *idcall* := *id* | *id* **.** *idcall*\
 > *idcalls* := *idcall* | **(** *idcall* **,** *idcallm* **)**\
 > *idcallm* := *idcall* | *idcall* **,** *idcallm*
@@ -75,10 +82,23 @@ General program:
 
 > *template* :=  **{** *templdecls* **}** \
 > *templdecls* := *templdecl* | *templdecl* **,** *templdecls* \
-> *templdecl* := *id* | *id* **:** *templidcall* \
+> *templdecl* := *templidcall* | *id* **:** *templidcall* \
 > *templidcalls* := *templidcall* | *templidcall* **,** *templidcalls* 
 > | *templidcall* **,** *newline* *templidcalls* \
 > *templidcall* := *idcall* | *idcall* *template*
+
+```
+templatetype(X) :- trait(ctx, X).
+templatetype(X) :- typename("std.i8", X).
+templatetype(X) :- typename("std.i16", X).
+templatetype(X) :- typename("std.i32", X).
+templatetype(X) :- typename("std.i64", X).
+templatetype(X) :- typename("std.u8", X).
+templatetype(X) :- typename("std.u16", X).
+templatetype(X) :- typename("std.u32", X).
+templatetype(X) :- typename("std.u64", X).
+type(ctx, id) :- templatedecl(ctx, id, templidcall), templatetype(ctx, templidcall).
+```
 
 [Functions](./expr_fn.md):
 
@@ -117,6 +137,11 @@ General program:
 > | **func** *clfuncdecl* **;** *returntype* **;**\
 > *clfuncdecl* := *template* *clfuncdeclx* | *space* *clfuncdeclx*\
 > *clfuncdeclx* := *id* **(** *funcvars*  **)**
+
+```
+object(X) :- function(X).
+function([ctx.]id) :- func(
+```
 
 [Lambdas](./expr_lambdas.md):
 
