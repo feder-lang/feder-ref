@@ -492,12 +492,12 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p><a href="./expr_lambdas.html">Lambdas</a>:</p>
 <blockquote>
-<p><em>lambda</em> := <strong>lambda</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
+<p><em>lambda</em> := <strong>lambda</strong> <strong>(</strong> <em>vardecl</em> <strong>)</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>lamda</strong> <strong>(</strong> <em>vardelcs</em> <strong>)</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <strong>lambda</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>lamda</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <strong>lambda</strong> <strong>=</strong> <em>expr</em>
-| <strong>lambda</strong> <strong>(</strong> <em>vardecls</em>* <strong>)</strong> <strong>=</strong> <em>expr</em></p>
+| <strong>lambda</strong> <strong>(</strong> <em>vardecl</em> <strong>)</strong> <strong>=</strong> <em>expr</em></p>
 </blockquote>
 <p><a href="./expr_traits.html">Traits</a>:</p>
 <blockquote>
@@ -512,7 +512,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <strong>class</strong> <em>classdecl</em> <em>classcons</em> <em>newline</em> <em>classbody</em> <strong>;</strong><br />
 <em>classdecl</em> := <em>space</em> <em>id</em> | <em>template</em> <em>id</em><br />
 | <em>space</em> <em>id</em> <strong>:</strong> <em>templidcalls</em> | <em>template</em> <em>id</em> <strong>:</strong> <em>templidcalls</em><br />
-<em>classcons</em> := <strong>(</strong> <em>vardecls</em> <strong>)</strong> <br />
+<em>classcons</em> := <strong>(</strong> <em>vardecl</em> <strong>)</strong> <br />
 <em>classbody</em> := <em>classunit</em> | <em>classunit</em> <em>newline</em> <em>classbody</em><br />
 <em>classunit</em> := <em>vardecl</em> | <em>caps</em> <em>vardecl</em> | <em>clfunc</em> | <em>caps</em> <em>clfunc</em></p>
 </blockquote>
@@ -550,13 +550,12 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p>Variable declaration:</p>
 <blockquote>
-<p><em>vardecl</em> := <em>vardeclunit</em> | <strong>(</strong> <em>vardeclunits</em> <strong>)</strong><br />
+<p><em>vardecl</em> := <em>vardeclunit</em> | <em>vardeclunits</em> <br />
 <em>vardeclunits</em> := <em>vardeclunit</em> | <em>vardeclunit</em> <strong>,</strong> <em>vardeclunits</em><br />
-<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id</em> <strong>:</strong> <strong>&amp;</strong> <em>templidcall</em><br />
-| <em>id</em> <strong>:</strong> <em>functype</em> | <em>id</em> <strong>:</strong> <strong>&amp;</strong> <em>functype</em>
+<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em> |  <strong>&amp;</strong> <em>id</em> <strong>:</strong> <em>templidcall</em><br />
+| <em>id</em> <strong>:</strong> <em>functype</em> | <strong>&amp;</strong> <em>id</em> <strong>:</strong> <em>functype</em>
 <em>varids</em> := <em>varid</em> | <em>varid</em> <strong>,</strong> <em>varids</em><br />
-<em>varid</em> := <em>id</em><br />
-<em>vardecls</em> := <em>vardecl</em> | <em>vardecl</em> <strong>,</strong> <em>vardecls</em></p>
+<em>varid</em> := <em>id</em></p>
 </blockquote>
 <p>Variable definition:</p>
 <blockquote>
@@ -810,7 +809,7 @@ func printHello0(out: OutputStream)
 ;
 
 // multiple instructions
-func printHello1(out: OutputStream, user: String)
+func printHello1(out: OutputStream, User: String)
   null out.print(&quot;hello, &quot;)
   null out.print(user)
   null out.print(&quot;!&quot;)
@@ -937,7 +936,8 @@ reassigned. Conversion between pointer (im-)mutable types is done implicitly.</p
 </li>
 </ul>
 <p>Example:</p>
-<pre><code>&amp;x := 100
+<pre><code>&amp;x : i32 := 100
+&amp;x := 100
 x = 101 // works
 y := 100
 y = 101 // doesn't compile
@@ -990,8 +990,8 @@ Contructors are added to the parent environment of the class.</li>
 an uppercase character with optional leading '_'.</p>
 <p>Examples:</p>
 <pre><code>class Person
-	_Name : String
-	_age : u8
+	&amp;_Name : String
+	&amp;_age : u8
 
 	func Person(This, Name : String, age : u8)
 		._Name = Name
@@ -1006,7 +1006,7 @@ an uppercase character with optional leading '_'.</p>
 ;
 </code></pre>
 <pre><code>// A bit less code ...
-class Person(_name : String, _age : u8)
+class Person(&amp;_name : String, &amp;_age : u8)
 	func getName(This) =
 		._name;
 

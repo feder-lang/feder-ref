@@ -261,12 +261,12 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p><a href="./expr_lambdas.html">Lambdas</a>:</p>
 <blockquote>
-<p><em>lambda</em> := <strong>lambda</strong> <strong>(</strong> <em>vardecls</em> <strong>)</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
+<p><em>lambda</em> := <strong>lambda</strong> <strong>(</strong> <em>vardecl</em> <strong>)</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>lamda</strong> <strong>(</strong> <em>vardelcs</em> <strong>)</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <strong>lambda</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
 | <strong>lamda</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
 | <strong>lambda</strong> <strong>=</strong> <em>expr</em>
-| <strong>lambda</strong> <strong>(</strong> <em>vardecls</em>* <strong>)</strong> <strong>=</strong> <em>expr</em></p>
+| <strong>lambda</strong> <strong>(</strong> <em>vardecl</em> <strong>)</strong> <strong>=</strong> <em>expr</em></p>
 </blockquote>
 <p><a href="./expr_traits.html">Traits</a>:</p>
 <blockquote>
@@ -281,7 +281,7 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 | <strong>class</strong> <em>classdecl</em> <em>classcons</em> <em>newline</em> <em>classbody</em> <strong>;</strong><br />
 <em>classdecl</em> := <em>space</em> <em>id</em> | <em>template</em> <em>id</em><br />
 | <em>space</em> <em>id</em> <strong>:</strong> <em>templidcalls</em> | <em>template</em> <em>id</em> <strong>:</strong> <em>templidcalls</em><br />
-<em>classcons</em> := <strong>(</strong> <em>vardecls</em> <strong>)</strong> <br />
+<em>classcons</em> := <strong>(</strong> <em>vardecl</em> <strong>)</strong> <br />
 <em>classbody</em> := <em>classunit</em> | <em>classunit</em> <em>newline</em> <em>classbody</em><br />
 <em>classunit</em> := <em>vardecl</em> | <em>caps</em> <em>vardecl</em> | <em>clfunc</em> | <em>caps</em> <em>clfunc</em></p>
 </blockquote>
@@ -319,13 +319,12 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 </blockquote>
 <p>Variable declaration:</p>
 <blockquote>
-<p><em>vardecl</em> := <em>vardeclunit</em> | <strong>(</strong> <em>vardeclunits</em> <strong>)</strong><br />
+<p><em>vardecl</em> := <em>vardeclunit</em> | <em>vardeclunits</em> <br />
 <em>vardeclunits</em> := <em>vardeclunit</em> | <em>vardeclunit</em> <strong>,</strong> <em>vardeclunits</em><br />
-<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id</em> <strong>:</strong> <strong>&amp;</strong> <em>templidcall</em><br />
-| <em>id</em> <strong>:</strong> <em>functype</em> | <em>id</em> <strong>:</strong> <strong>&amp;</strong> <em>functype</em>
+<em>vardeclunit</em> := <em>id</em> <strong>:</strong> <em>templidcall</em> |  <strong>&amp;</strong> <em>id</em> <strong>:</strong> <em>templidcall</em><br />
+| <em>id</em> <strong>:</strong> <em>functype</em> | <strong>&amp;</strong> <em>id</em> <strong>:</strong> <em>functype</em>
 <em>varids</em> := <em>varid</em> | <em>varid</em> <strong>,</strong> <em>varids</em><br />
-<em>varid</em> := <em>id</em><br />
-<em>vardecls</em> := <em>vardecl</em> | <em>vardecl</em> <strong>,</strong> <em>vardecls</em></p>
+<em>varid</em> := <em>id</em></p>
 </blockquote>
 <p>Variable definition:</p>
 <blockquote>

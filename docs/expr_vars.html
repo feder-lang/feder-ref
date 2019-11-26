@@ -166,7 +166,8 @@ reassigned. Conversion between pointer (im-)mutable types is done implicitly.</p
 </li>
 </ul>
 <p>Example:</p>
-<pre><code>&amp;x := 100
+<pre><code>&amp;x : i32 := 100
+&amp;x := 100
 x = 101 // works
 y := 100
 y = 101 // doesn't compile

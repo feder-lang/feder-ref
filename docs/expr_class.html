@@ -166,8 +166,8 @@ Contructors are added to the parent environment of the class.</li>
 an uppercase character with optional leading '_'.</p>
 <p>Examples:</p>
 <pre><code>class Person
-	_Name : String
-	_age : u8
+	&amp;_Name : String
+	&amp;_age : u8
 
 	func Person(This, Name : String, age : u8)
 		._Name = Name
@@ -182,7 +182,7 @@ an uppercase character with optional leading '_'.</p>
 ;
 </code></pre>
 <pre><code>// A bit less code ...
-class Person(_name : String, _age : u8)
+class Person(&amp;_name : String, &amp;_age : u8)
 	func getName(This) =
 		._name;
 
