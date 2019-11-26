@@ -120,12 +120,12 @@ General program:
 
 [Lambdas](./expr_lambdas.md):
 
-> *lambda* := **lambda** **(** *vardecls* **)** *newline* *retfuncbody* **;**\
+> *lambda* := **lambda** **(** *vardecl* **)** *newline* *retfuncbody* **;**\
 > | **lamda** **(** *vardelcs* **)** *newline* *funcbody* **;**\
 > | **lambda** *newline* *retfuncbody* **;**\
 > | **lamda** *newline* *funcbody* **;**\
 > | **lambda** **=** *expr*
-> | **lambda** **(** *vardecls** **)** **=** *expr*
+> | **lambda** **(** *vardecl* **)** **=** *expr*
 
 [Traits](./expr_traits.md):
 
@@ -140,7 +140,7 @@ General program:
 > | **class** *classdecl* *classcons* *newline* *classbody* **;**\
 > *classdecl* := *space* *id* | *template* *id*\
 > | *space* *id* **:** *templidcalls* | *template* *id* **:** *templidcalls*\
-> *classcons* := **(** *vardecls* **)** \
+> *classcons* := **(** *vardecl* **)** \
 > *classbody* := *classunit* | *classunit* *newline* *classbody*\
 > *classunit* := *vardecl* | *caps* *vardecl* | *clfunc* | *caps* *clfunc*
 
@@ -177,13 +177,12 @@ General Expression:
 
 Variable declaration:
 
-> *vardecl* := *vardeclunit* | **(** *vardeclunits* **)**\
+> *vardecl* := *vardeclunit* | *vardeclunits* \
 > *vardeclunits* := *vardeclunit* | *vardeclunit* **,** *vardeclunits*\
-> *vardeclunit* := *id* **:** *templidcall* | *id* **:** **&** *templidcall*\
-> | *id* **:** *functype* | *id* **:** **&** *functype*
+> *vardeclunit* := *id* **:** *templidcall* |  **&** *id* **:** *templidcall*\
+> | *id* **:** *functype* | **&** *id* **:** *functype*
 > *varids* := *varid* | *varid* **,** *varids*\
 > *varid* := *id*\
-> *vardecls* := *vardecl* | *vardecl* **,** *vardecls*
 
 Variable definition:
 

@@ -18,6 +18,7 @@ Private and mutability:
 Example:
 
 ```
+&x : i32 := 100
 &x := 100
 x = 101 // works
 y := 100
