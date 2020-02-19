@@ -154,9 +154,10 @@ function([ctx.]id) :- func(
 
 [Traits](./expr_traits.md):
 
-> *trait* := **trait** *traitdecl* *newline* *traitbody* **;**\
-> | **trait** *traitdecl* *newline* **;**
-> *traitdecl* := *id* | *id* **:** *templidcalls*\
+> *trait* := **trait** *traitdecl* *newline* *traitbody* **;**
+> | **trait** *traitdecl* *newline* **;**\
+> *traitdecl* := *space* *id* | *template* *id*
+> | *space* *id* **:** *templidcalls* | *template* *id* **:** *templateidcalls*\
 > *traitbody* := *clfuncnb* | *clfuncnb* *newline* *traitbody*
 
 [Classes](./expr_classes.md):
@@ -288,7 +289,7 @@ Safe expression:
 
 [Operators](./expr_ops.md):
 
-> *biopexpr* := *expr0* *biop* *expr1*\
+> *biopexpr* := *expr0* *biop* *expr1* | *expr0* *expr1* \
 > *unopexpr* :=  *lunop* *expr*\
 > *biop* := **+** | **-** | \* | **/** | \*\* | **%** \
 > | **\&** | **|** | **^** | **<<** | **>>** \

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -34,11 +34,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -62,8 +62,11 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -79,8 +82,8 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li><a href="expr_ops.html"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li><a href="expr_use.html"><strong aria-hidden="true">3.5.</strong> Use</a></li><li><a href="expr_fn.html"><strong aria-hidden="true">3.6.</strong> Functions</a></li><li><a href="expr_traits.html"><strong aria-hidden="true">3.7.</strong> Traits</a></li><li><a href="expr_templs.html"><strong aria-hidden="true">3.8.</strong> Templates</a></li><li><a href="expr_vars.html"><strong aria-hidden="true">3.9.</strong> Variables</a></li><li><a href="expr_class.html"><strong aria-hidden="true">3.10.</strong> Classes</a></li><li><a href="expr_enums.html"><strong aria-hidden="true">3.11.</strong> Enumerations</a></li><li><a href="expr_arrays.html"><strong aria-hidden="true">3.12.</strong> Arrays</a></li><li><a href="expr_lambdas.html"><strong aria-hidden="true">3.13.</strong> Lambda functions</a></li><li><a href="expr_ensure.html"><strong aria-hidden="true">3.14.</strong> Ensure</a></li><li><a href="expr_caps.html"><strong aria-hidden="true">3.15.</strong> Capabilities</a></li><li><a href="expr_tuples.html"><strong aria-hidden="true">3.16.</strong> Tuples</a></li></ol></li><li><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li><li><a href="kernel_traits.html"><strong aria-hidden="true">4.5.</strong> Traits</a></li><li><a href="kernel_class.html"><strong aria-hidden="true">4.6.</strong> Classes</a></li></ol></li><li><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="expanded "><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li class="expanded "><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li class="expanded "><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li class="expanded "><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li class="expanded "><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li class="expanded "><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li class="expanded "><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li class="expanded "><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li class="expanded "><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li class="expanded "><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li class="expanded "><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li class="expanded "><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li class="expanded "><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li class="expanded "><a href="expr_ops.html"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li class="expanded "><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li class="expanded "><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li class="expanded "><a href="expr_use.html"><strong aria-hidden="true">3.5.</strong> Use</a></li><li class="expanded "><a href="expr_fn.html"><strong aria-hidden="true">3.6.</strong> Functions</a></li><li class="expanded "><a href="expr_traits.html"><strong aria-hidden="true">3.7.</strong> Traits</a></li><li class="expanded "><a href="expr_templs.html"><strong aria-hidden="true">3.8.</strong> Templates</a></li><li class="expanded "><a href="expr_vars.html"><strong aria-hidden="true">3.9.</strong> Variables</a></li><li class="expanded "><a href="expr_class.html"><strong aria-hidden="true">3.10.</strong> Classes</a></li><li class="expanded "><a href="expr_enums.html"><strong aria-hidden="true">3.11.</strong> Enumerations</a></li><li class="expanded "><a href="expr_arrays.html"><strong aria-hidden="true">3.12.</strong> Arrays</a></li><li class="expanded "><a href="expr_lambdas.html"><strong aria-hidden="true">3.13.</strong> Lambda functions</a></li><li class="expanded "><a href="expr_ensure.html"><strong aria-hidden="true">3.14.</strong> Ensure</a></li><li class="expanded "><a href="expr_caps.html"><strong aria-hidden="true">3.15.</strong> Capabilities</a></li><li class="expanded "><a href="expr_tuples.html"><strong aria-hidden="true">3.16.</strong> Tuples</a></li></ol></li><li class="expanded "><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li class="expanded "><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li class="expanded "><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li class="expanded "><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li class="expanded "><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li class="expanded "><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li class="expanded "><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li class="expanded "><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li><li class="expanded "><a href="kernel_traits.html"><strong aria-hidden="true">4.5.</strong> Traits</a></li><li class="expanded "><a href="kernel_class.html"><strong aria-hidden="true">4.6.</strong> Classes</a></li></ol></li><li class="expanded "><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -520,9 +523,10 @@ function([ctx.]id) :- func(
 </blockquote>
 <p><a href="./expr_traits.html">Traits</a>:</p>
 <blockquote>
-<p><em>trait</em> := <strong>trait</strong> <em>traitdecl</em> <em>newline</em> <em>traitbody</em> <strong>;</strong><br />
-| <strong>trait</strong> <em>traitdecl</em> <em>newline</em> <strong>;</strong>
-<em>traitdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcalls</em><br />
+<p><em>trait</em> := <strong>trait</strong> <em>traitdecl</em> <em>newline</em> <em>traitbody</em> <strong>;</strong>
+| <strong>trait</strong> <em>traitdecl</em> <em>newline</em> <strong>;</strong><br />
+<em>traitdecl</em> := <em>space</em> <em>id</em> | <em>template</em> <em>id</em>
+| <em>space</em> <em>id</em> <strong>:</strong> <em>templidcalls</em> | <em>template</em> <em>id</em> <strong>:</strong> <em>templateidcalls</em><br />
 <em>traitbody</em> := <em>clfuncnb</em> | <em>clfuncnb</em> <em>newline</em> <em>traitbody</em></p>
 </blockquote>
 <p><a href="./expr_classes.html">Classes</a>:</p>
@@ -655,7 +659,7 @@ function([ctx.]id) :- func(
 </blockquote>
 <p><a href="./expr_ops.html">Operators</a>:</p>
 <blockquote>
-<p><em>biopexpr</em> := <em>expr0</em> <em>biop</em> <em>expr1</em><br />
+<p><em>biopexpr</em> := <em>expr0</em> <em>biop</em> <em>expr1</em> | <em>expr0</em> <em>expr1</em> <br />
 <em>unopexpr</em> :=  <em>lunop</em> <em>expr</em><br />
 <em>biop</em> := <strong>+</strong> | <strong>-</strong> | * | <strong>/</strong> | ** | <strong>%</strong> <br />
 | <strong>&amp;</strong> | <strong>|</strong> | <strong>^</strong> | <strong>&lt;&lt;</strong> | <strong>&gt;&gt;</strong> <br />
@@ -715,6 +719,7 @@ All other semantics are can always be referenced if not shadowed.</p>
 <tr><td align="center">||</td><td align="center">5</td><td align="center">l</td><td align="left">Lazy-logical or</td></tr>
 <tr><td align="center">&amp;&amp;</td><td align="center">6</td><td align="center">l</td><td align="left">Lazy-logical and</td></tr>
 <tr><td align="center">&lt;&gt;</td><td align="center">7</td><td align="center">l</td><td align="left">Argument binding</td></tr>
+<tr><td align="center"><em>expr</em> <em>expr</em></td><td align="center">7</td><td align="center">l</td><td align="left">Argument binding</td></tr>
 <tr><td align="center">|</td><td align="center">8</td><td align="center">l</td><td align="left">Bitwise or</td></tr>
 <tr><td align="center">^</td><td align="center">9</td><td align="center">l</td><td align="left">Bitwise xor</td></tr>
 <tr><td align="center">&amp;</td><td align="center">10</td><td align="center">l</td><td align="left">Bitwise and</td></tr>
@@ -1657,6 +1662,14 @@ SOFTWARE.</p>
         </script>
         
 
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
         
 
         
