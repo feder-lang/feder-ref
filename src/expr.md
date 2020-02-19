@@ -228,8 +228,9 @@ Variable definition:
 
 [Capabilities](./expr_caps.md):
 
-> *caps* := **#** *capid* *newline* | **#** *capid* *newline* *caps*\
-> *capid* := **!** *capsensure* | **Unused** | **Inline** | **Constant** \
+> *caps* := **#** *capid* *newline* | **#** *capid* *newline* *caps*
+> | **#!** *capsensure* *newline* | **#!** *capsensure* *newline* *caps*\
+> *capid* :=  **Unused** | **Inline** | **Constant** \
 > *require* := **requires** *space* *ensurecond*
 > | **ensures** *space* *ensurecond*
 > | **ensures** *space* *ensurecond0* **=>** *ensurecond1*\

@@ -598,8 +598,9 @@ function([ctx.]id) :- func(
 </blockquote>
 <p><a href="./expr_caps.html">Capabilities</a>:</p>
 <blockquote>
-<p><em>caps</em> := <strong>#</strong> <em>capid</em> <em>newline</em> | <strong>#</strong> <em>capid</em> <em>newline</em> <em>caps</em><br />
-<em>capid</em> := <strong>!</strong> <em>capsensure</em> | <strong>Unused</strong> | <strong>Inline</strong> | <strong>Constant</strong> <br />
+<p><em>caps</em> := <strong>#</strong> <em>capid</em> <em>newline</em> | <strong>#</strong> <em>capid</em> <em>newline</em> <em>caps</em>
+| <strong>#!</strong> <em>capsensure</em> <em>newline</em> | <strong>#!</strong> <em>capsensure</em> <em>newline</em> <em>caps</em><br />
+<em>capid</em> :=  <strong>Unused</strong> | <strong>Inline</strong> | <strong>Constant</strong> <br />
 <em>require</em> := <strong>requires</strong> <em>space</em> <em>ensurecond</em>
 | <strong>ensures</strong> <em>space</em> <em>ensurecond</em>
 | <strong>ensures</strong> <em>space</em> <em>ensurecond0</em> <strong>=&gt;</strong> <em>ensurecond1</em><br />
@@ -1645,21 +1646,6 @@ SOFTWARE.</p>
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
