@@ -228,10 +228,10 @@ Variable definition:
 
 [Capabilities](./expr_caps.md):
 
-> *caps* := **#** *capid* *newline* | **#** *capid* *newline* *caps*
+> *caps* := **#** *capid* *newline* | **#** *capid* *newline* *caps*\
 > | **#!** *capsensure* *newline* | **#!** *capsensure* *newline* *caps*\
 > *capid* :=  **Unused** | **Inline** | **Constant** \
-> *require* := **requires** *space* *ensurecond*
+> *capsensure* := **requires** *space* *ensurecond*
 > | **ensures** *space* *ensurecond*
 > | **ensures** *space* *ensurecond0* **=>** *ensurecond1*\
 > *capsdef* := *caps* *func* | *caps* *class* | *caps* *enum* | *caps* *vardef*
@@ -256,7 +256,7 @@ If expressions:
 
 > *ensure* := *ensureunit* **;** | *ensureunit* **else** *ensure*
 > | *ensure* **else** *newline* *funcbody* **;**\
-> *ensureunit* := **ensure** *ensurecond* *newline* *funcbody*
+> *ensureunit* := **ensure** *ensurecond* *newline* *funcbody*\
 > *ensurecond* := *idcall* *ensurecondop* *expr*\
 > *ensurecondop* := **==** | **!=** | **~=** | **>** | **>=** | **<** | **<=** | **::**
 

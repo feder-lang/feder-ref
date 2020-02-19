@@ -367,10 +367,10 @@ function([ctx.]id) :- func(
 </blockquote>
 <p><a href="./expr_caps.html">Capabilities</a>:</p>
 <blockquote>
-<p><em>caps</em> := <strong>#</strong> <em>capid</em> <em>newline</em> | <strong>#</strong> <em>capid</em> <em>newline</em> <em>caps</em>
+<p><em>caps</em> := <strong>#</strong> <em>capid</em> <em>newline</em> | <strong>#</strong> <em>capid</em> <em>newline</em> <em>caps</em><br />
 | <strong>#!</strong> <em>capsensure</em> <em>newline</em> | <strong>#!</strong> <em>capsensure</em> <em>newline</em> <em>caps</em><br />
 <em>capid</em> :=  <strong>Unused</strong> | <strong>Inline</strong> | <strong>Constant</strong> <br />
-<em>require</em> := <strong>requires</strong> <em>space</em> <em>ensurecond</em>
+<em>capsensure</em> := <strong>requires</strong> <em>space</em> <em>ensurecond</em>
 | <strong>ensures</strong> <em>space</em> <em>ensurecond</em>
 | <strong>ensures</strong> <em>space</em> <em>ensurecond0</em> <strong>=&gt;</strong> <em>ensurecond1</em><br />
 <em>capsdef</em> := <em>caps</em> <em>func</em> | <em>caps</em> <em>class</em> | <em>caps</em> <em>enum</em> | <em>caps</em> <em>vardef</em></p>
@@ -395,7 +395,7 @@ function([ctx.]id) :- func(
 <blockquote>
 <p><em>ensure</em> := <em>ensureunit</em> <strong>;</strong> | <em>ensureunit</em> <strong>else</strong> <em>ensure</em>
 | <em>ensure</em> <strong>else</strong> <em>newline</em> <em>funcbody</em> <strong>;</strong><br />
-<em>ensureunit</em> := <strong>ensure</strong> <em>ensurecond</em> <em>newline</em> <em>funcbody</em>
+<em>ensureunit</em> := <strong>ensure</strong> <em>ensurecond</em> <em>newline</em> <em>funcbody</em><br />
 <em>ensurecond</em> := <em>idcall</em> <em>ensurecondop</em> <em>expr</em><br />
 <em>ensurecondop</em> := <strong>==</strong> | <strong>!=</strong> | <strong>~=</strong> | <strong>&gt;</strong> | <strong>&gt;=</strong> | <strong>&lt;</strong> | <strong>&lt;=</strong> | <strong>::</strong></p>
 </blockquote>
