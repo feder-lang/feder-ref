@@ -156,19 +156,19 @@
 
 // binary operator '+'
 trait{T,R} Addition
-  func add(rhs: T): R;
+  func Add(rhs: T): R;
 ;
 // binary operator '-'
 trait{T,R} Subtraction
-  func sub(rhs: T): R;
+  func Sub(rhs: T): R;
 ;
 // binary operator '*'
 trait{T,R} Multiplication
-  func mul(rhs: T): R;
+  func Mul(rhs: T): R;
 ;
 // binary operator '/'
 trait{T,R} Division
-  func div(rhs: T): R;
+  func Div(rhs: T): R;
 ;
 // sum '+', '-', '*' and '/'
 // compiler assumes the following is correct:
@@ -182,31 +182,41 @@ trait{T,R} StdField : Addition{T,R}, Subtraction{T,R},
 
 // binary operator '~='
 trait{R, T} ComparisonEquals
-  func equals(T): R;
+  func Equals(T): R;
 ;
 
 // binary operator &lt;, &gt;
 // operator a &gt; b is replaced by b &lt; a
 trait{R, T} Comparison : ComparisonEquals{R, T}
-  func lesserThan(T): R;
-  func less
+  func LesserThan(T): R;
 ;
 
 // operator [x]
 trait{T, R} Map
-  func at(index: T): R;
+  // Expression: *expr0* **[** *expr1* **]**
+  // *expr0* is this
+  // *expr1* is index
+  func At(index: T): R;
+
+  // Expression: *expr0* **[** *expr1* **]** = *expr2*
+  // *expr0* is this
+  // *expr1* is index
+  // *expr2* is val
+  // Returns val 
+  func set(index: T, val: R): R;
 ;
 
 trait{T} Array : Map{uptr, T}
   // Access element index (start couting from 0)
-  // panic if index &gt; length()
-  func at(index: uptr): T;
+  #!requires index &lt; Length()
+  func At(index: uptr): T;
+
   // How many elements can be accessed with func []
-  func length: uptr ;
+  func Length: uptr ;
 ;
 
 trait{T: ComparisonEquals{bool, T}} Hash
-  func hash: T
+  func Hash: T
 ;
 </code></pre>
 
