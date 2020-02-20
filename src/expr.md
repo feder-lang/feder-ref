@@ -275,7 +275,7 @@ Match expression:
 
 Loop expressions:
 
-> *loopctl* := **break** | **continue**\
+> *loopctl* := **break** | **continue** | **break** *int* | **continue** *int*\
 > *for* := **for** *newline* *funcbody* **;**\
 > | **for** *expr* *newline* *funcbody* **;**|
 > | **for** *expr* **;** *expr* *newline* *funcbody* **;**\
