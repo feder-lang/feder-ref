@@ -25,6 +25,9 @@ compile time informations about an object.
 
 **Ensures**:
 
+Ensurance is a way to express the state of an object during compile-time.
+This allows the programmer to detect invalid state at compile-time.
+
 - Ensures that after calling the function, certain properties are valid. The
   *id* **result** can be accessed to ensure that the result behaves in a
   certain way. This also can be conditional on the result, so if the 
@@ -35,11 +38,23 @@ compile time informations about an object.
   checked if it is *ensurecond1* in an implication.
 
 - The *idcall* in *ensurecond* or *ensurecond1* will be reset before ensurance
-  is made. Meaning if ``connected == false`` was ensured and
-  ``#!ensure connected == true`` is called, ``connected == false`` will no
+  is made. Meaning if ``connected == False`` was ensured and
+  ``#!ensure connected == True`` is called, ``connected == False`` will no
   longer be valid.
 
-- Ensurances are type checked
+- When the condition is a binary expression, the left side is the
+  a compile-time object and the right side it's state. The compile-time object
+  is bound to the runtime-object (object of class, trait, type).
+  If it is unary, the expression will be the compile-time object.
+
+- Deductions:
+	* x == True => x != False
+	* x == False => x != True
+	* x => x == True
+	* !x => x == False
+	* x < y => x != y
+	* x > y => x != y
+	* x < y, y < z => x < z (This makes x > 0 valid for x > 512)
 
 Example:
 
@@ -47,45 +62,45 @@ Example:
 class Client(_addr : Address)
     _nativeConn : &Option{NativeClientConnection}
 
-    #!requires connected == false
+    #!requires connected == False
     func _init
         _nativeConn = Option{NativeClientConnection}.None()
     ;
 
-    #!ensures result == false => _nativeConn == Option.None
-    #!ensures result == true => _nativeConn == Option.Some
+    #!ensures result == False => _nativeConn == Option.None
+    #!ensures result == True => _nativeConn == Option.Some
     func connected(This) : bool
         match _nativeConn
-            Some(_) => return true ;
-            _ => return false ;
+            Some(_) => return True ;
+            _ => return False ;
         ;
     ;
 
-    #!requires connected == false
-    #!ensures result == true => connected == true
-    #!ensures result == false => connected == false
+    #!requires connected == False
+    #!ensures result == True => connected == True
+    #!ensures result == False => connected == False
     func connect(This) : bool
         _nativeConn = createNativeClientConnection(_addr)
         match _nativeConn
-            Some(_) => return true ;
-            _ => return false ;
+            Some(_) => return True ;
+            _ => return False ;
         ;
     ;
 
-    #!requires connected == true
-    #!ensures connected == false
+    #!requires connected == True
+    #!ensures connected == False
     func disconnect
         conn := _nativeConn :: Option.Some
         conn.disconnect()
     ;
 
-    #!requires connected == true
+    #!requires connected == True
     func send(This, msg : Array{u8})
         conn = _nativeConn :: Option.Some
         conn.send(msg)
     ;
 
-    #!require connected == true
+    #!require connected == True
     func receive(This, msg : Array{u8})
         conn = _nativeConn :: Option.Some
         conn.send(msg)
@@ -101,7 +116,7 @@ func main
         // client.send, receive no longer callable
     else
         // client.send, receive cannot be called here
-        // as ensure connected == true is invalid
+        // as ensure connected == True is invalid
         std.io.out << "Connection failure" << std.io.endl
     ;
 ;

@@ -179,6 +179,8 @@ to the attributes of the class.</p>
 </li>
 </ul>
 <p><strong>Ensures</strong>:</p>
+<p>Ensurance is a way to express the state of an object during compile-time.
+This allows the programmer to detect invalid state at compile-time.</p>
 <ul>
 <li>
 <p>Ensures that after calling the function, certain properties are valid. The
@@ -193,57 +195,72 @@ checked if it is <em>ensurecond1</em> in an implication.</p>
 </li>
 <li>
 <p>The <em>idcall</em> in <em>ensurecond</em> or <em>ensurecond1</em> will be reset before ensurance
-is made. Meaning if <code>connected == false</code> was ensured and
-<code>#!ensure connected == true</code> is called, <code>connected == false</code> will no
+is made. Meaning if <code>connected == False</code> was ensured and
+<code>#!ensure connected == True</code> is called, <code>connected == False</code> will no
 longer be valid.</p>
 </li>
 <li>
-<p>Ensurances are type checked</p>
+<p>When the condition is a binary expression, the left side is the
+a compile-time object and the right side it's state. The compile-time object
+is bound to the runtime-object (object of class, trait, type).
+If it is unary, the expression will be the compile-time object.</p>
+</li>
+<li>
+<p>Deductions:</p>
+<ul>
+<li>x == True =&gt; x != False</li>
+<li>x == False =&gt; x != True</li>
+<li>x =&gt; x == True</li>
+<li>!x =&gt; x == False</li>
+<li>x &lt; y =&gt; x != y</li>
+<li>x &gt; y =&gt; x != y</li>
+<li>x &lt; y, y &lt; z =&gt; x &lt; z (This makes x &gt; 0 valid for x &gt; 512)</li>
+</ul>
 </li>
 </ul>
 <p>Example:</p>
 <pre><code>class Client(_addr : Address)
     _nativeConn : &amp;Option{NativeClientConnection}
 
-    #!requires connected == false
+    #!requires connected == False
     func _init
         _nativeConn = Option{NativeClientConnection}.None()
     ;
 
-    #!ensures result == false =&gt; _nativeConn == Option.None
-    #!ensures result == true =&gt; _nativeConn == Option.Some
+    #!ensures result == False =&gt; _nativeConn == Option.None
+    #!ensures result == True =&gt; _nativeConn == Option.Some
     func connected(This) : bool
         match _nativeConn
-            Some(_) =&gt; return true ;
-            _ =&gt; return false ;
+            Some(_) =&gt; return True ;
+            _ =&gt; return False ;
         ;
     ;
 
-    #!requires connected == false
-    #!ensures result == true =&gt; connected == true
-    #!ensures result == false =&gt; connected == false
+    #!requires connected == False
+    #!ensures result == True =&gt; connected == True
+    #!ensures result == False =&gt; connected == False
     func connect(This) : bool
         _nativeConn = createNativeClientConnection(_addr)
         match _nativeConn
-            Some(_) =&gt; return true ;
-            _ =&gt; return false ;
+            Some(_) =&gt; return True ;
+            _ =&gt; return False ;
         ;
     ;
 
-    #!requires connected == true
-    #!ensures connected == false
+    #!requires connected == True
+    #!ensures connected == False
     func disconnect
         conn := _nativeConn :: Option.Some
         conn.disconnect()
     ;
 
-    #!requires connected == true
+    #!requires connected == True
     func send(This, msg : Array{u8})
         conn = _nativeConn :: Option.Some
         conn.send(msg)
     ;
 
-    #!require connected == true
+    #!require connected == True
     func receive(This, msg : Array{u8})
         conn = _nativeConn :: Option.Some
         conn.send(msg)
@@ -259,7 +276,7 @@ func main
         // client.send, receive no longer callable
     else
         // client.send, receive cannot be called here
-        // as ensure connected == true is invalid
+        // as ensure connected == True is invalid
         std.io.out &lt;&lt; &quot;Connection failure&quot; &lt;&lt; std.io.endl
     ;
 ;
