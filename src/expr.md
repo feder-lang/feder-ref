@@ -268,7 +268,7 @@ Match expression:
 > *matchcase* := *matchcasecond* **=>** *funcbody* **;**
 > | *matchcasesecond* **=>** *retfuncbody* **;**\
 > *matchcasecond* := *matchcasecons* | *matchcasecons* *expr*\
-> *matchcasecons* := *idcall* | *idcall* **(** *matchids* **)**\
+> *matchcasecons* := *expr* | *expr* **(** *matchids* **)**\
 > *matchids* := *matchid* | *matchid* **,** *matchids*\
 > *matchid* := **\_** | *id*
 
