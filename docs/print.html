@@ -638,7 +638,8 @@ function([ctx.]id) :- func(
 <em>matchcase</em> := <em>matchcasecond</em> <strong>=&gt;</strong> <em>funcbody</em> <strong>;</strong>
 | <em>matchcasesecond</em> <strong>=&gt;</strong> <em>retfuncbody</em> <strong>;</strong><br />
 <em>matchcasecond</em> := <em>matchcasecons</em> | <em>matchcasecons</em> <em>expr</em><br />
-<em>matchcasecons</em> := <em>expr</em> | <em>expr</em> <strong>(</strong> <em>matchids</em> <strong>)</strong><br />
+<em>matchcasecons</em> := <em>matchcon</em> | <em>matchcon</em> <strong>(</strong> <em>matchids</em> <strong>)</strong><br />
+<em>matchcon</em> := <em>id</em> | <em>num</em> | <em>char</em> | <strong>True</strong> | <strong>False</strong>
 <em>matchids</em> := <em>matchid</em> | <em>matchid</em> <strong>,</strong> <em>matchids</em><br />
 <em>matchid</em> := <strong>_</strong> | <em>id</em></p>
 </blockquote>
