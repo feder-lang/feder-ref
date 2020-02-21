@@ -77,4 +77,9 @@ trait{T} Assignment
 trait{T: ComparisonEquals{bool, T}} Hash
   func Hash: T
 ;
+
+trait ScopeDestructor
+	// Is called one variable, if it's end of scope is reached
+	func leaveScope;
+;
 ```

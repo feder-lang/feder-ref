@@ -1605,6 +1605,11 @@ trait{T} Assignment
 trait{T: ComparisonEquals{bool, T}} Hash
   func Hash: T
 ;
+
+trait ScopeDestructor
+	// Is called one variable, if it's end of scope is reached
+	func leaveScope;
+;
 </code></pre>
 <h2><a class="header" href="#classes-1" id="classes-1">Classes</a></h2>
 <p>Classes implemented into the kernel:</p>
