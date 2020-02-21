@@ -215,6 +215,12 @@ trait{T} Array : Map{uptr, T}
   func Length: uptr ;
 ;
 
+trait{T} Assignment
+	// Expression: **\*** *expr0* = *expr1*
+	// Returns val.
+	func set(val: T): T;
+;
+
 trait{T: ComparisonEquals{bool, T}} Hash
   func Hash: T
 ;
