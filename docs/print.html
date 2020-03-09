@@ -459,17 +459,6 @@ typename(&quot;std.u8&quot;, char).
 | <em>templidcall</em> <strong>,</strong> <em>newline</em> <em>templidcalls</em> <br />
 <em>templidcall</em> := <em>idcall</em> | <em>idcall</em> <em>template</em></p>
 </blockquote>
-<pre><code>templatetype(X) :- trait(ctx, X).
-templatetype(X) :- typename(&quot;std.i8&quot;, X).
-templatetype(X) :- typename(&quot;std.i16&quot;, X).
-templatetype(X) :- typename(&quot;std.i32&quot;, X).
-templatetype(X) :- typename(&quot;std.i64&quot;, X).
-templatetype(X) :- typename(&quot;std.u8&quot;, X).
-templatetype(X) :- typename(&quot;std.u16&quot;, X).
-templatetype(X) :- typename(&quot;std.u32&quot;, X).
-templatetype(X) :- typename(&quot;std.u64&quot;, X).
-type(ctx, id) :- templatedecl(ctx, id, templidcall), templatetype(ctx, templidcall).
-</code></pre>
 <p><a href="./expr_fn.html">Functions</a>:</p>
 <blockquote>
 <p><em>func</em> := <strong>func</strong> <em>funcdecl</em> <em>newline</em> <strong>;</strong>
@@ -509,9 +498,6 @@ type(ctx, id) :- templatedecl(ctx, id, templidcall), templatetype(ctx, templidca
 <em>clfuncdecl</em> := <em>template</em> <em>clfuncdeclx</em> | <em>space</em> <em>clfuncdeclx</em><br />
 <em>clfuncdeclx</em> := <em>id</em> <strong>(</strong> <em>funcvars</em>  <strong>)</strong></p>
 </blockquote>
-<pre><code>object(X) :- function(X).
-function([ctx.]id) :- func(
-</code></pre>
 <p><a href="./expr_lambdas.html">Lambdas</a>:</p>
 <blockquote>
 <p><em>lambda</em> := <strong>lambda</strong> <strong>(</strong> <em>vardecl</em> <strong>)</strong> <em>newline</em> <em>retfuncbody</em> <strong>;</strong><br />
@@ -600,7 +586,7 @@ function([ctx.]id) :- func(
 <blockquote>
 <p><em>caps</em> := <strong>#</strong> <em>capid</em> <em>newline</em> | <strong>#</strong> <em>capid</em> <em>newline</em> <em>caps</em><br />
 | <strong>#!</strong> <em>capsensure</em> <em>newline</em> | <strong>#!</strong> <em>capsensure</em> <em>newline</em> <em>caps</em><br />
-<em>capid</em> :=  <strong>Unused</strong> | <strong>Inline</strong> | <strong>Constant</strong> <br />
+<em>capid</em> :=  <strong>Unused</strong> | <strong>Inline</strong> | <strong>Constant</strong> | <strong>Internal</strong> <br />
 <em>capsensure</em> := <strong>requires</strong> <em>space</em> <em>ensurecond</em>
 | <strong>ensures</strong> <em>space</em> <em>ensurecond</em>
 | <strong>ensures</strong> <em>space</em> <em>ensurecond0</em> <strong>=&gt;</strong> <em>ensurecond1</em><br />
@@ -1161,6 +1147,9 @@ to traits.</p>
 <p><strong>Constant</strong>: Function can be computed at compile time. Only primitive
 datatypes can be used.</p>
 </li>
+<li>
+<p><strong>Internal</strong>: Semantic is handled by the compiler</p>
+</li>
 </ul>
 <p><strong>Requires</strong>:</p>
 <ul>
@@ -1685,6 +1674,21 @@ SOFTWARE.</p>
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

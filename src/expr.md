@@ -87,19 +87,6 @@ General program:
 > | *templidcall* **,** *newline* *templidcalls* \
 > *templidcall* := *idcall* | *idcall* *template*
 
-```
-templatetype(X) :- trait(ctx, X).
-templatetype(X) :- typename("std.i8", X).
-templatetype(X) :- typename("std.i16", X).
-templatetype(X) :- typename("std.i32", X).
-templatetype(X) :- typename("std.i64", X).
-templatetype(X) :- typename("std.u8", X).
-templatetype(X) :- typename("std.u16", X).
-templatetype(X) :- typename("std.u32", X).
-templatetype(X) :- typename("std.u64", X).
-type(ctx, id) :- templatedecl(ctx, id, templidcall), templatetype(ctx, templidcall).
-```
-
 [Functions](./expr_fn.md):
 
 > *func* := **func** *funcdecl* *newline* **;**
@@ -138,10 +125,6 @@ type(ctx, id) :- templatedecl(ctx, id, templidcall), templatetype(ctx, templidca
 > *clfuncdecl* := *template* *clfuncdeclx* | *space* *clfuncdeclx*\
 > *clfuncdeclx* := *id* **(** *funcvars*  **)**
 
-```
-object(X) :- function(X).
-function([ctx.]id) :- func(
-```
 
 [Lambdas](./expr_lambdas.md):
 
@@ -230,7 +213,7 @@ Variable definition:
 
 > *caps* := **#** *capid* *newline* | **#** *capid* *newline* *caps*\
 > | **#!** *capsensure* *newline* | **#!** *capsensure* *newline* *caps*\
-> *capid* :=  **Unused** | **Inline** | **Constant** \
+> *capid* :=  **Unused** | **Inline** | **Constant** | **Internal** \
 > *capsensure* := **requires** *space* *ensurecond*
 > | **ensures** *space* *ensurecond*
 > | **ensures** *space* *ensurecond0* **=>** *ensurecond1*\

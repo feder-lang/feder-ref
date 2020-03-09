@@ -15,6 +15,8 @@ compile time informations about an object.
 - **Constant**: Function can be computed at compile time. Only primitive
   datatypes can be used.
 
+- **Internal**: Semantic is handled by the compiler
+
 **Requires**:
 
 - Ensure that certain properties are valid. *id* in *ensurecond* can also be

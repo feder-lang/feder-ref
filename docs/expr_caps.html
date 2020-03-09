@@ -166,6 +166,9 @@ to traits.</p>
 <p><strong>Constant</strong>: Function can be computed at compile time. Only primitive
 datatypes can be used.</p>
 </li>
+<li>
+<p><strong>Internal</strong>: Semantic is handled by the compiler</p>
+</li>
 </ul>
 <p><strong>Requires</strong>:</p>
 <ul>
@@ -319,6 +322,21 @@ func main
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
