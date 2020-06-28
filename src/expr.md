@@ -47,15 +47,6 @@ the chapter [Lexical Elements](./lexical.md).
 > | Comment starting with *//*\
 > *newline* := *EOL* | *EOL* *newline*
 
-```
-object(int).
-object(float).
-object(str).
-typename("std.Const<std.String>", str).
-object(char).
-typename("std.u8", char).
-```
-
 > *idcall* := *id* | *id* **.** *idcall*\
 > *idcalls* := *idcall* | **(** *idcall* **,** *idcallm* **)**\
 > *idcallm* := *idcall* | *idcall* **,** *idcallm*
@@ -82,7 +73,7 @@ General program:
 
 > *template* :=  **{** *templdecls* **}** \
 > *templdecls* := *templdecl* | *templdecl* **,** *templdecls* \
-> *templdecl* := *templidcall* | *id* **:** *templidcall* \
+> *templdecl* := *templidcall* | *id* **:** *templidcall* | *id0* **:** *templidcall* **:=** *id1*\
 > *templidcalls* := *templidcall* | *templidcall* **,** *templidcalls* 
 > | *templidcall* **,** *newline* *templidcalls* \
 > *templidcall* := *idcall* | *idcall* *template*

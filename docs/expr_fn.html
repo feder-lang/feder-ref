@@ -5,12 +5,19 @@
         <meta charset="UTF-8">
         <title>Functions - Feder: Reference Manual</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Reference manual for the Feder programming language.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
@@ -19,8 +26,9 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -36,7 +44,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -80,8 +88,8 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="expanded "><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li class="expanded "><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li class="expanded "><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li class="expanded "><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li class="expanded "><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li class="expanded "><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li class="expanded "><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li class="expanded "><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li class="expanded "><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li class="expanded "><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li class="expanded "><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li class="expanded "><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li class="expanded "><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li class="expanded "><a href="expr_ops.html"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li class="expanded "><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li class="expanded "><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li class="expanded "><a href="expr_use.html"><strong aria-hidden="true">3.5.</strong> Use</a></li><li class="expanded "><a href="expr_fn.html" class="active"><strong aria-hidden="true">3.6.</strong> Functions</a></li><li class="expanded "><a href="expr_traits.html"><strong aria-hidden="true">3.7.</strong> Traits</a></li><li class="expanded "><a href="expr_templs.html"><strong aria-hidden="true">3.8.</strong> Templates</a></li><li class="expanded "><a href="expr_vars.html"><strong aria-hidden="true">3.9.</strong> Variables</a></li><li class="expanded "><a href="expr_class.html"><strong aria-hidden="true">3.10.</strong> Classes</a></li><li class="expanded "><a href="expr_enums.html"><strong aria-hidden="true">3.11.</strong> Enumerations</a></li><li class="expanded "><a href="expr_arrays.html"><strong aria-hidden="true">3.12.</strong> Arrays</a></li><li class="expanded "><a href="expr_lambdas.html"><strong aria-hidden="true">3.13.</strong> Lambda functions</a></li><li class="expanded "><a href="expr_ensure.html"><strong aria-hidden="true">3.14.</strong> Ensure</a></li><li class="expanded "><a href="expr_caps.html"><strong aria-hidden="true">3.15.</strong> Capabilities</a></li><li class="expanded "><a href="expr_tuples.html"><strong aria-hidden="true">3.16.</strong> Tuples</a></li></ol></li><li class="expanded "><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li class="expanded "><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li class="expanded "><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li class="expanded "><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li class="expanded "><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li class="expanded "><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li class="expanded "><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li class="expanded "><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li><li class="expanded "><a href="kernel_traits.html"><strong aria-hidden="true">4.5.</strong> Traits</a></li><li class="expanded "><a href="kernel_class.html"><strong aria-hidden="true">4.6.</strong> Classes</a></li></ol></li><li class="expanded "><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="lexical.html"><strong aria-hidden="true">2.</strong> Lexical Elements</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lex_identifiers.html"><strong aria-hidden="true">2.1.</strong> Identifiers</a></li><li class="chapter-item expanded "><a href="lex_keywords.html"><strong aria-hidden="true">2.2.</strong> Keywords</a></li><li class="chapter-item expanded "><a href="lex_constants.html"><strong aria-hidden="true">2.3.</strong> Constants</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lex_integers.html"><strong aria-hidden="true">2.3.1.</strong> Integers</a></li><li class="chapter-item expanded "><a href="lex_floats.html"><strong aria-hidden="true">2.3.2.</strong> Floating-point numbers</a></li><li class="chapter-item expanded "><a href="lex_chars.html"><strong aria-hidden="true">2.3.3.</strong> Characters</a></li><li class="chapter-item expanded "><a href="lex_strings.html"><strong aria-hidden="true">2.3.4.</strong> Strings</a></li></ol></li><li class="chapter-item expanded "><a href="lex_operators.html"><strong aria-hidden="true">2.4.</strong> Operators</a></li><li class="chapter-item expanded "><a href="lex_separators.html"><strong aria-hidden="true">2.5.</strong> Separators</a></li><li class="chapter-item expanded "><a href="lex_space.html"><strong aria-hidden="true">2.6.</strong> Space</a></li></ol></li><li class="chapter-item expanded "><a href="expr.html"><strong aria-hidden="true">3.</strong> Expressions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="expr_env.html"><strong aria-hidden="true">3.1.</strong> Environment</a></li><li class="chapter-item expanded "><a href="expr_ops.html"><strong aria-hidden="true">3.2.</strong> Operators</a></li><li class="chapter-item expanded "><a href="expr_anon.html"><strong aria-hidden="true">3.3.</strong> Anonymous semantics</a></li><li class="chapter-item expanded "><a href="expr_mods.html"><strong aria-hidden="true">3.4.</strong> Modules</a></li><li class="chapter-item expanded "><a href="expr_use.html"><strong aria-hidden="true">3.5.</strong> Use</a></li><li class="chapter-item expanded "><a href="expr_fn.html" class="active"><strong aria-hidden="true">3.6.</strong> Functions</a></li><li class="chapter-item expanded "><a href="expr_traits.html"><strong aria-hidden="true">3.7.</strong> Traits</a></li><li class="chapter-item expanded "><a href="expr_templs.html"><strong aria-hidden="true">3.8.</strong> Templates</a></li><li class="chapter-item expanded "><a href="expr_vars.html"><strong aria-hidden="true">3.9.</strong> Variables</a></li><li class="chapter-item expanded "><a href="expr_class.html"><strong aria-hidden="true">3.10.</strong> Classes</a></li><li class="chapter-item expanded "><a href="expr_enums.html"><strong aria-hidden="true">3.11.</strong> Enumerations</a></li><li class="chapter-item expanded "><a href="expr_arrays.html"><strong aria-hidden="true">3.12.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="expr_lambdas.html"><strong aria-hidden="true">3.13.</strong> Lambda functions</a></li><li class="chapter-item expanded "><a href="expr_ensure.html"><strong aria-hidden="true">3.14.</strong> Ensure</a></li><li class="chapter-item expanded "><a href="expr_caps.html"><strong aria-hidden="true">3.15.</strong> Capabilities</a></li><li class="chapter-item expanded "><a href="expr_tuples.html"><strong aria-hidden="true">3.16.</strong> Tuples</a></li></ol></li><li class="chapter-item expanded "><a href="kernel.html"><strong aria-hidden="true">4.</strong> Kernel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kernel_types.html"><strong aria-hidden="true">4.1.</strong> Data Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kernel_bool.html"><strong aria-hidden="true">4.1.1.</strong> bool</a></li><li class="chapter-item expanded "><a href="kernel_integers.html"><strong aria-hidden="true">4.1.2.</strong> Integers</a></li><li class="chapter-item expanded "><a href="kernel_floats.html"><strong aria-hidden="true">4.1.3.</strong> Floating-point numbers</a></li></ol></li><li class="chapter-item expanded "><a href="kernel_option.html"><strong aria-hidden="true">4.2.</strong> Enum Option</a></li><li class="chapter-item expanded "><a href="kernel_functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li><li class="chapter-item expanded "><a href="kernel_tuples.html"><strong aria-hidden="true">4.4.</strong> Tuples</a></li><li class="chapter-item expanded "><a href="kernel_traits.html"><strong aria-hidden="true">4.5.</strong> Traits</a></li><li class="chapter-item expanded "><a href="kernel_class.html"><strong aria-hidden="true">4.6.</strong> Classes</a></li></ol></li><li class="chapter-item expanded "><a href="LICENSE.html"><strong aria-hidden="true">5.</strong> License</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -90,37 +98,36 @@
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">Feder: Reference Manual</h1>
+                    <h1 class="menu-title">Feder: Reference Manual</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -282,13 +289,13 @@ add(2.0f, 3) // invalid argument 2.0f (not type int32),
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="expr_use.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="expr_use.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="expr_traits.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="expr_traits.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -299,11 +306,11 @@ add(2.0f, 3) // invalid argument 2.0f (not type int32),
         
         <!-- Livereload script (if served using the cli tool) -->
         <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
             socket.onmessage = function (event) {
                 if (event.data === "reload") {
                     socket.close();
-                    location.reload(true); // force reload from server (not from cache)
+                    location.reload();
                 }
             };
 
@@ -316,10 +323,10 @@ add(2.0f, 3) // invalid argument 2.0f (not type int32),
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

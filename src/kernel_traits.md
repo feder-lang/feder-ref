@@ -59,7 +59,7 @@ trait{T, R} Map
   func set(index: T, val: R): R;
 ;
 
-trait{T} Array : Map{uptr, T}
+trait{T} Array : Map{std.uptr, T}
   // Access element index (start couting from 0)
   #!requires index < Length()
   func At(index: uptr): T;
