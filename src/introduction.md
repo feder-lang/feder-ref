@@ -1,13 +1,16 @@
 # Introduction
 
 Feder is an imperative programming language, which focuses on runtime speed,
-simple, yet powerful design and more reliable programs. As such, Feder uses
+simple, yet powerful design and more reliable programs. As such, Feder features
 
-- Garbage collection
-- No null pointers
-- Tuples & tuple-based enumerations
+- Garbage collection: Don't care about memory-management
+- No null pointers: Prevent typical errors from languages like C, C++, Java
+- Tuples & tuple-based enumerations: Functions can return several objects,
+  no need for a custom class or state-bound objects
 - Templates
 - Parts from functional programming
+- Parts from object-oriented languages
+- Ensurance (Contracts): Compile-time runtime-exceptions
 
 ## Target audience
 

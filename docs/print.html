@@ -159,13 +159,16 @@
                     <main>
                         <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
 <p>Feder is an imperative programming language, which focuses on runtime speed,
-simple, yet powerful design and more reliable programs. As such, Feder uses</p>
+simple, yet powerful design and more reliable programs. As such, Feder features</p>
 <ul>
-<li>Garbage collection</li>
-<li>No null pointers</li>
-<li>Tuples &amp; tuple-based enumerations</li>
+<li>Garbage collection: Don't care about memory-management</li>
+<li>No null pointers: Prevent typical errors from languages like C, C++, Java</li>
+<li>Tuples &amp; tuple-based enumerations: Functions can return several objects,
+no need for a custom class or state-bound objects</li>
 <li>Templates</li>
 <li>Parts from functional programming</li>
+<li>Parts from object-oriented languages</li>
+<li>Ensurance (Contracts): Compile-time runtime-exceptions</li>
 </ul>
 <h2><a class="header" href="#target-audience" id="target-audience">Target audience</a></h2>
 <p>Targeted are those, who seek in-depth knowledge about Feder. This is by no
@@ -1147,7 +1150,7 @@ rhs := std.io.in.readf64()
 
 ensure rhs != 0.0
     result := lhs / rhs
-    std.io.out &lt;&lt; &quot;Result: &quot; &lt;&lt; reuslt &lt;&lt; std.io.endl
+    std.io.out &lt;&lt; &quot;Result: &quot; &lt;&lt; result &lt;&lt; std.io.endl
 ;
 // rhs / lhs fails to compile
 </code></pre>

@@ -15,7 +15,7 @@ rhs := std.io.in.readf64()
 
 ensure rhs != 0.0
     result := lhs / rhs
-    std.io.out << "Result: " << reuslt << std.io.endl
+    std.io.out << "Result: " << result << std.io.endl
 ;
 // rhs / lhs fails to compile
 ```
