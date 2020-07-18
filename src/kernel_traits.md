@@ -7,6 +7,10 @@ use module std
 // the following traits allow a program to use operators with user
 // defined types
 
+// Trait, that every class implements
+trait Object
+;
+
 // binary operator '+'
 trait{T,R} Addition
   func Add(rhs: T): R;
@@ -49,8 +53,10 @@ trait{T, R} Map
   // Expression: *expr0* **[** *expr1* **]**
   // *expr0* is this
   // *expr1* is index
-  func At(index: T): R;
+  func at(index: T): R;
+;
 
+trait{T, R} MutMap : Map{T, R}
   // Expression: *expr0* **[** *expr1* **]** = *expr2*
   // *expr0* is this
   // *expr1* is index
@@ -62,10 +68,16 @@ trait{T, R} Map
 trait{T} Array : Map{std.uptr, T}
   // Access element index (start couting from 0)
   #!requires index < Length()
-  func At(index: uptr): T;
+  func at(This, index: uptr): T;
 
   // How many elements can be accessed with func []
-  func Length: uptr ;
+  func length: uptr ;
+;
+
+trait{T} MutArray : MutMap{std.uptr, T}
+  // Access element index (start couting from 0)
+  #!requires index < Length()
+  func set(this, index: uptr): T;
 ;
 
 trait{T} Assignment

@@ -6,8 +6,8 @@ Operator associativity:
 - **l**: Operator is left associative
 - **r**: Operator is right associative
 
-| Operator      | Precedence | Associativity | Description                         |
-| :---:         | :---:      | :---:         | :---                                |
+| Operator      | Precedence | Associativity | Description                    |
+| :---:         | :---:      | :---:         | :---                           |
 | ,             | 1     | l             | Comma, Tuple/argument separator     |
 | :=            | 2     | r             | Declaring assignment                |
 | &= ^=         | 3     | r             | On-object operation                 | 
@@ -22,7 +22,7 @@ Operator associativity:
 | \|\|          | 5     | l             | Lazy-logical or                     |
 | &&            | 6     | l             | Lazy-logical and                    |
 | <>            | 7     | l             | Argument binding                    |
-| *expr* *expr* | 7     | l             | Argument binding                    |
+| *expr* *expr* | 7     | l             | Function call                       |
 | \|            | 8     | l             | Bitwise or                          |
 | ^             | 9     | l             | Bitwise xor                         |
 | &             | 10    | l             | Bitwise and                         |

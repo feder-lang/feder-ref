@@ -456,8 +456,10 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><a href="./expr_templs.html">Templates</a>:</p>
 <blockquote>
 <p><em>template</em> :=  <strong>{</strong> <em>templdecls</em> <strong>}</strong> <br />
-<em>templdecls</em> := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdecls</em> <br />
-<em>templdecl</em> := <em>templidcall</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id0</em> <strong>:</strong> <em>templidcall</em> <strong>:=</strong> <em>id1</em><br />
+<em>templdecls</em> := <em>templdeclslimit</em> <strong>,</strong> <em>templlasttype</em> | <em>templatedeclslimit</em> | <em>templlasttype</em><br />
+<em>templdeclslimit</em> := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdeclslimit</em><br />
+<em>templdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id0</em> <strong>:</strong> templidcall* <strong>:=</strong> <em>templidcall</em><br />
+<em>templlasttype</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> <strong>...</strong> | <em>id0</em> <strong>:</strong> <em>templidcall</em> <strong>...</strong> <strong>:=</strong> <em>templidcall</em><br />
 <em>templidcalls</em> := <em>templidcall</em> | <em>templidcall</em> <strong>,</strong> <em>templidcalls</em> 
 | <em>templidcall</em> <strong>,</strong> <em>newline</em> <em>templidcalls</em> <br />
 <em>templidcall</em> := <em>idcall</em> | <em>idcall</em> <em>template</em></p>
@@ -710,7 +712,7 @@ All other semantics are can always be referenced if not shadowed.</p>
 <tr><td align="center">||</td><td align="center">5</td><td align="center">l</td><td align="left">Lazy-logical or</td></tr>
 <tr><td align="center">&amp;&amp;</td><td align="center">6</td><td align="center">l</td><td align="left">Lazy-logical and</td></tr>
 <tr><td align="center">&lt;&gt;</td><td align="center">7</td><td align="center">l</td><td align="left">Argument binding</td></tr>
-<tr><td align="center"><em>expr</em> <em>expr</em></td><td align="center">7</td><td align="center">l</td><td align="left">Argument binding</td></tr>
+<tr><td align="center"><em>expr</em> <em>expr</em></td><td align="center">7</td><td align="center">l</td><td align="left">Function call</td></tr>
 <tr><td align="center">|</td><td align="center">8</td><td align="center">l</td><td align="left">Bitwise or</td></tr>
 <tr><td align="center">^</td><td align="center">9</td><td align="center">l</td><td align="left">Bitwise xor</td></tr>
 <tr><td align="center">&amp;</td><td align="center">10</td><td align="center">l</td><td align="left">Bitwise and</td></tr>
@@ -932,14 +934,17 @@ have declared behaviour.</p>
 be access by previous template types.</p>
 <p>If <em>id1</em> is used, then <em>id0</em> can be omitted, when resolving the template. <em>id1</em>
 must be a valid template type used in previously in the same template
-declaration.</p>
+declaration or a class or trait.</p>
+<p>If a template type is followed by <strong>...</strong>, the template accepts after
+the initial template types an abitrary number of types (at least 0). Must be
+last argument in template declaration.</p>
 <pre><code>class{T: std.StdField} MyVectorClass0
-  T x;
-  T y;
+  x: T
+  y: T
 
-  func MyVectorClass0(x: T, y: T)
-	this.x = x;
-	this.y = y;
+  func MyVectorClass0(this, x: T, y: T)
+	this.x = x
+	this.y = y
   ;
 ;
 
@@ -950,6 +955,11 @@ func main
   var0 := MyTemplateClass0{std.u8}();
   var1 := MyTemplateClass0{std.u8, std.u16}();
   var2 := MyTemplate
+;
+</code></pre>
+<p>Example with <strong>...</strong>:</p>
+<pre><code>class{T...} Tuple
+  tplvalue: T
 ;
 </code></pre>
 <h2><a class="header" href="#variables-1" id="variables-1">Variables</a></h2>
@@ -1549,6 +1559,10 @@ otherwise <strong>True</strong>.</p>
 // the following traits allow a program to use operators with user
 // defined types
 
+// Trait, that every class implements
+trait Object
+;
+
 // binary operator '+'
 trait{T,R} Addition
   func Add(rhs: T): R;
@@ -1591,8 +1605,10 @@ trait{T, R} Map
   // Expression: *expr0* **[** *expr1* **]**
   // *expr0* is this
   // *expr1* is index
-  func At(index: T): R;
+  func at(index: T): R;
+;
 
+trait{T, R} MutMap : Map{T, R}
   // Expression: *expr0* **[** *expr1* **]** = *expr2*
   // *expr0* is this
   // *expr1* is index
@@ -1604,10 +1620,16 @@ trait{T, R} Map
 trait{T} Array : Map{std.uptr, T}
   // Access element index (start couting from 0)
   #!requires index &lt; Length()
-  func At(index: uptr): T;
+  func at(This, index: uptr): T;
 
   // How many elements can be accessed with func []
-  func Length: uptr ;
+  func length: uptr ;
+;
+
+trait{T} MutArray : MutMap{std.uptr, T}
+  // Access element index (start couting from 0)
+  #!requires index &lt; Length()
+  func set(this, index: uptr): T;
 ;
 
 trait{T} Assignment

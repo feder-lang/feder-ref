@@ -72,8 +72,10 @@ General program:
 [Templates](./expr_templs.md):
 
 > *template* :=  **{** *templdecls* **}** \
-> *templdecls* := *templdecl* | *templdecl* **,** *templdecls* \
-> *templdecl* := *templidcall* | *id* **:** *templidcall* | *id0* **:** *templidcall* **:=** *id1*\
+> *templdecls* := *templdeclslimit* **,** *templlasttype* | *templatedeclslimit* | *templlasttype*\
+> *templdeclslimit* := *templdecl* | *templdecl* **,** *templdeclslimit*\
+> *templdecl* := *id* | *id* **:** *templidcall* | *id0* **:** templidcall* **:=** *templidcall*\
+> *templlasttype* := *id* | *id* **:** *templidcall* **...** | *id0* **:** *templidcall* **...** **:=** *templidcall*\
 > *templidcalls* := *templidcall* | *templidcall* **,** *templidcalls* 
 > | *templidcall* **,** *newline* *templidcalls* \
 > *templidcall* := *idcall* | *idcall* *template*

@@ -222,8 +222,10 @@ the chapter <a href="./lexical.html">Lexical Elements</a>.</p>
 <p><a href="./expr_templs.html">Templates</a>:</p>
 <blockquote>
 <p><em>template</em> :=  <strong>{</strong> <em>templdecls</em> <strong>}</strong> <br />
-<em>templdecls</em> := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdecls</em> <br />
-<em>templdecl</em> := <em>templidcall</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id0</em> <strong>:</strong> <em>templidcall</em> <strong>:=</strong> <em>id1</em><br />
+<em>templdecls</em> := <em>templdeclslimit</em> <strong>,</strong> <em>templlasttype</em> | <em>templatedeclslimit</em> | <em>templlasttype</em><br />
+<em>templdeclslimit</em> := <em>templdecl</em> | <em>templdecl</em> <strong>,</strong> <em>templdeclslimit</em><br />
+<em>templdecl</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> | <em>id0</em> <strong>:</strong> templidcall* <strong>:=</strong> <em>templidcall</em><br />
+<em>templlasttype</em> := <em>id</em> | <em>id</em> <strong>:</strong> <em>templidcall</em> <strong>...</strong> | <em>id0</em> <strong>:</strong> <em>templidcall</em> <strong>...</strong> <strong>:=</strong> <em>templidcall</em><br />
 <em>templidcalls</em> := <em>templidcall</em> | <em>templidcall</em> <strong>,</strong> <em>templidcalls</em> 
 | <em>templidcall</em> <strong>,</strong> <em>newline</em> <em>templidcalls</em> <br />
 <em>templidcall</em> := <em>idcall</em> | <em>idcall</em> <em>template</em></p>
